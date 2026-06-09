@@ -1390,13 +1390,19 @@ async function fetchLiveNews(key, p) {
       return;
     }
     const html = items.map(n => {
-      const url = n.url ? `<a href="${n.url}" target="_blank" rel="noopener" class="news-link">기사 원문 →</a>` : '';
+      const hasUrl = n.url && n.url.length > 0;
+      const hlHtml = hasUrl
+        ? `<a href="${n.url}" target="_blank" rel="noopener"
+            style="color:var(--text);text-decoration:none;font-weight:500;line-height:1.55;display:block;"
+            onmouseover="this.style.color='var(--accent-vertical)';this.style.textDecoration='underline'"
+            onmouseout="this.style.color='var(--text)';this.style.textDecoration='none'"
+            >${n.hl || n.headline || ''} <span style="font-size:10px;color:var(--accent-vertical);font-weight:400;">↗</span></a>`
+        : `<div class="news-tl-hl">${n.hl || n.headline || ''}</div>`;
       return `<div class="news-tl-item">
         <div class="news-tl-date">${n.date}</div>
         <div class="news-tl-body">
-          <div class="news-tl-hl">${n.hl || n.headline || ''}</div>
+          ${hlHtml}
           <div class="news-tl-sum">${n.sum || n.summary || ''}</div>
-          ${url}
           <div class="ntags">${(n.tags||[]).map(t=>`<span class="ntag ${t}">${tagLbl[t]||t}</span>`).join('')}</div>
         </div>
       </div>`;
