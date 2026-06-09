@@ -4,9 +4,27 @@
       "date": "2026.06",
       "hl": "무신사, 챗GPT 전용 앱 출시…글로벌 AI 패션·뷰티 쇼핑 공략",
       "sum": "무신사가 오픈AI의 챗GPT 플랫폼에 전용 앱을 선보이며 글로벌 AI 커머스 시장 공략에 나선다.",
-      "tags": ["global", "biz"],
+      "tags": [
+        "global",
+        "biz"
+      ],
       "url": ""
     }
   ],
-  "_format": "기업 key: [{ date, hl, sum, tags[], url }] — GitHub Actions가 매일 자동 갱신"
+  "kurly": [],
+  "ohouse": [],
+  "oasis": [],
+  "goodai": [],
+  "vinow": [],
+  "grace": [],
+  "bnb": [],
+  "2020": [],
+  "lafati": [],
+  "liman": [],
+  "founders": [],
+  "olive": [],
+  "highlight": [],
+  "peacenow": [],
+  "hagohouse": [],
+  "_updated": "2026-06-09T22:23:35 KST"
 }
