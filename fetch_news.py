@@ -27,7 +27,7 @@ COMPANIES = {
     ),
     'oasis': (
         ['오아시스마켓', '오아시스 새벽배송'],
-        ['오아시스 음악', '갤러거', '록밴드']
+        ['갤러거', '록밴드']
     ),
     'goodai': (
         ['조선미녀', '스킨1004', '티르티르', '라운드랩', '구다이글로벌'],
@@ -39,18 +39,18 @@ COMPANIES = {
     ),
     'grace': (
         ['그레이스 뷰티', '그레이스 화장품'],
-        ['그레이스 클럽', '골프', '은혜', '성당', '교회', '기도', '찬양', '축복', '그레이스풀']
+        ['골프', '은혜', '성당', '교회', '기도', '찬양', '축복']
     ),
     'bnb': (
         ['비앤비코리아', '진백글로벌'],
         []
     ),
     '2020': (
-        ['이공이공', '이공이공 뷰티'],
+        ['이공이공'],
         ['이공계', '이공계열', '이공대', '공대', '수학', '과학', '물리', '화학', '공학']
     ),
     'lafati': (
-        ['레페리', '레페리 뷰티'],
+        ['레페리'],
         []
     ),
     'liman': (
@@ -67,7 +67,7 @@ COMPANIES = {
     ),
     'highlight': (
         ['하이라이트브랜즈', '말본골프', '코닥어패럴'],
-        ['하이라이트 콘서트', '하이라이트 아이돌', '하이라이트 가수']
+        ['콘서트', '아이돌', '가수']
     ),
     'peacenow': (
         ['마르디메크르디', '피스피스스튜디오'],
@@ -105,12 +105,12 @@ def auto_tag(title, desc):
     return tags or ['biz']
 
 def fetch_one(keyword, all_keywords, exclude):
-    """단일 키워드 검색 — 제목에 키워드 포함된 기사만 통과"""
+    """단일 키워드 검색"""
     headers = {
         'X-Naver-Client-Id': CLIENT_ID,
         'X-Naver-Client-Secret': CLIENT_SECRET
     }
-    params = {'query': keyword, 'display': 10, 'sort': 'date'}
+    params = {'query': keyword, 'display': 20, 'sort': 'date'}
     try:
         r = requests.get(API_URL, headers=headers, params=params, timeout=10)
         r.raise_for_status()
@@ -125,8 +125,8 @@ def fetch_one(keyword, all_keywords, exclude):
         desc  = clean(it.get('description', ''))
         full  = title + ' ' + desc
 
-        # ① 제목에 검색 키워드가 반드시 포함돼야 통과
-        if keyword not in title:
+        # ① 제목에 검색어 리스트 중 하나라도 반드시 포함돼야 통과
+        if not any(kw in title for kw in all_keywords):
             continue
 
         # ② 제외 키워드가 제목+본문에 있으면 제외
@@ -140,12 +140,11 @@ def fetch_one(keyword, all_keywords, exclude):
             'sum':  desc[:150],
             'tags': auto_tag(title, desc),
             'url':  url,
-            '_kw':  keyword,
         })
     return results
 
 def fetch_all(keywords, exclude, max_count):
-    """여러 키워드 검색 후 합산·중복제거·최신순 정렬"""
+    """여러 키워드 검색 후 합산·중복제거·최신순 정렬·최대 개수 제한"""
     all_items = []
     seen_titles = set()
 
@@ -159,10 +158,7 @@ def fetch_all(keywords, exclude, max_count):
     # 날짜 최신순 정렬
     all_items.sort(key=lambda x: x.get('date', ''), reverse=True)
 
-    # 임시 키 제거
-    for item in all_items:
-        item.pop('_kw', None)
-
+    # 최대 개수 제한
     return all_items[:max_count]
 
 def main():
