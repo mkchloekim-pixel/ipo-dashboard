@@ -104,7 +104,7 @@ def auto_tag(title, desc):
     tags = [tag for tag, kws in TAG_RULES.items() if any(k in text for k in kws)]
     return tags or ['biz']
 
-def fetch_one(keyword, exclude):
+def fetch_one(keyword, all_keywords, exclude):
     """단일 키워드 검색 — 제목에 키워드 포함된 기사만 통과"""
     headers = {
         'X-Naver-Client-Id': CLIENT_ID,
@@ -150,7 +150,7 @@ def fetch_all(keywords, exclude, max_count):
     seen_titles = set()
 
     for kw in keywords:
-        items = fetch_one(kw, exclude)
+        items = fetch_one(kw, keywords, exclude)
         for item in items:
             if item['hl'] not in seen_titles:
                 seen_titles.add(item['hl'])
