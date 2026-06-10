@@ -99,9 +99,26 @@ def to_ym(pub_date):
     except:
         return ''
 
+# risk 태그 긍정 문맥 예외 패턴
+RISK_EXCLUDE = [
+    '적자 탈피', '적자 해소', '적자 졸업', '적자에서 흑자',
+    '흑자 전환', '흑자전환', '적자폭 축소', '적자 탈출',
+    '첫 흑자', '흑자 달성', '적자 개선', '손실 축소',
+    '적자 축소', '턴어라운드', '흑자로'
+]
+
 def auto_tag(title, desc):
     text = title + ' ' + desc
-    tags = [tag for tag, kws in TAG_RULES.items() if any(k in text for k in kws)]
+    tags = []
+    for tag, kws in TAG_RULES.items():
+        if tag == 'risk':
+            has_risk = any(k in text for k in kws)
+            is_positive = any(ex in text for ex in RISK_EXCLUDE)
+            if has_risk and not is_positive:
+                tags.append('risk')
+        else:
+            if any(k in text for k in kws):
+                tags.append(tag)
     return tags or ['biz']
 
 def fetch_one(keyword, all_keywords, exclude):
