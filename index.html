@@ -789,7 +789,7 @@ const PROFILES = {
     name: '비나우', meta: '뷰티 브랜드사 · 설립 2016년 · 이원준 대표', sectorClass: 'sector-b',
     sectorLabel: '뷰티', ipoLabel: 'IPO 추진 (26년 하반기)', momLabel: '추진강도 Mid-high', accentColor: 'var(--accent-beauty)',
     kpis: [
-      {label:'매출 (25년)', value:'3,250억', delta:{cls:'up', text:'▲ YoY +22%'}, sub:'OP 671억 (이익률 20.6%)'},
+      {label:'매출 (25년)', value:'3,250억', delta:{cls:'up', text:'▲ YoY +22%'}, sub:'OP 671억'},
       {label:'기업가치 (추정)', value:'1.1조원', sub:'Pre-IPO 기준'},
       {label:'영업이익률', value:'20.6%', sub:'뷰티 업종 최고 수준'},
       {label:'주관사', value:'삼성증권', sub:'단독 주관'},
@@ -836,7 +836,9 @@ const PROFILES = {
     stageIdx: 1, stages: ['사업성 검증','투자유치','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: 'PE 투자 유치 완료. 주관사 미선정으로 IPO 준비 초기 단계.',
     brands: [
-      {name:'글로벌 뷰티 유통', desc:'H&B 브랜드 국내 유통·배급', sales:'매출 1,944억', growth:'+15%', bar:100, status:'anchor', statusLabel:'주력'},
+      {name:'Grace Japan', desc:'일본 현지 법인', sales:'매출 53억', growth:'+528%', status:'종속법인', statusLabel:'지속'},
+      {name:'The Owl Company GmbH', desc:'독일 현지 법인', sales:'매출 57억', growth:'+29%', status:'종속법인', statusLabel:'지속'},
+      {name:'티앤모프', desc:'해외 마케팅 대행사', sales:'매출 67억', status:'종속법인', statusLabel:'신규취득'},
     ],
     invests: [
       {name:'PE 투자사 (비공개)', type:'경영권 투자', amt:'투자유지'},
@@ -944,7 +946,8 @@ const PROFILES = {
     stageIdx: 3, stages: ['사업성 검증','Series B','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: '신한투자증권 주관사 선정. Pre-IPO 및 구체적 상장 일정 협의 중.',
     brands: [
-      {name:'멀티레이블 MCN', desc:'뷰티 크리에이터 매니지먼트', sales:'매출 472억', growth:'+30%', bar:100, status:'anchor', statusLabel:'주력'},
+      {name:'알렉스디자인', desc:'인테리어 디자인 스튜디오', sales:'매출 80억', growth:'+188%', status:'종속기업', statusLabel:'고성장'},
+      {name:'비티디오', desc:'영상 콘텐츠 제작', sales:'매출 17억', growth:'-9%', status:'종속기업', statusLabel:'역성장'},
     ],
     invests: [
       {name:'Series B 투자사 (비공개)', type:'재무적 투자자', amt:'투자유지'},
@@ -1061,7 +1064,7 @@ const PROFILES = {
     stageIdx: 1, stages: ['사업성 검증','자력 성장','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: '외부 투자 없이 자력 성장 중. Pre-IPO 검토설 지속. 2027년 상장 예상.',
     brands: [
-      {name:'아누아', desc:'K뷰티 스킨케어 · 2025 글로벌 5억달러+', sales:'매출 4,278억 (2024)', growth:'+299%', bar:100, status:'anchor', statusLabel:'앵커'},
+      {name:'Anua Inc', desc:'아누아 미국법인', sales:'매출 422억', status:'anchor', statusLabel:'고성장'},
     ],
     invests: [
       {name:'외부 투자 없음', type:'자체 수익 재투자', amt:'10년 자력 성장'},
@@ -1102,8 +1105,9 @@ const PROFILES = {
     stageIdx: 3, stages: ['사업성 검증','PE 투자','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: '신한투자증권 주관사 선정 완료. 2027년 상반기 코스피 상장 목표.',
     brands: [
-      {name:'코닥어패럴', desc:'레트로 라이프스타일 · MZ 타깃', sales:'매출 1,500억+', growth:'+20%', bar:100, status:'anchor', statusLabel:'앵커'},
-      {name:'말본골프', desc:'프리미엄 골프웨어', sales:'매출 1,300억+', growth:'+10%', bar:85, status:'growing', statusLabel:'성장중'},
+      {name:'코닥어패럴', desc:'레트로 라이프스타일 · MZ 타깃', sales:'매출 1,000억+', bar:40, status:'anchor', statusLabel:'앵커'},
+      {name:'말본골프', desc:'프리미엄 골프웨어', sales:'매출 900억+', bar:35, status:'growing', statusLabel:'성장중'},
+      {name:'디아도라·시에라디자인 등', desc:'기타 브랜드', bar:15, status:'growing', statusLabel:'성장중'},
     ],
     invests: [
       {name:'IMM PE', type:'경영권 투자', amt:'투자유지'},
@@ -1139,8 +1143,9 @@ const PROFILES = {
     stageIdx: 5, stages: ['사업성 검증','Series A','주관사 선정','Pre-IPO','예심 청구','공모·상장 ✓'],
     stageNote: '2026년 6월 8일 코스닥 상장 완료.',
     brands: [
-      {name:'마르디', desc:'감성 여성 캐주얼 · MZ 핵심 타깃', sales:'주력 브랜드', growth:'+40%', bar:100, status:'anchor', statusLabel:'앵커'},
-      {name:'메크르디', desc:'고급 여성 캐주얼', sales:'-', growth:'성장중', bar:50, status:'growing', statusLabel:'성장중'},
+      {name:'자사몰', desc:'국내 및 해외 포함', sales:'537억', growth:'+38%', bar:45, status:'growth', statusLabel:'성장중'},
+      {name:'직영매장', desc:'국내 중심 축소', sales:'170억', growth:'-27%', bar:25, status:'down', statusLabel:'역성장'},
+      {name:'외부채널', desc:'국내 중심 축소', sales:'323억', growth:'-8%', bar:30, status:'down', statusLabel:'역성장'},
     ],
     invests: [
       {name:'Series A 투자사', type:'재무적 투자자', amt:'투자유지 → 상장 후 엑시트'},
