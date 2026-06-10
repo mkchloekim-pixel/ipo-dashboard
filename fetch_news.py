@@ -1,5 +1,6 @@
 """
 네이버 뉴스 검색 API → news.json 자동 갱신
+여러 검색어로 각각 검색 후 합산, 제외 키워드 필터 적용
 """
 import os, json, re, requests
 from datetime import datetime, timezone, timedelta
@@ -8,26 +9,74 @@ from pathlib import Path
 CLIENT_ID     = os.environ['NAVER_CLIENT_ID']
 CLIENT_SECRET = os.environ['NAVER_CLIENT_SECRET']
 API_URL       = 'https://openapi.naver.com/v1/search/news.json'
-MAX_PER_CO    = 4
+MAX_PER_CO    = 5  # 기업당 최대 뉴스 수
 
-# (검색어, 제외 키워드 목록)
+# (검색어 리스트, 제외 키워드 리스트)
 COMPANIES = {
-    'musinsoa': ('무신사',           []),
-    'kurly':    ('마켓컬리',         []),
-    'ohouse':   ('오늘의집',         []),
-    'oasis':    ('오아시스마켓',     []),
-    'goodai':   ('조선미녀',         []),
-    'vinow':    ('넘버즈인',         []),
-    'grace':    ('그레이스 뷰티',     ['그레이스 클럽', '클럽', '골프', '그레이스풀', '은혜', '성당', '교회', '기도', '찬양', '축복']),
-    'bnb':      ('비앤비코리아',     []),
-    '2020':     ('이공이공',          ['이공계', '이공계열', '이공대', '공대', '수학', '과학', '물리', '화학', '공학']),
-    'lafati':   ('레페리',           []),
-    'liman':    ('리만코리아',       []),
-    'founders': ('아누아',           []),
-    'olive':    ('올리브인터내셔널', []),
-    'highlight':('하이라이트브랜즈', []),
-    'peacenow': ('마르디메크르디',   []),
-    'hagohouse':('하고하우스 패션',  ['하트시그널', '드라마', '출연', '배우', '연예', '예능', '방송']),
+    'musinsoa': (
+        ['무신사', '무신사스탠다드', '29CM'],
+        []
+    ),
+    'kurly': (
+        ['마켓컬리', '뷰티컬리', '컬리USA'],
+        []
+    ),
+    'ohouse': (
+        ['오늘의집', '버킷플레이스'],
+        []
+    ),
+    'oasis': (
+        ['오아시스마켓', '오아시스 새벽배송'],
+        ['오아시스 음악', '갤러거', '록밴드']
+    ),
+    'goodai': (
+        ['조선미녀', '스킨1004', '티르티르', '라운드랩', '구다이글로벌'],
+        []
+    ),
+    'vinow': (
+        ['넘버즈인', '비나우', '프위'],
+        []
+    ),
+    'grace': (
+        ['그레이스 뷰티', '그레이스 화장품'],
+        ['그레이스 클럽', '골프', '은혜', '성당', '교회', '기도', '찬양', '축복', '그레이스풀']
+    ),
+    'bnb': (
+        ['비앤비코리아', '진백글로벌'],
+        []
+    ),
+    '2020': (
+        ['이공이공', '이공이공 뷰티'],
+        ['이공계', '이공계열', '이공대', '공대', '수학', '과학', '물리', '화학', '공학']
+    ),
+    'lafati': (
+        ['레페리', '레페리 뷰티'],
+        []
+    ),
+    'liman': (
+        ['리만코리아', '인셀덤', '보타팜'],
+        []
+    ),
+    'founders': (
+        ['아누아', '더파운더즈'],
+        []
+    ),
+    'olive': (
+        ['올리브인터내셔널', '성분에디터', '밀크터치'],
+        ['올리브영', '올리브나무', '올리브오일']
+    ),
+    'highlight': (
+        ['하이라이트브랜즈', '말본골프', '코닥어패럴'],
+        ['하이라이트 콘서트', '하이라이트 아이돌', '하이라이트 가수']
+    ),
+    'peacenow': (
+        ['마르디메크르디', '피스피스스튜디오'],
+        []
+    ),
+    'hagohouse': (
+        ['하고하우스', '마뗑킴', '드파운드'],
+        ['하트시그널', '드라마', '출연', '배우', '연예', '예능', '방송']
+    ),
 }
 
 TAG_RULES = {
@@ -40,8 +89,8 @@ TAG_RULES = {
 
 def clean(text):
     return re.sub(r'<[^>]+>', '', text)\
-             .replace('&quot;','"').replace('&#39;',"'").replace('&amp;','&')\
-             .replace('&lt;','<').replace('&gt;','>').strip()
+             .replace('&quot;','"').replace('&#39;',"'")\
+             .replace('&amp;','&').replace('&lt;','<').replace('&gt;','>').strip()
 
 def to_ym(pub_date):
     try:
@@ -55,32 +104,28 @@ def auto_tag(title, desc):
     tags = [tag for tag, kws in TAG_RULES.items() if any(k in text for k in kws)]
     return tags or ['biz']
 
-def fetch(keyword, exclude):
+def fetch_one(keyword, exclude):
+    """단일 키워드 검색"""
     headers = {
         'X-Naver-Client-Id': CLIENT_ID,
         'X-Naver-Client-Secret': CLIENT_SECRET
     }
-    params = {'query': keyword, 'display': 20, 'sort': 'date'}
+    params = {'query': keyword, 'display': 10, 'sort': 'date'}
     try:
         r = requests.get(API_URL, headers=headers, params=params, timeout=10)
         r.raise_for_status()
-        items = r.json().get('items', [])
-        print(f"    API 응답 {len(items)}건")
+        raw = r.json().get('items', [])
     except Exception as e:
-        print(f"    ⚠ API 오류: {e}")
+        print(f"      ⚠ [{keyword}] API 오류: {e}")
         return []
 
     results = []
-    for it in items:
+    for it in raw:
         title = clean(it.get('title', ''))
         desc  = clean(it.get('description', ''))
         full  = title + ' ' + desc
-
-        # 제외 키워드 필터
         if any(ex in full for ex in exclude):
-            print(f"    제외: {title[:30]}...")
             continue
-
         url = it.get('originallink') or it.get('link', '')
         results.append({
             'date': to_ym(it.get('pubDate', '')),
@@ -88,10 +133,30 @@ def fetch(keyword, exclude):
             'sum':  desc[:150],
             'tags': auto_tag(title, desc),
             'url':  url,
+            '_kw':  keyword,  # 중복 제거용 임시 키
         })
-        if len(results) >= MAX_PER_CO:
-            break
     return results
+
+def fetch_all(keywords, exclude, max_count):
+    """여러 키워드 검색 후 합산·중복제거·최신순 정렬"""
+    all_items = []
+    seen_titles = set()
+
+    for kw in keywords:
+        items = fetch_one(kw, exclude)
+        for item in items:
+            if item['hl'] not in seen_titles:
+                seen_titles.add(item['hl'])
+                all_items.append(item)
+
+    # 날짜 최신순 정렬
+    all_items.sort(key=lambda x: x.get('date', ''), reverse=True)
+
+    # 임시 키 제거
+    for item in all_items:
+        item.pop('_kw', None)
+
+    return all_items[:max_count]
 
 def main():
     existing = {}
@@ -104,9 +169,9 @@ def main():
 
     result = {}
     total = 0
-    for key, (keyword, exclude) in COMPANIES.items():
-        print(f"  [{key}] 검색: {keyword}")
-        items = fetch(keyword, exclude)
+    for key, (keywords, exclude) in COMPANIES.items():
+        print(f"  [{key}] 검색어: {', '.join(keywords)}")
+        items = fetch_all(keywords, exclude, MAX_PER_CO)
         if items:
             result[key] = items
             total += len(items)
