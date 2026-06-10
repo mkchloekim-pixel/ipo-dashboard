@@ -105,7 +105,7 @@ def auto_tag(title, desc):
     return tags or ['biz']
 
 def fetch_one(keyword, exclude):
-    """단일 키워드 검색"""
+    """단일 키워드 검색 — 제목에 키워드 포함된 기사만 통과"""
     headers = {
         'X-Naver-Client-Id': CLIENT_ID,
         'X-Naver-Client-Secret': CLIENT_SECRET
@@ -124,8 +124,15 @@ def fetch_one(keyword, exclude):
         title = clean(it.get('title', ''))
         desc  = clean(it.get('description', ''))
         full  = title + ' ' + desc
+
+        # ① 제목에 검색 키워드가 반드시 포함돼야 통과
+        if keyword not in title:
+            continue
+
+        # ② 제외 키워드가 제목+본문에 있으면 제외
         if any(ex in full for ex in exclude):
             continue
+
         url = it.get('originallink') or it.get('link', '')
         results.append({
             'date': to_ym(it.get('pubDate', '')),
@@ -133,7 +140,7 @@ def fetch_one(keyword, exclude):
             'sum':  desc[:150],
             'tags': auto_tag(title, desc),
             'url':  url,
-            '_kw':  keyword,  # 중복 제거용 임시 키
+            '_kw':  keyword,
         })
     return results
 
