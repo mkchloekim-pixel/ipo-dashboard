@@ -10,24 +10,24 @@ CLIENT_SECRET = os.environ['NAVER_CLIENT_SECRET']
 API_URL       = 'https://openapi.naver.com/v1/search/news.json'
 MAX_PER_CO    = 4
 
-# 검색어만 사용, 필터 키워드 최소화
+# (검색어, 제외 키워드 목록)
 COMPANIES = {
-    'musinsoa': '무신사',
-    'kurly':    '마켓컬리',
-    'ohouse':   '오늘의집',
-    'oasis':    '오아시스마켓',
-    'goodai':   '조선미녀',
-    'vinow':    '넘버즈인',
-    'grace':    '그레이스 화장품',
-    'bnb':      '비앤비코리아',
-    '2020':     '이공이공 뷰티',
-    'lafati':   '레페리',
-    'liman':    '리만코리아',
-    'founders': '아누아',
-    'olive':    '올리브인터내셔널',
-    'highlight':'하이라이트브랜즈',
-    'peacenow': '마르디메크르디',
-    'hagohouse':'하고하우스',
+    'musinsoa': ('무신사',           []),
+    'kurly':    ('마켓컬리',         []),
+    'ohouse':   ('오늘의집',         []),
+    'oasis':    ('오아시스마켓',     []),
+    'goodai':   ('조선미녀',         []),
+    'vinow':    ('넘버즈인',         []),
+    'grace':    ('그레이스 뷰티',     ['그레이스 클럽', '클럽', '골프', '그레이스풀', '은혜', '성당', '교회', '기도', '찬양', '축복']),
+    'bnb':      ('비앤비코리아',     []),
+    '2020':     ('이공이공',          ['이공계', '이공계열', '이공대', '공대', '수학', '과학', '물리', '화학', '공학']),
+    'lafati':   ('레페리',           []),
+    'liman':    ('리만코리아',       []),
+    'founders': ('아누아',           []),
+    'olive':    ('올리브인터내셔널', []),
+    'highlight':('하이라이트브랜즈', []),
+    'peacenow': ('마르디메크르디',   []),
+    'hagohouse':('하고하우스 패션',  ['하트시그널', '드라마', '출연', '배우', '연예', '예능', '방송']),
 }
 
 TAG_RULES = {
@@ -55,12 +55,12 @@ def auto_tag(title, desc):
     tags = [tag for tag, kws in TAG_RULES.items() if any(k in text for k in kws)]
     return tags or ['biz']
 
-def fetch(keyword):
+def fetch(keyword, exclude):
     headers = {
         'X-Naver-Client-Id': CLIENT_ID,
         'X-Naver-Client-Secret': CLIENT_SECRET
     }
-    params = {'query': keyword, 'display': MAX_PER_CO, 'sort': 'date'}
+    params = {'query': keyword, 'display': 20, 'sort': 'date'}
     try:
         r = requests.get(API_URL, headers=headers, params=params, timeout=10)
         r.raise_for_status()
@@ -74,7 +74,14 @@ def fetch(keyword):
     for it in items:
         title = clean(it.get('title', ''))
         desc  = clean(it.get('description', ''))
-        url   = it.get('originallink') or it.get('link', '')
+        full  = title + ' ' + desc
+
+        # 제외 키워드 필터
+        if any(ex in full for ex in exclude):
+            print(f"    제외: {title[:30]}...")
+            continue
+
+        url = it.get('originallink') or it.get('link', '')
         results.append({
             'date': to_ym(it.get('pubDate', '')),
             'hl':   title,
@@ -82,6 +89,8 @@ def fetch(keyword):
             'tags': auto_tag(title, desc),
             'url':  url,
         })
+        if len(results) >= MAX_PER_CO:
+            break
     return results
 
 def main():
@@ -95,9 +104,9 @@ def main():
 
     result = {}
     total = 0
-    for key, keyword in COMPANIES.items():
+    for key, (keyword, exclude) in COMPANIES.items():
         print(f"  [{key}] 검색: {keyword}")
-        items = fetch(keyword)
+        items = fetch(keyword, exclude)
         if items:
             result[key] = items
             total += len(items)
