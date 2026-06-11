@@ -593,8 +593,8 @@ const SITE_URLS = {
   'peacenow': 'https://www.mardimercredi.com',
   'hagohouse':'https://www.matinkim.com',
   'olive':    'https://www.oliveinternational.co.kr/',
-  'grainon':  'https://www.grainon.co.kr',
-  'boosterz': 'https://www.boosterz.co.kr',
+  'grainon':  'https://grainonshop.com/',
+  'boosterz': 'https://www.boosterz.co.kr/',
 };
 
 // 기업 key → 네이버 검색 키워드 매핑
@@ -624,6 +624,8 @@ const DART_URLS = {
   'highlight': 'https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=하이라이트브랜즈',
   'peacenow': 'https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=피스피스스튜디오',
   'hagohouse': 'https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=하고하우스',
+  'grainon':  'https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=그레인온',
+  'boosterz': 'https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=부스터즈',
 };
 
 const PROFILES = {
@@ -802,10 +804,10 @@ const PROFILES = {
     stageIdx: 4, stages: ['사업성 검증','투자유치','Pre-IPO','주관사 선정','예심 청구','공모·상장'],
     stageNote: 'Pre-IPO 8,000억 완료, 주관사 4개사 선정. 예심 청구 준비 중. 3년 內 상장 목표.',
     brands: [
-      {name:'스킨1004', desc:'매출 비중 1위 · 클린 뷰티 · 유럽·미주 강세', sales:'약 5,130억', growth:'+34.2%', bar:100, status:'anchor', statusLabel:'1위 브랜드'},
-      {name:'조선미녀', desc:'매출 비중 2위 · 미국 아마존 K뷰티 1위', sales:'약 4,215억', growth:'+28.1%', bar:82, status:'anchor', statusLabel:'앵커'},
-      {name:'티르티르', desc:'매출 비중 3위 · 쿠션 파운데이션 글로벌 히트', sales:'약 2,820억', growth:'+18.8%', bar:55, status:'growing', statusLabel:'성장중'},
-      {name:'라운드랩', desc:'매출 비중 4위 · 더마 스킨케어', sales:'약 2,100억', growth:'+14.0%', bar:41, status:'growing', statusLabel:'성장중'},
+      {name:'스킨1004', desc:'클린 뷰티 · 유럽·미주 강세', sales:'약 5,130억', growth:'+34.2%', bar:100, status:'anchor', statusLabel:'1위 브랜드'},
+      {name:'조선미녀', desc:'미국 아마존 K뷰티 1위', sales:'약 4,215억', growth:'+28.1%', bar:82, status:'anchor', statusLabel:'앵커'},
+      {name:'티르티르', desc:'쿠션 파운데이션 글로벌 히트', sales:'약 2,820억', growth:'+18.8%', bar:55, status:'growing', statusLabel:'성장중'},
+      {name:'라운드랩', desc:'더마 스킨케어', sales:'약 2,100억', growth:'+14.0%', bar:41, status:'growing', statusLabel:'성장중'},
     ],
     invests: [
       {name:'Pre-IPO 컨소시엄', type:'Pre-IPO', amt:'8,000억원 투자유치'},
@@ -924,8 +926,8 @@ const PROFILES = {
     stageIdx: 3, stages: ['사업성 검증','M&A 성장','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: '미래에셋증권 주관사 선정 완료. Pre-IPO 및 상장 일정 협의 중.',
     brands: [
-      {name:'ODM 사업부', desc:'K-뷰티 브랜드 제조 수탁', sales:'매출 800억+', growth:'+25%', bar:100, status:'anchor', statusLabel:'주력'},
-      {name:'OBM 자체브랜드', desc:'진백글로벌 M&A로 확보', sales:'매출 600억+', growth:'+25%', bar:70, status:'growing', statusLabel:'성장중'},
+      {name:'ODM 사업부', desc:'달바글로벌/에이피알 등', sales:'', growth:'고성장', bar:100, status:'anchor', statusLabel:'주력'},
+      {name:'OBM 자체브랜드', desc:'더마팩토리 (비건스킨케어) 등', sales:'', growth:'', bar:50, status:'growing', statusLabel:'성장중'},
     ],
     invests: [
       {name:'진백글로벌 M&A', type:'전략적 인수', amt:'M&A 완료'},
@@ -962,7 +964,8 @@ const PROFILES = {
     stageIdx: 4, stages: ['사업성 검증','Series C','Series D','주관사 선정','예심 청구','공모·상장'],
     stageNote: '한국투자증권 주관사 선정. 2026년 하반기 상장 추진 중.',
     brands: [
-      {name:'글로벌 브랜드 액셀러레이터', desc:'K뷰티 브랜드 해외 진출 지원', sales:'매출 1,620억', growth:'고성장', bar:100, status:'anchor', statusLabel:'주력'},
+      {name:'상품 판매', desc:'K뷰티 브랜드 직매입 후 수출', sales:'매출 568억', growth:'+46.8%', bar:100, status:'anchor', statusLabel:'주력'},
+      {name:'마케팅 서비스', desc:'아마존/틱톡 글로벌 마케팅 대행 수수료 등', sales:'매출 98억', growth:'+19.0%', bar:20, status:'margin', statusLabel:'고마진'},
     ],
     invests: [
       {name:'한국투자파트너스', type:'Series D 리드', amt:'370억원'},
@@ -997,8 +1000,8 @@ const PROFILES = {
     stageIdx: 3, stages: ['사업성 검증','Series B','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: '신한투자증권 주관사 선정. Pre-IPO 및 구체적 상장 일정 협의 중.',
     brands: [
-      {name:'알렉스디자인', desc:'인테리어 디자인 스튜디오', sales:'매출 80억', growth:'+188%', status:'종속기업', statusLabel:'고성장'},
-      {name:'비티디오', desc:'영상 콘텐츠 제작', sales:'매출 17억', growth:'-9%', status:'종속기업', statusLabel:'역성장'},
+      {name:'알렉스디자인', desc:'인테리어 디자인 스튜디오', sales:'매출 80억', growth:'+188%', bar:50, status:'종속기업', statusLabel:'고성장'},
+      {name:'비티디오', desc:'영상 콘텐츠 제작', sales:'매출 17억', growth:'-9%', bar:0, status:'종속기업', statusLabel:'역성장'},
     ],
     invests: [
       {name:'Series B 투자사 (비공개)', type:'재무적 투자자', amt:'투자유지'},
@@ -1034,9 +1037,9 @@ const PROFILES = {
     stageIdx: 2, stages: ['사업성 검증','PE 투자','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: 'IMM PE 경영권 투자 후 IPO 검토 단계. 주관사 미선정.',
     brands: [
-      {name:'인셀덤', desc:'분자 기능성 화장품 · MLM 채널', sales:'-', growth:'안정', bar:70, status:'anchor', statusLabel:'앵커'},
-      {name:'보타팜', desc:'보타닉 스킨케어', sales:'-', growth:'성장중', bar:35, status:'growing', statusLabel:'성장중'},
-      {name:'라이프닝', desc:'웰니스 뷰티', sales:'-', growth:'성장중', bar:25, status:'rising', statusLabel:'라이징'},
+      {name:'인셀덤', desc:'분자 기능성 화장품 · MLM 채널', sales:'세부 매출 미공개', bar:70, status:'anchor', statusLabel:'주력'},
+      {name:'보타랩', desc:'비건 뷰티 (헤어케어/바디)', sales:'세부 매출 미공개', bar:35, status:'growing', statusLabel:'성장중'},
+      {name:'라이프닝', desc:'웰니스 건기식', sales:'세부 매출 미공개', bar:25, status:'growing', statusLabel:'성장중'},
     ],
     invests: [
       {name:'IMM PE', type:'경영권 투자 (2022)', amt:'약 2,500억원'},
@@ -1073,9 +1076,9 @@ const PROFILES = {
     stageIdx: 3, stages: ['사업성 검증','투자유치','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: '프라이머사제·IMM인베스트먼트 투자 완료. 주관사 선정 진행 중. 2027년 상장 목표.',
     brands: [
-      {name:'성분에디터', desc:'클린 뷰티 스킨케어', sales:'-', growth:'성장중', bar:100, status:'anchor', statusLabel:'앵커'},
-      {name:'밀크터치', desc:'색조 메이크업 · MZ 타깃', sales:'-', growth:'성장중', bar:60, status:'growing', statusLabel:'성장중'},
-      {name:'마미케어', desc:'임산부·베이비 케어', sales:'-', growth:'성장중', bar:35, status:'rising', statusLabel:'라이징'},
+      {name:'성분에디터', desc:'클린 뷰티 스킨케어', sales:'매출 650억+', bar:100, status:'anchor', statusLabel:'앵커'},
+      {name:'밀크터치', desc:'색조 메이크업 · MZ 타깃', sales:'세부 매출 미공개', bar:60, status:'growing', statusLabel:'성장중'},
+      {name:'마미케어', desc:'임산부·베이비 케어', sales:'세부 매출 미공개', bar:35, status:'rising', statusLabel:'라이징'},
     ],
     invests: [
       {name:'프라이머사제', type:'재무적 투자자', amt:'투자유치'},
@@ -1309,22 +1312,22 @@ const PROFILES = {
     name: '부스터즈', meta: '패션 · 우주택 연결편입 · BOOSTERZ', sectorClass: 'sector-f',
     sectorLabel: '패션', ipoLabel: "IPO 주관사 선정 추진 중 ('26.4Q 예상)", momLabel: '추진강도 Mid', accentColor: 'var(--accent-fashion)',
     kpis: [
-      {label:'매출 (25년)', value:'1,527억', delta:{cls:'up', text:'우주택 연결편입 성장 中'}, sub:'OP 91억'},
-      {label:'당사 지분율', value:'44.29%', sub:"'26.5 기준 · 우주택 대표 48.01%"},
+      {label:'매출 (25년)', value:'1,993억', delta:{cls:'up', text:'우주텍(르무통) 연결편입 성장 中'}, sub:'OP 255억'},
+      {label:'부스터즈 지분율', value:'44.29%', sub:"'26.5 기준 · 우주텍 대표 48.01%"},
       {label:'IPO 진행단계', value:'주관사 선정', sub:"'26.4Q 선정 예상(당초 대비 연기)"},
       {label:'RCPS 상환청구', value:"'25.10 도래", sub:'당사 RCPS 상환청구권 행사 가능'},
     ],
-    stageIdx: 2, stages: ["'25.10 RCPS 상환청구 도래", "'26.4 우주택 1차 지분 인수", "'26.3~4Q 우주택 2차 지분 인수(예상)", "'26.4Q IPO 주관사 선정(예상)"],
-    stageNote: "우주택 연결실적 편입으로 외형·이익 성장 중. '26.5 현재 당사 44.29% vs 우주택 대표 48.01%. 단계적 지분 인수로 경영권 확보 후 중복상장 이슈 해소·IPO 추진. '26.4Q 주관사 선정 예상(당초 대비 연기).",
+    stageIdx: 2, stages: ["'25.10 RCPS 상환청구 도래", "'26.4 우주텍 1차 지분 인수", "'26.3~4Q 우주택 2차 지분 인수(예상)", "'26.4Q IPO 주관사 선정(예상)"],
+    stageNote: "우주텍 연결실적 편입으로 외형·이익 성장 중. '26.5 기준 부스터즈 44.29% vs 우주텍 대표 48.01%. 단계적 지분 인수로 경영권 확보 후 중복상장 이슈 해소·IPO 추진. '26.4Q 주관사 선정 예상(당초 대비 연기).",
     brands: [
-      {name:'부스터즈 (BOOSTERZ)', desc:'패션 브랜드 · 우주택 연결편입', sales:'매출 1,527억', bar:100, status:'anchor', statusLabel:'앵커'},
-      {name:'우주택 (르무통 등)', desc:'연결 편입 자회사 · 우회상장 검토', bar:60, status:'rising', statusLabel:'편입 중'},
+      {name:'로컬 비즈니스', desc:'브랜드 엑셀러레이팅', sales:'매출 1,943억', growth:'+100%', bar:100, status:'anchor', statusLabel:'앵커'},
+      {name:'모바일 광고', desc:'모바일 · 퍼포먼스 마케팅', sales:'매출 133억', growth:'-72%', bar:10, status:'rising', statusLabel:'편입 중'},
     ],
     invests: [
       {name:'당사 (투자사)', type:'RCPS', amt:"상환청구 '25.10 도래"},
       {name:'우주택 대표', type:'최대주주', amt:'지분 48.01%'},
     ],
-    investNote: "당사 RCPS 상환청구권 '25.10 도래. 우주택 1차 지분 인수('26.4) 완료. 2차 지분 인수('26.3~4Q)로 경영권 확보 후 IPO 추진 또는 구주매각·RCPS 상환 등 Exit 옵션 병행 검토.",
+    investNote: "당사 RCPS 상환청구권 '25.10 도래. 우주텍 1차 지분 인수('26.4) 완료. 2차 지분 인수('26.3~4Q)로 경영권 확보 후 IPO 추진 또는 구주매각·RCPS 상환 등 Exit 옵션 병행 검토.",
     globals: [
       {name:'글로벌 온라인 채널 운영 중', status:'운영 중', cls:'biz', region:'온라인', regionEn:'online'},
     ],
