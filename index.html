@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,6 +16,7 @@
     --accent-vertical:#4361ee;--accent-vertical-bg:#eef0fd;
     --accent-beauty:#0d9488;--accent-beauty-bg:#edfaf8;
     --accent-fashion:#9333ea;--accent-fashion-bg:#f5edfd;
+    --accent-food:#ea580c;--accent-food-bg:#fff7ed;
     --high:#059669;--high-bg:#ecfdf5;--high-border:#a7f3d0;
     --midhigh:#2563eb;--midhigh-bg:#eff6ff;--midhigh-border:#bfdbfe;
     --mid:#d97706;--mid-bg:#fffbeb;--mid-border:#fde68a;
@@ -47,6 +49,7 @@
   .filter-btn.active-vertical{border-color:var(--accent-vertical);color:var(--accent-vertical);background:var(--accent-vertical-bg);font-weight:500;}
   .filter-btn.active-beauty{border-color:var(--accent-beauty);color:var(--accent-beauty);background:var(--accent-beauty-bg);font-weight:500;}
   .filter-btn.active-fashion{border-color:var(--accent-fashion);color:var(--accent-fashion);background:var(--accent-fashion-bg);font-weight:500;}
+  .filter-btn.active-food{border-color:var(--accent-food);color:var(--accent-food);background:var(--accent-food-bg);font-weight:500;}
   .filter-btn.active-listed{border-color:var(--high);color:var(--high);background:var(--high-bg);font-weight:500;}
   .sep{width:1px;height:18px;background:var(--border);margin:0 6px;}
 
@@ -58,6 +61,7 @@
   .section-badge.vertical{background:var(--accent-vertical-bg);color:var(--accent-vertical);border:1px solid #c7d0fb;}
   .section-badge.beauty{background:var(--accent-beauty-bg);color:var(--accent-beauty);border:1px solid #99e6e0;}
   .section-badge.fashion{background:var(--accent-fashion-bg);color:var(--accent-fashion);border:1px solid #d8b4fe;}
+  .section-badge.food{background:var(--accent-food-bg);color:var(--accent-food);border:1px solid #fed7aa;}
   .section-count{font-size:12px;color:var(--text3);font-family:var(--mono);}
   .table-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm);}
   table{width:100%;border-collapse:collapse;table-layout:fixed;}
@@ -227,6 +231,7 @@
   .badge.sector-v{background:var(--accent-vertical-bg);color:var(--accent-vertical);border:.5px solid #c7d0fb;}
   .badge.sector-b{background:var(--accent-beauty-bg);color:var(--accent-beauty);border:.5px solid #99e6e0;}
   .badge.sector-f{background:var(--accent-fashion-bg);color:var(--accent-fashion);border:.5px solid var(--accent-bd);}
+  .badge.sector-food{background:var(--accent-food-bg);color:var(--accent-food);border:.5px solid #fed7aa;}
   .badge.ipo-b{background:var(--warn-bg);color:var(--warn);border:.5px solid var(--warn-bd);}
   .badge.listed-b{background:var(--high-bg);color:var(--high);border:.5px solid var(--high-border);}
   .badge.grey{background:var(--bg3);color:var(--text3);border:.5px solid var(--border);}
@@ -246,10 +251,11 @@
     <div class="sub">IPO Pipeline Monitor · 실적 기준 2025년 · 기업명 클릭 시 상세 프로파일 조회</div>
   </div>
   <div class="header-right">
-    <div class="stat-pill">총<span>16개사</span></div>
+    <div class="stat-pill">총<span>18개사</span></div>
     <div class="stat-pill">버티컬<span>4</span></div>
     <div class="stat-pill">뷰티<span>9</span></div>
-    <div class="stat-pill">패션<span>3</span></div>
+    <div class="stat-pill">패션<span>4</span></div>
+    <div class="stat-pill">식품<span>1</span></div>
   </div>
 </div>
 
@@ -259,6 +265,7 @@
   <button class="filter-btn" onclick="filterSector('버티컬',this)">버티컬</button>
   <button class="filter-btn" onclick="filterSector('뷰티',this)">뷰티</button>
   <button class="filter-btn" onclick="filterSector('패션',this)">패션</button>
+  <button class="filter-btn" onclick="filterSector('식품',this)">식품</button>
   <div class="sep"></div>
   <span class="filter-label">IPO추진</span>
   <button class="filter-btn" onclick="filterMom('high',this)">High</button>
@@ -367,11 +374,11 @@
         </tr>
         <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('vinow')" data-regions="일본,온라인,동남아">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=numbuzin.com&sz=64" alt="비나우" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">비나</span><div><div class="company-name" style="color:var(--accent-beauty)">비나우</div><div class="company-type">뷰티 브랜드사</div></div></div></td>
-          <td><div class="ipo-year">26년 하반기</div></td>
+          <td><div class="ipo-year">'27년 3~4Q 목표</div></td>
           <td><span class="mom midhigh">Mid-high</span></td>
           <td><div class="brand-text">넘버즈인, 프위</div><div class="profile-hint" style="color:var(--accent-beauty)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 3,250억</div><div class="op-num">OP 671억</div></td>
-          <td><div class="invest-main">Pre-IPO 진행</div><div class="invest-round">IMM인베 · LB PE · 브아원</div></td>
+          <td><div class="invest-main">Pre-IPO 완료</div><div class="invest-round">IMM인베 · LB PE · 브아원</div></td>
           <td><div class="bank-text">삼성증권</div></td>
         </tr>
         <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('olive')" data-regions="미주,유럽,일본,온라인">
@@ -436,7 +443,7 @@
   <div class="section" id="section-패션">
     <div class="section-header">
       <span class="section-badge fashion">패션</span>
-      <span class="section-count">3개사</span>
+      <span class="section-count">4개사</span>
     </div>
     <div class="table-wrap"><table>
       <thead><tr>
@@ -472,6 +479,42 @@
           <td><div class="sales-num">매출 1,179억</div><div class="op-num">OP 167억</div></td>
           <td><div class="invest-main">Series A</div></td>
           <td><div class="bank-text">NH투자증권, 미래에셋증권</div></td>
+        </tr>
+        <tr class="clickable-row" data-sector="패션" data-mom="mid" onclick="openProfile('boosterz')" data-regions="온라인">
+          <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=boosterz.co.kr&sz=64" alt="부스터즈" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">부스</span><div><div class="company-name" style="color:var(--accent-fashion)">부스터즈</div><div class="company-type">패션 · 우주택 연결편입</div></div></div></td>
+          <td><div class="ipo-year">'26.4Q<br>주관사 선정 목표</div></td>
+          <td><span class="mom mid">Mid</span></td>
+          <td><div class="brand-text">우주택(르무통) 연결편입</div><div class="profile-hint" style="color:var(--accent-fashion)">📋 상세 프로파일</div></td>
+          <td><div class="sales-num">매출 1,527억</div><div class="op-num">OP 91억</div></td>
+          <td><div class="invest-main">당사 RCPS · 우주택 지분 인수 中</div><div class="invest-round">당사 44.29% · 대표 48.01%</div></td>
+          <td><div class="bank-pending">미선정 (당초 대비 연기)</div></td>
+        </tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- ═══ 식품 ═══ -->
+  <div class="section" id="section-식품">
+    <div class="section-header">
+      <span class="section-badge food">식품</span>
+      <span class="section-count">1개사</span>
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr>
+        <th class="col-name">기업명</th><th class="col-ipo">IPO예정</th>
+        <th class="col-momentum">추진강도</th><th class="col-brand">주요 브랜드/사업</th>
+        <th class="col-sales">실적 ('25년)</th><th class="col-invest">투자유치현황</th>
+        <th class="col-bank">주관사</th>
+      </tr></thead>
+      <tbody>
+        <tr class="clickable-row" data-sector="식품" data-mom="mid" onclick="openProfile('grainon')" data-regions="온라인">
+          <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=grainon.co.kr&sz=64" alt="그레인온" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">그레</span><div><div class="company-name" style="color:var(--accent-food)">그레인온</div><div class="company-type">식품</div></div></div></td>
+          <td><div class="ipo-year">'27년 1Q 목표</div></td>
+          <td><span class="mom mid">Mid</span></td>
+          <td><div class="brand-text">카무트 효소 · K효소 · 뷰티 신사업</div><div class="profile-hint" style="color:var(--accent-food)">📋 상세 프로파일</div></td>
+          <td><div class="sales-num">매출 1,751억</div><div class="op-num">OP 110억</div></td>
+          <td><div class="invest-main">'26.4 액면분할·무상증자</div></td>
+          <td><div class="bank-text">신한투자증권</div></td>
         </tr>
       </tbody>
     </table></div>
@@ -522,6 +565,8 @@ const DOMAINS = {
   'highlight': 'hibs.co.kr',
   'peacenow': 'mardimercredi.com',
   'hagohouse': 'matinkim.com',
+  'grainon': 'grainon.co.kr',
+  'boosterz': 'boosterz.co.kr',
 };
 
 const CUSTOM_LOGOS = {
@@ -548,10 +593,12 @@ const SITE_URLS = {
   'peacenow': 'https://www.mardimercredi.com',
   'hagohouse':'https://www.matinkim.com',
   'olive':    'https://www.oliveinternational.co.kr/',
+  'grainon':  'https://www.grainon.co.kr',
+  'boosterz': 'https://www.boosterz.co.kr',
 };
 
 // 기업 key → 네이버 검색 키워드 매핑
-const COMPANY_KEYS = {"musinsoa": "무신사", "kurly": "컬리", "ohouse": "오늘의집", "oasis": "오아시스마켓", "goodai": "구다이글로벌", "vinow": "비나우", "grace": "그레이스", "bnb": "비앤비코리아", "2020": "이공이공", "lafati": "레페리", "liman": "리만코리아", "founders": "더파운더즈 아누아", "olive": "올리브인터내셔널", "highlight": "하이라이트브랜즈", "peacenow": "피스피스스튜디오", "hagohouse": "하고하우스"};
+const COMPANY_KEYS = {"musinsoa": "무신사", "kurly": "컬리", "ohouse": "오늘의집", "oasis": "오아시스마켓", "goodai": "구다이글로벌", "vinow": "비나우", "grace": "그레이스", "bnb": "비앤비코리아", "2020": "이공이공", "lafati": "레페리", "liman": "리만코리아", "founders": "더파운더즈 아누아", "olive": "올리브인터내셔널", "highlight": "하이라이트브랜즈", "peacenow": "피스피스스튜디오", "hagohouse": "하고하우스", "grainon": "그레인온", "boosterz": "부스터즈"};
 
 // 뉴스 JSON URL (GitHub Pages 배포 후 자신의 레포 URL로 교체)
 const NEWS_JSON_URL = './news.json';
@@ -788,16 +835,16 @@ const PROFILES = {
   },
 
   vinow: {
-    name: '비나우', meta: '뷰티 브랜드사 · 설립 2016년 · 이원준 대표', sectorClass: 'sector-b',
-    sectorLabel: '뷰티', ipoLabel: 'IPO 추진 (26년 하반기)', momLabel: '추진강도 Mid-high', accentColor: 'var(--accent-beauty)',
+    name: '비나우', meta: '뷰티 브랜드사 · 설립 2016년 · 이원준 대표 · BENOW', sectorClass: 'sector-b',
+    sectorLabel: '뷰티', ipoLabel: 'IPO 추진 (KOSPI · 27년 3~4Q 목표)', momLabel: '추진강도 Mid-high', accentColor: 'var(--accent-beauty)',
     kpis: [
-      {label:'매출 (25년)', value:'3,250억', delta:{cls:'up', text:'▲ YoY +22%'}, sub:'OP 671억'},
-      {label:'기업가치 (추정)', value:'1.1조원', sub:'Pre-IPO 기준'},
-      {label:'영업이익률', value:'20.6%', sub:'뷰티 업종 최고 수준'},
-      {label:'주관사', value:'삼성증권', sub:'단독 주관'},
+      {label:'매출 (25년)', value:'3,250억', delta:{cls:'up', text:'▲ YoY +22%'}, sub:'OP 671억 · KOSPI 상장 요건 旣달성'},
+      {label:'Valuation (업계 추정)', value:'2~2.5조', sub:'min. 2조원 이상 예상'},
+      {label:'영업이익률', value:'20.6%', sub:'매출 1,000억·이익 30억 요건 충족'},
+      {label:'주관사', value:'삼성증권', sub:"'24.9 선정완료"},
     ],
-    stageIdx: 4, stages: ['사업성 검증','투자유치','Pre-IPO','주관사 선정','예심 청구','공모·상장'],
-    stageNote: 'Pre-IPO 완료, 주관사 삼성증권 선정. 2026년 하반기 상장 추진 중.',
+    stageIdx: 3, stages: ["'24.9 주관사 선정", "'25.10 준비 본격화", "'26년 온기 실적 확인", "'27.2Q 예심 청구(예상)", "'27.3~4Q 상장(예상)"],
+    stageNote: "삼성증권 주관사 선정('24.9) 및 전자증권 전환 완료. '26년 온기 실적 반영 후 예심 청구 목표. '27년 3~4Q 증권신고서 제출·상장 예상.",
     brands: [
       {name:'넘버즈인', desc:'세럼·앰플 히트 브랜드', sales:'매출 2,000억+', growth:'+50%', bar:100, status:'anchor', statusLabel:'앵커'},
       {name:'프위', desc:'글로우 스킨케어 · 해외 강세', sales:'매출 1,000억+', growth:'+30%', bar:45, status:'growing', statusLabel:'성장중'},
@@ -807,22 +854,24 @@ const PROFILES = {
       {name:'LB PE', type:'Pre-IPO', amt:'투자 참여'},
       {name:'브아원캐피탈파트너스', type:'Pre-IPO', amt:'투자 참여'},
     ],
-    investNote: 'Pre-IPO에서 기업가치 1.1조원 인정. 연내 상장을 목표로 예심 청구 준비 중.',
+    investNote: "Pre-IPO(IMM인베·LB PE·브아원) 완료. KOSPI 상장 요건(매출 1,000억↑·이익 30억↑) 旣달성. '26년 온기 실적 반영 후 예심 청구 예정.",
     globals: [
       {name:'프위 도쿄·오사카·후쿠오카 직영 매장 확장 (15개 목표)', status:'확장 중', cls:'global', region:'일본', regionEn:'japan'},
-          {name:'아마존·큐텐 등 글로벌 온라인 채널', status:'운영 중', cls:'biz', region:'온라인', regionEn:'online'},
+      {name:'아마존·큐텐 등 글로벌 온라인 채널', status:'운영 중', cls:'biz', region:'온라인', regionEn:'online'},
       {name:'동남아 Shopee 진출 (넘버즈인) · 태국 전담 마케터 운영', status:'확장 중', cls:'biz', region:'동남아', regionEn:'sea'},
     ],
     news: [
-      {date:'2026.04', hl:'비나우, 삼성증권 단독 주관사 선정 — 2026년 하반기 상장 본격화', sum:'삼성증권을 단독 주관사로 선정, 2026년 하반기 코스피 상장을 공식 추진. 기업가치 1.1조원 이상을 목표로 기관 투자자 대상 IR 개시.', tags:['ipo']},
-      {date:'2026.01', hl:'2025년 매출 3,249억·OP 670억 — 업종 최고 이익률 20.6%', sum:'넘버즈인과 프위의 동반 고성장으로 매출 3,249억원, 영업이익률 20.6% 달성. 구다이글로벌과 함께 K-뷰티 수익성 TOP2.', tags:['biz']},
+      {date:'2026.06', hl:"당사 관리방안 — '26년 분기별 실적·상장 준비 모니터링 지속", sum:"'26년 온기 실적 반영 후 예비심사 청구 목표. 분기별 실적 및 상장 준비 과정 지속 모니터링, PR 대응을 통한 IPO 흥행 지원 병행.", tags:['ipo']},
+      {date:'2025.10', hl:"준비 본격화 — 전자증권 전환 等 상장 요건 정비 완료", sum:"삼성증권 주관 하에 전자증권 전환 등 KOSPI 상장 사전 요건 정비 작업 완료. '26년 실적 확인 후 예심 청구 일정 확정 예정.", tags:['ipo']},
+      {date:'2026.01', hl:"2025년 매출 3,249억·OP 670억 — 업종 최고 이익률 20.6%", sum:'넘버즈인과 프위의 동반 고성장으로 매출 3,249억원, 영업이익률 20.6% 달성. KOSPI 상장 요건(매출 1,000억·이익 30억) 충족 확인.', tags:['biz']},
       {date:'2025.09', hl:'넘버즈인, 일본 로프트·도큐핸즈 전국 입점 — 해외 매출 30% 돌파', sum:'일본 최대 잡화 체인 전국 입점 완료, 해외 매출 비중 30% 돌파. 동남아·미주 채널 확대 준비.', tags:['global','biz']},
     ],
-    outlook: '영업이익률 20% 이상의 고수익 구조와 2026년 하반기 상장 추진으로 가시성 높음.',
+    outlook: "K뷰티 견고한 성장세 유지 및 KOSPI 상장 요건 旣달성. 업계 추정 Valuation min.2~2.5조원. '26년 온기 실적 반영 후 '27.2Q 예심 청구, '27.3~4Q 상장 목표.",
     outlookClass: '',
     risks: [
-      {color:'#d97706', text:'<b>넘버즈인 집중도</b> — 2개 브랜드 중 넘버즈인 의존도 과도. 제2 브랜드 규모화 필요.'},
-      {color:'#2563eb', text:'<b>상장 시장 환경</b> — 2026년 하반기 IPO 시장 분위기가 공모가에 직접 영향.'},
+      {color:'#d97706', text:"<b>'26년 실적 의존</b> — 예심 청구 트리거가 '26년 온기 실적. 성장세 둔화 시 일정 지연 가능."},
+      {color:'#2563eb', text:'<b>넘버즈인 집중도</b> — 2개 브랜드 중 넘버즈인 의존도 과도. 제2 브랜드 프위의 규모화가 밸류에이션 핵심 변수.'},
+      {color:'#d97706', text:'<b>공모 시장 환경</b> — 2027년 하반기 IPO 시장 분위기가 공모가 및 흥행에 직접 영향.'},
     ],
   },
 
@@ -1219,6 +1268,80 @@ const PROFILES = {
     ],
   },
 
+  grainon: {
+    name: '그레인온', meta: '식품 브랜드사 · K효소·건강식품 · Grain on', sectorClass: 'sector-food',
+    sectorLabel: '식품', ipoLabel: "IPO 추진 ('27.1Q 목표)", momLabel: '추진강도 Mid', accentColor: 'var(--accent-food)',
+    kpis: [
+      {label:'매출 (25년)', value:'1,751억', delta:{cls:'up', text:'▲ 3개년 4.2배 성장'}, sub:'OP 110억'},
+      {label:'영업이익 성장', value:'2.3배', sub:'3개년 수익성 동시 개선 입증'},
+      {label:'IPO 진행단계', value:'예심 준비', sub:"'26.4 액면분할·무상증자 완료"},
+      {label:'주관사', value:'신한투자증권', sub:"'25.3 선정완료"},
+    ],
+    stageIdx: 3, stages: ["'25.3 주관사 선정", "'26.4 액면분할·무상증자", "'26.4Q 예심 청구(예상)", "'27.1Q 증권신고서·상장(예상)"],
+    stageNote: "신한투자증권 주관사 선정('25.3). '26.4 액면분할·무상증자 완료. '26.4Q 예비심사 청구 후 '27.1Q 증권신고서 제출·상장 목표.",
+    brands: [
+      {name:'카무트 효소', desc:'핵심 K효소 제품 · 글로벌 확장 중', sales:'주력 매출원', bar:80, status:'anchor', statusLabel:'앵커'},
+      {name:'뷰티·신사업', desc:'IPO 스토리 고도화 신성장 축', bar:20, status:'rising', statusLabel:'신사업'},
+    ],
+    invests: [
+      {name:'신한투자증권', type:'IPO 주관사', amt:"'25.3 선정"},
+    ],
+    investNote: "최근 3개년 매출 4.2배·영업이익 2.3배 성장으로 상장 심사 핵심 요건인 외형·수익성 동시 개선 입증. '26.4 액면분할·무상증자로 공모 준비 완료.",
+    globals: [
+      {name:'카무트 효소 등 K효소 제품 해외 채널 확장 중', status:'확장 중', cls:'global', region:'온라인', regionEn:'online'},
+    ],
+    news: [
+      {date:'2026.06', hl:"당사 관리방안 — '26년 분기별 실적·상장 준비 모니터링 지속", sum:"'26년 분기별 실적 및 상장 준비 과정 지속 모니터링. PR 대응을 통한 IPO 흥행 지원 병행. '26.4Q 예심 청구를 목표로 준비 중.", tags:['ipo']},
+      {date:'2026.04', hl:"액면분할·무상증자 완료 — 공모 주식 구조 정비", sum:"'26.4 액면분할 및 무상증자를 완료하며 IPO 공모 준비의 핵심 주식 구조 정비 마무리. '26.4Q 예비심사 청구를 목표로 심사 서류 준비 중.", tags:['ipo']},
+      {date:'2025.12', hl:'매출 1,751억·OP 110억 — 3개년 외형·수익성 동시 개선 입증', sum:'최근 3개년 매출 4.2배·영업이익 2.3배 성장. 상장 심사 핵심 요건인 외형·수익성 동시 개선을 수치로 입증하며 IPO 스토리 강화.', tags:['biz']},
+      {date:'2025.03', hl:"신한투자증권 IPO 주관사 선정 — '27.1Q 상장 목표", sum:"신한투자증권을 주관사로 선정하며 코스피 상장 로드맵 확정. 카무트 효소 글로벌 확장·뷰티 신사업 추진으로 IPO 스토리 고도화 병행.", tags:['ipo']},
+    ],
+    outlook: "카무트 효소 중심 K효소 브랜드의 고성장세(3개년 매출 4.2배·OP 2.3배)와 신한증권 주관 하 체계적 상장 준비. '26.4Q 예심 청구 → '27.1Q 상장 로드맵 진행 중.",
+    outlookClass: '',
+    risks: [
+      {color:'#d97706', text:'<b>제품 집중도</b> — 카무트 효소 등 특정 제품에 매출 의존. 트렌드 변화 시 실적 영향 직접적.'},
+      {color:'#2563eb', text:'<b>수익성 규모</b> — 매출 대비 OP 110억(영업이익률 ~6%)으로 KOSPI 상장 밸류에이션 산정 시 수익성 배수 제한 가능.'},
+      {color:'#d97706', text:'<b>신사업 불확실성</b> — 뷰티 등 신사업이 IPO 스토리에 포함되나 매출 기여도 및 수익화 시점 미확인.'},
+    ],
+  },
+
+  boosterz: {
+    name: '부스터즈', meta: '패션 · 우주택 연결편입 · BOOSTERZ', sectorClass: 'sector-f',
+    sectorLabel: '패션', ipoLabel: "IPO 주관사 선정 추진 중 ('26.4Q 예상)", momLabel: '추진강도 Mid', accentColor: 'var(--accent-fashion)',
+    kpis: [
+      {label:'매출 (25년)', value:'1,527억', delta:{cls:'up', text:'우주택 연결편입 성장 中'}, sub:'OP 91억'},
+      {label:'당사 지분율', value:'44.29%', sub:"'26.5 기준 · 우주택 대표 48.01%"},
+      {label:'IPO 진행단계', value:'주관사 선정', sub:"'26.4Q 선정 예상(당초 대비 연기)"},
+      {label:'RCPS 상환청구', value:"'25.10 도래", sub:'당사 RCPS 상환청구권 행사 가능'},
+    ],
+    stageIdx: 2, stages: ["'25.10 RCPS 상환청구 도래", "'26.4 우주택 1차 지분 인수", "'26.3~4Q 우주택 2차 지분 인수(예상)", "'26.4Q IPO 주관사 선정(예상)"],
+    stageNote: "우주택 연결실적 편입으로 외형·이익 성장 중. '26.5 현재 당사 44.29% vs 우주택 대표 48.01%. 단계적 지분 인수로 경영권 확보 후 중복상장 이슈 해소·IPO 추진. '26.4Q 주관사 선정 예상(당초 대비 연기).",
+    brands: [
+      {name:'부스터즈 (BOOSTERZ)', desc:'패션 브랜드 · 우주택 연결편입', sales:'매출 1,527억', bar:100, status:'anchor', statusLabel:'앵커'},
+      {name:'우주택 (르무통 등)', desc:'연결 편입 자회사 · 우회상장 검토', bar:60, status:'rising', statusLabel:'편입 중'},
+    ],
+    invests: [
+      {name:'당사 (투자사)', type:'RCPS', amt:"상환청구 '25.10 도래"},
+      {name:'우주택 대표', type:'최대주주', amt:'지분 48.01%'},
+    ],
+    investNote: "당사 RCPS 상환청구권 '25.10 도래. 우주택 1차 지분 인수('26.4) 완료. 2차 지분 인수('26.3~4Q)로 경영권 확보 후 IPO 추진 또는 구주매각·RCPS 상환 등 Exit 옵션 병행 검토.",
+    globals: [
+      {name:'글로벌 온라인 채널 운영 중', status:'운영 중', cls:'biz', region:'온라인', regionEn:'online'},
+    ],
+    news: [
+      {date:'2026.06', hl:"당사 관리방안 — 경영권 확보 마일스톤·IPO 가능성 Tracking 지속", sum:"우주택 경영권 확보 마일스톤 및 중복상장 이슈·IPO 가능성 지속 Tracking. 구주매각·RCPS 상환 등 Exit 옵션 병행 검토 중.", tags:['ipo','risk']},
+      {date:'2026.04', hl:"우주택 1차 지분 인수 완료 — 단계적 경영권 확보 진행 중", sum:"우주택 1차 지분 인수 완료. 당사 지분 44.29% vs 우주택 대표 48.01%로 아직 경영권 미확보. 2차 지분 인수('26.3~4Q 예상)로 경영권 확보 후 IPO 추진 또는 우회 상장 병행 검토.", tags:['invest','ipo']},
+      {date:'2025.10', hl:"당사 RCPS 상환청구권 도래 — Exit 옵션 검토 개시", sum:"당사 보유 RCPS 상환청구권 행사 가능 시점 도래. IPO 추진 상황에 따라 RCPS 상환·구주매각 등 복수의 Exit 시나리오 검토 중.", tags:['invest','risk']},
+    ],
+    outlook: "우주택 연결편입으로 외형·이익 성장 가시화. 단, 경영권 미확보·중복상장 이슈로 IPO 주관사 선정이 당초 대비 지연. 2차 지분 인수 완료가 IPO 추진의 핵심 선행 조건.",
+    outlookClass: '',
+    risks: [
+      {color:'#dc2626', text:'<b>경영권 미확보</b> — 당사 44.29% vs 우주택 대표 48.01%. 2차 지분 인수 전까지 IPO 주체 불명확.'},
+      {color:'#d97706', text:'<b>중복상장 이슈</b> — 우주택(르무통 등) 연결편입에 따른 중복상장 이슈 해소가 IPO 심사의 핵심 과제.'},
+      {color:'#2563eb', text:'<b>Exit 불확실성</b> — IPO 지연 시 RCPS 상환·구주매각 등 대안 옵션 실행 가능성 상존.'},
+    ],
+  },
+
 };
 
 // ══════════════════════════════════════════════════
@@ -1497,7 +1620,7 @@ function filterRegion(region, btn) {
     document.querySelectorAll('.filter-btn').forEach(b =>
       b.classList.remove('active-region'));
     document.querySelectorAll('tbody tr[data-sector]').forEach(r => r.style.display = '');
-    ['버티컬','뷰티','패션'].forEach(s =>
+    ['버티컬','뷰티','패션','식품'].forEach(s =>
       document.getElementById('section-'+s).style.display = '');
     return;
   }
@@ -1505,7 +1628,7 @@ function filterRegion(region, btn) {
     currentRegionFilter = null;
     btn.classList.remove('active-region');
     document.querySelectorAll('tbody tr[data-sector]').forEach(r => r.style.display = '');
-    ['버티컬','뷰티','패션'].forEach(s =>
+    ['버티컬','뷰티','패션','식품'].forEach(s =>
       document.getElementById('section-'+s).style.display = '');
     return;
   }
@@ -1513,13 +1636,13 @@ function filterRegion(region, btn) {
   document.querySelectorAll('.filter-btn').forEach(b =>
     b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-listed','active-region'));
   btn.classList.add('active-region');
-  ['버티컬','뷰티','패션'].forEach(s =>
+  ['버티컬','뷰티','패션','식품'].forEach(s =>
     document.getElementById('section-'+s).style.display = '');
   document.querySelectorAll('tbody tr[data-sector]').forEach(r => {
     const regions = (r.dataset.regions || '').split(',');
     r.style.display = regions.includes(region) ? '' : 'none';
   });
-  ['버티컬','뷰티','패션'].forEach(s => {
+  ['버티컬','뷰티','패션','식품'].forEach(s => {
     const sec = document.getElementById('section-'+s);
     const any = [...sec.querySelectorAll('tbody tr[data-sector]')]
       .some(r => r.style.display !== 'none');
@@ -1534,8 +1657,9 @@ function filterSector(sector, btn) {
   if (sector==='all') btn.classList.add('active-all');
   else if (sector==='버티컬') btn.classList.add('active-vertical');
   else if (sector==='뷰티') btn.classList.add('active-beauty');
-  else btn.classList.add('active-fashion');
-  ['버티컬','뷰티','패션'].forEach(s => {
+  else if (sector==='패션') btn.classList.add('active-fashion');
+  else btn.classList.add('active-food');
+  ['버티컬','뷰티','패션','식품'].forEach(s => {
     document.getElementById('section-'+s).style.display =
       (sector==='all'||sector===s)?'':'none';
   });
@@ -1546,7 +1670,7 @@ function filterMom(mom, btn) {
   if (currentMomFilter===mom) {
     currentMomFilter=null; btn.classList.remove('active-all','active-listed');
     document.querySelectorAll('tbody tr[data-sector]').forEach(r=>r.style.display='');
-    ['버티컬','뷰티','패션'].forEach(s=>document.getElementById('section-'+s).style.display='');
+    ['버티컬','뷰티','패션','식품'].forEach(s=>document.getElementById('section-'+s).style.display='');
     return;
   }
   currentMomFilter=mom;
@@ -1554,11 +1678,11 @@ function filterMom(mom, btn) {
     b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-listed'));
   if(mom==='listed') btn.classList.add('active-listed');
   else btn.classList.add('active-all');
-  ['버티컬','뷰티','패션'].forEach(s=>document.getElementById('section-'+s).style.display='');
+  ['버티컬','뷰티','패션','식품'].forEach(s=>document.getElementById('section-'+s).style.display='');
   document.querySelectorAll('tbody tr[data-sector]').forEach(r=>{
     r.style.display=(r.dataset.mom===mom)?'':'none';
   });
-  ['버티컬','뷰티','패션'].forEach(s=>{
+  ['버티컬','뷰티','패션','식품'].forEach(s=>{
     const sec=document.getElementById('section-'+s);
     const any=[...sec.querySelectorAll('tbody tr[data-sector]')].some(r=>r.style.display!=='none');
     if(!any) sec.style.display='none';
