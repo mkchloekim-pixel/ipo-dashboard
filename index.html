@@ -334,10 +334,10 @@
           <td><div class="invest-main">상장 철회 후 자체 흑자 경영</div></td>
           <td><div class="bank-text">NH투자증권(대표), 한국투자증권</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="버티컬" data-mom="midhigh" onclick="openProfile('ohouse')" data-regions="일본,미주,온라인">
+        <tr class="clickable-row" data-sector="버티컬" data-mom="mid" onclick="openProfile('ohouse')" data-regions="일본,미주,온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=ohou.se&sz=64" alt="오늘의집" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">오늘</span><div><div class="company-name" style="color:var(--accent-vertical)">오늘의집</div><div class="company-type">홈 인테리어 버티컬</div></div></div></td>
           <td><div class="ipo-year">27~28년</div></td>
-          <td><span class="mom midhigh">Mid-high</span></td>
+          <td><span class="mom mid">Mid</span></td>
           <td><div class="brand-text">오늘의집 (인테리어·가구 커머스)</div><div class="profile-hint" style="color:var(--accent-vertical)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 3,215억</div><div class="op-num">OP -147억</div></td>
           <td><div class="invest-main">누적 약 3,000억원+</div><div class="invest-round">BRV · 소프트뱅크벤처스 · 본엔젤스</div></td>
@@ -493,7 +493,7 @@
           <td><span class="mom mid">Mid</span></td>
           <td><div class="brand-text">우주텍(르무통) 연결실적 편입</div><div class="profile-hint" style="color:var(--accent-fashion)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 1,993억</div><div class="op-num">OP 255억</div></td>
-          <td><div class="invest-main">중복상장 이슈 Tracking 지속 필요</div><div class="invest-round">부스터즈 44.29% · 우주텍 대표 48.01%</div></td>
+          <td><div class="invest-main">중복상장 이슈 Tracking 필요</div><div class="invest-round">부스터즈 44.29% · 우주텍 대표 48.01%</div></td>
           <td><div class="bank-pending">미선정 (당초 대비 연기)</div></td>
         </tr>
       </tbody>
@@ -718,15 +718,15 @@ const PROFILES = {
     outlook: '흑자전환과 네이버 추가투자로 IPO 모멘텀 회복. 주관사 선정 완료로 2027~2028년 상장 가시적.',
     outlookClass: '',
     risks: [
-      {color:'#dc2626', text:'<b>만성 적자 이미지</b> — 흑자전환에도 불구, 투자자들의 수익성 지속가능성에 대한 우려 잔존.'},
-      {color:'#d97706', text:'<b>경쟁 심화</b> — SSG·오아시스 등 경쟁사의 새벽배송 영역 진입으로 마진 압박.'},
-      {color:'#2563eb', text:'<b>밸류에이션 눈높이</b> — 2022년 IPO 철회 당시 4조원 대비 현재 적정 기업가치 합의 필요.'},
+      {color:'#dc2626', text:'<b>오너 리스크</b> — 넥스트키친 오너 및 경영진 리스크 부각으로 투자자 신뢰 및 ESG 경영 평가에 악영향.'},
+      {color:'#d97706', text:'<b>성장성 한계 보완</b> — 뷰티컬리 등 식품 중심 성장성 보완 불구, 뷰티 시장 내 올리브영 Presence 견고해 독자 성장성 미지수.'},
+      {color:'#2563eb', text:'<b>밸류에이션 눈높이</b> — 네이버가 인정한 기업가치 2.8조 대비 장외 거래 기준 시총 1.2조 수준으로 현재 적정 기업가치 합의 필요.'},
     ],
   },
 
   ohouse: {
     name: '오늘의집', meta: '홈 인테리어 버티컬 · 설립 2014년 · 이승재 대표', sectorClass: 'sector-v',
-    sectorLabel: '버티컬 커머스', ipoLabel: 'IPO 검토 중', momLabel: '추진강도 Mid-high', accentColor: 'var(--accent-vertical)',
+    sectorLabel: '버티컬 커머스', ipoLabel: 'IPO 검토 중', momLabel: '추진강도 Mid', accentColor: 'var(--accent-vertical)',
     kpis: [
       {label:'매출 (25년)', value:'3,215억', delta:{cls:'warn', text:'▼ OP -147억 (-4.6%)'}, sub:'전년 흑자에서 적자 전환'},
       {label:'기업가치 (추정)', value:'약 3,000억+', sub:'BRV·소뱅 투자 라운드 기준'},
@@ -749,7 +749,7 @@ const PROFILES = {
     globals: [
       {name:'Ohouse 앱 100만 다운로드·나츠마츠리 팝업 (일본 Presence 강화)', status:'확장 중', cls:'biz', region:'일본', regionEn:'japan'},
       {name:'K-인테리어 역직구 서비스 개시 (26.3)', status:'진입 중', cls:'biz', region:'미주', regionEn:'us'},
-          {name:'K-인테리어 역직구 온라인 서비스', status:'운영 중', cls:'biz', region:'온라인', regionEn:'online'},
+      {name:'K-인테리어 역직구 온라인 서비스', status:'운영 중', cls:'biz', region:'온라인', regionEn:'online'},
     ],
     news: [
       {date:'2026.01', hl:'오늘의집, 2025년 적자전환 — 투자 확대·경쟁 심화 영향', sum:'2024년 흑자에서 2025년 -147억원 적자전환. B2B 솔루션·해외 진출 투자 확대 및 인테리어 커머스 경쟁 심화가 원인.', tags:['biz','risk']},
@@ -898,7 +898,7 @@ const PROFILES = {
     stageNote: 'PE 투자 유치 완료. 주관사 미선정으로 IPO 준비 초기 단계.',
     brands: [
       {name:'Grace Japan', desc:'일본 현지 법인', sales:'매출 53억', growth:'+528%', status:'종속법인', statusLabel:'지속'},
-      {name:'티앤모프', desc:'해외 마케팅 대행사', sales:'매출 67억', status:'종속법인', statusLabel:'신규취득'},
+      {name:'티앤모프', desc:'해외 마케팅 대행사', sales:'매출 67억', growth:'N/A', status:'종속법인', statusLabel:'신규취득'},
        {name:'The Owl Company GmbH', desc:'독일 현지 법인', sales:'매출 57억', growth:'+29%', status:'종속법인', statusLabel:'지속'},
     ],
     invests: [
@@ -934,8 +934,8 @@ const PROFILES = {
     stageIdx: 3, stages: ['사업성 검증','M&A 성장','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: '미래에셋증권 주관사 선정 완료. Pre-IPO 및 상장 일정 협의 중.',
     brands: [
-      {name:'ODM 사업부', desc:'달바글로벌/에이피알 등', sales:'', growth:'고성장', bar:100, status:'anchor', statusLabel:'주력'},
-      {name:'OBM 자체브랜드', desc:'더마팩토리 (비건스킨케어) 등', sales:'', growth:'', bar:50, status:'growing', statusLabel:'성장중'},
+      {name:'ODM 사업부', desc:'달바글로벌/에이피알 등', sales:'세부 매출 미공개', growth:'고성장', bar:100, status:'anchor', statusLabel:'주력'},
+      {name:'OBM 자체브랜드', desc:'더마팩토리 (고효능 스킨케어) 등', sales:'세부 매출 미공개', growth:'성장중', bar:50, status:'pb', statusLabel:'자사브랜드'},
     ],
     invests: [
       {name:'진백글로벌 M&A', type:'전략적 인수', amt:'M&A 완료'},
@@ -973,7 +973,7 @@ const PROFILES = {
     stageNote: '한국투자증권 주관사 선정. 2026년 하반기 상장 추진 중.',
     brands: [
       {name:'상품 판매', desc:'K뷰티 브랜드 직매입 후 수출', sales:'매출 568억', growth:'+46.8%', bar:100, status:'anchor', statusLabel:'주력'},
-      {name:'마케팅 서비스', desc:'아마존/틱톡 글로벌 마케팅 대행 수수료 등', sales:'매출 98억', growth:'+19.0%', bar:20, status:'margin', statusLabel:'고마진'},
+      {name:'마케팅 서비스', desc:'아마존/틱톡 글로벌 마케팅 대행 수수료 등', sales:'매출 98억', growth:'+19.0%', bar:20, status:'growing', statusLabel:'고마진'},
     ],
     invests: [
       {name:'한국투자파트너스', type:'Series D 리드', amt:'370억원'},
@@ -1045,9 +1045,9 @@ const PROFILES = {
     stageIdx: 2, stages: ['사업성 검증','PE 투자','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: 'IMM PE 경영권 투자 후 IPO 검토 단계. 주관사 미선정.',
     brands: [
-      {name:'인셀덤', desc:'분자 기능성 화장품 · MLM 채널', sales:'세부 매출 미공개', bar:70, status:'anchor', statusLabel:'주력'},
-      {name:'보타랩', desc:'비건 뷰티 (헤어케어/바디)', sales:'세부 매출 미공개', bar:35, status:'growing', statusLabel:'성장중'},
-      {name:'라이프닝', desc:'웰니스 건기식', sales:'세부 매출 미공개', bar:25, status:'growing', statusLabel:'성장중'},
+      {name:'인셀덤', desc:'분자 기능성 화장품 · MLM 채널', sales:'세부 매출 미공개', growth:'N/A', bar:70, status:'anchor', statusLabel:'주력'},
+      {name:'보타랩', desc:'비건 뷰티 (헤어케어/바디)', sales:'세부 매출 미공개', growth:'N/A', bar:35, status:'growing', statusLabel:'성장중'},
+      {name:'라이프닝', desc:'웰니스 건기식', sales:'세부 매출 미공개', growth:'N/A', bar:25, status:'growing', statusLabel:'성장중'},
     ],
     invests: [
       {name:'IMM PE', type:'경영권 투자 (2022)', amt:'약 2,500억원'},
@@ -1084,9 +1084,9 @@ const PROFILES = {
     stageIdx: 3, stages: ['사업성 검증','투자유치','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: '프라이머사제·IMM인베스트먼트 투자 완료. 주관사 선정 진행 중. 2027년 상장 목표.',
     brands: [
-      {name:'성분에디터', desc:'클린 뷰티 스킨케어', sales:'매출 650억+', bar:100, status:'anchor', statusLabel:'앵커'},
-      {name:'밀크터치', desc:'색조 메이크업 · MZ 타깃', sales:'세부 매출 미공개', bar:60, status:'growing', statusLabel:'성장중'},
-      {name:'마미케어', desc:'임산부·베이비 케어', sales:'세부 매출 미공개', bar:35, status:'rising', statusLabel:'라이징'},
+      {name:'성분에디터', desc:'클린 뷰티 스킨케어', sales:'매출 650억+', growth:'N/A', bar:100, status:'anchor', statusLabel:'앵커'},
+      {name:'밀크터치', desc:'색조 메이크업 · MZ 타깃', sales:'세부 매출 미공개', growth:'N/A', bar:60, status:'growing', statusLabel:'성장중'},
+      {name:'마미케어', desc:'임산부·베이비 케어', sales:'세부 매출 미공개', growth:'N/A', bar:35, status:'rising', statusLabel:'라이징'},
     ],
     invests: [
       {name:'프라이머사제', type:'재무적 투자자', amt:'투자유치'},
@@ -1126,7 +1126,7 @@ const PROFILES = {
     stageIdx: 1, stages: ['사업성 검증','자력 성장','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: '외부 투자 없이 자력 성장 중. Pre-IPO 검토설 지속. 2027년 상장 예상.',
     brands: [
-      {name:'Anua Inc', desc:'아누아 미국법인', sales:'매출 422억', status:'anchor', statusLabel:'고성장'},
+      {name:'Anua Inc', desc:'아누아 미국법인', sales:'매출 422억', growth:'N/A', bar:50, status:'anchor', statusLabel:'고성장'},
     ],
     invests: [
       {name:'외부 투자 없음', type:'자체 수익 재투자', amt:'10년 자력 성장'},
