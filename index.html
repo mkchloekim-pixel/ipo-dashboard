@@ -984,7 +984,7 @@ const PROFILES = {
     stageIdx: 2, stages: ['사업성 검증','PE 투자','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: 'IMM PE 경영권 투자 후 IPO 검토 단계. 주관사 미선정.',
     brands: [
-      {name:'인셀덤', desc:'분자 기능성 화장품 · MLM 채널', sales:'주력 브랜드', growth:'안정', bar:70, status:'anchor', statusLabel:'앵커'},
+      {name:'인셀덤', desc:'분자 기능성 화장품 · MLM 채널', sales:'-', growth:'안정', bar:70, status:'anchor', statusLabel:'앵커'},
       {name:'보타팜', desc:'보타닉 스킨케어', sales:'-', growth:'성장중', bar:35, status:'growing', statusLabel:'성장중'},
       {name:'라이프닝', desc:'웰니스 뷰티', sales:'-', growth:'성장중', bar:25, status:'rising', statusLabel:'라이징'},
     ],
@@ -1185,8 +1185,8 @@ const PROFILES = {
     stageIdx: 2, stages: ['사업성 검증','투자유치','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: '현재 주관사 선정 단계 — 공식 IPO 일정 미발표. 실적 성장 및 기업가치 검증 이후 본격화 예상.',
     brands: [
-      {name:'마뗑킴', desc:'K패션 글로벌 아이콘 · 아이브 리즈 앰버서더', sales:'1,357억 (YoY +5.4%)', growth:'+5.4%', bar:100, status:'anchor', statusLabel:'앵커 브랜드'},
-      {name:'마뗑킴 外 브랜드', desc:'드파운드·유니폼브릿지·보카바카 등 37개+ 포트폴리오', sales:'845억 (YoY +136.8%)', growth:'+136.8%', bar:62, status:'growing', statusLabel:'성장중'},
+      {name:'마뗑킴', desc:'K패션 글로벌 아이콘 · 아이브 리즈 앰버서더', sales:'1,357억', growth:'+5.4%', bar:100, status:'anchor', statusLabel:'앵커 브랜드'},
+      {name:'마뗑킴 外 브랜드', desc:'드파운드·유니폼브릿지·보카바카 등 37개+ 포트폴리오', sales:'845억', growth:'+136.8%', bar:62, status:'growing', statusLabel:'성장중'},
     ],
     invests: [
       {name:'SV인베스트먼트', type:'재무적 투자자 (FI)', amt:'보유 중'},
@@ -1355,7 +1355,7 @@ function openProfile(key) {
         <thead><tr>
           <th style="width:35%">구분</th>
           <th style="width:18%">실적</th>
-          <th style="width:14%">성장률</th>
+          <th style="width:14%">성장세</th>
           <th style="width:18%">규모</th>
           <th>위상</th>
         </tr></thead>
