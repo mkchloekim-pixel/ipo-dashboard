@@ -1649,7 +1649,7 @@ function filterRegion(region, btn) {
   }
   currentRegionFilter = region;
   document.querySelectorAll('.filter-btn').forEach(b =>
-    b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-listed','active-region'));
+    b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-food'));
   btn.classList.add('active-region');
   ['버티컬','뷰티','패션','식품'].forEach(s =>
     document.getElementById('section-'+s).style.display = '');
@@ -1668,7 +1668,7 @@ function filterRegion(region, btn) {
 let currentMomFilter = null;
 function filterSector(sector, btn) {
   document.querySelectorAll('.filter-btn').forEach(b =>
-    b.classList.remove('active-all','active-vertical','active-beauty','active-fashion'));
+    b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-food'));
   if (sector==='all') btn.classList.add('active-all');
   else if (sector==='버티컬') btn.classList.add('active-vertical');
   else if (sector==='뷰티') btn.classList.add('active-beauty');
@@ -1690,7 +1690,7 @@ function filterMom(mom, btn) {
   }
   currentMomFilter=mom;
   document.querySelectorAll('.filter-btn').forEach(b=>
-    b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-listed'));
+    b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-food','active-listed'));
   if(mom==='listed') btn.classList.add('active-listed');
   else btn.classList.add('active-all');
   ['버티컬','뷰티','패션','식품'].forEach(s=>document.getElementById('section-'+s).style.display='');
