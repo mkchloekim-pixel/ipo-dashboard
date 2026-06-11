@@ -191,6 +191,7 @@
   .b-status.anchor{background:var(--accent-bg);color:var(--accent);border:.5px solid var(--accent-bd);}
   .b-status.rising{background:var(--info-bg);color:var(--info);border:.5px solid var(--info-bd);}
   .b-status.growing{background:var(--high-bg);color:var(--high);border:.5px solid var(--high-bd);}
+  .b-status.decline{background:var(--risk-bg);color:var(--risk);border:.5px solid var(--risk-bd);}
 
   /* Invest/Global rows */
   .inv-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:.5px solid var(--border);}
@@ -695,8 +696,8 @@ const PROFILES = {
     stageIdx: 3, stages: ['사업성 검증','투자유치','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: '주관사 선정 완료, Pre-IPO 단계. 2027~2028년 상장 목표.',
     brands: [
-      {name:'마켓컬리', desc:'새벽배송 원조 · 프리미엄 식품', sales:'GMV 3조원+', growth:'+고성장', bar:85, status:'anchor', statusLabel:'앵커'},
-      {name:'뷰티컬리', desc:'뷰티 버티컬 · 2022년 론칭', sales:'GMV 약 5,000억', growth:'+고성장', bar:30, status:'rising', statusLabel:'라이징'},
+      {name:'마켓컬리', desc:'새벽배송 원조 · 프리미엄 식품', sales:'GMV 3조원+', growth:'고성장', bar:85, status:'anchor', statusLabel:'앵커'},
+      {name:'뷰티컬리', desc:'뷰티 버티컬 · 2022년 론칭', sales:'GMV 약 5,000억', growth:'고성장', bar:30, status:'rising', statusLabel:'라이징'},
     ],
     invests: [
       {name:'Anchor Equity Partners', type:'전략적 투자자', amt:'투자유지'},
@@ -935,7 +936,7 @@ const PROFILES = {
     stageNote: '미래에셋증권 주관사 선정 완료. Pre-IPO 및 상장 일정 협의 중.',
     brands: [
       {name:'ODM 사업부', desc:'달바글로벌/에이피알 등', sales:'세부 매출 미공개', growth:'고성장', bar:100, status:'anchor', statusLabel:'주력'},
-      {name:'OBM 자체브랜드', desc:'더마팩토리 (고효능 스킨케어) 등', sales:'세부 매출 미공개', growth:'성장중', bar:50, status:'pb', statusLabel:'자사브랜드'},
+      {name:'OBM 자체브랜드', desc:'더마팩토리 (고효능 스킨케어) 등', sales:'세부 매출 미공개', growth:'성장중', bar:50, status:'growing', statusLabel:'자사브랜드'},
     ],
     invests: [
       {name:'진백글로벌 M&A', type:'전략적 인수', amt:'M&A 완료'},
@@ -1167,9 +1168,8 @@ const PROFILES = {
     stageIdx: 3, stages: ['사업성 검증','PE 투자','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: '신한투자증권 주관사 선정 완료. 2027년 상반기 코스피 상장 목표.',
     brands: [
-      {name:'코닥어패럴', desc:'레트로 라이프스타일 · MZ 타깃', sales:'매출 1,000억+', bar:40, status:'anchor', statusLabel:'앵커'},
-      {name:'말본골프', desc:'프리미엄 골프웨어', sales:'매출 900억+', bar:35, status:'growing', statusLabel:'성장중'},
-      {name:'디아도라·시에라디자인 등', desc:'기타 브랜드', bar:15, status:'growing', statusLabel:'성장중'},
+      {name:'코닥어패럴', desc:'레트로 라이프스타일 · MZ 타깃', sales:'매출 1,000억+', growth:'성장', bar:40, status:'anchor', statusLabel:'앵커'},
+      {name:'말본골프', desc:'프리미엄 골프웨어', sales:'매출 900억+', growth:'성장', bar:35, status:'growing', statusLabel:'성장중'},
     ],
     invests: [
       {name:'IMM PE', type:'경영권 투자', amt:'투자유지'},
@@ -1205,9 +1205,9 @@ const PROFILES = {
     stageIdx: 5, stages: ['사업성 검증','Series A','주관사 선정','Pre-IPO','예심 청구','공모·상장 ✓'],
     stageNote: '2026년 6월 8일 코스닥 상장 완료.',
     brands: [
-      {name:'자사몰', desc:'국내 및 해외 포함', sales:'537억', growth:'+38%', bar:45, status:'growth', statusLabel:'성장중'},
-      {name:'직영매장', desc:'국내 중심 축소', sales:'170억', growth:'-27%', bar:25, status:'down', statusLabel:'역성장'},
-      {name:'외부채널', desc:'국내 중심 축소', sales:'323억', growth:'-8%', bar:30, status:'down', statusLabel:'역성장'},
+      {name:'자사몰', desc:'국내 및 해외 포함', sales:'매출 537억', growth:'+38%', bar:45, status:'growing', statusLabel:'성장중'},
+      {name:'직영매장', desc:'국내 중심 축소', sales:'매출 170억', growth:'-27%', bar:25, status:'decline', statusLabel:'역성장'},
+      {name:'외부채널', desc:'국내 중심 축소', sales:'매출 323억', growth:'-8%', bar:30, status:'decline', statusLabel:'역성장'},
     ],
     invests: [
       {name:'Series A 투자사', type:'재무적 투자자', amt:'투자유지 → 상장 후 엑시트'},
