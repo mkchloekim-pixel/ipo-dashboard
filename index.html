@@ -191,7 +191,7 @@
   .b-status.anchor{background:var(--accent-bg);color:var(--accent);border:.5px solid var(--accent-bd);}
   .b-status.rising{background:var(--info-bg);color:var(--info);border:.5px solid var(--info-bd);}
   .b-status.growing{background:var(--high-bg);color:var(--high);border:.5px solid var(--high-bd);}
-  .b-status.decline{background:var(--risk-bg);color:var(--risk);border:.5px solid var(--risk-bd);}
+  .b-status.decline{background:var(--midlow-bg);color:var(--midlow);border:.5px solid var(--midlow-border);}
 
   /* Invest/Global rows */
   .inv-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:.5px solid var(--border);}
@@ -1317,15 +1317,15 @@ const PROFILES = {
   },
 
   boosterz: {
-    name: '부스터즈', meta: '패션 · 우주택 연결편입 · BOOSTERZ', sectorClass: 'sector-f',
+    name: '부스터즈', meta: '패션 · 우주텍 연결편입 · BOOSTERZ', sectorClass: 'sector-f',
     sectorLabel: '패션', ipoLabel: "IPO 주관사 선정 추진 중 ('26.4Q 예상)", momLabel: '추진강도 Mid', accentColor: 'var(--accent-fashion)',
     kpis: [
       {label:'매출 (25년)', value:'1,993억', delta:{cls:'up', text:'우주텍(르무통) 연결편입 성장 中'}, sub:'OP 255억'},
       {label:'부스터즈 지분율', value:'44.29%', sub:"'26.5 기준 · 우주텍 대표 48.01%"},
       {label:'IPO 진행단계', value:'주관사 선정', sub:"'26.4Q 선정 예상(당초 대비 연기)"},
-      {label:'RCPS 상환청구', value:"'25.10 도래", sub:'당사 RCPS 상환청구권 행사 가능'},
+      {label:'중복 상장 이슈', value:"지속 Tracking 필요", sub:'우주텍 2차 지분 인수 등 모니터링'},
     ],
-    stageIdx: 2, stages: ["'25.10 RCPS 상환청구 도래", "'26.4 우주텍 1차 지분 인수", "'26.3~4Q 우주택 2차 지분 인수(예상)", "'26.4Q IPO 주관사 선정(예상)"],
+    stageIdx: 2, stages: ["'25.10 RCPS 상환청구 도래", "'26.4 우주텍 1차 지분 인수", "'26.3~4Q 우주텍 2차 지분 인수(예상)", "'26.4Q IPO 주관사 선정(예상)"],
     stageNote: "우주텍 연결실적 편입으로 외형·이익 성장 중. '26.5 기준 부스터즈 44.29% vs 우주텍 대표 48.01%. 단계적 지분 인수로 경영권 확보 후 중복상장 이슈 해소·IPO 추진. '26.4Q 주관사 선정 예상(당초 대비 연기).",
     brands: [
       {name:'로컬 비즈니스', desc:'커머스 중심 브랜드 엑셀러레이팅', sales:'매출 1,943억', growth:'+100%', bar:100, status:'anchor', statusLabel:'앵커'},
@@ -1333,22 +1333,22 @@ const PROFILES = {
       {name:'신사업 추진', desc:'K-의료 플랫폼 정한닥, 탈모 커뮤니티 대다모 등', sales:'세부 매출 미공개', growth:'안정적 성장', bar:10, status:'rising', statusLabel:'신사업'},
     ],
     invests: [
-      {name:'우주택 대표', type:'최대주주', amt:'지분 48.01%'},
+      {name:'우주텍 대표', type:'최대주주', amt:'지분 48.01%'},
     ],
     investNote: "당사 RCPS 상환청구권 '25.10 도래. 우주텍 1차 지분 인수('26.4) 완료. 2차 지분 인수('26.3~4Q)로 경영권 확보 후 IPO 추진 또는 구주매각·RCPS 상환 등 Exit 옵션 병행 검토.",
     globals: [
       {name:'글로벌 K-브랜드 생태계 확장(패션·라이프스타일→헬스케어)', status:'확장 중', cls:'biz', region:'온라인', regionEn:'online'},
     ],
     news: [
-      {date:'2026.06', hl:"당사 관리방안 — 경영권 확보 마일스톤·IPO 가능성 Tracking 지속", sum:"우주택 경영권 확보 마일스톤 및 중복상장 이슈·IPO 가능성 지속 Tracking. 구주매각·RCPS 상환 등 Exit 옵션 병행 검토 중.", tags:['ipo','risk']},
-      {date:'2026.04', hl:"우주택 1차 지분 인수 완료 — 단계적 경영권 확보 진행 중", sum:"우주택 1차 지분 인수 완료. 당사 지분 44.29% vs 우주택 대표 48.01%로 아직 경영권 미확보. 2차 지분 인수('26.3~4Q 예상)로 경영권 확보 후 IPO 추진 또는 우회 상장 병행 검토.", tags:['invest','ipo']},
+      {date:'2026.06', hl:"당사 관리방안 — 경영권 확보 마일스톤·IPO 가능성 Tracking 지속", sum:"우주텍 경영권 확보 마일스톤 및 중복상장 이슈·IPO 가능성 지속 Tracking. 구주매각·RCPS 상환 등 Exit 옵션 병행 검토 중.", tags:['ipo','risk']},
+      {date:'2026.04', hl:"우주텍 1차 지분 인수 완료 — 단계적 경영권 확보 진행 중", sum:"우주텍 1차 지분 인수 완료. 당사 지분 44.29% vs 우주텍 대표 48.01%로 아직 경영권 미확보. 2차 지분 인수('26.3~4Q 예상)로 경영권 확보 후 IPO 추진 또는 우회 상장 병행 검토.", tags:['invest','ipo']},
       {date:'2025.10', hl:"당사 RCPS 상환청구권 도래 — Exit 옵션 검토 개시", sum:"당사 보유 RCPS 상환청구권 행사 가능 시점 도래. IPO 추진 상황에 따라 RCPS 상환·구주매각 등 복수의 Exit 시나리오 검토 중.", tags:['invest','risk']},
     ],
-    outlook: "우주택 연결편입으로 외형·이익 성장 가시화. 단, 경영권 미확보·중복상장 이슈로 IPO 주관사 선정이 당초 대비 지연. 2차 지분 인수 완료가 IPO 추진의 핵심 선행 조건.",
+    outlook: "우주텍 연결편입으로 외형·이익 성장 가시화. 단, 경영권 미확보·중복상장 이슈로 IPO 주관사 선정이 당초 대비 지연. 2차 지분 인수 완료가 IPO 추진의 핵심 선행 조건.",
     outlookClass: '',
     risks: [
-      {color:'#dc2626', text:'<b>경영권 미확보</b> — 당사 44.29% vs 우주택 대표 48.01%. 2차 지분 인수 전까지 IPO 주체 불명확.'},
-      {color:'#d97706', text:'<b>중복상장 이슈</b> — 우주택(르무통 등) 연결편입에 따른 중복상장 이슈 해소가 IPO 심사의 핵심 과제.'},
+      {color:'#dc2626', text:'<b>경영권 미확보</b> — 당사 44.29% vs 우주텍 대표 48.01%. 2차 지분 인수 전까지 IPO 주체 불명확.'},
+      {color:'#d97706', text:'<b>중복상장 이슈</b> — 우주텍(르무통 등) 연결편입에 따른 중복상장 이슈 해소가 IPO 심사의 핵심 과제.'},
       {color:'#2563eb', text:'<b>Exit 불확실성</b> — IPO 지연 시 RCPS 상환·구주매각 등 대안 옵션 실행 가능성 상존.'},
     ],
   },
