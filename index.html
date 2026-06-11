@@ -241,6 +241,13 @@
 
   /* Two col */
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:.9rem;}
+@media (max-width: 768px) {
+  .table-wrap { overflow-x: auto; }       /* 테이블 가로 스크롤 */
+  .panel { width: 100vw; min-width: unset; } /* 패널 전체화면 */
+  .filter-bar { flex-wrap: wrap; gap: 6px; } /* 필터버튼 줄바꿈 */
+  .col-invest, .col-bank { display: none; }  /* 좁은 컬럼 숨김 */
+  .stat-pill { font-size: 11px; }
+}
 </style>
 </head>
 <body>
@@ -374,7 +381,7 @@
         </tr>
         <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('vinow')" data-regions="일본,온라인,동남아">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=numbuzin.com&sz=64" alt="비나우" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">비나</span><div><div class="company-name" style="color:var(--accent-beauty)">비나우</div><div class="company-type">뷰티 브랜드사</div></div></div></td>
-          <td><div class="ipo-year">'27년 3~4Q 목표</div></td>
+          <td><div class="ipo-year">27년 3~4Q 목표</div></td>
           <td><span class="mom midhigh">Mid-high</span></td>
           <td><div class="brand-text">넘버즈인, 프위</div><div class="profile-hint" style="color:var(--accent-beauty)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 3,250억</div><div class="op-num">OP 671억</div></td>
@@ -473,7 +480,7 @@
         </tr>
         <tr class="clickable-row" data-sector="패션" data-mom="listed" onclick="openProfile('peacenow')" data-regions="중국,일본,온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=mardimercredi.com&sz=64" alt="피스피스스튜디오" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">피스</span><div><div class="company-name" style="color:var(--accent-fashion)">피스피스스튜디오</div><div class="company-type">여성 패션·잡화</div></div></div></td>
-          <td><div class="ipo-year" style="color:var(--high);font-weight:600;">'26.6.8<br>상장완료 🎉</div></td>
+          <td><div class="ipo-year" style="color:var(--high);font-weight:600;">26.6.8<br>상장완료 🎉</div></td>
           <td><span class="mom listed">상장완료</span></td>
           <td><div class="brand-text">마르디 메크르디</div><div class="profile-hint" style="color:var(--accent-fashion)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 1,179억</div><div class="op-num">OP 167억</div></td>
@@ -482,11 +489,11 @@
         </tr>
         <tr class="clickable-row" data-sector="패션" data-mom="mid" onclick="openProfile('boosterz')" data-regions="온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=boosterz.co.kr&sz=64" alt="부스터즈" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">부스</span><div><div class="company-name" style="color:var(--accent-fashion)">부스터즈</div><div class="company-type">패션 · 우주택 연결편입</div></div></div></td>
-          <td><div class="ipo-year">'26.4Q<br>주관사 선정 목표</div></td>
+          <td><div class="ipo-year">26.4Q<br>주관사 선정 목표</div></td>
           <td><span class="mom mid">Mid</span></td>
-          <td><div class="brand-text">우주택(르무통) 연결편입</div><div class="profile-hint" style="color:var(--accent-fashion)">📋 상세 프로파일</div></td>
-          <td><div class="sales-num">매출 1,527억</div><div class="op-num">OP 91억</div></td>
-          <td><div class="invest-main">당사 RCPS · 우주택 지분 인수 中</div><div class="invest-round">당사 44.29% · 대표 48.01%</div></td>
+          <td><div class="brand-text">우주텍(르무통) 연결실적 편입</div><div class="profile-hint" style="color:var(--accent-fashion)">📋 상세 프로파일</div></td>
+          <td><div class="sales-num">매출 1,993억</div><div class="op-num">OP 255억</div></td>
+          <td><div class="invest-main">중복상장 이슈 Tracking 지속 필요</div><div class="invest-round">부스터즈 44.29% · 우주텍 대표 48.01%</div></td>
           <td><div class="bank-pending">미선정 (당초 대비 연기)</div></td>
         </tr>
       </tbody>
@@ -508,11 +515,11 @@
       </tr></thead>
       <tbody>
         <tr class="clickable-row" data-sector="식품" data-mom="mid" onclick="openProfile('grainon')" data-regions="온라인">
-          <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=grainon.co.kr&sz=64" alt="그레인온" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">그레</span><div><div class="company-name" style="color:var(--accent-food)">그레인온</div><div class="company-type">식품</div></div></div></td>
-          <td><div class="ipo-year">'27년 1Q 목표</div></td>
+          <td><div class="company-cell"><img class="company-logo-img" src="https://newdabio1.cafe24.com/images/logo/sample-logo.png" alt="그레인온" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">그레</span><div><div class="company-name" style="color:var(--accent-food)">그레인온</div><div class="company-type">식품</div></div></div></td>
+          <td><div class="ipo-year">27년 1Q 예상</div></td>
           <td><span class="mom mid">Mid</span></td>
           <td><div class="brand-text">카무트 효소 · K효소 · 뷰티 신사업</div><div class="profile-hint" style="color:var(--accent-food)">📋 상세 프로파일</div></td>
-          <td><div class="sales-num">매출 1,751억</div><div class="op-num">OP 110억</div></td>
+          <td><div class="sales-num">매출 1,751억</div><div class="op-num">OP 334억</div></td>
           <td><div class="invest-main">'26.4 액면분할·무상증자</div></td>
           <td><div class="bank-text">신한투자증권</div></td>
         </tr>
@@ -572,7 +579,8 @@ const DOMAINS = {
 const CUSTOM_LOGOS = {
     'oasis': 'data:image/png;base64,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',
     '2020':  'data:image/png;base64,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',
-  };
+    'grainon': 'https://newdabio1.cafe24.com/images/logo/sample-logo.png',
+};
 
 
 
@@ -759,7 +767,7 @@ const PROFILES = {
 
   oasis: {
     name: '오아시스', meta: '유기농 식품 버티컬 · 설립 2011년 · 안준형 대표', sectorClass: 'sector-v',
-    sectorLabel: '버티컬 커머스', ipoLabel: 'IPO 재추진', momLabel: '추진강도 Mid', accentColor: 'var(--accent-vertical)',
+    sectorLabel: '버티컬 커머스', ipoLabel: 'IPO 철회 후 모니터링 지속', momLabel: '추진강도 Mid', accentColor: 'var(--accent-vertical)',
     kpis: [
       {label:'매출 (25년)', value:'5,645억', delta:{cls:'up', text:'▲ YoY +9.2%'}, sub:'OP 191억 (흑자 지속)'},
       {label:'기업가치 (추정)', value:'미공개', sub:'자체 흑자 경영으로 추정 어려움'},
@@ -890,8 +898,8 @@ const PROFILES = {
     stageNote: 'PE 투자 유치 완료. 주관사 미선정으로 IPO 준비 초기 단계.',
     brands: [
       {name:'Grace Japan', desc:'일본 현지 법인', sales:'매출 53억', growth:'+528%', status:'종속법인', statusLabel:'지속'},
-      {name:'The Owl Company GmbH', desc:'독일 현지 법인', sales:'매출 57억', growth:'+29%', status:'종속법인', statusLabel:'지속'},
       {name:'티앤모프', desc:'해외 마케팅 대행사', sales:'매출 67억', status:'종속법인', statusLabel:'신규취득'},
+       {name:'The Owl Company GmbH', desc:'독일 현지 법인', sales:'매출 57억', growth:'+29%', status:'종속법인', statusLabel:'지속'},
     ],
     invests: [
       {name:'PE 투자사 (비공개)', type:'경영권 투자', amt:'투자유지'},
