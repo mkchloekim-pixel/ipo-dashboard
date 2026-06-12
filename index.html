@@ -243,7 +243,7 @@
   /* Two col */
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:.9rem;}
 
-  /* ══════════════════════════════
+   /* ══════════════════════════════
      모바일 반응형
      ══════════════════════════════ */
   @media (max-width:768px){
@@ -323,7 +323,8 @@
     .stage-label{font-size:8.5px;}.stage-dot{width:11px;height:11px;}
 
     /* ── 핵심사업포트폴리오 — 카드형 변환 ── */
-    .brand-tbl{width:100%;table-layout:fixed;}
+    .brand-tbl{width:100%;table-layout:fixed;overflow:hidden;}
+    .p-section:has(.brand-tbl){overflow:hidden;}
     .brand-tbl thead{display:none;}
     .brand-tbl tr{
       display:flex;flex-direction:column;
@@ -341,7 +342,8 @@
     .brand-tbl td:nth-child(2){display:inline-block;margin-right:8px;}
     .brand-tbl td:nth-child(3){display:inline-block;}
     .b-name{font-size:12px;font-weight:600;}
-    .b-desc{font-size:11px;color:var(--text3);}
+    .b-desc{font-size:11px;color:var(--text3);word-break:keep-all;overflow-wrap:break-word;}
+    .b-desc *{font-size:11px !important;white-space:normal !important;}
     .b-sales{font-size:11.5px;}.b-growth{font-size:11px;}
 
     /* 투자·글로벌 1열 */
@@ -964,7 +966,7 @@ const PROFILES = {
       {label:'영업이익률', value:'20.6%', sub:'매출 1,000억·이익 30억 요건 충족'},
       {label:'주관사', value:'삼성증권', sub:"'24.9 선정완료"},
     ],
-    stageIdx: 3, stages: ["'24.9 주관사 선정", "'25.10 준비 본격화", "'26년 온기 실적 확인", "'27.2Q 예심 청구(예상)", "'27.3~4Q 상장(예상)"],
+    stageIdx: 2, stages: ['사업성 검증','투자유치','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: "삼성증권 주관사 선정('24.9) 및 전자증권 전환 완료. '26년 온기 실적 반영 후 예심 청구 목표. '27년 3~4Q 증권신고서 제출·상장 예상.",
     brands: [
       {name:'넘버즈인', desc:'세럼·앰플 히트 브랜드', sales:'매출 2,000억+', growth:'+50%', bar:100, status:'anchor', statusLabel:'앵커'},
