@@ -355,20 +355,19 @@
     .brand-tbl td:nth-child(3){display:none !important;}
     .brand-tbl td:nth-child(4){display:none !important;}
     .brand-tbl td:nth-child(5){flex:1;display:block !important;width:auto !important;text-align:right;}
-    .td-bar{
-      display:none !important;
-      width:0 !important;max-width:0 !important;
-      height:0 !important;overflow:hidden !important;
-      visibility:hidden !important;padding:0 !important;
-    }
-    .bar-wrap,.bar-fill,.brand-tbl td:nth-child(4){
+    .brand-tbl td:nth-child(4),.bar-wrap,.bar-fill{
       display:none !important;
       width:0 !important;
       max-width:0 !important;
+      min-width:0 !important;
       height:0 !important;
       overflow:hidden !important;
       visibility:hidden !important;
       padding:0 !important;
+      margin:0 !important;
+      flex-shrink:1 !important;
+      flex-grow:0 !important;
+      flex-basis:0 !important;
     }
     /* 폰트 전체 강제 통일 */
     .brand-tbl *{font-size:12px !important;}
