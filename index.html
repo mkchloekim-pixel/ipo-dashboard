@@ -1548,12 +1548,13 @@ function openProfile(key) {
   }).join('');
 
   // Brand table
+  const isMobile = window.innerWidth <= 768;
   const brandHTML = p.brands.map(b => `
-    <tr>
+   <tr>
       <td><div class="b-name">${b.name}</div><div class="b-desc" style="line-height:1.6">${b.desc}</div></td>
       <td><div class="b-sales">${b.sales}</div></td>
       <td><div class="b-growth">${b.growth}</div></td>
-      <td><div class="bar-wrap"><div class="bar-fill" style="width:${b.bar}%"></div></div></td>
+      <td style="${isMobile ? 'display:none!important;width:0!important;max-width:0!important;min-width:0!important;padding:0!important;margin:0!important;overflow:hidden!important;flex:0 0 0!important;' : ''}"><div class="bar-wrap" style="${isMobile ? 'display:none!important;width:0!important;' : ''}"><div class="bar-fill" style="width:${b.bar}%"></div></div></td>
       <td><span class="b-status ${b.status}">${b.statusLabel}</span></td>
     </tr>`).join('');
 
