@@ -468,15 +468,16 @@
     </div>
     <div class="table-wrap"><table>
       <thead><tr>
-        <th class="col-name">기업명</th><th class="col-ipo">IPO예정</th>
-        <th class="col-momentum">추진강도</th><th class="col-brand">주요 브랜드/사업</th>
-        <th class="col-sales">실적 ('25년)</th><th class="col-invest">투자유치현황</th>
-        <th class="col-bank">주관사</th>
+        <th class="col-name">기업명</th><th class="col-valuation">기업가치</th>
+        <th class="col-ipo">IPO예정</th><th class="col-momentum">추진강도</th>
+        <th class="col-brand">주요 브랜드/사업</th><th class="col-sales">실적 ('25년)</th>
+        <th class="col-invest">투자유치현황</th><th class="col-bank">주관사</th>
       </tr></thead>
       <tbody>
         <tr class="clickable-row" data-sector="버티컬" data-mom="high" onclick="openProfile('kurly')" data-regions="미주,온라인,동남아">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=kurly.com&sz=64" alt="컬리" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">컬리</span><div><div class="company-name" style="color:var(--accent-vertical)">컬리</div><div class="company-type">식품 버티컬</div></div></div></td>
           <td><div class="ipo-year">27~28년</div></td>
+          <td><div class="ipo-value">약 2.8조</div></td>
           <td><span class="mom high">High</span></td>
           <td><div class="brand-text">마켓컬리, 뷰티컬리</div><div class="profile-hint" style="color:var(--accent-vertical)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 2조 3,671억</div><div class="op-num">OP 131억</div></td>
@@ -486,6 +487,7 @@
         <tr class="clickable-row" data-sector="버티컬" data-mom="high" onclick="openProfile('musinsoa')" data-regions="중국,일본,미주,동남아,온라인,유럽">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=musinsa.com&sz=64" alt="무신사" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">무신</span><div><div class="company-name" style="color:var(--accent-vertical)">무신사</div><div class="company-type">패션 버티컬</div></div></div></td>
           <td><div class="ipo-year">27~28년</div></td>
+          <td><div class="ipo-value">약 3조~최대 10조</div></td>
           <td><span class="mom high">High</span></td>
           <td><div class="brand-text">무신사 (스탠다드), 29CM</div><div class="profile-hint" style="color:var(--accent-vertical)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 1조 4,679억</div><div class="op-num">OP 1,405억</div></td>
@@ -495,6 +497,7 @@
         <tr class="clickable-row" data-sector="버티컬" data-mom="midlow" onclick="openProfile('oasis')">
           <td><div class="company-cell"><img class="company-logo-img" src="data:image/png;base64,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" alt="오아시스" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">오아</span><div><div class="company-name" style="color:var(--accent-vertical)">오아시스</div><div class="company-type">유기농 식품 버티컬</div></div></div></td>
           <td><div class="ipo-year">27년 이후<br>재추진</div></td>
+          <td><div class="ipo-value">약 3,700~4,000억</div></td>
           <td><span class="mom midlow">Mid-low</span></td>
           <td><div class="brand-text">오아시스마켓 (유기농 새벽배송)</div><div class="profile-hint" style="color:var(--accent-vertical)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 5,645억</div><div class="op-num">OP 191억</div></td>
@@ -504,6 +507,7 @@
         <tr class="clickable-row" data-sector="버티컬" data-mom="mid" onclick="openProfile('ohouse')" data-regions="일본,미주,온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=ohou.se&sz=64" alt="오늘의집" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">오늘</span><div><div class="company-name" style="color:var(--accent-vertical)">오늘의집</div><div class="company-type">홈 인테리어 버티컬</div></div></div></td>
           <td><div class="ipo-year">27~28년</div></td>
+          <td><div class="ipo-value">약 1.8조</div></td>
           <td><span class="mom mid">Mid</span></td>
           <td><div class="brand-text">오늘의집 (인테리어·가구 커머스)</div><div class="profile-hint" style="color:var(--accent-vertical)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 3,215억</div><div class="op-num">OP -147억</div></td>
@@ -522,15 +526,16 @@
     </div>
     <div class="table-wrap"><table>
       <thead><tr>
-        <th class="col-name">기업명</th><th class="col-ipo">IPO예정</th>
-        <th class="col-momentum">추진강도</th><th class="col-brand">주요 브랜드/사업</th>
-        <th class="col-sales">실적 ('25년)</th><th class="col-invest">투자유치현황</th>
-        <th class="col-bank">주관사</th>
+        <th class="col-name">기업명</th><th class="col-valuation">기업가치</th>
+        <th class="col-ipo">IPO예정</th><th class="col-momentum">추진강도</th>
+        <th class="col-brand">주요 브랜드/사업</th><th class="col-sales">실적 ('25년)</th>
+        <th class="col-invest">투자유치현황</th><th class="col-bank">주관사</th>
       </tr></thead>
       <tbody>
         <tr class="clickable-row" data-sector="뷰티" data-mom="high" onclick="openProfile('goodai')" data-regions="미주,일본,유럽,온라인,동남아">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=beautyofjoseon.com&sz=64" alt="구다이글로벌" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">구다</span><div><div class="company-name" style="color:var(--accent-beauty)">구다이글로벌</div><div class="company-type">뷰티 유통/브랜드사</div></div></div></td>
           <td><div class="ipo-year">27~28년</div></td>
+          <td><div class="ipo-value">약 4조~최대 10조</div></td>
           <td><span class="mom high">High</span></td>
           <td><div class="brand-text">스킨1004, 조선미녀, 티르티르, 라운드랩</div><div class="profile-hint" style="color:var(--accent-beauty)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 1조 4,718억</div><div class="op-num">OP 2,734억</div></td>
@@ -540,6 +545,7 @@
         <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('founders')" data-regions="미주,유럽,일본,온라인,동남아">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=anua.kr&sz=64" alt="더파운더즈" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">더파</span><div><div class="company-name" style="color:var(--accent-beauty)">더파운더즈</div><div class="company-type">뷰티 브랜드사</div></div></div></td>
           <td><div class="ipo-year">27년 예상</div></td>
+          <td><div class="ipo-value">약 1조 이상(미공개)</div></td>
           <td><span class="mom midhigh">Mid-high</span></td>
           <td><div class="brand-text">아누아</div><div class="profile-hint" style="color:var(--accent-beauty)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 7,177억</div><div class="op-num">OP 1,295억</div></td>
@@ -549,6 +555,7 @@
         <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('vinow')" data-regions="일본,온라인,동남아">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=numbuzin.com&sz=64" alt="비나우" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">비나</span><div><div class="company-name" style="color:var(--accent-beauty)">비나우</div><div class="company-type">뷰티 브랜드사</div></div></div></td>
           <td><div class="ipo-year">27년 3~4Q 목표</div></td>
+          <td><div class="ipo-value">약 9,000억</div></td>
           <td><span class="mom midhigh">Mid-high</span></td>
           <td><div class="brand-text">넘버즈인, 퓌</div><div class="profile-hint" style="color:var(--accent-beauty)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 3,250억</div><div class="op-num">OP 671억</div></td>
@@ -558,6 +565,7 @@
         <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('olive')" data-regions="미주,유럽,일본,온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=oliveinternational.co.kr&sz=64" alt="올리브인터내셔널" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">올리</span><div><div class="company-name" style="color:var(--accent-beauty)">올리브인터내셔널</div><div class="company-type">뷰티 브랜드사</div></div></div></td>
           <td><div class="ipo-year">27년 목표</div></td>
+          <td><div class="ipo-value">약 3,000억</div></td>
           <td><span class="mom midhigh">Mid-high</span></td>
           <td><div class="brand-text">성분에디터, 밀크터치, 마미케어 등</div><div class="profile-hint" style="color:var(--accent-beauty)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 2,041억</div><div class="op-num">OP 111억</div></td>
@@ -567,6 +575,7 @@
         <tr class="clickable-row" data-sector="뷰티" data-mom="mid" onclick="openProfile('liman')" data-regions="미주,유럽,일본,온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=kr.riman.com&sz=64" alt="리만코리아" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">리만</span><div><div class="company-name" style="color:var(--accent-beauty)">리만코리아</div><div class="company-type">뷰티 브랜드사/네트워크 비즈니스</div></div></div></td>
           <td><div class="ipo-year">검토중</div></td>
+          <td><div class="ipo-value">미공개</div></td>
           <td><span class="mom mid">Mid</span></td>
           <td><div class="brand-text">인셀덤, 보타팜, 라이프닝</div><div class="profile-hint" style="color:var(--accent-beauty)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 1,962억</div><div class="op-num">OP 84억</div></td>
@@ -576,6 +585,7 @@
         <tr class="clickable-row" data-sector="뷰티" data-mom="mid" onclick="openProfile('grace')" data-regions="미주,일본,온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=grace-bt.co.kr&sz=64" alt="그레이스" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">그레</span><div><div class="company-name" style="color:var(--accent-beauty)">그레이스</div><div class="company-type">뷰티 벤더/글로벌 유통</div></div></div></td>
           <td><div class="ipo-year">검토중</div></td>
+          <td><div class="ipo-value">약 2,500억</div></td>
           <td><span class="mom mid">Mid</span></td>
           <td><div class="brand-text">글로벌 뷰티 및 H&B 유통</div><div class="profile-hint" style="color:var(--accent-beauty)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 1,945억</div><div class="op-num">OP 129억</div></td>
@@ -585,6 +595,7 @@
         <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('2020')" data-regions="미주,온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="data:image/png;base64,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" alt="이공이공" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">이공</span><div><div class="company-name" style="color:var(--accent-beauty)">이공이공</div><div class="company-type">글로벌 마케팅/브랜드 엑셀러레이터</div></div></div></td>
           <td><div class="ipo-year">26년 하반기</div></td>
+          <td><div class="ipo-value">약 1,300억</div></td>
           <td><span class="mom midhigh">Mid-high</span></td>
           <td><div class="brand-text">글로벌 브랜드 액셀러레이터</div><div class="profile-hint" style="color:var(--accent-beauty)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 666억</div><div class="op-num">OP -278억</div></td>
@@ -594,6 +605,7 @@
         <tr class="clickable-row" data-sector="뷰티" data-mom="mid" onclick="openProfile('bnb')" data-regions="미주,동남아,온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=bnbkorea.co.kr&sz=64" alt="비앤비코리아" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">비앤</span><div><div class="company-name" style="color:var(--accent-beauty)">비앤비코리아</div><div class="company-type">ODM/OBM</div></div></div></td>
           <td><div class="ipo-year">검토중</div></td>
+          <td><div class="ipo-value">약 6,000~7,000억</div></td>
           <td><span class="mom mid">Mid</span></td>
           <td><div class="brand-text">ODM, OBM</div><div class="profile-hint" style="color:var(--accent-beauty)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 1,412억</div><div class="op-num">OP 262억</div></td>
@@ -603,6 +615,7 @@
         <tr class="clickable-row" data-sector="뷰티" data-mom="mid" onclick="openProfile('lafati')" data-regions="일본,미주,온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=leferi.co.kr&sz=64" alt="레페리" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">레페</span><div><div class="company-name" style="color:var(--accent-beauty)">레페리</div><div class="company-type">멀티 MCN</div></div></div></td>
           <td><div class="ipo-year">검토중</div></td>
+          <td><div class="ipo-value">약 1,500~2,000억</div></td>
           <td><span class="mom mid">Mid</span></td>
           <td><div class="brand-text">멀티레이블 MCN</div><div class="profile-hint" style="color:var(--accent-beauty)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 435억</div><div class="op-num">OP 11억</div></td>
@@ -621,15 +634,16 @@
     </div>
     <div class="table-wrap"><table>
       <thead><tr>
-        <th class="col-name">기업명</th><th class="col-ipo">IPO예정</th>
-        <th class="col-momentum">추진강도</th><th class="col-brand">주요 브랜드/사업</th>
-        <th class="col-sales">실적 ('25년)</th><th class="col-invest">투자유치현황</th>
-        <th class="col-bank">주관사</th>
+        <th class="col-name">기업명</th><th class="col-valuation">기업가치</th>
+        <th class="col-ipo">IPO예정</th><th class="col-momentum">추진강도</th>
+        <th class="col-brand">주요 브랜드/사업</th><th class="col-sales">실적 ('25년)</th>
+        <th class="col-invest">투자유치현황</th><th class="col-bank">주관사</th>
       </tr></thead>
       <tbody>
         <tr class="clickable-row" data-sector="패션" data-mom="mid" onclick="openProfile('highlight')" data-regions="중국,온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=hibs.co.kr&sz=64" alt="하이라이트브랜즈" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">하이</span><div><div class="company-name" style="color:var(--accent-fashion)">하이라이트브랜즈</div><div class="company-type">골프·라이프스타일</div></div></div></td>
           <td><div class="ipo-year">27년 상반기</div></td>
+          <td><div class="ipo-value">약 4,000~6,000억</div></td>
           <td><span class="mom mid">Mid</span></td>
           <td><div class="brand-text">코닥어패럴, 말본골프</div><div class="profile-hint" style="color:var(--accent-fashion)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 2,840억</div><div class="op-num">OP 370억</div></td>
@@ -639,6 +653,7 @@
          <tr class="clickable-row" data-sector="패션" data-mom="midlow" onclick="openProfile('hagohouse')" data-regions="미주,유럽,일본,동남아,온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=matinkim.com&sz=64" alt="하고하우스" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">하고</span><div><div class="company-name" style="color:var(--accent-fashion)">하고하우스</div><div class="company-type">여성 패션·인큐베이팅</div></div></div></td>
           <td><div class="ipo-year">검토중</div></td>
+           <td><div class="ipo-value">약 1조</div></td>
           <td><span class="mom midlow">Mid-low</span></td>
           <td><div class="brand-text">마뗑킴, 드파운드, 유니폼브릿지</div><div class="profile-hint" style="color:var(--accent-fashion)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 2,201억</div><div class="op-num">OP 446억</div></td>
@@ -648,6 +663,7 @@
         <tr class="clickable-row" data-sector="패션" data-mom="mid" onclick="openProfile('boosterz')" data-regions="온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=boosterz.co.kr&sz=64" alt="부스터즈" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">부스</span><div><div class="company-name" style="color:var(--accent-fashion)">부스터즈</div><div class="company-type">브랜드 인큐베이팅</div></div></div></td>
           <td><div class="ipo-year">26년 4Q<br>주관사 선정 목표</div></td>
+          <td><div class="ipo-value">약 1,900억</div></td>
           <td><span class="mom mid">Mid</span></td>
           <td><div class="brand-text">르무통, 링티 등</div><div class="profile-hint" style="color:var(--accent-fashion)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 1,993억</div><div class="op-num">OP 255억</div></td>
@@ -657,6 +673,7 @@
         <tr class="clickable-row" data-sector="패션" data-mom="listed" onclick="openProfile('peacenow')" data-regions="중국,일본,온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=mardimercredi.com&sz=64" alt="피스피스스튜디오" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">피스</span><div><div class="company-name" style="color:var(--accent-fashion)">피스피스스튜디오</div><div class="company-type">여성 패션·잡화</div></div></div></td>
           <td><div class="ipo-year" style="color:var(--high);font-weight:600;">26.6.8<br>상장완료 🎉</div></td>
+          <td><div class="ipo-value">약 1,945억</div></td>
           <td><span class="mom listed">상장완료</span></td>
           <td><div class="brand-text">마르디 메크르디</div><div class="profile-hint" style="color:var(--accent-fashion)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 1,179억</div><div class="op-num">OP 167억</div></td>
@@ -675,15 +692,16 @@
     </div>
     <div class="table-wrap"><table>
       <thead><tr>
-        <th class="col-name">기업명</th><th class="col-ipo">IPO예정</th>
-        <th class="col-momentum">추진강도</th><th class="col-brand">주요 브랜드/사업</th>
-        <th class="col-sales">실적 ('25년)</th><th class="col-invest">투자유치현황</th>
-        <th class="col-bank">주관사</th>
+        <th class="col-name">기업명</th><th class="col-valuation">기업가치</th>
+        <th class="col-ipo">IPO예정</th><th class="col-momentum">추진강도</th>
+        <th class="col-brand">주요 브랜드/사업</th><th class="col-sales">실적 ('25년)</th>
+        <th class="col-invest">투자유치현황</th><th class="col-bank">주관사</th>
       </tr></thead>
       <tbody>
         <tr class="clickable-row" data-sector="식품" data-mom="mid" onclick="openProfile('grainon')" data-regions="온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://newdabio1.cafe24.com/images/logo/sample-logo.png" alt="그레인온" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">그레</span><div><div class="company-name" style="color:var(--accent-food)">그레인온</div><div class="company-type">카무트 효소·신사업</div></div></div></td>
           <td><div class="ipo-year">27년 1Q 예상</div></td>
+          <td><div class="ipo-value">약 800억</div></td>
           <td><span class="mom mid">Mid</span></td>
           <td><div class="brand-text">그레인온 카무트 효소 등</div><div class="profile-hint" style="color:var(--accent-food)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 1,751억</div><div class="op-num">OP 334억</div></td>
@@ -810,12 +828,12 @@ const PROFILES = {
     sectorLabel: '버티컬 커머스', ipoLabel: 'IPO 추진 중', momLabel: '추진강도 High', accentColor: 'var(--accent-vertical)',
     kpis: [
       {label:'매출 (25년)', value:'1조 4,679억', delta:{cls:'up', text:'▲ YoY +18.1%'}, sub:'OP 1,405억'},
-      {label:'기업가치 (추정)', value:'최대 10조', sub:'Wellington 투자 라운드 기준'},
+      {label:'기업가치 (추정)', value:'약 3조~최대 10조', sub:'내부 목표 10조원 이상'},
       {label:'플랫폼 GMV', value:'6.3조원+', sub:'무신사 5조+ · 29CM 1.3조+'},
       {label:'주관사', value:'4개사', sub:'한국투자·씨티그룹·KB·JP모건'},
     ],
     stageIdx: 3, stages: ['사업성 검증','투자유치','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
-    stageNote: 'Pre-IPO 완료, 예심 청구 준비 중. 상장 목표 2027~2028년.',
+    stageNote: 'Pre-IPO 완료, 26.7 예심 청구 준비 중. 상장 목표 2027~2028년.',
     brands: [
       {name:'무신사 (온·오프라인)', desc:'국내 1위 패션 플랫폼·무신사스탠다드 4,700억(YoY +40%)'  , sales:'GMV 5조원+', growth:'+15%', bar:100, status:'anchor', statusLabel:'앵커'},
       {name:'29CM', desc:'럭셔리·라이프스타일 버티컬', sales:'GMV 1.3조원+', growth:'+30%', bar:26, status:'rising', statusLabel:'라이징'},
@@ -855,7 +873,7 @@ const PROFILES = {
     sectorLabel: '버티컬 커머스', ipoLabel: 'IPO 추진 중', momLabel: '추진강도 High', accentColor: 'var(--accent-vertical)',
     kpis: [
       {label:'매출 (25년)', value:'2조 3,671억', delta:{cls:'up', text:'▲ YoY +7.8%'}, sub:'OP 131억 (흑자전환)'},
-      {label:'기업가치 (추정)', value:'미공개', sub:'Hillhouse·Naver 투자 유지'},
+      {label:'기업가치 (추정)', value:'약 2.8조', sub:'26.5 Naver 전략적 투자'},
       {label:'GMV', value:'3.5조원+', sub:'마켓컬리 3조+ · 뷰티컬리 5,000억'},
       {label:'주관사', value:'선정완료', sub:'NH투자증권, 한국투자증권'},
     ],
@@ -869,7 +887,7 @@ const PROFILES = {
       {name:'Anchor Equity Partners', type:'전략적 투자자', amt:'투자유지'},
       {name:'DST Global', type:'재무적 투자자', amt:'투자유지'},
       {name:'Hillhouse Investment', type:'재무적 투자자', amt:'투자유지'},
-      {name:'네이버', type:'전략적 투자자', amt:'2026.5월 330억 추가'},
+      {name:'네이버', type:'전략적 투자자', amt:'26.5월 330억 추가'},
     ],
     investNote: '누적 투자 1.2조원+. 2026년 5월 네이버 추가 투자 330억으로 신뢰도 제고.',
     globals: [
@@ -896,7 +914,7 @@ const PROFILES = {
     sectorLabel: '버티컬 커머스', ipoLabel: 'IPO 검토 중', momLabel: '추진강도 Mid', accentColor: 'var(--accent-vertical)',
     kpis: [
       {label:'매출 (25년)', value:'3,215억', delta:{cls:'warn', text:'▼ OP -147억 (-4.6%)'}, sub:'전년 흑자에서 적자 전환'},
-      {label:'기업가치 (추정)', value:'약 3,000억+', sub:'BRV·소뱅 투자 라운드 기준'},
+      {label:'기업가치 (추정)', value:'약 1.8조', sub:'22.5 KDB·소뱅 투자 라운드 기준'},
       {label:'MAU', value:'600만+', sub:'홈 인테리어 1위 앱'},
       {label:'주관사', value:'미선정', sub:'비공개'},
     ],
@@ -937,7 +955,7 @@ const PROFILES = {
     sectorLabel: '버티컬 커머스', ipoLabel: 'IPO 철회 후 모니터링 지속', momLabel: '추진강도 Mid-low', accentColor: 'var(--accent-vertical)',
     kpis: [
       {label:'매출 (25년)', value:'5,645억', delta:{cls:'up', text:'▲ YoY +9.2%'}, sub:'OP 191억 (흑자 지속)'},
-      {label:'기업가치 (추정)', value:'미공개', sub:'자체 흑자 경영으로 추정 어려움'},
+      {label:'기업가치 (추정)', value:'약 3,700~4,000억', sub:'자체 흑자 경영 유지'},
       {label:'영업이익률', value:'3.4%', sub:'새벽배송 중 최고 수준 수익성'},
       {label:'주관사', value:'NH·한국투자', sub:'23년 철회 당시 기준'},
     ],
@@ -972,7 +990,7 @@ const PROFILES = {
     sectorLabel: '뷰티', ipoLabel: 'IPO 추진 중 (3년 內)', momLabel: '추진강도 High', accentColor: 'var(--accent-beauty)',
     kpis: [
       {label:'매출 (25년)', value:'1조 4,718억', delta:{cls:'up', text:'▲ YoY +294.5%'}, sub:'OP 2,734억 · 4개 브랜드 연매출 2,000억+ 달성'},
-      {label:'기업가치 (추정)', value:'4.4조원', sub:'Pre-IPO 8,000억 투자유치 기준'},
+      {label:'기업가치 (추정)', value:'약 4조~최대 10조', sub:'한국판 로레알로 급성장'},
       {label:'영업이익률', value:'18.6%', sub:'K-뷰티 최고 수준 수익성'},
       {label:'주관사', value:'4개사', sub:'미래에셋(대표)·NH·씨티·모건스탠리'},
     ],
@@ -1016,7 +1034,7 @@ const PROFILES = {
     sectorLabel: '뷰티', ipoLabel: 'IPO 추진 (KOSPI · 27년 3~4Q 목표)', momLabel: '추진강도 Mid-high', accentColor: 'var(--accent-beauty)',
     kpis: [
       {label:'매출 (25년)', value:'3,250억', delta:{cls:'up', text:'▲ YoY +22%'}, sub:'OP 671억 · KOSPI 상장 요건 旣달성'},
-      {label:'Valuation (업계 추정)', value:'2~2.5조', sub:'min. 2조원 이상 예상'},
+      {label:'기업가치 (추정)', value:'약 9,000억', sub:'삼성증권 주관, 조단위 기업가치 기대감'},
       {label:'영업이익률', value:'20.6%', sub:'매출 1,000억·이익 30억 요건 충족'},
       {label:'주관사', value:'삼성증권', sub:"'24.9 선정완료"},
     ],
@@ -1057,7 +1075,7 @@ const PROFILES = {
     sectorLabel: '뷰티', ipoLabel: 'IPO 검토 중', momLabel: '추진강도 Mid', accentColor: 'var(--accent-beauty)',
     kpis: [
       {label:'매출 (25년)', value:'1,945억', delta:{cls:'up', text:'▲ YoY +43.5%'}, sub:'OP 129억'},
-      {label:'기업가치 (추정)', value:'미공개', sub:'PE 경영권 투자 기준'},
+      {label:'기업가치 (추정)', value:'약 2,500억', sub:'PE 경영권 투자 기준'},
       {label:'영업이익률', value:'6.6%', sub:'유통 마진 구조'},
       {label:'주관사', value:'미선정', sub:'비공개'},
     ],
@@ -1094,7 +1112,7 @@ const PROFILES = {
     sectorLabel: '뷰티', ipoLabel: 'IPO 검토 중', momLabel: '추진강도 Mid', accentColor: 'var(--accent-beauty)',
     kpis: [
       {label:'매출 (25년)', value:'1,412억', delta:{cls:'up', text:'▲ YoY +75.8%'}, sub:'OP 262억'},
-      {label:'기업가치 (추정)', value:'미공개', sub:'미래에셋 주관사 선정'},
+      {label:'기업가치 (추정)', value:'약 6,000~7,000억', sub:'미래에셋 주관사 선정'},
       {label:'영업이익률', value:'18.6%', sub:'ODM 고마진 구조'},
       {label:'주관사', value:'미래에셋증권', sub:'선정완료'},
     ],
@@ -1132,7 +1150,7 @@ const PROFILES = {
     sectorLabel: '뷰티', ipoLabel: 'IPO 추진 (26년 하반기)', momLabel: '추진강도 Mid-high', accentColor: 'var(--accent-beauty)',
     kpis: [
       {label:'매출 (25년)', value:'666억', delta:{cls:'up', text:'▲ YoY +41.9%'}, sub:'적자전환 -278억'},
-      {label:'기업가치 (추정)', value:'1,000억원', sub:'Series D 기준'},
+      {label:'기업가치 (추정)', value:'약 1,300억', sub:'Series D 기준'},
       {label:'누적 투자', value:'440억+', sub:'Series D 370억 + Series C 70억'},
       {label:'주관사', value:'한국투자증권', sub:'선정완료'},
     ],
@@ -1168,7 +1186,7 @@ const PROFILES = {
     sectorLabel: '뷰티', ipoLabel: 'IPO 검토 중', momLabel: '추진강도 Mid', accentColor: 'var(--accent-beauty)',
     kpis: [
       {label:'매출 (25년)', value:'435억', delta:{cls:'up', text:'YoY -7.8%'}, sub:'OP 11억'},
-      {label:'기업가치 (추정)', value:'미공개', sub:'Series B 기준'},
+      {label:'기업가치 (추정)', value:'약 1,500~2,000억', sub:'Series B 기준'},
       {label:'영업이익률', value:'2.5%', sub:'수익 악화 YoY △10.4%p'},
       {label:'주관사', value:'신한투자증권', sub:'선정완료'},
     ],
@@ -1286,7 +1304,7 @@ const PROFILES = {
     sectorLabel: '뷰티', ipoLabel: 'IPO 예상 (27년)', momLabel: '추진강도 Mid-high', accentColor: 'var(--accent-beauty)',
     kpis: [
       {label:'매출 (25년)', value:'7,177억', delta:{cls:'up', text:'▲ YoY +67.8%'}, sub:'OP 1,295억'},
-      {label:'글로벌 매출 비중', value:'약 90%', sub:'해외매출 3,644억 (YoY +377%)'},
+      {label:'기업가치 (추정)', value:'약 1조 이상', sub:'미국/일본 K-뷰티 1위'},
       {label:'영업이익률', value:'18.0%', sub:'고수익 단일 브랜드 구조'},
       {label:'주관사', value:'미선정', sub:'Pre-IPO 검토설'},
     ],
@@ -1364,7 +1382,7 @@ const PROFILES = {
     isListed: true,
     kpis: [
       {label:'매출 (25년)', value:'1,179억', delta:{cls:'up', text:'▲ YoY +3.6%'}, sub:'OP 167억'},
-      {label:'영업이익률', value:'14.2%', sub:'수익성 저하 YoY -10.5%p'},
+      {label:'기업가치 (Pre-IPO)', value:'약 1,945억', sub:'24년 1조원 수준에서 대폭 하락'},
       {label:'상장일', value:'26.6.8', sub:'코스닥 신규 상장'},
       {label:'주관사', value:'NH투자·미래에셋', sub:'상장 완료'},
     ],
@@ -1405,7 +1423,7 @@ const PROFILES = {
     sectorLabel: '패션', ipoLabel: 'IPO 검토 중', momLabel: '추진강도 Mid-low', accentColor: 'var(--accent-fashion)',
     kpis: [
       {label:'매출 (25년)', value:'2,201억', delta:{cls:'up', text:'▲ YoY +33.9%'}, sub:'25년 목표 4,000억+'},
-      {label:'기업가치 (추정)', value:'미공개', sub:'SV인베·LB인베 투자 유지'},
+      {label:'기업가치 (추정)', value:'약 1조', sub:'SV인베·LB인베 투자 유지'},
       {label:'핵심 브랜드', value:'37개+', sub:'포트폴리오 운영 브랜드'},
       {label:'오프라인 거점', value:'35개', sub:'백화점 입점 + 편집숍 5개점'},
     ],
@@ -1450,7 +1468,7 @@ const PROFILES = {
     sectorLabel: '식품', ipoLabel: "IPO 추진 ('27.1Q 목표)", momLabel: '추진강도 Mid', accentColor: 'var(--accent-food)',
     kpis: [
       {label:'매출 (25년)', value:'1,751억', delta:{cls:'up', text:'▲ 3개년 4.2배 성장'}, sub:'OP 110억'},
-      {label:'영업이익 성장', value:'2.3배', sub:'3개년 수익성 동시 개선 입증'},
+      {label:'기업가치 (추정)', value:'약 800억', sub:'25.7, 투자유치 기준'},
       {label:'IPO 진행단계', value:'예심 준비', sub:"'26.4 액면분할·무상증자 완료"},
       {label:'주관사', value:'신한투자증권', sub:"'25.3 선정완료"},
     ],
@@ -1487,9 +1505,9 @@ const PROFILES = {
     sectorLabel: '패션', ipoLabel: "IPO 주관사 선정 추진 중 ('26.4Q 예상)", momLabel: '추진강도 Mid', accentColor: 'var(--accent-fashion)',
     kpis: [
       {label:'매출 (25년)', value:'1,993억', delta:{cls:'up', text:'우주텍(르무통) 연결편입 성장 中'}, sub:'OP 255억'},
-      {label:'부스터즈 지분율', value:'44.29%', sub:"'26.5 기준 · 우주텍 대표 48.01%"},
+      {label:'기업가치 (추정)', value:'약 1,900억원', sub:"'26.1 투자유치 기준"},
       {label:'IPO 진행단계', value:'주관사 선정', sub:"'26.4Q 선정 예상(당초 대비 연기)"},
-      {label:'중복 상장 이슈', value:"지속 Tracking 필요", sub:'우주텍 2차 지분 인수 등 모니터링'},
+      {label:'부스터즈 지분율', value:'44.29%', sub:"'26.5 기준 · 우주텍 대표 48.01%"},
     ],
     stageIdx: 1, stages: ['사업성 검증','투자유치','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: "우주텍 연결편입 및 1차 지분 인수('26.4) 완료. 2차 지분 인수 후 경영권 확보 → '26.4Q IPO 주관사 선정 목표(당초 대비 연기).",
