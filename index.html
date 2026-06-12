@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -329,8 +330,10 @@
       overflow:hidden !important;
     }
     .brand-tbl thead{display:block !important;}
+    .brand-tbl thead,.brand-tbl tbody,.brand-tbl tr{max-width:100% !important;min-width:0 !important;}
+    .brand-tbl th,.brand-tbl td{min-width:0 !important;overflow-wrap:anywhere;}
     .brand-tbl thead tr{
-      display:flex !important;width:100% !important;
+      display:flex !important;width:100% !important;max-width:100% !important;min-width:0 !important;
       border-bottom:.5px solid var(--border) !important;
       padding-bottom:6px !important;margin-bottom:2px;
     }
@@ -339,11 +342,11 @@
       color:var(--text3) !important;padding:0 !important;
       display:block !important;
     }
-    .brand-tbl th:nth-child(1){flex:3;}
-    .brand-tbl th:nth-child(2){flex:2;}
+    .brand-tbl th:nth-child(1){flex:3 1 0;min-width:0;}
+    .brand-tbl th:nth-child(2){flex:2 1 0;min-width:0;}
     .brand-tbl th:nth-child(3){display:none !important;}
     .brand-tbl th:nth-child(4){display:none !important;}
-    .brand-tbl th:nth-child(5){flex:1;text-align:right;}
+    .brand-tbl th:nth-child(5){flex:1 1 0;min-width:0;text-align:right;}
     .brand-tbl tr{
       display:flex !important;
       align-items:center;
@@ -351,11 +354,11 @@
       border-bottom:.5px solid var(--border) !important;
     }
     .brand-tbl tr:last-child{border-bottom:none !important;}
-    .brand-tbl td:nth-child(1){flex:3;display:block !important;width:auto !important;}
-    .brand-tbl td:nth-child(2){flex:2;display:block !important;width:auto !important;}
+    .brand-tbl td:nth-child(1){flex:3 1 0;display:block !important;width:auto !important;min-width:0;}
+    .brand-tbl td:nth-child(2){flex:2 1 0;display:block !important;width:auto !important;min-width:0;}
     .brand-tbl td:nth-child(3){display:none !important;}
     .brand-tbl td:nth-child(4){display:none !important;}
-    .brand-tbl td:nth-child(5){flex:1;display:block !important;width:auto !important;text-align:right;}
+    .brand-tbl td:nth-child(5){flex:1 1 0;display:block !important;width:auto !important;min-width:0;text-align:right;}
     .brand-tbl td:nth-child(4),.bar-wrap,.bar-fill{
       display:none !important;
       width:0 !important;
@@ -387,7 +390,7 @@
 
     /* 투자·글로벌 1열 */
     .two-col{grid-template-columns:1fr;}
-    .p-section{padding:.8rem .9rem;border-radius:10px;font-size:12px;}
+    .p-section{padding:.8rem .9rem;border-radius:10px;font-size:12px;overflow:hidden;}
     .p-section-title{font-size:10.5px;margin-bottom:.55rem;}
 
     /* 뉴스 */
