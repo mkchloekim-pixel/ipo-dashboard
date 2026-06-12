@@ -242,13 +242,49 @@
 
   /* Two col */
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:.9rem;}
-@media (max-width: 768px) {
-  .table-wrap { overflow-x: auto; }       /* 테이블 가로 스크롤 */
-  .panel { width: 100vw; min-width: unset; } /* 패널 전체화면 */
-  .filter-bar { flex-wrap: wrap; gap: 6px; } /* 필터버튼 줄바꿈 */
-  .col-invest, .col-bank { display: none; }  /* 좁은 컬럼 숨김 */
-  .stat-pill { font-size: 11px; }
-}
+현재 CSS 구조 확인해볼게요.구조 파악했습니다. **`</style>` 바로 앞(243번째 줄)** 에 아래 코드 전체를 붙여넣으세요.**243번째 줄 `</style>` 바로 앞**에 아래 코드를 붙여넣으세요:
+
+  /* ── 모바일 반응형 ── */
+  @media (max-width: 768px) {
+    /* 헤더 */
+    .header{padding:.9rem 1rem;}
+    .header-title{font-size:17px;}
+    .header-sub{font-size:11px;}
+    .stat-pills{gap:6px;}
+    .stat-pill{font-size:10px;padding:3px 8px;}
+
+    /* 필터바 */
+    .filter-bar{padding:.5rem 1rem;gap:5px;flex-wrap:wrap;}
+    .filter-btn{font-size:11px;padding:4px 9px;}
+
+    /* 섹션 */
+    .sections{padding:.75rem 1rem;gap:.75rem;}
+    .section-header{padding:.5rem 0 .4rem;}
+
+    /* 테이블 — 가로 스크롤 */
+    .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+    table{min-width:580px;}
+    td,th{padding:8px 10px;}
+
+    /* 투자·주관사 컬럼 숨김 */
+    .col-invest,.col-bank{display:none;}
+    td:nth-child(6),td:nth-child(7),
+    th:nth-child(6),th:nth-child(7){display:none;}
+
+    /* 기업명 폰트 */
+    .company-name{font-size:12px;}
+    .company-type{font-size:10px;}
+    .company-logo-img,.company-logo-fallback{width:24px;height:24px;}
+
+    /* 상세 패널 — 전체화면 */
+    .panel{width:100vw;min-width:unset;max-width:unset;}
+    .panel-header{padding:1rem 1.2rem;}
+    .panel-company{font-size:17px;}
+    .two-col{grid-template-columns:1fr;}
+
+    /* 레전드 */
+    .legend{padding:.75rem 1rem;gap:10px;}
+  }
 </style>
 </head>
 <body>
