@@ -242,20 +242,24 @@
 
   /* Two col */
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:.9rem;}
-  
-  /* ════════════════════════════════
-     모바일 반응형 (max-width: 768px)
-     ════════════════════════════════ */
-  @media (max-width: 768px) {
 
-    /* ── 헤더 ── */
+  /* ══════════════════════════════
+     모바일 반응형
+     ══════════════════════════════ */
+  @media (max-width:768px){
+
+    /* 화면 흔들림 방지 — 핵심 */
+    html,body{overflow-x:hidden;max-width:100vw;}
+    *{max-width:100%;}
+
+    /* 헤더 */
     .header{flex-direction:column;align-items:flex-start;gap:.5rem;padding:.9rem 1rem;}
     .header-left h1{font-size:15px;}
     .header-left .sub{font-size:10px;}
-    .header-right{display:flex;flex-wrap:wrap;gap:5px;width:100%;}
+    .header-right{flex-wrap:wrap;gap:5px;width:100%;}
     .stat-pill{font-size:10px;padding:3px 8px;}
 
-    /* ── 필터바 — 가로 스크롤 한 줄 ── */
+    /* 필터바 — 가로 스크롤, 줄바꿈 없음 */
     .filter-bar{padding:.45rem .8rem;gap:5px;flex-wrap:nowrap;overflow-x:auto;
       -webkit-overflow-scrolling:touch;scrollbar-width:none;}
     .filter-bar::-webkit-scrollbar{display:none;}
@@ -263,22 +267,22 @@
     .filter-btn{font-size:11px;padding:4px 9px;white-space:nowrap;flex-shrink:0;}
     .sep{margin:0 3px;flex-shrink:0;}
 
-    /* ── 본문 ── */
+    /* 본문 */
     .content{padding:.75rem .8rem 3rem;}
     .section{margin-bottom:1.25rem;}
     .section-header{margin-bottom:.5rem;}
     .section-badge{font-size:10px;padding:2px 8px;}
 
-    /* ── 메인 테이블 — 가로 스크롤 ── */
+    /* 메인 테이블 */
     .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
-    table{min-width:480px;table-layout:auto;}
+    table{min-width:440px;table-layout:auto;}
     thead th{font-size:9.5px;padding:7px 8px;}
     td{padding:9px 8px;}
-    .col-invest,.col-bank{display:none;}
+    .col-invest,.col-bank,
     td:nth-child(6),td:nth-child(7),
     th:nth-child(6),th:nth-child(7){display:none;}
-    .col-name{width:100px;}.col-ipo{width:72px;}
-    .col-momentum{width:80px;}.col-brand{width:125px;}.col-sales{width:95px;}
+    .col-name{width:95px;}.col-ipo{width:70px;}
+    .col-momentum{width:78px;}.col-brand{width:120px;}.col-sales{width:90px;}
     .company-logo-img,.company-logo-fallback{width:22px;height:22px;}
     .company-name{font-size:12px;}.company-type{font-size:9.5px;}
     .company-cell{gap:6px;}
@@ -289,80 +293,71 @@
     .legend{padding:.6rem .8rem;gap:8px;}
     .legend-item{font-size:10px;}
 
-    /* ── 상세 패널 — 전체화면 ── */
-    .panel{width:100vw;min-width:unset;max-width:unset;}
+    /* ── 상세 패널 ── */
+    /* 우측 공백 제거 + 전체화면 */
+    .panel{
+      width:100vw !important;
+      min-width:0 !important;
+      max-width:100vw !important;
+      left:0;right:0;
+      transform:translateX(100%);
+    }
+    .panel.open{transform:translateX(0);}
     .panel-header{padding:.9rem 1rem;}
-    .panel-company{font-size:16px;}
-    .panel-meta{font-size:11px;}
-    .panel-body{padding:.85rem .9rem 2.5rem;}
+    .panel-company{font-size:15px;}
+    .panel-meta{font-size:10.5px;}
+    .panel-body{padding:.85rem .9rem 2.5rem;overflow-x:hidden;}
+
+    /* 배지·링크 줄바꿈 */
+    .panel-body > div:first-child{flex-wrap:wrap;gap:5px;}
+    .panel-body > div:first-child > div:last-child{
+      margin-left:0 !important;width:100%;display:flex;gap:6px;}
 
     /* KPI 2x2 */
     .kpi-grid{grid-template-columns:repeat(2,1fr);gap:7px;margin-bottom:.75rem;}
     .kpi-card{padding:.7rem .85rem;border-radius:8px;}
-    .kpi-value{font-size:.95rem;}
-    .kpi-label{font-size:10px;}
-    .kpi-sub{font-size:10.5px;}
-    .kpi-delta{font-size:11px;}
+    .kpi-value{font-size:.95rem;}.kpi-label{font-size:10px;}
+    .kpi-sub{font-size:10.5px;}.kpi-delta{font-size:11px;}
 
     /* 스테이지바 */
-    .stage-label{font-size:8.5px;}
-    .stage-dot{width:11px;height:11px;}
+    .stage-label{font-size:8.5px;}.stage-dot{width:11px;height:11px;}
 
-    /* ── 브랜드 테이블 → 카드형 ── */
-    .brand-tbl thead{display:none;}          /* 헤더 숨김 */
-    .brand-tbl tbody tr{
-      display:flex;
-      flex-direction:column;
-      gap:5px;
-      padding:10px 0;
+    /* ── 핵심사업포트폴리오 — 카드형 변환 ── */
+    .brand-tbl{width:100%;table-layout:fixed;}
+    .brand-tbl thead{display:none;}
+    .brand-tbl tr{
+      display:flex;flex-direction:column;
+      padding:10px 0;gap:4px;
       border-bottom:.5px solid var(--border);
     }
-    .brand-tbl tbody tr:last-child{border-bottom:none;}
+    .brand-tbl tr:last-child{border-bottom:none;}
     .brand-tbl td{
-      display:block;
-      padding:0;
-      border:none;
-      width:100% !important;
+      display:block;padding:0;border:none;
+      width:auto !important;font-size:12px;
     }
-    /* 규모(bar) 숨김 */
-    .brand-tbl td:nth-child(4){display:none;}
-    .bar-wrap{display:none;}
-    /* 실적·성장 한 줄로 */
-    .brand-tbl td:nth-child(2),
-    .brand-tbl td:nth-child(3){
-      display:inline-block;
-      width:auto !important;
-      margin-right:8px;
-    }
-    .b-name{font-size:13px;font-weight:600;}
-    .b-desc{font-size:11px;}
-    .b-sales{font-size:12px;}
-    .b-growth{font-size:11px;}
+    /* 규모(bar) 완전 숨김 */
+    .brand-tbl td:nth-child(4),.bar-wrap{display:none;}
+    /* 실적+성장 한 줄 */
+    .brand-tbl td:nth-child(2){display:inline-block;margin-right:8px;}
+    .brand-tbl td:nth-child(3){display:inline-block;}
+    .b-name{font-size:12px;font-weight:600;}
+    .b-desc{font-size:11px;color:var(--text3);}
+    .b-sales{font-size:11.5px;}.b-growth{font-size:11px;}
 
-    /* 투자·글로벌 2열 → 1열 */
+    /* 투자·글로벌 1열 */
     .two-col{grid-template-columns:1fr;}
-    .p-section{padding:.8rem .95rem;border-radius:10px;}
+    .p-section{padding:.8rem .9rem;border-radius:10px;}
     .p-section-title{font-size:10.5px;margin-bottom:.55rem;}
 
     /* 뉴스 */
-    .news-tl-item{gap:.65rem;padding:10px 0;}
-    .news-tl-date{font-size:10px;min-width:42px;}
-    .news-tl-hl{font-size:12px;}
-    .news-tl-sum{font-size:11px;}
+    .news-tl-item{gap:.6rem;padding:10px 0;}
+    .news-tl-date{font-size:10px;min-width:40px;}
+    .news-tl-hl{font-size:12px;}.news-tl-sum{font-size:11px;}
 
     /* 전망·리스크 */
-    .outlook-box{padding:.85rem .95rem;}
+    .outlook-box{padding:.85rem .9rem;}
     .outlook-text{font-size:12px;}
     .risk-text{font-size:12px;}
-
-    /* 상단 배지·링크 버튼 줄바꿈 */
-    .panel-body > div:first-child{flex-wrap:wrap;gap:5px;}
-    .panel-body > div:first-child > div:last-child{
-      margin-left:0 !important;
-      width:100%;
-      display:flex;
-      gap:6px;
-    }
   }
 </style>
 </head>
