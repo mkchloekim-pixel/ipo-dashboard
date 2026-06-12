@@ -242,113 +242,127 @@
 
   /* Two col */
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:.9rem;}
+  
+  /* ════════════════════════════════
+     모바일 반응형 (max-width: 768px)
+     ════════════════════════════════ */
   @media (max-width: 768px) {
 
     /* ── 헤더 ── */
-    .header{flex-direction:column;align-items:flex-start;gap:.6rem;padding:1rem 1.1rem;}
+    .header{flex-direction:column;align-items:flex-start;gap:.5rem;padding:.9rem 1rem;}
     .header-left h1{font-size:15px;}
     .header-left .sub{font-size:10px;}
     .header-right{display:flex;flex-wrap:wrap;gap:5px;width:100%;}
     .stat-pill{font-size:10px;padding:3px 8px;}
 
     /* ── 필터바 — 가로 스크롤 한 줄 ── */
-    .filter-bar{padding:.45rem .8rem;gap:5px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+    .filter-bar{padding:.45rem .8rem;gap:5px;flex-wrap:nowrap;overflow-x:auto;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none;}
     .filter-bar::-webkit-scrollbar{display:none;}
     .filter-label{white-space:nowrap;font-size:10px;}
     .filter-btn{font-size:11px;padding:4px 9px;white-space:nowrap;flex-shrink:0;}
     .sep{margin:0 3px;flex-shrink:0;}
 
-    /* ── 콘텐츠 ── */
+    /* ── 본문 ── */
     .content{padding:.75rem .8rem 3rem;}
     .section{margin-bottom:1.25rem;}
     .section-header{margin-bottom:.5rem;}
     .section-badge{font-size:10px;padding:2px 8px;}
 
-    /* ── 테이블 — 가로 스크롤 ── */
+    /* ── 메인 테이블 — 가로 스크롤 ── */
     .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
     table{min-width:480px;table-layout:auto;}
     thead th{font-size:9.5px;padding:7px 8px;}
     td{padding:9px 8px;}
-
-    /* 투자유치·주관사 컬럼 숨김 */
     .col-invest,.col-bank{display:none;}
     td:nth-child(6),td:nth-child(7),
     th:nth-child(6),th:nth-child(7){display:none;}
-
-    /* 컬럼 너비 재조정 */
-    .col-name{width:100px;}
-    .col-ipo{width:75px;}
-    .col-momentum{width:82px;}
-    .col-brand{width:130px;}
-    .col-sales{width:100px;}
-
-    /* 기업명 셀 */
+    .col-name{width:100px;}.col-ipo{width:72px;}
+    .col-momentum{width:80px;}.col-brand{width:125px;}.col-sales{width:95px;}
     .company-logo-img,.company-logo-fallback{width:22px;height:22px;}
-    .company-name{font-size:12px;}
-    .company-type{font-size:9.5px;}
+    .company-name{font-size:12px;}.company-type{font-size:9.5px;}
     .company-cell{gap:6px;}
-
-    /* 텍스트 크기 */
     .ipo-year{font-size:11px;}
     .mom{font-size:10px;padding:2px 7px;}
-    .brand-text{font-size:11px;}
-    .profile-hint{font-size:9.5px;}
-    .sales-num{font-size:11.5px;}
-    .op-num{font-size:10px;}
+    .brand-text{font-size:11px;}.profile-hint{font-size:9.5px;}
+    .sales-num{font-size:11.5px;}.op-num{font-size:10px;}
+    .legend{padding:.6rem .8rem;gap:8px;}
+    .legend-item{font-size:10px;}
 
     /* ── 상세 패널 — 전체화면 ── */
     .panel{width:100vw;min-width:unset;max-width:unset;}
-    .panel-header{padding:.9rem 1.1rem;}
+    .panel-header{padding:.9rem 1rem;}
     .panel-company{font-size:16px;}
     .panel-meta{font-size:11px;}
+    .panel-body{padding:.85rem .9rem 2.5rem;}
 
-    /* 패널 내부 2단 → 1단 */
-    .two-col{grid-template-columns:1fr;}
-    .kpi-grid{grid-template-columns:1fr 1fr;}
-
-    /* 레전드 */
-    .legend{padding:.6rem .8rem;gap:8px;}
-    .legend-item{font-size:10px;}
-    
-     /* ── 패널 내부 전체 ── */
-    .panel-body{padding:.9rem 1rem 2rem;}
-    .p-section{padding:.85rem 1rem;border-radius:10px;}
-    .p-section-title{font-size:10.5px;margin-bottom:.6rem;}
-
-    /* KPI 4개 → 2x2 그리드 */
-    .kpi-grid{grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:.8rem;}
-    .kpi-card{padding:.75rem .9rem;border-radius:8px;}
-    .kpi-value{font-size:1rem;}
+    /* KPI 2x2 */
+    .kpi-grid{grid-template-columns:repeat(2,1fr);gap:7px;margin-bottom:.75rem;}
+    .kpi-card{padding:.7rem .85rem;border-radius:8px;}
+    .kpi-value{font-size:.95rem;}
     .kpi-label{font-size:10px;}
     .kpi-sub{font-size:10.5px;}
     .kpi-delta{font-size:11px;}
 
-    /* 스테이지바 — 텍스트 작게 */
-    .stage-label{font-size:9px;}
-    .stage-dot{width:12px;height:12px;}
+    /* 스테이지바 */
+    .stage-label{font-size:8.5px;}
+    .stage-dot{width:11px;height:11px;}
 
-    /* 브랜드 테이블 — bar 숨김 */
+    /* ── 브랜드 테이블 → 카드형 ── */
+    .brand-tbl thead{display:none;}          /* 헤더 숨김 */
+    .brand-tbl tbody tr{
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+      padding:10px 0;
+      border-bottom:.5px solid var(--border);
+    }
+    .brand-tbl tbody tr:last-child{border-bottom:none;}
+    .brand-tbl td{
+      display:block;
+      padding:0;
+      border:none;
+      width:100% !important;
+    }
+    /* 규모(bar) 숨김 */
+    .brand-tbl td:nth-child(4){display:none;}
     .bar-wrap{display:none;}
-    .brand-tbl th,.brand-tbl td{padding:7px 6px 7px 0;font-size:11px;}
-    .b-name{font-size:12px;}
-    .b-desc{font-size:10.5px;}
-    .b-sales{font-size:11.5px;}
+    /* 실적·성장 한 줄로 */
+    .brand-tbl td:nth-child(2),
+    .brand-tbl td:nth-child(3){
+      display:inline-block;
+      width:auto !important;
+      margin-right:8px;
+    }
+    .b-name{font-size:13px;font-weight:600;}
+    .b-desc{font-size:11px;}
+    .b-sales{font-size:12px;}
+    .b-growth{font-size:11px;}
 
-    /* 투자 rows */
-    .inv-name{font-size:12px;}
-    .inv-type{font-size:11px;}
-    .inv-amt{font-size:11.5px;}
+    /* 투자·글로벌 2열 → 1열 */
+    .two-col{grid-template-columns:1fr;}
+    .p-section{padding:.8rem .95rem;border-radius:10px;}
+    .p-section-title{font-size:10.5px;margin-bottom:.55rem;}
 
-    /* 뉴스 타임라인 */
-    .news-tl-item{gap:.7rem;padding:10px 0;}
-    .news-tl-date{font-size:10.5px;min-width:44px;}
-    .news-tl-hl{font-size:12.5px;}
-    .news-tl-sum{font-size:11.5px;}
+    /* 뉴스 */
+    .news-tl-item{gap:.65rem;padding:10px 0;}
+    .news-tl-date{font-size:10px;min-width:42px;}
+    .news-tl-hl{font-size:12px;}
+    .news-tl-sum{font-size:11px;}
 
-    /* Outlook / Risk */
-    .outlook-box{padding:.9rem 1rem;}
-    .outlook-text{font-size:12.5px;}
+    /* 전망·리스크 */
+    .outlook-box{padding:.85rem .95rem;}
+    .outlook-text{font-size:12px;}
     .risk-text{font-size:12px;}
+
+    /* 상단 배지·링크 버튼 줄바꿈 */
+    .panel-body > div:first-child{flex-wrap:wrap;gap:5px;}
+    .panel-body > div:first-child > div:last-child{
+      margin-left:0 !important;
+      width:100%;
+      display:flex;
+      gap:6px;
+    }
   }
 </style>
 </head>
