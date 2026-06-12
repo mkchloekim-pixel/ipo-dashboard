@@ -309,6 +309,46 @@
     /* 레전드 */
     .legend{padding:.6rem .8rem;gap:8px;}
     .legend-item{font-size:10px;}
+    
+     /* ── 패널 내부 전체 ── */
+    .panel-body{padding:.9rem 1rem 2rem;}
+    .p-section{padding:.85rem 1rem;border-radius:10px;}
+    .p-section-title{font-size:10.5px;margin-bottom:.6rem;}
+
+    /* KPI 4개 → 2x2 그리드 */
+    .kpi-grid{grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:.8rem;}
+    .kpi-card{padding:.75rem .9rem;border-radius:8px;}
+    .kpi-value{font-size:1rem;}
+    .kpi-label{font-size:10px;}
+    .kpi-sub{font-size:10.5px;}
+    .kpi-delta{font-size:11px;}
+
+    /* 스테이지바 — 텍스트 작게 */
+    .stage-label{font-size:9px;}
+    .stage-dot{width:12px;height:12px;}
+
+    /* 브랜드 테이블 — bar 숨김 */
+    .bar-wrap{display:none;}
+    .brand-tbl th,.brand-tbl td{padding:7px 6px 7px 0;font-size:11px;}
+    .b-name{font-size:12px;}
+    .b-desc{font-size:10.5px;}
+    .b-sales{font-size:11.5px;}
+
+    /* 투자 rows */
+    .inv-name{font-size:12px;}
+    .inv-type{font-size:11px;}
+    .inv-amt{font-size:11.5px;}
+
+    /* 뉴스 타임라인 */
+    .news-tl-item{gap:.7rem;padding:10px 0;}
+    .news-tl-date{font-size:10.5px;min-width:44px;}
+    .news-tl-hl{font-size:12.5px;}
+    .news-tl-sum{font-size:11.5px;}
+
+    /* Outlook / Risk */
+    .outlook-box{padding:.9rem 1rem;}
+    .outlook-text{font-size:12.5px;}
+    .risk-text{font-size:12px;}
   }
 </style>
 </head>
@@ -1349,7 +1389,7 @@ const PROFILES = {
       {label:'IPO 진행단계', value:'예심 준비', sub:"'26.4 액면분할·무상증자 완료"},
       {label:'주관사', value:'신한투자증권', sub:"'25.3 선정완료"},
     ],
-    stageIdx: 3, stages: ["'25.3 주관사 선정", "'26.4 액면분할·무상증자", "'26.4Q 예심 청구(예상)", "'27.1Q 증권신고서·상장(예상)"],
+    stageIdx: 2, stages: ['사업성 검증','투자유치','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: "신한투자증권 주관사 선정('25.3). '26.4 액면분할·무상증자 완료. '26.4Q 예비심사 청구 후 '27.1Q 증권신고서 제출·상장 목표.",
     brands: [
       {name:'커머스 사업부문', desc:'고대곡물 카무트 효소 기반 차별화', sales:'매출 1,743억', growth:'+29%', bar:90, status:'anchor', statusLabel:'앵커'},
@@ -1386,8 +1426,8 @@ const PROFILES = {
       {label:'IPO 진행단계', value:'주관사 선정', sub:"'26.4Q 선정 예상(당초 대비 연기)"},
       {label:'중복 상장 이슈', value:"지속 Tracking 필요", sub:'우주텍 2차 지분 인수 등 모니터링'},
     ],
-    stageIdx: 2, stages: ["'25.10 RCPS 상환청구 도래", "'26.4 우주텍 1차 지분 인수", "'26.3~4Q 우주텍 2차 지분 인수(예상)", "'26.4Q IPO 주관사 선정(예상)"],
-    stageNote: "우주텍 연결실적 편입으로 외형·이익 성장 중. '26.5 기준 부스터즈 44.29% vs 우주텍 대표 48.01%. 단계적 지분 인수로 경영권 확보 후 중복상장 이슈 해소·IPO 추진. '26.4Q 주관사 선정 예상(당초 대비 연기).",
+    stageIdx: 1, stages: ['사업성 검증','투자유치','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
+    stageNote: "우주텍 연결편입 및 1차 지분 인수('26.4) 완료. 2차 지분 인수 후 경영권 확보 → '26.4Q IPO 주관사 선정 목표(당초 대비 연기).",
     brands: [
       {name:'로컬 비즈니스', desc:'커머스 중심 브랜드 엑셀러레이팅', sales:'매출 1,943억', growth:'+100%', bar:100, status:'anchor', statusLabel:'앵커'},
       {name:'모바일 광고', desc:'모바일·퍼포먼스 마케팅 대행', sales:'매출 133억', growth:'-72%', bar:10, status:'decline', statusLabel:'사업모델 전환'},
