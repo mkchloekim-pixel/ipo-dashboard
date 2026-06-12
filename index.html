@@ -132,6 +132,7 @@
   .mom.listed::before{background:var(--high);}
   .brand-text{font-size:12px;color:var(--text2);}
   .sales-num{font-family:var(--mono);font-size:12.5px;color:var(--text);font-weight:500;}
+  .ipo-value{font-family:var(--mono);font-size:12px;color:var(--text);font-weight:500;}
   .op-num{font-family:var(--mono);font-size:11px;color:var(--text3);margin-top:2px;}
   .invest-main{font-size:12px;color:var(--text2);line-height:1.5;}
   .invest-round{font-size:10.5px;color:var(--text3);margin-top:2px;font-family:var(--mono);}
@@ -673,7 +674,7 @@
         <tr class="clickable-row" data-sector="패션" data-mom="listed" onclick="openProfile('peacenow')" data-regions="중국,일본,온라인">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=mardimercredi.com&sz=64" alt="피스피스스튜디오" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">피스</span><div><div class="company-name" style="color:var(--accent-fashion)">피스피스스튜디오</div><div class="company-type">여성 패션·잡화</div></div></div></td>
           <td><div class="ipo-year" style="color:var(--high);font-weight:600;">26.6.8<br>코스닥 상장🎉</div></td>
-          <td><div class="ipo-value">약 1,800~1,900억</div></td>
+          <td><div class="ipo-value">약 3,000억</div></td>
           <td><span class="mom listed">상장완료</span></td>
           <td><div class="brand-text">마르디 메크르디</div><div class="profile-hint" style="color:var(--accent-fashion)">📋 상세 프로파일</div></td>
           <td><div class="sales-num">매출 1,179억</div><div class="op-num">OP 167억</div></td>
@@ -1382,7 +1383,7 @@ const PROFILES = {
     isListed: true,
     kpis: [
       {label:'매출 (25년)', value:'1,179억', delta:{cls:'up', text:'▲ YoY +3.6%'}, sub:'OP 167억'},
-      {label:'기업가치 (26.6 상장 완료)', value:'약 1,800~1,900억', sub:'공모가 기준 약 3,000억원→상장 후 주가하락'},
+      {label:'기업가치 (26.6 상장 완료)', value:'약 3,000억', sub:'(공모가 기준) 상장 후 1,300억 수준 하락'},
       {label:'상장일', value:'26.6.8', sub:'코스닥 신규 상장'},
       {label:'주관사', value:'NH투자·미래에셋', sub:'상장 완료'},
     ],
@@ -1889,5 +1890,8 @@ function filterMom(mom, btn) {
   });
 }
 </script>
+  <div style="text-align:center;padding:1.5rem;font-size:12px;color:#8b93a8;">
+  © 2026 Chloe Kim · IPO Pipeline Monitor
+</div>
 </body>
 </html>
