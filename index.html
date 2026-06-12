@@ -242,46 +242,73 @@
 
   /* Two col */
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:.9rem;}
-  
   @media (max-width: 768px) {
-    /* 헤더 */
-    .header{padding:.9rem 1rem;}
-    .header-title{font-size:17px;}
-    .header-sub{font-size:11px;}
-    .stat-pills{gap:6px;}
+
+    /* ── 헤더 ── */
+    .header{flex-direction:column;align-items:flex-start;gap:.6rem;padding:1rem 1.1rem;}
+    .header-left h1{font-size:15px;}
+    .header-left .sub{font-size:10px;}
+    .header-right{display:flex;flex-wrap:wrap;gap:5px;width:100%;}
     .stat-pill{font-size:10px;padding:3px 8px;}
 
-    /* 필터바 */
-    .filter-bar{padding:.5rem 1rem;gap:5px;flex-wrap:wrap;}
-    .filter-btn{font-size:11px;padding:4px 9px;}
+    /* ── 필터바 — 가로 스크롤 한 줄 ── */
+    .filter-bar{padding:.45rem .8rem;gap:5px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+    .filter-bar::-webkit-scrollbar{display:none;}
+    .filter-label{white-space:nowrap;font-size:10px;}
+    .filter-btn{font-size:11px;padding:4px 9px;white-space:nowrap;flex-shrink:0;}
+    .sep{margin:0 3px;flex-shrink:0;}
 
-    /* 섹션 */
-    .sections{padding:.75rem 1rem;gap:.75rem;}
-    .section-header{padding:.5rem 0 .4rem;}
+    /* ── 콘텐츠 ── */
+    .content{padding:.75rem .8rem 3rem;}
+    .section{margin-bottom:1.25rem;}
+    .section-header{margin-bottom:.5rem;}
+    .section-badge{font-size:10px;padding:2px 8px;}
 
-    /* 테이블 — 가로 스크롤 */
+    /* ── 테이블 — 가로 스크롤 ── */
     .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
-    table{min-width:580px;}
-    td,th{padding:8px 10px;}
+    table{min-width:480px;table-layout:auto;}
+    thead th{font-size:9.5px;padding:7px 8px;}
+    td{padding:9px 8px;}
 
-    /* 투자·주관사 컬럼 숨김 */
+    /* 투자유치·주관사 컬럼 숨김 */
     .col-invest,.col-bank{display:none;}
     td:nth-child(6),td:nth-child(7),
     th:nth-child(6),th:nth-child(7){display:none;}
 
-    /* 기업명 폰트 */
-    .company-name{font-size:12px;}
-    .company-type{font-size:10px;}
-    .company-logo-img,.company-logo-fallback{width:24px;height:24px;}
+    /* 컬럼 너비 재조정 */
+    .col-name{width:100px;}
+    .col-ipo{width:75px;}
+    .col-momentum{width:82px;}
+    .col-brand{width:130px;}
+    .col-sales{width:100px;}
 
-    /* 상세 패널 — 전체화면 */
+    /* 기업명 셀 */
+    .company-logo-img,.company-logo-fallback{width:22px;height:22px;}
+    .company-name{font-size:12px;}
+    .company-type{font-size:9.5px;}
+    .company-cell{gap:6px;}
+
+    /* 텍스트 크기 */
+    .ipo-year{font-size:11px;}
+    .mom{font-size:10px;padding:2px 7px;}
+    .brand-text{font-size:11px;}
+    .profile-hint{font-size:9.5px;}
+    .sales-num{font-size:11.5px;}
+    .op-num{font-size:10px;}
+
+    /* ── 상세 패널 — 전체화면 ── */
     .panel{width:100vw;min-width:unset;max-width:unset;}
-    .panel-header{padding:1rem 1.2rem;}
-    .panel-company{font-size:17px;}
+    .panel-header{padding:.9rem 1.1rem;}
+    .panel-company{font-size:16px;}
+    .panel-meta{font-size:11px;}
+
+    /* 패널 내부 2단 → 1단 */
     .two-col{grid-template-columns:1fr;}
+    .kpi-grid{grid-template-columns:1fr 1fr;}
 
     /* 레전드 */
-    .legend{padding:.75rem 1rem;gap:10px;}
+    .legend{padding:.6rem .8rem;gap:8px;}
+    .legend-item{font-size:10px;}
   }
 </style>
 </head>
