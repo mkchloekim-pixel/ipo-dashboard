@@ -326,21 +326,35 @@
       box-sizing:border-box;
         -webkit-text-size-adjust:100%;
     }
-    .brand-tbl thead{display:none !important;}
+    .brand-tbl thead{display:block !important;}
+    .brand-tbl thead tr{
+      display:flex !important;width:100% !important;
+      border-bottom:.5px solid var(--border) !important;
+      padding-bottom:6px !important;margin-bottom:2px;
+    }
+    .brand-tbl th{
+      font-size:9.5px !important;font-weight:600 !important;
+      color:var(--text3) !important;padding:0 !important;
+      display:block !important;
+    }
+    .brand-tbl th:nth-child(1){flex:3;}
+    .brand-tbl th:nth-child(2){flex:2;}
+    .brand-tbl th:nth-child(3){display:none !important;}
+    .brand-tbl th:nth-child(4){display:none !important;}
+    .brand-tbl th:nth-child(5){flex:1;text-align:right;}
     .brand-tbl tr{
-      padding:10px 0 !important;
+      display:flex !important;
+      align-items:center;
+      padding:9px 0 !important;
       border-bottom:.5px solid var(--border) !important;
     }
     .brand-tbl tr:last-child{border-bottom:none !important;}
-    /* bar 숨김 */
-    .brand-tbl td:nth-child(4),.bar-wrap{display:none !important;}
-    /* 실적+성장 한 줄 나란히 */
-    .brand-tbl td:nth-child(2),
-    .brand-tbl td:nth-child(3){
-      display:inline-block !important;
-      width:auto !important;
-      margin-right:8px;
-    }
+    .brand-tbl td:nth-child(1){flex:3;display:block !important;width:auto !important;}
+    .brand-tbl td:nth-child(2){flex:2;display:block !important;width:auto !important;}
+    .brand-tbl td:nth-child(3){display:none !important;}
+    .brand-tbl td:nth-child(4){display:none !important;}
+    .brand-tbl td:nth-child(5){flex:1;display:block !important;width:auto !important;text-align:right;}
+    .bar-wrap{display:none !important;}
     /* 폰트 전체 강제 통일 */
     .brand-tbl *{font-size:12px !important;}
     .b-name{font-size:12px !important;font-weight:600 !important;}
