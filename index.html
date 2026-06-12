@@ -360,11 +360,14 @@
       height:0 !important;overflow:hidden !important;
       visibility:hidden !important;padding:0 !important;
     }
-    .bar-wrap,.bar-fill{
+    .bar-wrap,.bar-fill,.brand-tbl td:nth-child(4){
       display:none !important;
-      width:0 !important;max-width:0 !important;
-      height:0 !important;overflow:hidden !important;
+      width:0 !important;
+      max-width:0 !important;
+      height:0 !important;
+      overflow:hidden !important;
       visibility:hidden !important;
+      padding:0 !important;
     }
     /* 폰트 전체 강제 통일 */
     .brand-tbl *{font-size:12px !important;}
@@ -798,7 +801,7 @@ const PROFILES = {
     stageIdx: 3, stages: ['사업성 검증','투자유치','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: 'Pre-IPO 완료, 예심 청구 준비 중. 상장 목표 2027~2028년.',
     brands: [
-      {name:'무신사 (온·오프라인)', desc:'국내 1위 패션 플랫폼<br><span style=\'display:inline-flex;align-items:center;gap:4px;margin-top:2px\'><span style=\'color:var(--border2);font-size:11px\'>└</span><span style=\'color:var(--text3);font-size:10.5px\'>무신사스탠다드&nbsp;4,700억&nbsp;<span style=\'color:var(--high);font-weight:500\'>YoY +40%</span></span></span>'  , sales:'GMV 5조원+', growth:'+15%', bar:100, status:'anchor', statusLabel:'앵커'},
+      {name:'무신사 (온·오프라인)', desc:'국내 1위 패션 플랫폼·무신사스탠다드 4,700억(YoY +40%)'  , sales:'GMV 5조원+', growth:'+15%', bar:100, status:'anchor', statusLabel:'앵커'},
       {name:'29CM', desc:'럭셔리·라이프스타일 버티컬', sales:'GMV 1.3조원+', growth:'+30%', bar:26, status:'rising', statusLabel:'라이징'},
     ],
     invests: [
@@ -884,9 +887,9 @@ const PROFILES = {
     stageIdx: 2, stages: ['사업성 검증','투자유치','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
     stageNote: '주관사 미선정. 수익성 회복이 IPO 재개의 선결 조건.',
     brands: [
-      {name:'오늘의집 앱', desc:'인테리어 커머스·커뮤니티', sales:'', growth:'안정화', bar:100, status:'anchor', statusLabel:'앵커'},
-      {name:'오늘의집 스탠다드', desc:'B2B 시공·인테리어 및 건자재 유통', sales:'', growth:'성장중', bar:30, status:'rising', statusLabel:'신규'},
-      {name:'오늘의집 북촌·인테리어 판교라운지', desc:'오프라인 거점', sales:'', growth:'성장중', bar:10, status:'rising', statusLabel:'신규'},
+      {name:'오늘의집 앱', desc:'인테리어 커머스·커뮤니티', sales:'-', growth:'안정화', bar:100, status:'anchor', statusLabel:'앵커'},
+      {name:'오늘의집 스탠다드', desc:'B2B 시공·인테리어 및 건자재 유통', sales:'-', growth:'성장중', bar:30, status:'rising', statusLabel:'신규'},
+      {name:'오늘의집 북촌·인테리어 판교라운지', desc:'오프라인 거점', sales:'-', growth:'성장중', bar:10, status:'rising', statusLabel:'신규'},
     ],
     invests: [
       {name:'BRV Capital Management', type:'재무적 투자자', amt:'투자유지'},
@@ -1550,7 +1553,7 @@ function openProfile(key) {
       <td><div class="b-name">${b.name}</div><div class="b-desc" style="line-height:1.6">${b.desc}</div></td>
       <td><div class="b-sales">${b.sales}</div></td>
       <td><div class="b-growth">${b.growth}</div></td>
-      <td><td class="td-bar"><div class="bar-wrap"><div class="bar-fill" style="width:${b.bar}%"></div></div></td>
+      <td><div class="bar-wrap"><div class="bar-fill" style="width:${b.bar}%"></div></div></td>
       <td><span class="b-status ${b.status}">${b.statusLabel}</span></td>
     </tr>`).join('');
 
