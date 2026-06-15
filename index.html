@@ -444,7 +444,7 @@
   <button class="filter-btn" onclick="filterSector('뷰티',this)">뷰티</button>
   <button class="filter-btn" onclick="filterSector('패션',this)">패션</button>
   <button class="filter-btn" onclick="filterSector('식품',this)">식품</button>
-  <button class="filter-btn filter-reset" onclick="filterSector('all',this)">✕ 해제</button>
+  <button class="filter-btn filter-reset" onclick="f.sector='all';filterSector('all',this)">✕ 해제</button>
   <div class="sep"></div>
   <span class="filter-label">IPO 시기</span>
   <button class="filter-btn" onclick="filterIpo('26.下',this)">26.下</button>
@@ -452,7 +452,7 @@
   <button class="filter-btn" onclick="filterIpo('27.下',this)">27.下</button>
   <button class="filter-btn" onclick="filterIpo('28.上',this)">28.上</button>
   <button class="filter-btn" onclick="filterIpo('검토중',this)">검토중</button>
-  <button class="filter-btn filter-reset" onclick="filterIpo(null,this)">✕ 해제</button>
+  <button class="filter-btn filter-reset" onclick="f.ipo=null;applyFilters();document.querySelectorAll('.filter-btn[onclick^=\'filterIpo\']').forEach(b=>b.classList.remove('active-ipo'))">✕ 해제</button>
   <div class="sep"></div>
   <span class="filter-label">추진강도</span>
   <button class="filter-btn" onclick="filterMom('high',this)">High</button>
@@ -460,7 +460,7 @@
   <button class="filter-btn" onclick="filterMom('mid',this)">Mid</button>
   <button class="filter-btn" onclick="filterMom('midlow',this)">Mid-low</button>
   <button class="filter-btn" onclick="filterMom('listed',this)">상장완료</button>
-  <button class="filter-btn filter-reset" onclick="filterMom(null,this)">✕ 해제</button>
+  <button class="filter-btn filter-reset" onclick="f.mom=null;applyFilters();document.querySelectorAll('.filter-btn[onclick^=\'filterMom\']').forEach(b=>b.classList.remove('active-all','active-listed'))">✕ 해제</button>
 </div>
 
 <div class="content">
@@ -473,7 +473,7 @@
     </div>
     <div class="table-wrap"><table>
       <thead><tr>
-        <th class="col-name">기업명</th><th class="col-ipo">IPO 예상 시기</th>
+        <th class="col-name">기업명</th><th class="col-ipo">IPO예정</th>
         <th class="col-valuation">기업가치</th><th class="col-momentum">추진강도</th>
         <th class="col-brand">주요 브랜드/사업</th><th class="col-sales">실적 ('25년)</th>
         <th class="col-invest">투자유치현황</th><th class="col-bank">주관사</th>
@@ -531,7 +531,7 @@
     </div>
     <div class="table-wrap"><table>
       <thead><tr>
-       <th class="col-name">기업명</th><th class="col-ipo">IPO 예상 시기</th>
+       <th class="col-name">기업명</th><th class="col-ipo">IPO예정</th>
         <th class="col-valuation">기업가치</th><th class="col-momentum">추진강도</th>
         <th class="col-brand">주요 브랜드/사업</th><th class="col-sales">실적 ('25년)</th>
         <th class="col-invest">투자유치현황</th><th class="col-bank">주관사</th>
@@ -639,7 +639,7 @@
     </div>
     <div class="table-wrap"><table>
       <thead><tr>
-        <th class="col-name">기업명</th><th class="col-ipo">IPO 예상 시기</th>
+        <th class="col-name">기업명</th><th class="col-ipo">IPO예정</th>
         <th class="col-valuation">기업가치</th><th class="col-momentum">추진강도</th>
         <th class="col-brand">주요 브랜드/사업</th><th class="col-sales">실적 ('25년)</th>
         <th class="col-invest">투자유치현황</th><th class="col-bank">주관사</th>
@@ -697,8 +697,8 @@
     </div>
     <div class="table-wrap"><table>
       <thead><tr>
-        <th class="col-name">기업명</th><th class="col-ipo">IPO 예상 시기</th>
-        <th class="col-valuation">기업가치</th><th class="col-momentum">추진강도</th>
+        <th class="col-name">기업명</th><th class="col-valuation">기업가치</th>
+        <th class="col-ipo">IPO예정</th><th class="col-momentum">추진강도</th>
         <th class="col-brand">주요 브랜드/사업</th><th class="col-sales">실적 ('25년)</th>
         <th class="col-invest">투자유치현황</th><th class="col-bank">주관사</th>
       </tr></thead>
@@ -1814,127 +1814,61 @@ function closePanel() {
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
 
-// ── 필터 ──
+// ── 필터 (교집합 방식) ──
 
-let currentRegionFilter = null;
+let f = { sector: 'all', ipo: null, mom: null };
 
-function filterRegion(region, btn) {
-  // 전체해제 버튼
-  if (!region) {
-    currentRegionFilter = null;
-    document.querySelectorAll('.filter-btn').forEach(b =>
-      b.classList.remove('active-region'));
-    document.querySelectorAll('tbody tr[data-sector]').forEach(r => r.style.display = '');
-    ['버티컬','뷰티','패션','식품'].forEach(s =>
-      document.getElementById('section-'+s).style.display = '');
-    return;
-  }
-  if (currentRegionFilter === region) {
-    currentRegionFilter = null;
-    btn.classList.remove('active-region');
-    document.querySelectorAll('tbody tr[data-sector]').forEach(r => r.style.display = '');
-    ['버티컬','뷰티','패션','식품'].forEach(s =>
-      document.getElementById('section-'+s).style.display = '');
-    return;
-  }
-  currentRegionFilter = region;
-  document.querySelectorAll('.filter-btn').forEach(b =>
-    b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-food','active-ipo'));
-  btn.classList.add('active-region');
-  ['버티컬','뷰티','패션','식품'].forEach(s =>
-    document.getElementById('section-'+s).style.display = '');
+function applyFilters() {
+  const sections = ['버티컬','뷰티','패션','식품'];
+  sections.forEach(s => document.getElementById('section-'+s).style.display = '');
+
   document.querySelectorAll('tbody tr[data-sector]').forEach(r => {
-    const regions = (r.dataset.regions || '').split(',');
-    r.style.display = regions.includes(region) ? '' : 'none';
+    const matchSector = f.sector === 'all' || r.dataset.sector === f.sector;
+    const matchIpo    = !f.ipo || (r.dataset.ipo || '').split(',').includes(f.ipo);
+    const matchMom    = !f.mom || r.dataset.mom === f.mom;
+    r.style.display = (matchSector && matchIpo && matchMom) ? '' : 'none';
   });
-  ['버티컬','뷰티','패션','식품'].forEach(s => {
-    const sec = document.getElementById('section-'+s);
-    const any = [...sec.querySelectorAll('tbody tr[data-sector]')]
-      .some(r => r.style.display !== 'none');
-    if (!any) sec.style.display = 'none';
-  });
-}
 
-let currentIpoFilter = null;
-function filterIpo(ipo, btn) {
-  if (!ipo) {
-    currentIpoFilter = null;
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active-ipo'));
-    document.querySelectorAll('tbody tr[data-sector]').forEach(r => r.style.display = '');
-    ['버티컬','뷰티','패션','식품'].forEach(s =>
-      document.getElementById('section-'+s).style.display = '');
-    return;
-  }
-  if (currentIpoFilter === ipo) {
-    currentIpoFilter = null;
-    btn.classList.remove('active-ipo');
-    document.querySelectorAll('tbody tr[data-sector]').forEach(r => r.style.display = '');
-    ['버티컬','뷰티','패션','식품'].forEach(s =>
-      document.getElementById('section-'+s).style.display = '');
-    return;
-  }
-  currentIpoFilter = ipo;
-  document.querySelectorAll('.filter-btn').forEach(b =>
-    b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-food','active-listed','active-region','active-ipo'));
-  btn.classList.add('active-ipo');
-  ['버티컬','뷰티','패션','식품'].forEach(s =>
-    document.getElementById('section-'+s).style.display = '');
-  document.querySelectorAll('tbody tr[data-sector]').forEach(r => {
-    const ipoTags = (r.dataset.ipo || '').split(',');
-    r.style.display = ipoTags.includes(ipo) ? '' : 'none';
-  });
-  ['버티컬','뷰티','패션','식품'].forEach(s => {
+  sections.forEach(s => {
     const sec = document.getElementById('section-'+s);
-    const any = [...sec.querySelectorAll('tbody tr[data-sector]')]
-      .some(r => r.style.display !== 'none');
+    const any = [...sec.querySelectorAll('tbody tr[data-sector]')].some(r => r.style.display !== 'none');
     if (!any) sec.style.display = 'none';
   });
 }
 
 function filterSector(sector, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b =>
+  f.sector = (f.sector === sector && sector !== 'all') ? 'all' : sector;
+  document.querySelectorAll('.filter-btn[onclick^="filterSector"]').forEach(b =>
     b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-food'));
-  if (sector==='all') btn.classList.add('active-all');
-  else if (sector==='버티컬') btn.classList.add('active-vertical');
-  else if (sector==='뷰티') btn.classList.add('active-beauty');
-  else if (sector==='패션') btn.classList.add('active-fashion');
-  else btn.classList.add('active-food');
-  ['버티컬','뷰티','패션','식품'].forEach(s => {
-    document.getElementById('section-'+s).style.display =
-      (sector==='all'||sector===s)?'':'none';
-  });
-  currentMomFilter = null;
-  document.querySelectorAll('tbody tr[data-sector]').forEach(r=>r.style.display='');
+  const activeClass = { all:'active-all', 버티컬:'active-vertical', 뷰티:'active-beauty', 패션:'active-fashion', 식품:'active-food' };
+  const sectorBtns = [...document.querySelectorAll('.filter-btn[onclick^="filterSector"]')];
+  const target = sectorBtns.find(b => b.textContent.trim() === (f.sector === 'all' ? '전체' : f.sector));
+  if (target) target.classList.add(activeClass[f.sector] || 'active-all');
+  applyFilters();
 }
+
+function filterIpo(ipo, btn) {
+  f.ipo = (f.ipo === ipo) ? null : ipo;
+  document.querySelectorAll('.filter-btn[onclick^="filterIpo"]').forEach(b => b.classList.remove('active-ipo'));
+  if (f.ipo) {
+    const ipoBtn = [...document.querySelectorAll('.filter-btn[onclick^="filterIpo"]')]
+      .find(b => b.textContent.trim() === f.ipo);
+    if (ipoBtn) ipoBtn.classList.add('active-ipo');
+  }
+  applyFilters();
+}
+
 function filterMom(mom, btn) {
-  if (!mom) {
-    currentMomFilter = null;
-    document.querySelectorAll('.filter-btn').forEach(b=>
-      b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-food','active-listed'));
-    document.querySelectorAll('tbody tr[data-sector]').forEach(r=>r.style.display='');
-    ['버티컬','뷰티','패션','식품'].forEach(s=>document.getElementById('section-'+s).style.display='');
-    return;
+  f.mom = (f.mom === mom) ? null : mom;
+  document.querySelectorAll('.filter-btn[onclick^="filterMom"]').forEach(b =>
+    b.classList.remove('active-all','active-listed'));
+  if (f.mom) {
+    const momBtns = [...document.querySelectorAll('.filter-btn[onclick^="filterMom"]')];
+    const labelMap = { high:'High', midhigh:'Mid-high', mid:'Mid', midlow:'Mid-low', listed:'상장완료' };
+    const target = momBtns.find(b => b.textContent.trim() === labelMap[f.mom]);
+    if (target) target.classList.add(f.mom === 'listed' ? 'active-listed' : 'active-all');
   }
-  if (currentMomFilter===mom) {
-    currentMomFilter=null; btn.classList.remove('active-all','active-listed');
-    document.querySelectorAll('tbody tr[data-sector]').forEach(r=>r.style.display='');
-    ['버티컬','뷰티','패션','식품'].forEach(s=>document.getElementById('section-'+s).style.display='');
-    return;
-  }
-  currentMomFilter=mom;
-  document.querySelectorAll('.filter-btn').forEach(b=>
-    b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-food','active-listed'));
-  if(mom==='listed') btn.classList.add('active-listed');
-  else btn.classList.add('active-all');
-  ['버티컬','뷰티','패션','식품'].forEach(s=>document.getElementById('section-'+s).style.display='');
-  document.querySelectorAll('tbody tr[data-sector]').forEach(r=>{
-    r.style.display=(r.dataset.mom===mom)?'':'none';
-  });
-  ['버티컬','뷰티','패션','식품'].forEach(s=>{
-    const sec=document.getElementById('section-'+s);
-    const any=[...sec.querySelectorAll('tbody tr[data-sector]')].some(r=>r.style.display!=='none');
-    if(!any) sec.style.display='none';
-  });
+  applyFilters();
 }
 </script>
   <div style="text-align:center;padding:1.5rem;font-size:12px;color:#8b93a8;">
