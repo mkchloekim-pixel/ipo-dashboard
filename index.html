@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -86,7 +87,9 @@
   .col-brand{width:160px;}.col-sales{width:140px;}.col-invest{width:200px;}.col-bank{width:155px;}
 
 
-  .filter-btn.active-region { border-color:#0891b2;color:#0891b2;background:#ecfeff;font-weight:500; }
+  .filter-btn.active-ipo { border-color:#7c3aed;color:#7c3aed;background:#f5f3ff;font-weight:500; }
+  .filter-btn.filter-reset { color:var(--text3);border-color:var(--border);font-size:11px; }
+  .filter-btn.filter-reset:hover { color:var(--text2);background:var(--bg3); }
   .region-tag { font-size:10px;padding:1px 6px;border-radius:3px;font-weight:500;display:inline-block;margin:1px 2px; }
   .region-tag.china    { background:#fef3c7;color:#b45309;border:.5px solid #fcd34d; }
   .region-tag.japan    { background:#fff1f2;color:#be185d;border:.5px solid #fda4af; }
@@ -441,22 +444,23 @@
   <button class="filter-btn" onclick="filterSector('뷰티',this)">뷰티</button>
   <button class="filter-btn" onclick="filterSector('패션',this)">패션</button>
   <button class="filter-btn" onclick="filterSector('식품',this)">식품</button>
+  <button class="filter-btn filter-reset" onclick="filterSector('all',this)">✕ 해제</button>
   <div class="sep"></div>
-  <span class="filter-label">IPO추진</span>
+  <span class="filter-label">IPO 시기</span>
+  <button class="filter-btn" onclick="filterIpo('26.下',this)">26.下</button>
+  <button class="filter-btn" onclick="filterIpo('27.上',this)">27.上</button>
+  <button class="filter-btn" onclick="filterIpo('27.下',this)">27.下</button>
+  <button class="filter-btn" onclick="filterIpo('28.上',this)">28.上</button>
+  <button class="filter-btn" onclick="filterIpo('검토중',this)">검토중</button>
+  <button class="filter-btn filter-reset" onclick="filterIpo(null,this)">✕ 해제</button>
+  <div class="sep"></div>
+  <span class="filter-label">추진강도</span>
   <button class="filter-btn" onclick="filterMom('high',this)">High</button>
   <button class="filter-btn" onclick="filterMom('midhigh',this)">Mid-high</button>
   <button class="filter-btn" onclick="filterMom('mid',this)">Mid</button>
   <button class="filter-btn" onclick="filterMom('midlow',this)">Mid-low</button>
   <button class="filter-btn" onclick="filterMom('listed',this)">상장완료</button>
-  <div class="sep"></div>
-  <span class="filter-label">글로벌 권역</span>
-  <button class="filter-btn" onclick="filterRegion('미주',this)">🇺🇸 미주</button>
-  <button class="filter-btn" onclick="filterRegion('일본',this)">🇯🇵 일본</button>
-  <button class="filter-btn" onclick="filterRegion('중국',this)">🇨🇳 중국</button>
-  <button class="filter-btn" onclick="filterRegion('유럽',this)">🇪🇺 유럽</button>
-  <button class="filter-btn" onclick="filterRegion('동남아',this)">🌏 동남아</button>
-  <button class="filter-btn" onclick="filterRegion('온라인',this)">온라인</button>
-  <button class="filter-btn" onclick="filterRegion(null,this)">권역해제</button>
+  <button class="filter-btn filter-reset" onclick="filterMom(null,this)">✕ 해제</button>
 </div>
 
 <div class="content">
@@ -475,7 +479,7 @@
         <th class="col-invest">투자유치현황</th><th class="col-bank">주관사</th>
       </tr></thead>
       <tbody>
-        <tr class="clickable-row" data-sector="버티컬" data-mom="high" onclick="openProfile('kurly')" data-regions="미주,온라인,동남아">
+        <tr class="clickable-row" data-sector="버티컬" data-mom="high" onclick="openProfile('kurly')" data-regions="미주,온라인,동남아" data-ipo="27.上,27.下,28.上">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=kurly.com&sz=64" alt="컬리" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">컬리</span><div><div class="company-name" style="color:var(--accent-vertical)">컬리</div><div class="company-type">식품 버티컬</div></div></div></td>
           <td><div class="ipo-year">27~28년</div></td>
           <td><div class="ipo-value">약 2.8조</div></td>
@@ -485,7 +489,7 @@
           <td><div class="invest-main">누적 1.2조원+</div><div class="invest-round">Anchor Equity · DST · Hillhouse · Naver</div></td>
           <td><div class="bank-text">NH투자증권, 한국투자증권</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="버티컬" data-mom="high" onclick="openProfile('musinsoa')" data-regions="중국,일본,미주,동남아,온라인,유럽">
+        <tr class="clickable-row" data-sector="버티컬" data-mom="high" onclick="openProfile('musinsoa')" data-regions="중국,일본,미주,동남아,온라인,유럽" data-ipo="27.上,27.下,28.上">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=musinsa.com&sz=64" alt="무신사" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">무신</span><div><div class="company-name" style="color:var(--accent-vertical)">무신사</div><div class="company-type">패션 버티컬</div></div></div></td>
           <td><div class="ipo-year">27~28년</div></td>
           <td><div class="ipo-value">약 3조~최대 10조</div></td>
@@ -495,7 +499,7 @@
           <td><div class="invest-main">Series C (누적 약 4,000억원+)</div><div class="invest-round">Sequoia · IMM · Wellington</div></td>
           <td><div class="bank-text">한국투자증권, 씨티그룹, KB증권, JP모건</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="버티컬" data-mom="midlow" onclick="openProfile('oasis')">
+        <tr class="clickable-row" data-sector="버티컬" data-mom="midlow" onclick="openProfile('oasis')" data-ipo="검토중">
           <td><div class="company-cell"><img class="company-logo-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAAGvklEQVR42u2aa3BU5RnHf+85m93sZklSCfWDCQjSisSAEBJLiaSTcEkTitOhJAEqJVEkbYUUi1C52I4dFcIIhqkZgg4gGIXE0BIEF9BCQCXmVkwcwYlUbp0OV0OSzXXP+/bDhjTIEqOfanmfr+e//3Pmt8/7PP+9iBFPOBW3cRnc5qUBaAAagAagAWgAGoAGoAFoABqABqABaAAagAagAWgAGoAGoAFoALcoIQRCiO+8rnfZ+kXJMFAKfFan/0WmHSFASvmd0n1jAAIQwqDZ68UwIMx9BwDXWq5iSQh1hSCV/yZGt85mQpg7olt3GZ8FAwLoTAPC3AMBaGy5gpSBdf31s5kQGnKzn1IS9e0A+Fuppc3Lz8bNJHtKLqOixgFQd66azQfyebumhBCnC9Wtezg+k8yJjzJ6sF/38dlqdhx5lbKqnTfpZiU+xti7f4QhDOrP17L13b9QVrXjRl1cBrN+Mp/RQx4EFMfPVLLj8CuUVe8MqAvk53K68BMIjMGMiA/6U8C2Fwbe9jaenrGaP2bmI30Wu6vepP5sLaOiYpmV+DhOu5PDn3jwWT7+MCOPZzLWMThiGKcv/ZPm9mbGDH2Q1Nhf4HT01q3hmYz1REUM44OThzhx/mNG3DWK9IQsXA4nh+tv1q3dtZyKz8qZk5hD6rj++zkdTg7VeXAE2VG3ACAC/ThqGCZN3hamj5vJyznFvPb3DawoyqXR62+McBc8P2cDc5MWMnd9CqZpsmXRXqSSnDhXx8MvxCMQ/G35R9wXOQpDGMzLT0MAW3L3YkkfS7dm8+aR7QgD7o+MpmxlNQ57MPPyUxFCsGXRXnxWF6CY/eJkhBAUPXmg54xn5adBn341OOwOnijMYHdVMaEhbqS0+ncElFKYwuDxlCWcu3iKFUVPEjkwkoIFeQA8/9ZSlhctJikmjYXTVtHa0YJSCkMYeGpL8XZ2IRTsr91FdNQDKKXInvQ7FBKlFFebLrGr4nWSx0xmfdZ22jrasAfZu3WLQfifQSAwzSAyErKxpMRm2rEsH0opsiblopRCKcWVpssB/IJQSjE36TfsqylFKdW/GSCEwGd1Ej4gnJFRD/BG+SYavRaFOS+SFpfuPzfCJHNdBgfq9pCdnEtzWxNCCDq7OtlVsY0f/3A8UkpKK7azMG0lQTY7ccMTes6h2zmAeyNj8NQepKMznZypS4gadDdKqW4dIASGYQJQ4FlNZ1cH6QlZmKYNBcQNT+hp6wFOdwC/IYBg2J338r3QgTS3fYnNDLoJhNGP5RqoR24YlFL639nKhnLqzpxldsJjzJwwj7ozp6lsOIpSCqmsnh3tdLgpXlLOyhnPcupCA4+8NJ260zX+1aXkdduecge7cQe7b5rRX+d3/dm+0RpUSmEz7XzZ3Min546TFJ1CeIjJn0t+j1T+M/RcyVOEuUymjJ5GVcMHNLddI2lUKm8d20qIA145mI9E4bZDybHNTLgvmcqG9zENg4dGTqa9q5X9NbvInrIQm02wbNsqLjaeR6mxVDYcxWaYJIychCUtbKatN2ssaWEIg6qG9wFu6Xeh8V8oFcupCye52nQFZ3AwSsn+zQAhBFJJNnnW8nJOCc/NWc+KokXMWjf7hiEYGTGMp7f9GqfDxfgRieyuKOanY6ayKv0lQPBscS5lFcW88MtNvHFkIx2d7UyMnsLZi1+wbNt8Fm95lC4FyTHxjL1nPEIIXntvA0IIHoqeDCiktGhpb6Gzqx0pLf9sMASb381HKXlLv9huv6LDhfikv/sCjYGAAKS0CHWF8HZNKTGeNeSkLCM5Zhrv1e8FIUi+P5XIQUMp9ORx9ORBbIZJwb489q2qZsid9+By+Nu1YEEpZy58TsE7eRyq34tP+ij0rGVBylNUr/s3xz4rx2ELJnn0NIQQFHrWUH7CA8DG/XnkTF0KQPwPJuLzdWEYJkb3tfJP3wHo02+jZzV7qkv8gS3ABrjlGrzecwLwtrcyLbavIBSCQtHe0U7GhCx+Pv4RhkYMB+CLy5/z1w+3s/PDLQTbgxECvG2tTI/L5FfJvyVmcCxKKY6f/ojXD21kT3WxP7gArW2tTI/LYFbifEbeNRqB4JPz/2BH+auUVe/8iq4Pv2DXV+ZWvwH0isKtfUdhASAMrrV4sdvgjtDvA3C16SKdPggLCUHRK7q23hiFr7VcwQoUhVv9ETfcPag74l4KHIX78Pu6KCz68y+x2/bD0H9nguw2DureFDLgQPlf131rAL1X5P+DTn8jpAFoABqABqABaAAagAagAWgAGoAGoAFoABqABqABaAAagAagAdym9R91R8z6dTglHAAAAABJRU5ErkJggg==" alt="오아시스" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">오아</span><div><div class="company-name" style="color:var(--accent-vertical)">오아시스</div><div class="company-type">유기농 식품 버티컬</div></div></div></td>
           <td><div class="ipo-year">27년 이후<br>재추진</div></td>
           <td><div class="ipo-value">약 3,700~4,000억</div></td>
@@ -505,9 +509,9 @@
           <td><div class="invest-main">상장 철회 후 자체 흑자 경영</div></td>
           <td><div class="bank-text">NH투자증권(대표), 한국투자증권</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="버티컬" data-mom="mid" onclick="openProfile('ohouse')" data-regions="일본,미주,온라인">
+        <tr class="clickable-row" data-sector="버티컬" data-mom="mid" onclick="openProfile('ohouse')" data-regions="일본,미주,온라인" data-ipo="검토중">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=ohou.se&sz=64" alt="오늘의집" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">오늘</span><div><div class="company-name" style="color:var(--accent-vertical)">오늘의집</div><div class="company-type">홈 인테리어 버티컬</div></div></div></td>
-          <td><div class="ipo-year">27~28년</div></td>
+          <td><div class="ipo-year">검토중</div></td>
           <td><div class="ipo-value">약 1.8조</div></td>
           <td><span class="mom mid">Mid</span></td>
           <td><div class="brand-text">오늘의집 (인테리어·가구 커머스)</div><div class="profile-hint" style="color:var(--accent-vertical)">📋 상세 프로파일</div></td>
@@ -533,7 +537,7 @@
         <th class="col-invest">투자유치현황</th><th class="col-bank">주관사</th>
       </tr></thead>
       <tbody>
-        <tr class="clickable-row" data-sector="뷰티" data-mom="high" onclick="openProfile('goodai')" data-regions="미주,일본,유럽,온라인,동남아">
+        <tr class="clickable-row" data-sector="뷰티" data-mom="high" onclick="openProfile('goodai')" data-regions="미주,일본,유럽,온라인,동남아" data-ipo="27.上,27.下,28.上">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=beautyofjoseon.com&sz=64" alt="구다이글로벌" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">구다</span><div><div class="company-name" style="color:var(--accent-beauty)">구다이글로벌</div><div class="company-type">뷰티 유통/브랜드사</div></div></div></td>
           <td><div class="ipo-year">27~28년</div></td>
           <td><div class="ipo-value">약 4조~최대 10조</div></td>
@@ -543,7 +547,7 @@
           <td><div class="invest-main">Series A 이후 자력 성장</div><div class="invest-round">Pre-IPO 8,000억 투자유치</div></td>
           <td><div class="bank-text">미래에셋(대표), NH투자, 씨티그룹, 모건스탠리</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('founders')" data-regions="미주,유럽,일본,온라인,동남아">
+        <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('founders')" data-regions="미주,유럽,일본,온라인,동남아" data-ipo="27.上,27.下">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=anua.kr&sz=64" alt="더파운더즈" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">더파</span><div><div class="company-name" style="color:var(--accent-beauty)">더파운더즈</div><div class="company-type">뷰티 브랜드사</div></div></div></td>
           <td><div class="ipo-year">27년 예상</div></td>
           <td><div class="ipo-value">약 1조 이상(추정)</div></td>
@@ -553,7 +557,7 @@
           <td><div class="invest-main">외부 VC 투자 없이 자력 성장</div><div class="invest-round">Pre-IPO 검토설 지속</div></td>
           <td><div class="bank-pending">미선정 / 비공개</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('vinow')" data-regions="일본,온라인,동남아">
+        <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('vinow')" data-regions="일본,온라인,동남아" data-ipo="27.下">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=numbuzin.com&sz=64" alt="비나우" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">비나</span><div><div class="company-name" style="color:var(--accent-beauty)">비나우</div><div class="company-type">뷰티 브랜드사</div></div></div></td>
           <td><div class="ipo-year">27년 3~4Q 목표</div></td>
           <td><div class="ipo-value">약 9,000억</div></td>
@@ -563,7 +567,7 @@
           <td><div class="invest-main">Pre-IPO 완료</div><div class="invest-round">IMM인베 · LB PE · 브아원</div></td>
           <td><div class="bank-text">삼성증권</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('olive')" data-regions="미주,유럽,일본,온라인">
+        <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('olive')" data-regions="미주,유럽,일본,온라인" data-ipo="27.上,27.下">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=oliveinternational.co.kr&sz=64" alt="올리브인터내셔널" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">올리</span><div><div class="company-name" style="color:var(--accent-beauty)">올리브인터내셔널</div><div class="company-type">뷰티 브랜드사</div></div></div></td>
           <td><div class="ipo-year">27년 목표</div></td>
           <td><div class="ipo-value">약 3,000억</div></td>
@@ -573,7 +577,7 @@
           <td><div class="invest-main">올리브영, 프라이머, IMM인베스트먼트</div><div class="invest-round">주관사 선정 중</div></td>
           <td><div class="bank-text">선정중</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="뷰티" data-mom="mid" onclick="openProfile('liman')" data-regions="미주,유럽,일본,온라인">
+        <tr class="clickable-row" data-sector="뷰티" data-mom="mid" onclick="openProfile('liman')" data-regions="미주,유럽,일본,온라인" data-ipo="검토중">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=kr.riman.com&sz=64" alt="리만코리아" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">리만</span><div><div class="company-name" style="color:var(--accent-beauty)">리만코리아</div><div class="company-type">뷰티 브랜드사/네트워크 비즈니스</div></div></div></td>
           <td><div class="ipo-year">검토중</div></td>
           <td><div class="ipo-value">미공개</div></td>
@@ -583,7 +587,7 @@
           <td><div class="invest-main">IMM PE 경영권 투자(2022)</div><div class="invest-round">투자금 약 2,500억원 수준</div></td>
           <td><div class="bank-pending">미선정 / 비공개</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="뷰티" data-mom="mid" onclick="openProfile('grace')" data-regions="미주,일본,온라인">
+        <tr class="clickable-row" data-sector="뷰티" data-mom="mid" onclick="openProfile('grace')" data-regions="미주,일본,온라인" data-ipo="검토중">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=grace-bt.co.kr&sz=64" alt="그레이스" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">그레</span><div><div class="company-name" style="color:var(--accent-beauty)">그레이스</div><div class="company-type">뷰티 벤더/글로벌 유통</div></div></div></td>
           <td><div class="ipo-year">검토중</div></td>
           <td><div class="ipo-value">약 2,500억</div></td>
@@ -593,7 +597,7 @@
           <td><div class="invest-main">PE 경영권 투자</div></td>
           <td><div class="bank-pending">미선정 / 비공개</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('2020')" data-regions="미주,온라인">
+        <tr class="clickable-row" data-sector="뷰티" data-mom="midhigh" onclick="openProfile('2020')" data-regions="미주,온라인" data-ipo="26.下">
           <td><div class="company-cell"><img class="company-logo-img" src="data:image/png;base64,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" alt="이공이공" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">이공</span><div><div class="company-name" style="color:var(--accent-beauty)">이공이공</div><div class="company-type">글로벌 마케팅/브랜드 엑셀러레이터</div></div></div></td>
           <td><div class="ipo-year">26년 하반기</div></td>
           <td><div class="ipo-value">약 1,300억</div></td>
@@ -603,7 +607,7 @@
           <td><div class="invest-main">Series D</div><div class="invest-round">한국투자파트너스 · 라구나인베</div></td>
           <td><div class="bank-text">한국투자증권</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="뷰티" data-mom="mid" onclick="openProfile('bnb')" data-regions="미주,동남아,온라인">
+        <tr class="clickable-row" data-sector="뷰티" data-mom="mid" onclick="openProfile('bnb')" data-regions="미주,동남아,온라인" data-ipo="검토중">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=bnbkorea.co.kr&sz=64" alt="비앤비코리아" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">비앤</span><div><div class="company-name" style="color:var(--accent-beauty)">비앤비코리아</div><div class="company-type">ODM/OBM</div></div></div></td>
           <td><div class="ipo-year">검토중</div></td>
           <td><div class="ipo-value">약 6,000~7,000억</div></td>
@@ -613,7 +617,7 @@
           <td><div class="invest-main">M&A (진백글로벌)</div></td>
           <td><div class="bank-text">미래에셋증권</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="뷰티" data-mom="mid" onclick="openProfile('lafati')" data-regions="일본,미주,온라인">
+        <tr class="clickable-row" data-sector="뷰티" data-mom="mid" onclick="openProfile('lafati')" data-regions="일본,미주,온라인" data-ipo="검토중">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=leferi.co.kr&sz=64" alt="레페리" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">레페</span><div><div class="company-name" style="color:var(--accent-beauty)">레페리</div><div class="company-type">멀티 MCN</div></div></div></td>
           <td><div class="ipo-year">검토중</div></td>
           <td><div class="ipo-value">약 1,500~2,000억</div></td>
@@ -641,7 +645,7 @@
         <th class="col-invest">투자유치현황</th><th class="col-bank">주관사</th>
       </tr></thead>
       <tbody>
-        <tr class="clickable-row" data-sector="패션" data-mom="mid" onclick="openProfile('highlight')" data-regions="중국,온라인">
+        <tr class="clickable-row" data-sector="패션" data-mom="mid" onclick="openProfile('highlight')" data-regions="중국,온라인" data-ipo="27.上">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=hibs.co.kr&sz=64" alt="하이라이트브랜즈" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">하이</span><div><div class="company-name" style="color:var(--accent-fashion)">하이라이트브랜즈</div><div class="company-type">골프·라이프스타일</div></div></div></td>
           <td><div class="ipo-year">27년 상반기</div></td>
           <td><div class="ipo-value">약 4,000~6,000억</div></td>
@@ -651,7 +655,7 @@
           <td><div class="invest-main">IMM PE 투자유지</div></td>
           <td><div class="bank-text">신한투자증권</div></td>
         </tr>
-         <tr class="clickable-row" data-sector="패션" data-mom="midlow" onclick="openProfile('hagohouse')" data-regions="미주,유럽,일본,동남아,온라인">
+         <tr class="clickable-row" data-sector="패션" data-mom="midlow" onclick="openProfile('hagohouse')" data-regions="미주,유럽,일본,동남아,온라인" data-ipo="검토중">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=matinkim.com&sz=64" alt="하고하우스" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">하고</span><div><div class="company-name" style="color:var(--accent-fashion)">하고하우스</div><div class="company-type">여성 패션·인큐베이팅</div></div></div></td>
           <td><div class="ipo-year">검토중</div></td>
            <td><div class="ipo-value">약 1조</div></td>
@@ -661,7 +665,7 @@
           <td><div class="invest-main">SV인베스트먼트, LB인베스트먼트</div></td>
           <td><div class="bank-pending">미선정 / 비공개</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="패션" data-mom="mid" onclick="openProfile('boosterz')" data-regions="온라인">
+        <tr class="clickable-row" data-sector="패션" data-mom="mid" onclick="openProfile('boosterz')" data-regions="온라인" data-ipo="26.下">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=boosterz.co.kr&sz=64" alt="부스터즈" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">부스</span><div><div class="company-name" style="color:var(--accent-fashion)">부스터즈</div><div class="company-type">브랜드 인큐베이팅</div></div></div></td>
           <td><div class="ipo-year">26년 4Q<br>주관사 선정 목표</div></td>
           <td><div class="ipo-value">약 1,900억</div></td>
@@ -671,7 +675,7 @@
           <td><div class="invest-main">Series C</div><div class="invest-round">에스비아이인베, 엔베스터, 레이크브릿지EP, 하나벤처스 </div></td>
           <td><div class="bank-pending">미선정 (당초 대비 연기)</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="패션" data-mom="listed" onclick="openProfile('peacenow')" data-regions="중국,일본,온라인">
+        <tr class="clickable-row" data-sector="패션" data-mom="listed" onclick="openProfile('peacenow')" data-regions="중국,일본,온라인" data-ipo="listed">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=mardimercredi.com&sz=64" alt="피스피스스튜디오" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">피스</span><div><div class="company-name" style="color:var(--accent-fashion)">피스피스스튜디오</div><div class="company-type">여성 패션·잡화</div></div></div></td>
           <td><div class="ipo-year" style="color:var(--high);font-weight:600;">26.6.8<br>코스닥 상장🎉</div></td>
           <td><div class="ipo-value">약 3,000억</div></td>
@@ -699,7 +703,7 @@
         <th class="col-invest">투자유치현황</th><th class="col-bank">주관사</th>
       </tr></thead>
       <tbody>
-        <tr class="clickable-row" data-sector="식품" data-mom="mid" onclick="openProfile('grainon')" data-regions="온라인">
+        <tr class="clickable-row" data-sector="식품" data-mom="mid" onclick="openProfile('grainon')" data-regions="온라인" data-ipo="27.上">
           <td><div class="company-cell"><img class="company-logo-img" src="https://newdabio1.cafe24.com/images/logo/sample-logo.png" alt="그레인온" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">그레</span><div><div class="company-name" style="color:var(--accent-food)">그레인온</div><div class="company-type">카무트 효소·신사업</div></div></div></td>
           <td><div class="ipo-year">27년 1Q 예상</div></td>
           <td><div class="ipo-value">약 800억</div></td>
@@ -1835,7 +1839,7 @@ function filterRegion(region, btn) {
   }
   currentRegionFilter = region;
   document.querySelectorAll('.filter-btn').forEach(b =>
-    b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-food'));
+    b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-food','active-ipo'));
   btn.classList.add('active-region');
   ['버티컬','뷰티','패션','식품'].forEach(s =>
     document.getElementById('section-'+s).style.display = '');
@@ -1851,7 +1855,42 @@ function filterRegion(region, btn) {
   });
 }
 
-let currentMomFilter = null;
+let currentIpoFilter = null;
+function filterIpo(ipo, btn) {
+  if (!ipo) {
+    currentIpoFilter = null;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active-ipo'));
+    document.querySelectorAll('tbody tr[data-sector]').forEach(r => r.style.display = '');
+    ['버티컬','뷰티','패션','식품'].forEach(s =>
+      document.getElementById('section-'+s).style.display = '');
+    return;
+  }
+  if (currentIpoFilter === ipo) {
+    currentIpoFilter = null;
+    btn.classList.remove('active-ipo');
+    document.querySelectorAll('tbody tr[data-sector]').forEach(r => r.style.display = '');
+    ['버티컬','뷰티','패션','식품'].forEach(s =>
+      document.getElementById('section-'+s).style.display = '');
+    return;
+  }
+  currentIpoFilter = ipo;
+  document.querySelectorAll('.filter-btn').forEach(b =>
+    b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-food','active-listed','active-region','active-ipo'));
+  btn.classList.add('active-ipo');
+  ['버티컬','뷰티','패션','식품'].forEach(s =>
+    document.getElementById('section-'+s).style.display = '');
+  document.querySelectorAll('tbody tr[data-sector]').forEach(r => {
+    const ipoTags = (r.dataset.ipo || '').split(',');
+    r.style.display = ipoTags.includes(ipo) ? '' : 'none';
+  });
+  ['버티컬','뷰티','패션','식품'].forEach(s => {
+    const sec = document.getElementById('section-'+s);
+    const any = [...sec.querySelectorAll('tbody tr[data-sector]')]
+      .some(r => r.style.display !== 'none');
+    if (!any) sec.style.display = 'none';
+  });
+}
+
 function filterSector(sector, btn) {
   document.querySelectorAll('.filter-btn').forEach(b =>
     b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-food'));
@@ -1868,6 +1907,14 @@ function filterSector(sector, btn) {
   document.querySelectorAll('tbody tr[data-sector]').forEach(r=>r.style.display='');
 }
 function filterMom(mom, btn) {
+  if (!mom) {
+    currentMomFilter = null;
+    document.querySelectorAll('.filter-btn').forEach(b=>
+      b.classList.remove('active-all','active-vertical','active-beauty','active-fashion','active-food','active-listed'));
+    document.querySelectorAll('tbody tr[data-sector]').forEach(r=>r.style.display='');
+    ['버티컬','뷰티','패션','식품'].forEach(s=>document.getElementById('section-'+s).style.display='');
+    return;
+  }
   if (currentMomFilter===mom) {
     currentMomFilter=null; btn.classList.remove('active-all','active-listed');
     document.querySelectorAll('tbody tr[data-sector]').forEach(r=>r.style.display='');
