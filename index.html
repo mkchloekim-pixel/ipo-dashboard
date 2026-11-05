@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>주요 상장예정사 현황(26.6 기준)</title>
-<meta property="og:title" content="주요 상장예정사 현황(26.6 기준)">
+<title>주요 상장예정사 현황(26.11 기준)</title>
+<meta property="og:title" content="주요 상장예정사 현황(26.11 기준)">
 <meta property="og:description" content="IPO Pipeline Monitor · 실적 기준 2025년 · 기업명 클릭 시 상세 프로파일 조회">
 <meta property="og:image" content="https://ipo-dashboard-l8by.vercel.app/ipo-pipeline-thumbnail.png?v=3">
 <meta property="og:url" content="https://ipo-dashboard-l8by.vercel.app/">
@@ -425,13 +425,13 @@
 
 <div class="header">
   <div class="header-left">
-    <h1>주요 상장예정사 현황(26.6 기준)</h1>
+    <h1>주요 상장예정사 현황(26.11 기준)</h1>
     <div class="sub">IPO Pipeline Monitor · 실적 기준 2025년 · 기업명 클릭 시 상세 프로파일 조회</div>
   </div>
   <div class="header-right">
-    <div class="stat-pill">총<span>18개사</span></div>
+    <div class="stat-pill">총<span>20개사</span></div>
     <div class="stat-pill">버티컬<span>4</span></div>
-    <div class="stat-pill">뷰티<span>9</span></div>
+    <div class="stat-pill">뷰티<span>11</span></div>
     <div class="stat-pill">패션<span>4</span></div>
     <div class="stat-pill">식품<span>1</span></div>
   </div>
@@ -451,6 +451,7 @@
   <button class="filter-btn" onclick="filterIpo('27.上',this)">27.上</button>
   <button class="filter-btn" onclick="filterIpo('27.下',this)">27.下</button>
   <button class="filter-btn" onclick="filterIpo('28.上',this)">28.上</button>
+  <button class="filter-btn" onclick="filterIpo('28.下',this)">28.下</button>
   <button class="filter-btn" onclick="filterIpo('검토중',this)">검토중</button>
   <button class="filter-btn filter-reset" onclick="f.ipo=null;applyFilters();document.querySelectorAll('.filter-btn[onclick^=\'filterIpo\']').forEach(b=>b.classList.remove('active-ipo'))">✕ 해제</button>
   <div class="sep"></div>
@@ -489,13 +490,13 @@
           <td><div class="invest-main">누적 1.2조원+</div><div class="invest-round">Anchor Equity · DST · Hillhouse · Naver</div></td>
           <td><div class="bank-text">NH투자증권, 한국투자증권</div></td>
         </tr>
-        <tr class="clickable-row" data-sector="버티컬" data-mom="high" onclick="openProfile('musinsoa')" data-regions="중국,일본,미주,동남아,온라인,유럽" data-ipo="27.上,27.下,28.上">
+        <tr class="clickable-row" data-sector="버티컬" data-mom="high" onclick="openProfile('musinsoa')" data-regions="중국,일본,미주,동남아,온라인,유럽" data-ipo="27.上">
           <td><div class="company-cell"><img class="company-logo-img" src="https://www.google.com/s2/favicons?domain=musinsa.com&sz=64" alt="무신사" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">무신</span><div><div class="company-name" style="color:var(--accent-vertical)">무신사</div><div class="company-type">패션 버티컬</div></div></div></td>
-          <td><div class="ipo-year">27~28년</div></td>
-          <td><div class="ipo-value">약 3조~최대 10조</div></td>
+          <td><div class="ipo-year">27년 상반기 목표<br>예심 청구(26.9.7)</div></td>
+          <td><div class="ipo-value">약 8조~10조</div></td>
           <td><span class="mom high">High</span></td>
           <td><div class="brand-text">무신사 (스탠다드), 29CM</div><div class="profile-hint" style="color:var(--accent-vertical)">📋 상세 프로파일</div></td>
-          <td><div class="sales-num">매출 1조 4,679억</div><div class="op-num">OP 1,405억</div></td>
+          <td><div class="sales-num">매출 1조 3,529억</div><div class="op-num">OP 1,458억</div></td>
           <td><div class="invest-main">Series C (누적 약 4,000억원+)</div><div class="invest-round">Sequoia · IMM · Wellington</div></td>
           <td><div class="bank-text">한국투자증권, 씨티그룹, KB증권, JP모건</div></td>
         </tr>
@@ -527,7 +528,7 @@
   <div class="section" id="section-뷰티">
     <div class="section-header">
       <span class="section-badge beauty">뷰티</span>
-      <span class="section-count">9개사</span>
+      <span class="section-count">11개사</span>
     </div>
     <div class="table-wrap"><table>
       <thead><tr>
@@ -626,6 +627,26 @@
           <td><div class="sales-num">매출 435억</div><div class="op-num">OP 11억</div></td>
           <td><div class="invest-main">Series B</div></td>
           <td><div class="bank-text">신한투자증권</div></td>
+        </tr>
+        <tr class="clickable-row" data-sector="뷰티" data-mom="midlow" onclick="openProfile('nmodelin')" data-regions="일본,온라인" data-ipo="28.下">
+          <td><div class="company-cell"><img class="company-logo-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect width='64' height='64' rx='12' fill='%230d9488'/><text x='32' y='40' font-size='22' font-weight='700' text-anchor='middle' fill='white' font-family='sans-serif'>앤마</text></svg>" alt="앤마들린" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">앤마</span><div><div class="company-name" style="color:var(--accent-beauty)">앤마들린</div><div class="company-type">뷰티 마케팅 플랫폼(릴스 제작)</div></div></div></td>
+          <td><div class="ipo-year">28년 하반기<br>코스닥 목표</div></td>
+          <td><div class="ipo-value">미공개</div></td>
+          <td><span class="mom midlow">Mid-low</span></td>
+          <td><div class="brand-text">글로브(Glovv), 플릭스(Flixx)</div><div class="profile-hint" style="color:var(--accent-beauty)">📋 상세 프로파일</div></td>
+          <td><div class="sales-num">매출 77억</div><div class="op-num">OP 3.1억</div></td>
+          <td><div class="invest-main">Series A (누적 30억원)</div><div class="invest-round">위벤처스 · 인탑스인베스트먼트 · 에이치지이니셔티브</div></td>
+          <td><div class="bank-text">KB증권</div></td>
+        </tr>
+        <tr class="clickable-row" data-sector="뷰티" data-mom="mid" onclick="openProfile('rebom')" data-ipo="검토중">
+          <td><div class="company-cell"><img class="company-logo-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect width='64' height='64' rx='12' fill='%230d9488'/><text x='32' y='40' font-size='22' font-weight='700' text-anchor='middle' fill='white' font-family='sans-serif'>리봄</text></svg>" alt="리봄화장품" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="company-logo-fallback">리봄</span><div><div class="company-name" style="color:var(--accent-beauty)">리봄화장품</div><div class="company-type">화장품 ODM (동국제약 자회사)</div></div></div></td>
+          <td><div class="ipo-year">검토중</div></td>
+          <td><div class="ipo-value">미공개</div></td>
+          <td><span class="mom mid">Mid</span></td>
+          <td><div class="brand-text">화장품 OEM/ODM</div><div class="profile-hint" style="color:var(--accent-beauty)">📋 상세 프로파일</div></td>
+          <td><div class="sales-num">매출 390억</div><div class="op-num">OP 51억</div></td>
+          <td><div class="invest-main">동국제약 경영권 인수(24.10)</div><div class="invest-round">지분 약 53.7% · 약 306억원</div></td>
+          <td><div class="bank-text">삼성증권</div></td>
         </tr>
       </tbody>
     </table></div>
@@ -764,12 +785,16 @@ const DOMAINS = {
   'hagohouse': 'matinkim.com',
   'grainon': 'grainon.co.kr',
   'boosterz': 'boosterz.co.kr',
+  'nmodelin': 'example.com',
+  'rebom': 'example.com',
 };
 
 const CUSTOM_LOGOS = {
     'oasis': 'data:image/png;base64,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',
     '2020':  'data:image/png;base64,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',
     'grainon': 'https://newdabio1.cafe24.com/images/logo/sample-logo.png',
+    'nmodelin': "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect width='64' height='64' rx='12' fill='%230d9488'/><text x='32' y='40' font-size='22' font-weight='700' text-anchor='middle' fill='white' font-family='sans-serif'>앤마</text></svg>",
+    'rebom': "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect width='64' height='64' rx='12' fill='%230d9488'/><text x='32' y='40' font-size='22' font-weight='700' text-anchor='middle' fill='white' font-family='sans-serif'>리봄</text></svg>",
 };
 
 
@@ -796,7 +821,7 @@ const SITE_URLS = {
 };
 
 // 기업 key → 네이버 검색 키워드 매핑
-const COMPANY_KEYS = {"musinsoa": "무신사", "kurly": "컬리", "ohouse": "오늘의집", "oasis": "오아시스마켓", "goodai": "구다이글로벌", "vinow": "비나우", "grace": "그레이스", "bnb": "비앤비코리아", "2020": "이공이공", "lafati": "레페리", "liman": "리만코리아", "founders": "더파운더즈 아누아", "olive": "올리브인터내셔널", "highlight": "하이라이트브랜즈", "peacenow": "피스피스스튜디오", "hagohouse": "하고하우스", "grainon": "그레인온", "boosterz": "부스터즈"};
+const COMPANY_KEYS = {"musinsoa": "무신사", "kurly": "컬리", "ohouse": "오늘의집", "oasis": "오아시스마켓", "goodai": "구다이글로벌", "vinow": "비나우", "grace": "그레이스", "bnb": "비앤비코리아", "2020": "이공이공", "lafati": "레페리", "liman": "리만코리아", "founders": "더파운더즈 아누아", "olive": "올리브인터내셔널", "highlight": "하이라이트브랜즈", "peacenow": "피스피스스튜디오", "hagohouse": "하고하우스", "grainon": "그레인온", "boosterz": "부스터즈", "nmodelin": "앤마들린", "rebom": "리봄화장품"};
 
 // 뉴스 JSON URL (GitHub Pages 배포 후 자신의 레포 URL로 교체)
 const NEWS_JSON_URL = './news.json';
@@ -824,21 +849,23 @@ const DART_URLS = {
   'hagohouse': 'https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=하고하우스',
   'grainon':  'https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=그레인온',
   'boosterz': 'https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=부스터즈',
+  'nmodelin': 'https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=앤마들린',
+  'rebom': 'https://dart.fss.or.kr/dsab001/main.do?autoSearch=true&textCrpNm=리봄화장품',
 };
 
 const PROFILES = {
 
   musinsoa: {
     name: '무신사', meta: '패션 버티컬 커머스 · 설립 2001년 · 조만호·조남성 공동대표', sectorClass: 'sector-v',
-    sectorLabel: '버티컬 커머스', ipoLabel: 'IPO 추진 중', momLabel: '추진강도 High', accentColor: 'var(--accent-vertical)',
+    sectorLabel: '버티컬 커머스', ipoLabel: 'IPO 추진 중', momLabel: '추진강도 High · 예심 청구', accentColor: 'var(--accent-vertical)',
     kpis: [
-      {label:'매출 (25년)', value:'1조 4,679억', delta:{cls:'up', text:'▲ YoY +18.1%'}, sub:'OP 1,405억'},
-      {label:'기업가치 (추정)', value:'약 3조~최대 10조', sub:'내부 목표 10조원 이상'},
+      {label:'매출 (25년)', value:'1조 3,529억', sub:'OP 1,458억 · 26.上 연결매출 8,217억'},
+      {label:'기업가치 (추정)', value:'약 8조~10조', sub:'시장 8조 안팎 · 내부 산정 10조'},
       {label:'플랫폼 GMV', value:'6.3조원+', sub:'무신사 5조+ · 29CM 1.3조+'},
       {label:'주관사', value:'4개사', sub:'한국투자·씨티그룹·KB·JP모건'},
     ],
-    stageIdx: 3, stages: ['사업성 검증','투자유치','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
-    stageNote: 'Pre-IPO 완료, 26.7 예심 청구 준비 중. 상장 목표 27~28년.',
+    stageIdx: 4, stages: ['사업성 검증','투자유치','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
+    stageNote: '26.9.7 유가증권시장 상장예비심사 청구(공모 2,660만주 예정). 거래소 심사 60일 이내 결과 통지, 27년 상반기 코스피 상장 목표.',
     brands: [
       {name:'무신사 (온·오프라인)', desc:'국내 1위 패션 플랫폼·무신사스탠다드 4,700억(YoY +40%)'  , sales:'GMV 5조원+', growth:'+15%', bar:100, status:'anchor', statusLabel:'앵커'},
       {name:'29CM', desc:'럭셔리·라이프스타일 버티컬', sales:'GMV 1.3조원+', growth:'+30%', bar:26, status:'rising', statusLabel:'라이징'},
@@ -859,14 +886,16 @@ const PROFILES = {
       {name:'유럽 신진 디자이너 브랜드 3곳 지분 확보 + 현지 물류 인프라 패키지 M&A 협상 중 (약 2,000억 규모)', status:'볼트온 전략 추진 중', cls:'global', region:'유럽', regionEn:'europe'},
     ],
     news: [
+      {date:'2026.09', hl:'무신사, 코스피 상장예비심사 청구 — IPO 절차 본격화', sum:'한국투자·씨티·KB·JP모건 주관. 상장예정 2억2,782만주 중 공모 2,660만주. 서울지방국세청 특별 세무조사 착수 보도가 있어 심사·일정 변수로 거론.', tags:['ipo','risk']},
       {date:'2026.03', hl:'무신사, IPO 주관사 4곳 선정 완료 — 한국투자·씨티·KB·JP모건', sum:'국내외 대형 IB 4곳을 주관사로 확정, 2027~2028년 상장 본격화. 기업가치 10조원 이상을 목표로 Pre-IPO 로드쇼 준비 착수.', tags:['ipo']},
       {date:'2026.01', hl:'2025년 매출 1.5조 달성 · OP 1,405억 — 2년 연속 흑자', sum:'플랫폼 GMV 5조원 돌파, 29CM·무신사스탠다드 고성장세 지속. 일본·미국 글로벌 확장이 실적에 기여.', tags:['biz']},
       {date:'2025.10', hl:'무신사 일본법인 GMV 1,000억엔 돌파 — 해외 수익화 본격화', sum:'무신사 재팬의 누적 GMV가 1,000억엔을 넘어서며 수익화 기반 확보. K-패션 글로벌 플랫폼으로의 포지셔닝 강화.', tags:['global','biz']},
       {date:'2025.06', hl:'29CM 흑자전환 성공 · 럭셔리 버티컬 전략 효과', sum:'무신사가 인수한 29CM가 흑자전환에 성공하며 포트폴리오 전사 흑자 구조 완성. 럭셔리·라이프스타일 세그먼트 확장 가속.', tags:['biz','invest']},
     ],
-    outlook: '국내 패션 버티컬 최강자. 주관사 선정 완료·연속 흑자로 IPO 가시성 최고 수준. 27~28년 상장 현실적.',
+    outlook: '국내 패션 버티컬 최강자. 26.9 예심 청구로 IPO 가시성 최고 수준. 27년 상반기 코스피 상장 목표이나 세무조사·밸류에이션이 변수.',
     outlookClass: '',
     risks: [
+      {color:'#dc2626', text:'<b>세무조사</b> — 서울지방국세청 특별 세무조사(대표 개인회사 거래 검증) 보도. 결과에 따라 심사·일정 영향 가능.'},
       {color:'#d97706', text:'<b>밸류에이션 부담</b> — 10조원 이상 목표가 글로벌 패션 플랫폼 대비 과도하다는 시각 존재.'},
       {color:'#2563eb', text:'<b>경쟁 심화</b> — 에이블리·지그재그 등 경쟁 플랫폼의 성장으로 GMV 점유율 방어 과제.'},
       {color:'#d97706', text:'<b>해외 수익성</b> — 일본·미국 법인의 흑자 전환 여부가 IPO 밸류에이션의 핵심 변수.'},
@@ -1220,6 +1249,78 @@ const PROFILES = {
     risks: [
       {color:'#d97706', text:'<b>소규모 매출</b> — 연 매출 472억은 코스닥 상장 시 유동성 부족 우려.'},
       {color:'#2563eb', text:'<b>크리에이터 이탈 리스크</b> — 핵심 크리에이터 계약 종료 시 매출 급감 가능성.'},
+    ],
+  },
+
+  nmodelin: {
+    name: '앤마들린', meta: '뷰티 마케팅 플랫폼(릴스 제작) · 글로브(Glovv)·플릭스(Flixx) 운영', sectorClass: 'sector-b',
+    sectorLabel: '뷰티', ipoLabel: 'IPO 추진 (28년 하반기 목표)', momLabel: '추진강도 Mid-low', accentColor: 'var(--accent-beauty)',
+    kpis: [
+      {label:'매출 (25년)', value:'77억', sub:'OP 3.1억 · 외부 DB 집계(검증 필요)'},
+      {label:'기업가치 (추정)', value:'미공개', sub:'Series A 밸류 비공개'},
+      {label:'뷰티 고객사', value:'2,000곳+', sub:'국내 뷰티 브랜드 (회사 발표)'},
+      {label:'주관사', value:'KB증권', sub:'선정 완료 (26.8)'},
+    ],
+    stageIdx: 2, stages: ['사업성 검증','Series A','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
+    stageNote: 'KB증권 주관사 선정. 코스닥 28년 하반기 상장 목표, 예심 청구 시기는 조율 중.',
+    brands: [
+      {name:'글로브 (Glovv)', desc:'뷰티 브랜드 릴스(숏폼) 제작 플랫폼', sales:'세부 매출 미공개', growth:'N/A', bar:70, status:'anchor', statusLabel:'주력'},
+      {name:'플릭스 (Flixx)', desc:'AI 영상 제작 플랫폼', sales:'세부 매출 미공개', growth:'N/A', bar:30, status:'rising', statusLabel:'라이징'},
+    ],
+    invests: [
+      {name:'위벤처스', type:'Series A (25.8)', amt:'10억'},
+      {name:'인탑스인베스트먼트', type:'Series A (25.8)', amt:'10억'},
+      {name:'에이치지이니셔티브', type:'Series A (25.8)', amt:'10억'},
+    ],
+    investNote: 'Series A 3개사 참여, 누적 투자 약 30억원. 기업가치는 비공개.',
+    globals: [
+      {name:'일본 시장에서 매출 발생 중', status:'진출 완료', cls:'global', region:'일본', regionEn:'japan'},
+      {name:'글로브·플릭스 온라인 플랫폼 기반 서비스', status:'운영 중', cls:'biz', region:'온라인', regionEn:'online'},
+    ],
+    news: [
+      {date:'2026.08', hl:'앤마들린, KB증권 상장 주관사 선정 — 28년 하반기 코스닥 목표', sum:'뷰티 고객사 2,000곳을 확보한 릴스 제작 플랫폼. 예심 청구 시기는 조율 중.', tags:['ipo']},
+      {date:'2026.上', hl:'26년 2분기 누적 매출이 25년 연간 매출 상회 (회사 발표)', sum:'회사 측 주장으로, 독립적으로 검증된 수치는 아님.', tags:['biz']},
+      {date:'2025.08', hl:'Series A 30억원 유치 — 위벤처스·인탑스인베스트먼트·에이치지이니셔티브', sum:'3개사가 각 10억원 투자. 누적 투자금 30억원.', tags:['invest']},
+    ],
+    outlook: '주관사는 선정했으나 매출 77억·영업이익 3억원 수준으로 규모가 작고 기업가치가 검증되지 않음. 상장 일정은 28년 하반기로 길게 잡혀 가시성은 낮음.',
+    outlookClass: '',
+    risks: [
+      {color:'#dc2626', text:'<b>규모·수익성</b> — 매출 77억·OP 3.1억 수준으로 코스닥 상장 요건 충족 및 밸류에이션 설득이 과제.'},
+      {color:'#d97706', text:'<b>수치 검증</b> — 실적은 외부 데이터베이스 집계로 감사보고서 기준과 다를 수 있음.'},
+      {color:'#2563eb', text:'<b>고객 구조</b> — 뷰티 브랜드 광고·마케팅 예산에 연동되는 매출 구조.'},
+    ],
+  },
+
+  rebom: {
+    name: '리봄화장품', meta: '화장품 OEM/ODM · 동국제약 자회사(지분 약 53.7%)', sectorClass: 'sector-b',
+    sectorLabel: '뷰티', ipoLabel: 'IPO 검토 중', momLabel: '추진강도 Mid', accentColor: 'var(--accent-beauty)',
+    kpis: [
+      {label:'매출 (25년)', value:'390억', delta:{cls:'up', text:'▲ YoY +12.1%'}, sub:'OP 51억 · 영업이익률 약 13%'},
+      {label:'기업가치 (추정)', value:'미공개', sub:'동국제약 인수가 약 306억(24.10) 기준'},
+      {label:'영업이익 추이', value:'56억 → 51억', sub:'24년 → 25년, 매출 대비 정체'},
+      {label:'주관사', value:'삼성증권', sub:'선정(보도 기준)'},
+    ],
+    stageIdx: 2, stages: ['사업성 검증','동국제약 인수','주관사 선정','Pre-IPO','예심 청구','공모·상장'],
+    stageNote: '삼성증권 주관사 선정 보도. 당초 26년 하반기 예심 청구가 거론됐으나 현재는 유동적.',
+    brands: [
+      {name:'화장품 OEM/ODM', desc:'스킨케어 중심 위탁 생산·개발', sales:'매출 390억', growth:'+12.1%', bar:60, status:'anchor', statusLabel:'주력'},
+    ],
+    invests: [
+      {name:'동국제약', type:'경영권 인수 (24.10)', amt:'약 306억'},
+    ],
+    investNote: '동국제약이 96,600주(53.66%)를 약 306.6억원에 인수. 이후 지분율 53.7% 유지.',
+    globals: [],
+    news: [
+      {date:'2026.05', hl:'리봄화장품, 삼성증권 주관사 선정·코스닥 IPO 준비 (보도)', sum:'예심 청구 시기는 당초 26년 하반기가 거론됐으나 유동적. 실제 청구 여부는 공시로 확인 필요.', tags:['ipo']},
+      {date:'2025', hl:'25년 매출 390억(+12.1%)·영업이익 51억', sum:'영업이익은 전년(56억)과 유사한 수준. 재무 데이터 사이트 기준 수치.', tags:['biz']},
+      {date:'2024.10', hl:'동국제약, 리봄화장품 지분 53.66% 약 306억에 인수', sum:'제약사의 화장품 사업 확대 행보. 이후 리봄은 동국제약 자회사로 편입.', tags:['invest']},
+    ],
+    outlook: '주관사 선정 보도는 있으나 예심 청구 시기가 유동적이고 모회사 중복상장 이슈가 있어 일정 불투명.',
+    outlookClass: '',
+    risks: [
+      {color:'#dc2626', text:'<b>중복상장</b> — 상장사 동국제약의 자회사로, 모회사 가치 희석 우려가 심사·투자자 설득의 쟁점.'},
+      {color:'#d97706', text:'<b>이익 정체</b> — 25년 매출은 늘었으나 영업이익은 전년 대비 소폭 감소.'},
+      {color:'#2563eb', text:'<b>소규모·모회사 의존</b> — 매출 390억 규모이며 동국제약 연계 비중에 따라 독립 성장성 평가가 갈림.'},
     ],
   },
 
@@ -1646,7 +1747,7 @@ function openProfile(key) {
       <span class="badge ${badgeClass}">${p.sectorLabel}</span>
       <span class="badge ${p.isListed ? 'listed-b' : 'ipo-b'}">${p.ipoLabel}</span>
       <span class="badge ${p.isListed ? 'listed-b' : 'ipo-b'}">${p.momLabel}</span>
-      <span class="badge grey">업데이트 2026.06</span>
+      <span class="badge grey">업데이트 2026.11</span>
       <div style="display:flex;gap:6px;margin-left:auto;flex-shrink:0;">
         ${SITE_URLS[key] ? `<a href="${SITE_URLS[key]}" target="_blank" rel="noopener"
           style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:500;
