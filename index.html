@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self'; img-src data:; base-uri 'none'; form-action 'none'">
+<title>주요 상장예정사 현황</title>
+<style>
+:root{
+  --bg:#f6f7f9;--card:#fff;--line:#e4e7ec;--text:#101828;--text2:#475467;--text3:#98a2b3;
+  --brand:#1d4ed8;--up:#067647;--down:#b42318;--chip:#f2f4f7;
+  --c-버티컬:#2563eb;--c-뷰티:#db2777;--c-패션:#7c3aed;--c-식품:#16a34a;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0f1115;--card:#171a21;--line:#2a2f3a;--text:#f2f4f7;--text2:#b5bcc9;--text3:#7b8394;
+  --brand:#7aa2ff;--up:#4ade80;--down:#f87171;--chip:#222733;}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Pretendard","Malgun Gothic","Apple SD Gothic Neo",sans-serif}
+button{font:inherit;color:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 20px 60px}
+header{padding:28px 0 16px;display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between}
+h1{margin:0;font-size:22px;letter-spacing:-.02em}
+.sub{color:var(--text2);font-size:12.5px;margin-top:4px}
+.stamp{font-size:11.5px;color:var(--text3);text-align:right;line-height:1.6}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 0 18px;position:sticky;top:0;background:var(--bg);z-index:5}
+.tab{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:13px}
+.tab .n{color:var(--text3);margin-left:4px;font-size:12px}
+.tab[aria-pressed=true]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.tab[aria-pressed=true] .n{color:inherit;opacity:.7}
+.search{margin-left:auto;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:8px;padding:7px 12px;width:200px;font:inherit}
+.sec{margin-bottom:26px}
+.sec h2{font-size:15px;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+.sec h2 i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.sec h2 span{color:var(--text3);font-weight:400;font-size:12.5px}
+.cols,.head{display:grid;grid-template-columns:1.25fr 1.25fr 1.15fr 1.1fr 1fr 1.6fr;gap:14px;align-items:start}
+.cols-h{padding:0 16px 6px;font-size:11.5px;color:var(--text3);font-weight:600}
+.co{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:8px;overflow:hidden}
+.head{width:100%;text-align:left;background:none;border:0;padding:14px 16px;cursor:pointer}
+.head:hover{background:color-mix(in srgb,var(--chip) 55%,transparent)}
+.nm{display:flex;gap:10px;align-items:center}
+.ico{width:34px;height:34px;border-radius:9px;color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px;flex:none}
+.nm b{display:block;font-size:14.5px}
+.nm small{display:block;color:var(--text3);font-size:11.5px;line-height:1.3;margin-top:1px}
+.mcell small,.cell small{color:var(--text3);font-size:11.5px;display:block}
+.big{font-weight:650;font-size:14px}
+.num{font-variant-numeric:tabular-nums}
+.up{color:var(--up)}.down{color:var(--down)}
+.cell{font-size:12.5px;color:var(--text2);overflow-wrap:anywhere}
+.chip{display:inline-block;background:var(--chip);color:var(--text2);border-radius:6px;padding:1px 7px;font-size:11.5px;margin:0 4px 4px 0;white-space:nowrap;text-decoration:none}
+.chip.hi{background:#fee4e2;color:#b42318}.chip.mh{background:#ffead5;color:#b93815}.chip.m{background:#fef0c7;color:#b54708}
+.chip.ml{background:#e0eaff;color:#2c5aa0}.chip.ls{background:#d1fadf;color:#067647}
+.chip.cj{background:#fff1e6;color:#c4320a;border:1px solid #f9b887;font-weight:600;margin:0 0 0 6px;vertical-align:1px;font-size:10.5px}
+@media (prefers-color-scheme:dark){.chip.hi{background:#4a1d1a;color:#fda29b}.chip.mh{background:#4a2a14;color:#fdb272}.chip.m{background:#47360f;color:#fec84b}.chip.ml{background:#1a2a4a;color:#9db9ee}.chip.ls{background:#12382a;color:#6ce9a6}.chip.cj{background:#3a1f10;color:#fdb272;border-color:#7a3d18}}
+.chip.src{background:transparent;border:1px solid var(--line);color:var(--text3)}
+.chip.src.dart{border-color:var(--brand);color:var(--brand)}
+a.chip.src.dart:hover{background:var(--brand);color:var(--card)}
+.news1{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.detail{border-top:1px solid var(--line);padding:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;background:color-mix(in srgb,var(--bg) 60%,var(--card))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+.card.wide{grid-column:span 2}
+.card h3{margin:0 0 10px;font-size:12px;color:var(--text3);letter-spacing:.04em;font-weight:700;display:flex;justify-content:space-between;gap:8px}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kv div>small{color:var(--text3);font-size:11.5px;display:block}
+.kv .v{font-size:17px;font-weight:700}
+.sep{border-top:1px dashed var(--line);margin:10px 0;padding-top:10px}
+.steps{display:flex;gap:4px;margin:2px 0 8px}
+.steps i{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.steps i.on{background:var(--brand)}
+.stl{display:flex;justify-content:space-between;font-size:10.5px;color:var(--text3);gap:2px}
+.stl span.on{color:var(--text);font-weight:700}
+.note{font-size:12.5px;color:var(--text2);margin:6px 0 0}
+.li{padding:8px 0;border-top:1px solid var(--line)}
+.li:first-of-type{border-top:0;padding-top:0}
+.li a,.li .t{color:var(--text);text-decoration:none;font-weight:600;font-size:13px}
+.li a:hover{text-decoration:underline}
+.li .d{color:var(--text3);font-size:11.5px;margin-right:6px}
+.li p{margin:3px 0 0;color:var(--text2);font-size:12px}
+.gl{display:flex;gap:8px;padding:6px 0;border-top:1px solid var(--line);font-size:12.5px}
+.gl:first-of-type{border-top:0}
+.gl b{min-width:52px;color:var(--text)}
+.empty{color:var(--text3);font-size:12.5px}
+footer{margin-top:30px;font-size:11.5px;color:var(--text3);line-height:1.7}
+.tag-ipo{background:#e0eaff;color:#1d4ed8}.tag-inv{background:#fce7f6;color:#c11574}.tag-glb{background:#d1fadf;color:#067647}
+@media (prefers-color-scheme:dark){.tag-ipo{background:#1a2a4a;color:#9db9ee}.tag-inv{background:#451a35;color:#f9a8d4}.tag-glb{background:#12382a;color:#6ce9a6}}
+@media (max-width:980px){
+  .cols-h{display:none}
+  .head{grid-template-columns:1fr 1fr;gap:10px}
+  .head .nm{grid-column:1/-1}
+  .head .news-c{grid-column:1/-1}
+  .detail{grid-template-columns:1fr}
+  .card.wide{grid-column:auto}
+  .search{width:100%;margin-left:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>주요 상장예정사 현황</h1>
+      <div class="sub">재무실적 · 투자자 · IPO 현황 · 글로벌 진출 · 최신 뉴스 &nbsp;|&nbsp; 기업을 누르면 상세가 펼쳐집니다</div>
+    </div>
+    <div class="stamp" id="stamp"></div>
+  </header>
+  <div class="bar" id="bar"></div>
+  <div class="cols cols-h" id="colh">
+    <div>기업</div><div>재무실적</div><div>투자자</div><div>IPO 현황</div><div>글로벌</div><div>최신 뉴스</div>
+  </div>
+  <main id="list"></main>
+  <footer>
+    재무실적: DART 정기보고서(주요계정) 우선, 미제출 법인은 감사보고서에서 추출, 둘 다 없으면 수동 입력값(검증 필요). 최신 실적은 올해 반기·분기 누적 기준.<br>
+    뉴스: 네이버 뉴스 검색 API 자동 수집(매일). IPO 단계·글로벌 진출 요약은 수집된 기사에서 키워드 규칙으로 자동 추출·누적한 참고 정보이며, 단계 바는 '수동 입력 단계'와 '기사 기반 단계' 중 더 진척된 쪽을 표시합니다(오분류 가능, 근거 기사 링크 확인).<br>
+    'CJ온스타일 투자' 표시는 공개 보도로 확인된 건만 반영한 것으로, 표시가 없다고 투자 이력이 없다는 뜻은 아닙니다.<br>
+    본 자료는 공개 정보 기반 참고용이며 투자 판단의 근거가 될 수 없습니다. 수치는 원문 공시로 확인하세요.
+  </footer>
+</div>
+
+<script id="seed" type="application/json">[{"key": "kurly", "name": "컬리", "sector": "버티컬", "mom": "high", "meta": "식품·뷰티 버티컬 · 설립 2015년 · 김슬아 대표", "brands": "마켓컬리, 뷰티컬리", "ipoWhen": "27~28년", "valuation": "약 2.8조", "banks": "NH투자증권, 한국투자증권", "investSummary": "누적 1.2조원+ Anchor Equity · DST · Hillhouse · Naver", "fin": {"year": 2025, "sales": 23671.0, "op": 131.0, "src": "manual"}, "stages": ["사업성 검증", "투자유치", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 3, "stageNote": "주관사 선정 완료, Pre-IPO 단계. 27~28년 상장 목표.", "ipoLabel": "IPO 추진 중", "investors": [{"name": "Anchor Equity Partners", "type": "전략적 투자자", "amt": "투자유지"}, {"name": "DST Global", "type": "재무적 투자자", "amt": "투자유지"}, {"name": "Hillhouse Investment", "type": "재무적 투자자", "amt": "투자유지"}, {"name": "네이버", "type": "전략적 투자자", "amt": "26.5월 330억 추가"}], "investNote": "누적 투자 1.2조원+. 26년 5월 네이버 추가 투자 330억으로 신뢰도 제고.", "globals": [{"text": "컬리USA 법인 설립 · 역직구 주3회 직배송 DHL (25.10~)", "status": "운영 중", "region": "미주"}, {"text": "싱가포르·홍콩 등 이커머스 플랫폼 수출", "status": "2022년~", "region": "동남아"}], "brandList": ["마켓컬리", "뷰티컬리"], "news": [{"date": "2026.05", "hl": "네이버, 컬리에 330억 추가 투자 — IPO 전 신뢰도 제고", "sum": "네이버가 컬리에 추가 투자를 단행하며 파트너십 강화. 커머스 생태계 연계 시너지 및 IPO 전 기업가치 안정화 효과 기대.", "url": ""}, {"date": "2026.01", "hl": "컬리, 창사 이래 첫 연간 흑자 — OP 131억 달성", "sum": "만성 적자기업이라는 꼬리표를 떼고 OP 131억 원 달성. 물류 효율화와 뷰티컬리 수익화가 흑자전환 핵심 동인.", "url": ""}, {"date": "2025.09", "hl": "컬리, NH투자·한국투자증권 IPO 주관사 선정 완료", "sum": "국내 대형 IB 2곳을 주관사로 확정, 2027~2028년 상장 로드맵 가시화. 기업가치 산정은 GMV·EBITDA 멀티플 기반으로 진행 예정.", "url": ""}, {"date": "2025.06", "hl": "뷰티컬리 월 거래액 1,000억 돌파 · 뷰티 버티컬 성장 확인", "sum": "뷰티컬리의 월간 GMV가 1,000억원을 돌파하며 식품 외 수익 다각화 성공. 뷰티 버티컬이 컬리의 제2 성장 축으로 자리매김.", "url": ""}]}, {"key": "musinsoa", "name": "무신사", "sector": "버티컬", "mom": "high", "meta": "패션 버티컬 커머스 · 설립 2001년 · 조만호·조남성 공동대표", "brands": "무신사 (스탠다드), 29CM", "ipoWhen": "27년 상반기 목표 예심 청구(26.9.7)", "valuation": "약 8조~10조", "banks": "한국투자증권, 씨티그룹, KB증권, JP모건", "investSummary": "Series C (누적 약 4,000억원+) Sequoia · IMM · Wellington", "fin": {"year": 2025, "sales": 14679, "op": 1405, "src": "dart-seed"}, "stages": ["사업성 검증", "투자유치", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 4, "stageNote": "26.9.7 유가증권시장 상장예비심사 청구(공모 2,660만주 예정). 거래소 심사 60일 이내 결과 통지, 27년 상반기 코스피 상장 목표.", "ipoLabel": "IPO 추진 중", "investors": [{"name": "Sequoia Capital", "type": "Series B", "amt": "투자완료"}, {"name": "IMM인베스트먼트", "type": "Series B", "amt": "투자완료"}, {"name": "Wellington Management", "type": "Series C", "amt": "약 2,000억"}, {"name": "글로벌 기관 컨소시엄", "type": "누적 총액", "amt": "약 4,000억+"}], "investNote": "Series C 기준 기업가치 약 3.5조원 이상 평가. IPO 시 10조원 이상 목표.", "globals": [{"text": "무신사 스탠다드 상하이 4호점·무신사 스토어 첫 해외 편집샵 오픈 (26.4)", "status": "진출 완료", "region": "중국"}, {"text": "마뗑킴 정식 매장·위찌 돈키호테 300개점 입점 (25~26)", "status": "진출 완료", "region": "일본"}, {"text": "오드타입 미주 진출 (26.上)", "status": "진입 중", "region": "미주"}, {"text": "오드타입 말레이시아·베트남·싱가포르 수출", "status": "진출 완료", "region": "동남아"}, {"text": "티몰글로벌 스토어·13개 지역 D2C (거래액 연평균 3배↑)", "status": "운영 중", "region": "온라인"}, {"text": "유럽 신진 디자이너 브랜드 3곳 지분 확보 + 현지 물류 인프라 패키지 M&A 협상 중 (약 2,000억 규모)", "status": "볼트온 전략 추진 중", "region": "유럽"}], "brandList": ["무신사 (온·오프라인)", "29CM"], "news": [{"date": "2026.09", "hl": "무신사, 코스피 상장예비심사 청구 — IPO 절차 본격화", "sum": "한국투자·씨티·KB·JP모건 주관. 상장예정 2억2,782만주 중 공모 2,660만주. 서울지방국세청 특별 세무조사 착수 보도가 있어 심사·일정 변수로 거론.", "url": ""}, {"date": "2026.03", "hl": "무신사, IPO 주관사 4곳 선정 완료 — 한국투자·씨티·KB·JP모건", "sum": "국내외 대형 IB 4곳을 주관사로 확정, 2027~2028년 상장 본격화. 기업가치 10조원 이상을 목표로 Pre-IPO 로드쇼 준비 착수.", "url": ""}, {"date": "2026.01", "hl": "2025년 매출 1.5조 달성 · OP 1,405억 — 2년 연속 흑자", "sum": "플랫폼 GMV 5조원 돌파, 29CM·무신사스탠다드 고성장세 지속. 일본·미국 글로벌 확장이 실적에 기여.", "url": ""}, {"date": "2025.10", "hl": "무신사 일본법인 GMV 1,000억엔 돌파 — 해외 수익화 본격화", "sum": "무신사 재팬의 누적 GMV가 1,000억엔을 넘어서며 수익화 기반 확보. K-패션 글로벌 플랫폼으로의 포지셔닝 강화.", "url": ""}, {"date": "2025.06", "hl": "29CM 흑자전환 성공 · 럭셔리 버티컬 전략 효과", "sum": "무신사가 인수한 29CM가 흑자전환에 성공하며 포트폴리오 전사 흑자 구조 완성. 럭셔리·라이프스타일 세그먼트 확장 가속.", "url": ""}], "interim": {"year": 2026, "report": "반기 누적", "sales": 8217, "op": null, "basis": "연결", "src": "manual"}}, {"key": "oasis", "name": "오아시스", "sector": "버티컬", "mom": "midlow", "meta": "유기농 식품 버티컬 · 설립 2011년 · 안준형 대표", "brands": "오아시스마켓 (유기농 새벽배송)", "ipoWhen": "27년 이후 재추진", "valuation": "약 3,700~4,000억", "banks": "NH투자증권(대표), 한국투자증권", "investSummary": "상장 철회 후 자체 흑자 경영", "fin": {"year": 2025, "sales": 5645.0, "op": 191.0, "src": "manual"}, "stages": ["사업성 검증", "투자유치", "주관사 선정", "상장 철회", "재추진", "공모·상장"], "stageIdx": 2, "stageNote": "23년 상장 철회 후 수익성 강화. 27년 이후 재추진 예상.", "ipoLabel": "IPO 철회 후 모니터링 지속", "investors": [{"name": "자체 수익 기반 성장", "type": "외부 투자 無", "amt": "10년 연속 흑자"}], "investNote": "대규모 외부 투자 없이 자체 흑자로 성장한 유일한 새벽배송 기업. IPO 전 Pre-IPO 가능성.", "globals": [{"text": "스마트 물류 솔루션 B2B 수출", "status": "보류/지연", "region": "미국"}], "brandList": ["오아시스마켓"], "news": [{"date": "2026.02", "hl": "오아시스, 27년 IPO 재추진 공식화 — 수익성 안정 근거", "sum": "23년 상장 철회 후 수익성 강화에 집중, OP 200억원대 안정화. 27년 이후 재추진 방침을 내부적으로 검토 중.", "url": ""}, {"date": "2025.12", "hl": "매출 5,645억 · OP 203억 — 새벽배송 유일 흑자기업 지위 유지", "sum": "컬리·SSG 등 경쟁사가 적자를 거듭하는 가운데, 오아시스만이 유일하게 안정적인 흑자 구조를 10년 이상 유지.", "url": ""}, {"date": "2025.06", "hl": "오아시스, 유기농 전문몰 경쟁력 강화 — PB 상품 확대", "sum": "자체 PB(Private Brand) 상품 비중을 30%까지 높이며 마진 개선. 유기농 식품 전문몰로서의 차별화 포지셔닝 강화.", "url": ""}]}, {"key": "ohouse", "name": "오늘의집", "sector": "버티컬", "mom": "mid", "meta": "홈 인테리어 버티컬 · 설립 2014년 · 이승재 대표", "brands": "오늘의집 (인테리어·가구 커머스)", "ipoWhen": "검토중", "valuation": "약 1.8조", "banks": "미선정 / 비공개", "investSummary": "누적 약 3,000억원+ BRV · 소프트뱅크벤처스 · 본엔젤스", "fin": {"year": 2025, "sales": 3215.0, "op": -147.0, "src": "manual"}, "stages": ["사업성 검증", "투자유치", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 2, "stageNote": "주관사 미선정. 수익성 회복이 IPO 재개의 선결 조건.", "ipoLabel": "IPO 검토 중", "investors": [{"name": "BRV Capital Management", "type": "재무적 투자자", "amt": "투자유지"}, {"name": "소프트뱅크벤처스", "type": "재무적 투자자", "amt": "투자유지"}, {"name": "본엔젤스", "type": "초기 투자자", "amt": "투자유지"}], "investNote": "누적 투자 약 3,000억원+. 추가 외부 투자 없이 자체 성장 중.", "globals": [{"text": "Ohouse 앱 100만 다운로드·나츠마츠리 팝업 (일본 Presence 강화)", "status": "확장 중", "region": "일본"}, {"text": "K-인테리어 역직구 서비스 개시 (26.3)", "status": "진입 중", "region": "미주"}, {"text": "K-인테리어 역직구 온라인 서비스", "status": "운영 중", "region": "온라인"}], "brandList": ["오늘의집 앱", "오늘의집 스탠다드", "오늘의집 북촌·인테리어 판교라운지"], "news": [{"date": "2026.01", "hl": "오늘의집, 2025년 적자전환 — 투자 확대·경쟁 심화 영향", "sum": "2024년 흑자에서 2025년 -147억원 적자전환. B2B 솔루션·해외 진출 투자 확대 및 인테리어 커머스 경쟁 심화가 원인.", "url": ""}, {"date": "2025.10", "hl": "오늘의집 MAU 600만 돌파 · 홈 인테리어 압도적 1위 유지", "sum": "월간 활성 이용자 수 600만명을 돌파하며 플랫폼 지배력 유지. 커머스 전환율 개선이 수익성 회복의 관건.", "url": ""}, {"date": "2025.06", "hl": "B2B 인테리어 솔루션 론칭 — 신규 수익원 다각화", "sum": "시공사·인테리어 업체 대상 B2B SaaS 솔루션 출시. 플랫폼 의존도를 낮추고 고마진 B2B 수익 비중을 높이는 전략.", "url": ""}]}, {"key": "goodai", "name": "구다이글로벌", "sector": "뷰티", "mom": "high", "meta": "뷰티 유통/브랜드사 · 설립 2016년 · 천주혁·구창근 공동대표", "brands": "스킨1004, 조선미녀, 티르티르, 라운드랩", "ipoWhen": "27~28년", "valuation": "약 4조~최대 10조", "banks": "미래에셋(대표), NH투자, 씨티그룹, 모건스탠리", "investSummary": "Series A 이후 자력 성장 Pre-IPO 8,000억 투자유치", "fin": {"year": 2025, "sales": 14718.0, "op": 2734.0, "src": "manual"}, "stages": ["사업성 검증", "투자유치", "Pre-IPO", "주관사 선정", "예심 청구", "공모·상장"], "stageIdx": 3, "stageNote": "주관사단(미래에셋 대표·NH투자·씨티·모건스탠리) 선정, Pre-IPO 8,000억 유치 완료. 11월 코스피 예심 청구를 목표로 연내 신청 방침(보도, 26.10 기준)이며 거래소 사전협의가 진행된 것으로 보도됨. 실제 청구는 미확인. 일본 자회사(크레이버) 상장은 중복상장 이슈로 후순위.", "ipoLabel": "IPO 추진 중 (연내 예심 청구 목표)", "investors": [{"name": "Pre-IPO 컨소시엄", "type": "Pre-IPO", "amt": "8,000억원 투자유치"}, {"name": "자체 성장 (Series A 이후)", "type": "외부 투자 최소화", "amt": "수익 재투자"}], "investNote": "Pre-IPO에서 8,000억원을 유치하며 기업가치 4.4조원 인정. 사실상 상장 초읽기.", "globals": [{"text": "한성USA 인수 · 코스트코·타깃 유통망 확보 · 티르티르 미국 유통망 확대(26.11) (25년 매출 3,510억, YoY +221%)", "status": "진출 완료", "region": "미주"}, {"text": "앳코스메·로프트·플라자 확장 (25년 매출 1,708억, YoY +175%)", "status": "진출 완료", "region": "일본"}, {"text": "부츠(英)·Space NK·Moida(佛)·Rossmann(獨)·드루나(西) 입점 확대", "status": "공격적 확장", "region": "유럽"}, {"text": "아마존·티몰 D2C 및 글로벌 온라인 채널", "status": "운영 중", "region": "온라인"}, {"text": "동남아 Shopee K뷰티 1위 (스킨1004) · YoY +100% 성장", "status": "주력 시장", "region": "동남아"}], "brandList": ["스킨1004", "조선미녀", "티르티르", "라운드랩"], "news": [{"date": "2026.11", "hl": "중복상장 규제에… 구다이글로벌 자회사, 일본 IPO 무산위기", "sum": "거래소가 자회사의 해외 IPO까지 중복상장 관점에서 들여다보면서 크레이버코퍼레이션의 일본 상장 계획이 흔들림. 본체 상장을 우선하는 방향으로 전략 선회했다는 보도.", "url": ""}, {"date": "2026.04", "hl": "구다이글로벌, Pre-IPO 8,000억 투자유치 완료 — 기업가치 4.4조 확정", "sum": "역대 K-뷰티 기업 Pre-IPO 최대 규모. 미래에셋증권을 대표주관사로, NH투자·씨티·모건스탠리를 공동주관사로 선정. 예심 청구 준비 착수.", "url": ""}, {"date": "2026.02", "hl": "조선미녀, 미국 아마존 K-뷰티 카테고리 점유율 1위 달성", "sum": "아마존 K-뷰티 스킨케어 부문 판매 1위 달성. 세포라·얼타 등 오프라인 채널 입점 확대로 미국 시장 구조적 지배력 강화.", "url": ""}, {"date": "2025.11", "hl": "매출 1.5조·OP 2,734억 — K-뷰티 최고 수익성 달성", "sum": "영업이익률 18.2%로 국내 코스메틱 상장사 최고 수준. 3개 브랜드 모두 글로벌 고성장세 지속.", "url": ""}, {"date": "2025.07", "hl": "스킨1004, 유럽 드럭스토어 3대 체인 전량 입점 완료", "sum": "독일 DM·로스만, 프랑스 모노프리 등 유럽 주요 드럭스토어 입점 완료. 유럽 매출 비중 20% 돌파.", "url": ""}]}, {"key": "founders", "name": "더파운더즈", "sector": "뷰티", "mom": "midhigh", "meta": "브랜드사 · 설립 2017년 · 이선형·이창주 공동대표", "brands": "아누아", "ipoWhen": "27년 예상", "valuation": "약 1조 이상(추정)", "banks": "미선정 / 비공개", "investSummary": "외부 VC 투자 없이 자력 성장 Pre-IPO 검토설 지속", "fin": {"year": 2025, "sales": 7177.0, "op": 1295.0, "src": "manual"}, "stages": ["사업성 검증", "자력 성장", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 1, "stageNote": "외부 투자 없이 자력 성장 중. Pre-IPO 검토설 지속. 27년 상장 예상.", "ipoLabel": "IPO 예상 (27년)", "investors": [{"name": "외부 투자 없음", "type": "자체 수익 재투자", "amt": "10년 자력 성장"}], "investNote": "창업 이후 단 한 번도 외부 VC 투자 없이 자력으로 7,000억원 매출 달성. Pre-IPO 검토 중.", "globals": [{"text": "켄달제너 앰배서더 · 얼타뷰티 1400점·올영 미국 매장(패서디나) 오프라인 확대", "status": "확장 중", "region": "미주"}, {"text": "유럽 아마존 매출 +800% · 멀티 히어로 전략 (26.上)", "status": "급성장", "region": "유럽"}, {"text": "앳코스메 어워드 7관왕 (26.上) · 도쿄·나고야·오사카 팝업 공략", "status": "확장 중", "region": "일본"}, {"text": "틱톡샵 단일브랜드 1위·아마존 프라임데이 1위", "status": "최상위 성과", "region": "온라인"}, {"text": "동남아 포함 160개국+ D2C · Shopee 등 현지 채널 운영", "status": "진출 완료", "region": "동남아"}], "brandList": ["Anua Inc"], "news": [{"date": "2026.06", "hl": "아누아, 켄달 제너 글로벌 앰버서더 발탁 — 미국 공략 강화", "sum": "모델 겸 사업가 켄달 제너를 첫 글로벌 앰버서더로 선정. PDRN 캠페인과 함께 미국 대형 유통 채널 확대 전략 본격화. 2025년 글로벌 매출 5억달러 돌파.", "url": ""}, {"date": "2025.12", "hl": "아누아, 일본 큐텐 5분기 연속 종합 1위 · 앳코스메 어워드 3관왕", "sum": "일본 최대 뷰티 플랫폼 앳코스메 2025 상반기 베스트 코스메 3관왕 달성. 큐텐 재팬 5분기 연속 종합 매출 1위 기록.", "url": ""}, {"date": "2025.11", "hl": "2024년 매출 4,278억·OP 1,457억 — 3년간 14배 성장", "sum": "2021년 299억에서 2024년 4,278억으로 3년간 14배 성장. 해외 매출 3,644억(YoY +377%), 전체 매출의 약 90% 차지. 영업이익도 전년 대비 4배 급증.", "url": ""}, {"date": "2025.07", "hl": "아누아, 유럽 아마존 스프링딜 매출 +800% · 北美 스케일업 TF 가동", "sum": "유럽 아마존 스프링딜 기간 전년 대비 800% 이상 급증. 북미 스케일업 TF 구성하며 미국 오프라인 채널 전방위 확대 추진.", "url": ""}, {"date": "2025.08", "hl": "더파운더즈, Pre-IPO 투자유치 검토 — 주관사 선정 임박", "sum": "외부 투자 없이 성장하던 더파운더즈가 IPO를 앞두고 Pre-IPO 투자유치를 검토 중인 것으로 알려짐. 주관사 선정 및 상장 일정 가시화 예상.", "url": ""}]}, {"key": "vinow", "name": "비나우", "sector": "뷰티", "mom": "midhigh", "meta": "뷰티 브랜드사 · 설립 2018년 · 이일주·김대영 공동대표", "brands": "넘버즈인, 퓌", "ipoWhen": "27년 3~4Q 목표", "valuation": "약 9,000억", "banks": "삼성증권", "investSummary": "Pre-IPO 완료 IMM인베 · LB PE · 브아원", "fin": {"year": 2025, "sales": 3250.0, "op": 671.0, "src": "manual"}, "stages": ["사업성 검증", "투자유치", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 2, "stageNote": "삼성증권 주관사 선정('24.9) 및 전자증권 전환 완료. '26년 온기 실적 반영 후 예심 청구 목표. '27년 3~4Q 증권신고서 제출·상장 예상.", "ipoLabel": "IPO 추진 (KOSPI · 27년 3~4Q 목표)", "investors": [{"name": "IMM인베스트먼트", "type": "Pre-IPO", "amt": "누적 550억"}, {"name": "LB PE", "type": "Pre-IPO", "amt": "Co-GP 300억"}, {"name": "브아원캐피탈파트너스", "type": "Pre-IPO", "amt": "상동"}], "investNote": "Pre-IPO(IMM인베·LB PE·브아원) 완료. KOSPI 상장 요건(매출 1,000억↑·이익 30억↑) 旣달성. '26년 온기 실적 반영 후 예심 청구 예정.", "globals": [{"text": "퓌 도쿄·오사카·후쿠오카 직영 매장 확장 (15개 목표)", "status": "확장 중", "region": "일본"}, {"text": "아마존·큐텐 등 글로벌 온라인 채널", "status": "운영 중", "region": "온라인"}, {"text": "동남아 Shopee 진출 (넘버즈인) · 태국 전담 마케터 운영", "status": "확장 중", "region": "동남아"}], "brandList": ["넘버즈인", "퓌"], "news": [{"date": "2026.06", "hl": "당사 관리방안 — '26년 분기별 실적·상장 준비 모니터링 지속", "sum": "'26년 온기 실적 반영 후 예비심사 청구 목표. 분기별 실적 및 상장 준비 과정 지속 모니터링, PR 대응을 통한 IPO 흥행 지원 병행.", "url": ""}, {"date": "2025.10", "hl": "준비 본격화 — 전자증권 전환 等 상장 요건 정비 완료", "sum": "삼성증권 주관 하에 전자증권 전환 등 KOSPI 상장 사전 요건 정비 작업 완료. '26년 실적 확인 후 예심 청구 일정 확정 예정.", "url": ""}, {"date": "2026.01", "hl": "2025년 매출 3,249억·OP 670억 — 업종 최고 이익률 20.6%", "sum": "넘버즈인과 퓌의 동반 고성장으로 매출 3,249억원, 영업이익률 20.6% 달성. KOSPI 상장 요건(매출 1,000억·이익 30억) 충족 확인.", "url": ""}, {"date": "2025.09", "hl": "넘버즈인, 일본 로프트·도큐핸즈 전국 입점 — 해외 매출 30% 돌파", "sum": "일본 최대 잡화 체인 전국 입점 완료, 해외 매출 비중 30% 돌파. 동남아·미주 채널 확대 준비.", "url": ""}], "cjos": {"note": "2025.4 기존 주주 구주 약 30억원 인수(보도). 현재 지분율은 공시로 확인 필요.", "url": "https://www.ddaily.co.kr/page/view/2025042910274268717"}}, {"key": "olive", "name": "올리브인터내셔널", "sector": "뷰티", "mom": "midhigh", "meta": "뷰티 브랜드사 · 설립 2018년 · 이진호 대표", "brands": "성분에디터, 밀크터치, 마미케어 등", "ipoWhen": "27년 목표", "valuation": "약 3,000억", "banks": "선정중", "investSummary": "올리브영, 프라이머, IMM인베스트먼트 주관사 선정 중", "fin": {"year": 2025, "sales": 2041.0, "op": 111.0, "src": "manual"}, "stages": ["사업성 검증", "투자유치", "RFP 배포", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 3, "stageNote": "올리브영(SI)·IMM인베(FI) 투자 완료. 6개 증권사 대상 주관사 선정 구술심사(PT) 완료, 최종 선정·일정 미정(보도). 27년 상장 목표.", "ipoLabel": "IPO 추진 (27년 목표)", "investors": [{"name": "올리브영", "type": "전략적 투자자", "amt": "30억"}, {"name": "프라이머", "type": "재무적 투자자", "amt": "Series B"}, {"name": "IMM인베스트먼트", "type": "재무적 투자자", "amt": "Series B"}], "investNote": "올리브영·프라이머·IMM인베스트먼트 등 주요 VC/PE 투자유치 완료. 주관사 선정 후 27년 상장 본격화 예상.", "globals": [{"text": "밀크터치 타겟 뷰티 스튜디오 600여 매장 입점(26.9)·타겟몰 39개 제품 판매 · 얼타뷰티·캐나다 세포라·코스트코 확장 중", "status": "진출 중", "region": "미주"}, {"text": "밀크터치 영국 론칭(26.6)·이탈리아 입점·루마니아 백화점 팝업 · 英 Superdrug 입점 추진·실리콘투 협업", "status": "진출 중", "region": "유럽"}, {"text": "밀크터치 일본 편의점 1만 곳+ 입점·판매처 1.5만 곳 돌파 · 핸즈 팝업 · 립타투 큐텐재팬 1위(26.8)", "status": "진출 완료", "region": "일본"}, {"text": "아마존·글로벌 온라인 D2C", "status": "추진 중", "region": "온라인"}], "brandList": ["성분에디터", "밀크터치", "마미케어"], "news": [{"date": "2026.10", "hl": "올리브인터내셔널 '밀크터치' 북미·유럽 공략 위한 인재 채용", "sum": "일본에서 성공한 밀크터치를 북미·유럽으로 확대. 올해 해외 매출이 전년 대비 2배 이상 성장할 것으로 예상된다고 회사 측이 밝힘.", "url": ""}, {"date": "2025.12", "hl": "올리브인터내셔널, 2025년 매출 2,041억·OP 125억 달성", "sum": "성분에디터·밀크터치·마미케어 등 멀티 브랜드 포트폴리오 성장세 지속. 클린 뷰티 트렌드 수혜로 외형 확장.", "url": ""}, {"date": "2025.10", "hl": "올리브영·IMM인베스트먼트 투자유치 완료 — IPO 준비 본격화", "sum": "국내 주요 VC·PE 투자유치 완료 후 주관사 선정 프로세스 착수. 27년 코스닥 또는 코스피 상장 목표.", "url": ""}, {"date": "2025.06", "hl": "성분에디터, 클린 뷰티 카테고리 점유율 확대 — 밀크터치 해외 진출 검토", "sum": "올리브영 클린 뷰티 부문 성분에디터 점유율 확대. 밀크터치 일본·동남아 진출 방안 검토 중.", "url": ""}]}, {"key": "liman", "name": "리만코리아", "sector": "뷰티", "mom": "mid", "meta": "뷰티 브랜드사/네트워크 비즈니스 · 설립 2018년 · 김경중 대표", "brands": "인셀덤, 보타팜, 라이프닝", "ipoWhen": "검토중", "valuation": "미공개", "banks": "미선정 / 비공개", "investSummary": "IMM PE 경영권 투자(2022) 투자금 약 2,500억원 수준", "fin": {"year": 2025, "sales": 1962.0, "op": 84.0, "src": "manual"}, "stages": ["사업성 검증", "PE 투자", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 2, "stageNote": "IMM PE 경영권 투자 후 IPO 검토 단계. 주관사 미선정.", "ipoLabel": "IPO 검토 중", "investors": [{"name": "IMM PE", "type": "경영권 투자 (2022)", "amt": "약 2,500억원"}], "investNote": "IMM PE가 2022년 약 2,500억원 규모의 경영권 투자. PE 엑시트를 위한 IPO가 중기 목표.", "globals": [{"text": "북미 어바인 하우스 오브 리만 오픈 · 미국·캐나다 커뮤니티 거점 확보", "status": "운영 중", "region": "미주"}, {"text": "英 런던 해머스미스 하우스 오브 리만 오픈 (유럽 교두보)", "status": "진출 완료", "region": "유럽"}, {"text": "도쿄·오사카 시장 진출 준비 중 · 법인 설립 예정", "status": "준비 중", "region": "일본"}, {"text": "글로벌 자사몰 및 온라인 커뮤니티 채널", "status": "운영 중", "region": "온라인"}], "brandList": ["인셀덤", "보타랩", "라이프닝"], "news": [{"date": "2026.01", "hl": "리만코리아, IPO 사전 준비 착수 — IMM PE 엑시트 로드맵 가시화", "sum": "IMM PE 투자 이후 3~4년 시점이 도래함에 따라 IPO를 통한 엑시트 로드맵 수립 착수. 수익성 지표 공개 여부가 관심사.", "url": ""}, {"date": "2025.10", "hl": "인셀덤 글로벌 누적 회원 100만명 돌파", "sum": "기능성 화장품 채널 판매 전략으로 해외 누적 회원 100만명 달성. 중화권 및 동남아 시장 확대 지속.", "url": ""}]}, {"key": "grace", "name": "그레이스", "sector": "뷰티", "mom": "mid", "meta": "뷰티 벤더/글로벌 유통 · 설립 1991년 · 조아브라함선 대표", "brands": "글로벌 뷰티 및 H&B 유통", "ipoWhen": "검토중", "valuation": "약 2,500억", "banks": "미선정 / 비공개", "investSummary": "PE 경영권 투자", "fin": {"year": 2025, "sales": 1945.0, "op": 129.0, "src": "manual"}, "stages": ["사업성 검증", "투자유치", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 1, "stageNote": "PE 투자 유치 완료. 주관사 미선정으로 IPO 준비 초기 단계.", "ipoLabel": "IPO 검토 중", "investors": [{"name": "PE 투자사 (비공개)", "type": "경영권 투자", "amt": "투자유지"}], "investNote": "PE 경영권 투자 구조. 투자사 회수를 위한 IPO가 중장기 목표.", "globals": [{"text": "코스트코·얼타뷰티 벤더코드 확보 · 올리브영 USA 파트너 (100여 브랜드)", "status": "진출 완료", "region": "미주"}, {"text": "로프트·돈키호테 5,000개점 공급 (이토추 경유) · 마츠모토키요시 납품 준비", "status": "진출 완료", "region": "일본"}, {"text": "아마존 US·글로벌 온라인 직판", "status": "운영 중", "region": "온라인"}], "brandList": ["Grace Japan", "티앤모프", "The Owl Company GmbH"], "news": [{"date": "2025.12", "hl": "그레이스, PE 투자사 회수 대비 IPO 사전 준비 착수", "sum": "PE 투자사의 엑시트 일정에 맞춰 IPO 예비 심사 준비를 내부적으로 검토 시작. 주관사 선정은 수익성 추가 개선 후 진행 예정.", "url": ""}, {"date": "2025.09", "hl": "H&B 브랜드 유통망 확대 — 드럭스토어·온라인 채널 강화", "sum": "올리브영·CJ온스타일 등 주요 채널 입점 브랜드 수 확대, 매출 성장세 지속. 영업이익률 개선이 IPO 밸류에이션의 핵심.", "url": ""}]}, {"key": "2020", "name": "이공이공", "sector": "뷰티", "mom": "midhigh", "meta": "뷰티 글로벌 마케팅/브랜드 엑셀러레이터 · 설립 2019년 · 형주혁 대표", "brands": "글로벌 브랜드 액셀러레이터", "ipoWhen": "26년 하반기", "valuation": "약 2,000억", "banks": "한국투자증권", "investSummary": "Series D 한투파 · 라구나인베 · 효성(프리IPO 300억)", "fin": {"year": 2025, "sales": 666.0, "op": -278.0, "src": "manual"}, "stages": ["사업성 검증", "Series C", "Series D", "주관사 선정", "예심 청구", "공모·상장"], "stageIdx": 4, "stageNote": "한국투자증권 주관사 선정. 26년 하반기 상장 추진 중.", "ipoLabel": "IPO 추진 (26년 하반기)", "investors": [{"name": "한국투자파트너스", "type": "Series D 리드", "amt": "370억원"}, {"name": "라구나인베스트먼트", "type": "Series C 참여", "amt": "70억원"}, {"name": "효성", "type": "프리IPO (26.8)", "amt": "300억원"}], "investNote": "효성이 26.8 프리IPO로 300억원 투자(기업가치 약 2,000억원 평가, 조선비즈 보도). 한국투자증권 주관 하에 26년 하반기 상장 목표.", "globals": [{"text": "팻랩(메디핸즈)과 미국 아마존 진출 협업 추진 (26.10)", "status": "추진 중", "region": "미주"}, {"text": "코스트코, 얼타뷰티, 세포라 등 직계약", "status": "오프라인 확장 중", "region": "미주"}], "brandList": ["상품 판매", "마케팅 서비스"], "news": [{"date": "2026.10", "hl": "팻랩, 에일리 모델 발탁... 이공이공과 미국 아마존 진출 추진", "sum": "메디핸즈 바디테크 브랜드 팻랩이 이공이공과 협업해 미국 아마존 진출을 추진. 채널 구축·콘텐츠·마케팅 운영 연계.", "url": ""}, {"date": "2026.08", "hl": "효성, K뷰티 커머스 이공이공에 300억 프리IPO 투자", "sum": "기업가치 약 2,000억원 평가. 효성그룹 무역 부문 신성장동력으로 뷰티 사업 확장 추진.", "url": ""}, {"date": "2026.01", "hl": "이공이공, 한국투자증권 주관사 선정 — 26년 하반기 코스닥 추진", "sum": "한국투자증권을 주관사로 선정하며 코스닥 상장 일정 구체화. K뷰티 글로벌 브랜드 액셀러레이터 모델의 투자자 관심 집중.", "url": ""}, {"date": "2025.10", "hl": "Series D 370억 투자유치 — 한국투자파트너스 리드", "sum": "Series D에서 한국투자파트너스를 리드로 370억원 투자유치. 기업가치 1,000억원 이상 인정, IPO 전 마지막 투자 라운드.", "url": ""}, {"date": "2025.06", "hl": "매출 1,620억 달성 — K뷰티 글로벌 수요 타고 고성장", "sum": "K뷰티 글로벌 열풍을 타고 해외 브랜드 판매 대행 매출 급성장. 미국·유럽 채널 다각화로 외형 성장 지속.", "url": ""}]}, {"key": "bnb", "name": "비앤비코리아", "sector": "뷰티", "mom": "midhigh", "meta": "뷰티 ODM/OBM · 설립 2011년 · 함봉춘 대표", "brands": "ODM, OBM", "ipoWhen": "예심 청구(26.5.21) 심사 진행 중", "valuation": "약 6,000~7,000억", "banks": "미래에셋증권", "investSummary": "M&A (진백글로벌)", "fin": {"year": 2025, "sales": 1412.0, "op": 262.0, "src": "manual"}, "stages": ["사업성 검증", "M&A 성장", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 4, "stageNote": "26.5.21 코스닥 상장예비심사 청구. 통상 45영업일이나 5개월째 결과 미통보(26.10 기준) — 심사 장기화.", "ipoLabel": "IPO 예심 청구 (26.5)", "investors": [{"name": "진백글로벌 M&A", "type": "전략적 인수", "amt": "M&A 완료"}, {"name": "미래에셋증권", "type": "주관사 선정", "amt": "IPO 준비 중"}], "investNote": "진백글로벌 M&A를 통해 OBM 역량 확보. ODM+OBM 통합 모델로 IPO 밸류에이션 극대화 전략.", "globals": [{"text": "미국·유럽 ODM 수출 확장 중", "status": "확장 중", "region": "미주"}, {"text": "동남아 ODM 공급 운영 중", "status": "운영 중", "region": "동남아"}, {"text": "글로벌 B2B 온라인 수출 채널", "status": "운영 중", "region": "온라인"}], "brandList": ["ODM 사업부", "OBM 자체브랜드"], "news": [{"date": "2026.10", "hl": "비앤비코리아, 상장 심사 5개월째 표류…오너 리스크 변수 되나", "sum": "26.5.21 코스닥 예비심사 청구 후 결과 미통보. 최대주주 측(하이트진로 오너 일가) 과거 유죄 판결이 대주주 적격성 변수로 거론되나, 지연의 직접 원인은 확인되지 않음.", "url": ""}, {"date": "2025.11", "hl": "비앤비코리아, 미래에셋증권 IPO 주관사 선정 — 상장 본격화", "sum": "미래에셋증권을 주관사로 선정하며 IPO 준비 공식화. ODM+OBM 통합 밸류에이션으로 기업가치 극대화 전략 추진.", "url": ""}, {"date": "2025.08", "hl": "진백글로벌 M&A 완료 — ODM에서 OBM으로 사업 확장", "sum": "자체 브랜드(OBM) 역량 보유 기업 인수로 사업 모델 고도화. 제조-브랜드 통합 모델로 마진 구조 개선.", "url": ""}, {"date": "2025.05", "hl": "매출 1,412억·OP 261억 — ODM 고마진 구조 확인", "sum": "K-뷰티 제조 수요 급증으로 ODM 주문 급증, 영업이익률 18.5% 달성. 해외 브랜드사 수탁 계약 확대.", "url": ""}]}, {"key": "lafati", "name": "레페리", "sector": "뷰티", "mom": "mid", "meta": "뷰티 멀티채널 MCN · 설립 2013년 · 최인석 의장·유원 대표", "brands": "멀티레이블 MCN", "ipoWhen": "검토중", "valuation": "약 1,500~2,000억", "banks": "신한투자증권", "investSummary": "Series B", "fin": {"year": 2025, "sales": 435.0, "op": 11.0, "src": "manual"}, "stages": ["사업성 검증", "Series B", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 3, "stageNote": "신한투자증권 주관사 선정. Pre-IPO 및 구체적 상장 일정 협의 중.", "ipoLabel": "IPO 검토 중", "investors": [{"name": "Series B 투자사 (비공개)", "type": "재무적 투자자", "amt": "투자유지"}], "investNote": "Series B 투자유치 완료. 신한투자증권 주관으로 IPO 준비 중.", "globals": [{"text": "오모테산도 K-뷰티 셀렉트스토어 팝업 · 아마존 연계·한진 물류 협업 (26.4)", "status": "진입 완료", "region": "일본"}, {"text": "일본 진출 노하우 활용 미주 진출 준비 중", "status": "준비 중", "region": "미주"}, {"text": "아마존 연계·한진 물류 글로벌 온라인", "status": "운영 중", "region": "온라인"}], "brandList": ["알렉스디자인", "비티디오"], "news": [{"date": "2025.12", "hl": "레페리, 신한투자증권 IPO 주관사 선정 완료", "sum": "신한투자증권을 주관사로 선정, IPO 추진 공식화. 뷰티 MCN 플랫폼으로서의 성장성을 어필하며 기관 투자자 IR 준비.", "url": ""}, {"date": "2025.09", "hl": "레페리 소속 크리에이터 누적 구독자 1억명 돌파", "sum": "소속 뷰티 크리에이터들의 글로벌 구독자 합산 1억명 돌파. 인플루언서 커머스(라이브커머스) 매출 기여 확대.", "url": ""}, {"date": "2025.06", "hl": "레페리, K-뷰티 브랜드 전속 MCN 계약 대규모 수주", "sum": "국내외 K-뷰티 신생 브랜드들의 MCN 마케팅 수요 급증으로 신규 계약 다수 체결. 매출 성장세 지속.", "url": ""}]}, {"key": "nmodelin", "name": "앤마들린", "sector": "뷰티", "mom": "midlow", "meta": "뷰티 마케팅 플랫폼(릴스 제작) · 글로브(Glovv)·플릭스(Flixx) 운영", "brands": "글로브(Glovv), 플릭스(Flixx)", "ipoWhen": "28년 하반기 코스닥 목표", "valuation": "미공개", "banks": "KB증권", "investSummary": "Series A (누적 30억원) 위벤처스 · 인탑스인베스트먼트 · 에이치지이니셔티브", "fin": {"year": 2025, "sales": 77.0, "op": 3.1, "src": "manual", "note": "외부 DB 집계 · 공시 미확인(검증 필요)"}, "stages": ["사업성 검증", "Series A", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 2, "stageNote": "KB증권 주관사 선정. 코스닥 28년 하반기 상장 목표, 예심 청구 시기는 조율 중.", "ipoLabel": "IPO 추진 (28년 하반기 목표)", "investors": [{"name": "위벤처스", "type": "Series A (25.8)", "amt": "10억"}, {"name": "인탑스인베스트먼트", "type": "Series A (25.8)", "amt": "10억"}, {"name": "에이치지이니셔티브", "type": "Series A (25.8)", "amt": "10억"}], "investNote": "Series A 3개사 참여, 누적 투자 약 30억원. 기업가치는 비공개.", "globals": [{"text": "일본 시장에서 매출 발생 중", "status": "진출 완료", "region": "일본"}, {"text": "글로브·플릭스 온라인 플랫폼 기반 서비스", "status": "운영 중", "region": "온라인"}], "brandList": ["글로브 (Glovv)", "플릭스 (Flixx)"], "news": [{"date": "2026.08", "hl": "앤마들린, KB증권 상장 주관사 선정 — 28년 하반기 코스닥 목표", "sum": "뷰티 고객사 2,000곳을 확보한 릴스 제작 플랫폼. 예심 청구 시기는 조율 중.", "url": ""}, {"date": "2026.上", "hl": "26년 2분기 누적 매출이 25년 연간 매출 상회 (회사 발표)", "sum": "회사 측 주장으로, 독립적으로 검증된 수치는 아님.", "url": ""}, {"date": "2025.08", "hl": "Series A 30억원 유치 — 위벤처스·인탑스인베스트먼트·에이치지이니셔티브", "sum": "3개사가 각 10억원 투자. 누적 투자금 30억원.", "url": ""}]}, {"key": "rebom", "name": "리봄화장품", "sector": "뷰티", "mom": "mid", "meta": "화장품 OEM/ODM · 동국제약 자회사(지분 약 53.7%)", "brands": "화장품 OEM/ODM", "ipoWhen": "검토중", "valuation": "미공개", "banks": "삼성증권", "investSummary": "동국제약 경영권 인수(24.10) 지분 약 53.7% · 약 306억원", "fin": {"year": 2025, "sales": 390.0, "op": 51.0, "src": "manual", "yoy": 12.1}, "stages": ["사업성 검증", "동국제약 인수", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 2, "stageNote": "삼성증권 주관사 선정 보도. 당초 26년 하반기 예심 청구가 거론됐으나 현재는 유동적.", "ipoLabel": "IPO 검토 중", "investors": [{"name": "동국제약", "type": "경영권 인수 (24.10)", "amt": "약 306억"}], "investNote": "동국제약이 96,600주(53.66%)를 약 306.6억원에 인수. 이후 지분율 53.7% 유지.", "globals": [], "brandList": ["화장품 OEM/ODM"], "news": [{"date": "2026.05", "hl": "리봄화장품, 삼성증권 주관사 선정·코스닥 IPO 준비 (보도)", "sum": "예심 청구 시기는 당초 26년 하반기가 거론됐으나 유동적. 실제 청구 여부는 공시로 확인 필요.", "url": ""}, {"date": "2025", "hl": "25년 매출 390억(+12.1%)·영업이익 51억", "sum": "영업이익은 전년(56억)과 유사한 수준. 재무 데이터 사이트 기준 수치.", "url": ""}, {"date": "2024.10", "hl": "동국제약, 리봄화장품 지분 53.66% 약 306억에 인수", "sum": "제약사의 화장품 사업 확대 행보. 이후 리봄은 동국제약 자회사로 편입.", "url": ""}]}, {"key": "highlight", "name": "하이라이트브랜즈", "sector": "패션", "mom": "midhigh", "meta": "골프·라이프스타일 패션 · 설립 2019년 · 이준권 대표", "brands": "코닥어패럴, 말본골프", "ipoWhen": "27년 상반기 (예심 청구 예상)", "valuation": "약 4,000~6,000억", "banks": "신한투자증권", "investSummary": "대명화학그룹 계열 외부 투자 이력 없음(보도)", "fin": {"year": 2025, "sales": 2840.0, "op": 370.0, "src": "manual"}, "stages": ["사업성 검증", "PE 투자", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 3, "stageNote": "26.4 신한투자증권 주관사 선정(3월 RFP 발송). 예심 청구는 무신사 상장 이후인 27년 상반기로 전망(IB 업계).", "ipoLabel": "IPO 추진 (27년 상반기)", "investors": [{"name": "대명화학그룹", "type": "모기업(그룹 계열)", "amt": "외부 투자 이력 없음(보도)"}], "investNote": "대명화학그룹(공정위 기업집단 90위) 계열로 외부 투자 이력이 없어 몸값 기준점이 없음. 신한투자증권 주관, 27년 상반기 코스피 상장 목표.", "globals": [{"text": "코닥어패럴 중국에 이어 일본·대만·홍콩 진출 · 시에라디자인 아시아 상표권 확보 (26.초)", "status": "확장 중", "region": "일본"}, {"text": "상하이 플래그십 스토어 오픈 (25.5) · 중화권 신규 매장 확장 계획", "status": "확장 중", "region": "중국"}, {"text": "자사몰 및 글로벌 온라인 채널", "status": "운영 중", "region": "온라인"}], "brandList": ["코닥어패럴", "말본골프"], "news": [{"date": "2026.10", "hl": "무신사 '풍선효과' 노린다…하이라이트브랜즈, 내년 코스피 상장 저울질", "sum": "IB 업계는 무신사 상장 이후인 27년 상반기 예심 청구를 전망. 24년 매출 2,840억(5년간 약 21.5배), 영업이익 370억. 몸값은 최대 6,000억에서 조 단위 기대론까지 거론.", "url": ""}, {"date": "2026.04", "hl": "하이라이트브랜즈, 신한투자증권 주관 27년 상반기 상장 목표", "sum": "신한투자증권을 주관사로 27년 상반기 코스피 상장을 공식 추진. IMM PE 경영권 투자 엑시트 로드맵과 연계.", "url": ""}, {"date": "2025.12", "hl": "코닥어패럴, MZ세대 레트로 열풍 · 연매출 1,500억 달성", "sum": "레트로·Y2K 트렌드 지속으로 코닥어패럴 매출 1,500억원 달성. 말본골프와 함께 브랜드 포트폴리오 균형 강화.", "url": ""}, {"date": "2025.09", "hl": "말본골프, 국내 프리미엄 골프웨어 TOP3 진입", "sum": "골프 인구 증가와 프리미엄 골프웨어 수요 확대로 말본골프 시장 점유율 상승. 백화점 입점 매장 전국 확대.", "url": ""}]}, {"key": "hagohouse", "name": "하고하우스", "sector": "패션", "mom": "midlow", "meta": "여성 패션 · 브랜드 인큐베이터 · 설립 2017년 · 홍정우 대표", "brands": "마뗑킴, 드파운드, 유니폼브릿지", "ipoWhen": "검토중", "valuation": "약 1조", "banks": "미선정 / 비공개", "investSummary": "SV인베스트먼트, LB인베스트먼트 26.12 마뗑킴이 하고하우스 흡수합병 예정", "fin": {"year": 2025, "sales": 2201.0, "op": 446.0, "src": "manual"}, "stages": ["사업성 검증", "투자유치", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 2, "stageNote": "현재 주관사 선정 단계 — 공식 IPO 일정 미발표. 26.12 마뗑킴이 모회사 하고하우스를 흡수합병(마뗑킴 존속)해 상장 주체·구조 변동 예정.", "ipoLabel": "IPO 검토 중", "investors": [{"name": "SV인베스트먼트", "type": "재무적 투자자 (FI)", "amt": "보유 중"}, {"name": "LB인베스트먼트", "type": "재무적 투자자 (FI)", "amt": "보유 중"}, {"name": "대명화학", "type": "전략적 투자자 (SI) · 2020년", "amt": "초기 투자"}], "investNote": "대규모 외부 투자 없이 자체 브랜드 성과로 성장 중. Pre-IPO 조달 시점 미정.", "globals": [{"text": "마뗑킴 중국 출점 확대 (올해 해외 15곳 출점·연내 4곳 추가 계획)", "status": "확장 중", "region": "중국"}, {"text": "마뗑킴 베트남 하노이 롯데몰 등 출점", "status": "확장 중", "region": "동남아"}, {"text": "마뗑킴 북미 아마존 입점 · 르셉템버 SSENSE·FWRD 리테일 채널", "status": "진출 완료", "region": "미주"}, {"text": "마뗑킴 불가리아·체코 편집숍 진출", "status": "진출 완료", "region": "유럽"}, {"text": "트리밍버드 시부야 팝업 · 마뗑킴 자사몰·무신사 유통 연계", "status": "확장 중", "region": "일본"}, {"text": "마뗑킴 태국 센트럴그룹 대규모 유통 계약 (30년까지 600억 규모)", "status": "계약 완료", "region": "동남아"}, {"text": "아마존 공식 입점·마뗑킴 글로벌 자사몰", "status": "운영 중", "region": "온라인"}], "brandList": ["마뗑킴", "마뗑킴 外 브랜드"], "news": [{"date": "2026.10", "hl": "해외 매장 30곳 돌파한 마뗑킴…모회사 역합병으로 글로벌 사업 가속", "sum": "해외 진출 약 2년 만에 매장 30곳 이상. 올해 해외 15곳 출점·연내 4곳 추가 계획(중국·일본·베트남). 12월 마뗑킴 존속·하고하우스 소멸 방식의 역합병 결정.", "url": ""}, {"date": "2026.02", "hl": "마뗑킴, 아이브 리즈 앰버서더 발탁 — 글로벌 팬덤 마케팅 본격화", "sum": "2026 SS 앰버서더로 아이브 리즈 기용, K-패션 글로벌 입지 확대 목표. 마뗑킴은 스프링·썸머 캠페인을 순차 공개하며 해외 소비자 접점 강화.", "url": ""}, {"date": "2026.02", "hl": "마뗑킴, APEC 정상회의 공식 협찬 — 외교부장관 표창 수상", "sum": "2025년 APEC 정상회의에서 국내 패션 브랜드 최초 공식 협찬사 선정. 외교부장관 표창 수상.", "url": ""}, {"date": "2025.12", "hl": "마뗑킴 연매출 2,000억 돌파 전망 · 5년 만에 40배 성장", "sum": "2021년 매출 50억→2,000억 돌파 전망. 드파운드도 인수 대비 6배 성장, 25년 500억 전망.", "url": ""}, {"date": "2025.04", "hl": "2024년 연결 매출 3,500억 · 전년 대비 +40% — 역대 최대 실적", "sum": "마뗑킴(+50%, 1,500억), 드파운드(+33%, 400억) 등 전 브랜드 두 자릿수 성장. 25년 목표 4,000억+.", "url": ""}, {"date": "IPO", "hl": "IPO 공식 일정 미발표 — 주관사 선정 단계 진입 전", "sum": "FI 투자 유지 중. 영업이익률 등 수익성 지표 공개가 선행되어야 상장 논의 본격화 전망.", "url": ""}]}, {"key": "boosterz", "name": "부스터즈", "sector": "패션", "mom": "mid", "meta": "브랜드 인큐베이팅 · 설립 2019년 · 서정교 대표", "brands": "르무통, 링티 등", "ipoWhen": "26년 4Q 주관사 선정 목표", "valuation": "약 1,900억", "banks": "미선정 (당초 대비 연기)", "investSummary": "Series C 에스비아이인베, 엔베스터, 레이크브릿지EP, 하나벤처스", "fin": {"year": 2025, "sales": 1993.0, "op": 255.0, "src": "manual"}, "stages": ["사업성 검증", "투자유치", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 1, "stageNote": "우주텍 연결편입 및 1차 지분 인수('26.4) 완료. 2차 지분 인수 후 경영권 확보 → '26.4Q IPO 주관사 선정 목표(당초 대비 연기).", "ipoLabel": "IPO 주관사 선정 추진 중 ('26.4Q 예상)", "investors": [{"name": "우주텍 대표", "type": "최대주주", "amt": "지분 48.01%"}, {"name": "하나벤처스", "type": "팔로온 투자자", "amt": "Series C"}, {"name": "에스비아이인베스트먼트", "type": "신규 투자자", "amt": "Series C"}, {"name": "엔베스터", "type": "신규 투자자", "amt": "Series C"}, {"name": "레이크브릿지에쿼티파트너스", "type": "신규 투자자", "amt": "Series C"}], "investNote": "당사 RCPS 상환청구권 '25.10 도래. 우주텍 1차 지분 인수('26.4) 완료. 2차 지분 인수('26.3~4Q)로 경영권 확보 후 IPO 추진 또는 구주매각·RCPS 상환 등 Exit 옵션 병행 검토.", "globals": [{"text": "글로벌 K-브랜드 생태계 확장(패션·라이프스타일→헬스케어)", "status": "확장 중", "region": "온라인"}], "brandList": ["로컬 비즈니스", "모바일 광고", "신사업 추진"], "news": [{"date": "2026.08", "hl": "FSN, 자회사 부스터즈 IPO·지분 매각 후 상장·흡수합병 등 검토", "sum": "모회사 FSN(코스닥 상장사)이 부스터즈의 기업공개, 지분 매각 후 상장, 흡수합병 등을 검토 중이라고 밝힘(보도). 중복상장 기준이 쟁점.", "url": ""}, {"date": "2026.06", "hl": "당사 관리방안 — 경영권 확보 마일스톤·IPO 가능성 Tracking 지속", "sum": "우주텍 경영권 확보 마일스톤 및 중복상장 이슈·IPO 가능성 지속 Tracking. 구주매각·RCPS 상환 등 Exit 옵션 병행 검토 중.", "url": ""}, {"date": "2026.04", "hl": "우주텍 1차 지분 인수 완료 — 단계적 경영권 확보 진행 중", "sum": "우주텍 1차 지분 인수 완료. 당사 지분 44.29% vs 우주텍 대표 48.01%로 아직 경영권 미확보. 2차 지분 인수('26.3~4Q 예상)로 경영권 확보 후 IPO 추진 또는 우회 상장 병행 검토.", "url": ""}, {"date": "2025.10", "hl": "당사 RCPS 상환청구권 도래 — Exit 옵션 검토 개시", "sum": "당사 보유 RCPS 상환청구권 행사 가능 시점 도래. IPO 추진 상황에 따라 RCPS 상환·구주매각 등 복수의 Exit 시나리오 검토 중.", "url": ""}], "cjos": {"note": "시리즈A 투자 참여(2022.10, 보도). 현재 보유 지분은 공시로 확인 필요.", "url": "https://cjnews.cj.net/cj%ec%98%a8%ec%8a%a4%ed%83%80%ec%9d%bc-%eb%94%94%ec%a7%80%ed%84%b8-%eb%a7%88%ec%bc%80%ed%8c%85-%ea%b7%b8%eb%a3%b9-fsn-%ec%9e%90%ed%9a%8c%ec%82%ac-%eb%b6%80%ec%8a%a4%ed%84%b0%ec%a6%88/"}}, {"key": "peacenow", "name": "피스피스스튜디오", "sector": "패션", "mom": "listed", "meta": "여성 패션·잡화 · 설립 2020년 · 박화목·서승완 공동대표", "brands": "마르디 메크르디", "ipoWhen": "26.6.8 코스닥 상장🎉", "valuation": "약 3,000억", "banks": "NH투자증권, 미래에셋증권", "investSummary": "Series A", "fin": {"year": 2025, "sales": 1179.0, "op": 167.0, "src": "manual"}, "stages": ["사업성 검증", "Series A", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장 ✓"], "stageIdx": 5, "stageNote": "26년 6월 8일 코스닥 상장 완료.", "ipoLabel": "상장 완료", "investors": [{"name": "Series A 투자사", "type": "재무적 투자자", "amt": "투자유지 → 상장 후 엑시트"}, {"name": "NH투자증권", "type": "IPO 주관사", "amt": "상장 완료"}, {"name": "미래에셋증권", "type": "IPO 공동주관사", "amt": "상장 완료"}], "investNote": "Series A 투자 후 상장까지 단기 성장. NH투자·미래에셋 공동 주관으로 26년 6월 8일 코스닥 상장 완료.", "globals": [{"text": "방콕 센트럴 핀클라오 정규매장 오픈(26.11) · 푸켓 팝업(6개월) · 자카르타 2호 정규매장(26.6) · 태국 배우 협업 컬렉션", "status": "확장 중", "region": "동남아"}, {"text": "티몰·더우인·샤오홍슈 공식 채널 오픈 (26.6) · 라이선스→현지법인 직진출 전환 · 상하이 안푸루 글로벌 최대 플래그십 내년 초 오픈 예정 · 마카오 베네시안 리뉴얼(26.10) · 광군제 사전 판촉 첫날 15.4억원", "status": "진출 완료", "region": "중국"}, {"text": "일본 법인 설립 기반 D2C 확대 · 유니섹스 라인 출시 후 도쿄 다이칸야마·오사카 매장 첫 주 매출 직전 주 4배+", "status": "진행 중", "region": "일본"}, {"text": "티몰·더우인·샤오홍슈 공식 온라인 채널", "status": "운영 중", "region": "온라인"}], "brandList": ["자사몰", "외부채널", "직영매장"], "news": [{"date": "2026.11", "hl": "피스피스스튜디오, 태국·마카오·인도네시아 판매 거점 확대", "sum": "11.3 방콕 센트럴 핀클라오 정규매장 오픈, 10월 푸켓 팝업·마카오 매장 리뉴얼, 6월 자카르타 2호 정규매장. 내년 초 상하이 안푸루 플래그십 오픈 예정.", "url": ""}, {"date": "2026.06", "hl": "피스피스스튜디오, 26년 6월 8일 코스닥 상장 완료 🎉", "sum": "마르디·메크르디 등 여성 패션 브랜드를 운영하는 피스피스스튜디오가 코스닥에 성공적으로 상장. NH투자증권·미래에셋증권 공동 주관으로 기관 수요예측 흥행.", "url": ""}, {"date": "2026.04", "hl": "피스피스스튜디오, 공모가 확정 — 기관 수요예측 경쟁률 고공행진", "sum": "기관 투자자 수요예측에서 높은 경쟁률을 기록하며 공모가 밴드 상단 확정. 여성 패션 섹터 투자자 관심 집중.", "url": ""}, {"date": "2025.12", "hl": "2025년 매출 1,179억·OP 167억 — 상장 요건 완비", "sum": "매출·수익성·성장률 모두 코스닥 상장 요건을 충족. 마르디 브랜드 인지도 상승이 외형 성장 견인.", "url": ""}, {"date": "2025.09", "hl": "마르디, 여성 캐주얼 검색량 1위 — MZ 세대 필수 브랜드 등극", "sum": "각종 SNS·검색 플랫폼에서 여성 캐주얼 관련 검색어 1위 달성. 브랜드 인지도를 바탕으로 오프라인 매장 확장 가속.", "url": ""}]}, {"key": "grainon", "name": "그레인온", "sector": "식품", "mom": "mid", "meta": "식품 브랜드사 · 설립 2021년 · 안창석 대표", "brands": "그레인온 카무트 효소 등", "ipoWhen": "27년 1Q 예상", "valuation": "약 800억", "banks": "신한투자증권", "investSummary": "26.4 액면분할·무상증자", "fin": {"year": 2025, "sales": 1751.0, "op": 334.0, "src": "manual"}, "stages": ["사업성 검증", "투자유치", "주관사 선정", "Pre-IPO", "예심 청구", "공모·상장"], "stageIdx": 2, "stageNote": "신한투자증권 주관사 선정('25.3). 26.4 액면분할·무상증자 완료. 26.4Q 예비심사 청구 후 27.1Q 증권신고서 제출·상장 목표.", "ipoLabel": "IPO 추진 (27.1Q 목표)", "investors": [{"name": "신한투자증권", "type": "IPO 주관사", "amt": "'25.3 선정"}], "investNote": "최근 3개년 매출 4.2배·영업이익 2.3배 성장으로 상장 심사 핵심 요건인 외형·수익성 동시 개선 입증. '26.4 액면분할·무상증자로 공모 준비 완료.", "globals": [{"text": "카무트 효소 등 K효소 제품 해외 채널 확장 중", "status": "확장 중", "region": "온라인"}], "brandList": ["커머스 사업부문", "헬스케어 사업부문"], "news": [{"date": "2026.06", "hl": "당사 관리방안 — '26년 분기별 실적·상장 준비 모니터링 지속", "sum": "'26년 분기별 실적 및 상장 준비 과정 지속 모니터링. PR 대응을 통한 IPO 흥행 지원 병행. '26.4Q 예심 청구를 목표로 준비 중.", "url": ""}, {"date": "2026.04", "hl": "액면분할·무상증자 완료 — 공모 주식 구조 정비", "sum": "'26.4 액면분할 및 무상증자를 완료하며 IPO 공모 준비의 핵심 주식 구조 정비 마무리. '26.4Q 예비심사 청구를 목표로 심사 서류 준비 중.", "url": ""}, {"date": "2025.12", "hl": "매출 1,751억·OP 110억 — 3개년 외형·수익성 동시 개선 입증", "sum": "최근 3개년 매출 4.2배·영업이익 2.3배 성장. 상장 심사 핵심 요건인 외형·수익성 동시 개선을 수치로 입증하며 IPO 스토리 강화.", "url": ""}, {"date": "2025.03", "hl": "신한투자증권 IPO 주관사 선정 — '27.1Q 상장 목표", "sum": "신한투자증권을 주관사로 선정하며 코스피 상장 로드맵 확정. 카무트 효소 글로벌 확장·신사업 추진으로 IPO 스토리 고도화 병행.", "url": ""}]}]</script>
+<script>
+
+'use strict';
+const SECTORS = ['버티컬','뷰티','패션','식품'];
+const SECTOR_LABEL = {버티컬:'버티컬 커머스',뷰티:'뷰티',패션:'패션',식품:'식품'};
+const MOM = {high:['High','hi'],midhigh:['Mid-high','mh'],mid:['Mid','m'],midlow:['Mid-low','ml'],listed:['상장완료','ls']};
+const COS = JSON.parse(document.getElementById('seed').textContent);
+let FIN = {}, NEWS = {}, INS = {};
+const state = {sector:'all', q:'', open:new Set()};
+
+/* ── 안전한 DOM 헬퍼 (innerHTML 미사용) ── */
+function el(tag, cls, text, kids){
+  const n = document.createElement(tag);
+  if (cls) n.className = cls;
+  if (text != null && text !== '') n.textContent = text;
+  if (kids) kids.forEach(k => k && n.appendChild(k));
+  return n;
+}
+const safeUrl = u => { try { const x = new URL(u); return (x.protocol==='https:'||x.protocol==='http:') ? x.href : ''; } catch(e){ return ''; } };
+
+/* ── 숫자 포맷 (단위: 억원) ── */
+function fmt(v){
+  if (v == null || isNaN(v)) return '–';
+  const neg = v < 0, a = Math.abs(v);
+  let s;
+  if (a >= 10000){ const jo = Math.floor(a/10000), r = Math.round(a - jo*10000); s = jo + '조' + (r ? ' ' + r.toLocaleString('ko-KR') + '억' : ''); }
+  else if (a < 100 && a % 1) s = a.toFixed(1) + '억';
+  else s = Math.round(a).toLocaleString('ko-KR') + '억';
+  return (neg ? '-' : '') + s;
+}
+const won2eok = w => (w == null ? null : w / 1e8);
+function yoy(cur, prev){
+  if (cur == null || prev == null || prev === 0) return null;
+  if (prev < 0 || cur < 0){
+    if (prev <= 0 && cur > 0) return {t:'흑자전환', cls:'up'};
+    if (prev > 0 && cur < 0) return {t:'적자전환', cls:'down'};
+    return null;
+  }
+  const p = (cur - prev) / Math.abs(prev) * 100;
+  return {t:(p >= 0 ? '▲ ' : '▼ ') + Math.abs(p).toFixed(1) + '%', cls: p >= 0 ? 'up' : 'down'};
+}
+const margin = (op, s) => (op == null || !s) ? null : (op / s * 100).toFixed(1) + '%';
+
+/* ── 재무 데이터 병합: DART(financials.json) 값이 있으면 우선, 비어 있는 항목은 수동 입력값으로 보완 ── */
+const dartUrl = n => (/^\d{14}$/.test(String(n || ''))) ? 'https://dart.fss.or.kr/dsaf001/main.do?rcpNo=' + n : '';
+/* DART 추출값이 수동값과 단위(천원/백만원) 차이로 어긋나면 보정, 설명 불가한 큰 차이는 감사보고서 추출값을 제외 */
+function plausible(dart, manual, src){
+  if (!(dart > 0)) return null;
+  if (!(manual > 0)) return {m:1};
+  for (const m of [1, 1e3, 1e6, 1e-3]){ const r = dart * m / manual; if (r >= 0.4 && r <= 2.5) return {m}; }
+  return src === 'audit' ? null : {m:1};
+}
+function finOf(c){
+  const f = FIN[c.key], base = c.fin;
+  const out = {year:base.year, sales:base.sales, op:base.op, sPrev:null, oPrev:null, yoySales:base.yoy, basis:'', src:base.src, url:'', checkUrl:'', note:base.note||'', interim:c.interim ? {...c.interim} : null};
+  if (f && typeof f === 'object' && f.sales > 0){
+    const raw = won2eok(f.sales), p = plausible(raw, base.sales, f.src);
+    if (!p){
+      out.checkUrl = dartUrl(f.rcept_no);
+      out.note = 'DART에서 추출한 매출이 수동 입력값과 크게 달라 사용하지 않았습니다. 원문을 확인해 주세요.';
+    } else {
+      const m = p.m, sc = v => (v == null ? null : won2eok(v) * m);
+      out.year = f.year || out.year;
+      out.sales = raw * m; out.sPrev = sc(f.sales_prev); out.yoySales = null;
+      if (f.op != null){ out.op = sc(f.op); out.oPrev = sc(f.op_prev); }
+      out.basis = f.basis || '';
+      out.src = f.src === 'audit' ? 'dart-audit' : 'dart';
+      out.url = dartUrl(f.rcept_no);
+      out.note = m !== 1 ? '보고서 단위가 불명확해 수동값과 비교해 단위를 보정했습니다. 원문으로 확인해 주세요.' : (f.op == null ? '영업이익은 DART에서 확인되지 않아 수동 입력값을 표시합니다.' : '');
+    }
+  }
+  if (f && f.interim && (f.interim.sales != null || f.interim.op != null)){
+    const i = f.interim;
+    out.interim = {year:i.year, report:i.report, basis:i.basis, sales:won2eok(i.sales), op:won2eok(i.op), sPrev:won2eok(i.sales_prev), oPrev:won2eok(i.op_prev), src:'dart', url:dartUrl(i.rcept_no)};
+  }
+  return out;
+}
+function srcChip(src, url){
+  const m = {dart:['DART 사업보고서','dart'], 'dart-seed':['DART 사업보고서','dart'], 'dart-audit':['DART 감사보고서','dart'], manual:['수동 입력 · 검증 필요','']};
+  const [t, c] = m[src] || m.manual;
+  if (url && c){
+    const a = el('a', 'chip src ' + c, t + ' ↗');
+    a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.title = 'DART 원문 보고서 열기';
+    return a;
+  }
+  return el('span', 'chip src ' + c, t);
+}
+const IL = {'반기 누적':'상반기 누적','3분기 누적':'1~3Q 누적','1분기':'1Q'};
+const ilabel = i => String(i.year).slice(2) + '.' + (IL[i.report] || i.report);
+
+/* ── 기사 기반 태그 분류 ── */
+const IPO_GATE = /상장|IPO|기업공개|예심|예비심사|공모|주관사/i;
+const IPO_RULES = [
+  ['예심 청구', /예비심사\s*(를|을)?\s*청구|예심\s*청구|심사\s*청구/],
+  ['예심 승인', /예비심사\s*(승인|통과)|심사\s*통과|상장\s*승인/],
+  ['주관사 선정', /주관사|대표주관|공동주관/],
+  ['공모·수요예측', /공모가|수요예측|청약|공모\s*(규모|주식|금액)/],
+  ['지연·철회', /연기|철회|보류|미루|무산|재추진/],
+];
+const INV_GATE = /투자|유치|지분|인수|매각|시리즈|series|라운드|펀드|프리\s*IPO|밸류|기업가치|몸값|인베스트|캐피탈|파트너스|PE\b|VC\b/i;
+const INV_RULES = [
+  ['프리IPO', /프리\s*IPO|pre-?IPO/i],
+  ['투자 유치', /유치|시리즈|series|라운드|투자\s*받|투자를\s*받/i],
+  ['지분 거래', /지분|인수|매각|엑시트|구주|경영권/],
+  ['밸류에이션', /기업가치|밸류|몸값/],
+];
+const COUNTRIES = [
+  ['미국', /미국|미주|북미|\bUSA?\b/i],['일본', /일본/],['중국', /중국|상하이|베이징|티몰|\bJD\b|더우인/],
+  ['동남아', /동남아|베트남|태국|인도네시아|말레이시아|싱가포르|필리핀|쇼피/],['유럽', /유럽|영국|프랑스|독일|이탈리아|스페인/],
+  ['중동', /중동|사우디|UAE|아랍/],['인도', /인도(?!네시아)\b|인도 시장/],['호주', /호주/],['대만', /대만/],['캐나다', /캐나다/],
+];
+const PARTNERS = ['아마존','세포라','울타','돈키호테','라쿠텐','쇼피','틱톡샵','티몰','큐텐','코스트코','월마트','타깃','DHL','로손','아이허브','Amazon','Sephora','Ulta','Shopee','TikTok Shop','Costco','Walmart','Target'];
+
+const GLOBAL_CTX = /진출|수출|입점|해외|현지|법인|매장\s*오픈|론칭|유통|공급|판매|글로벌|팝업|계약|파트너십/;
+function classify(n){
+  const t = (n.hl || '') + ' ' + (n.sum || '');
+  const r = {ipo:[], inv:[], glb:{countries:[], partners:[]}};
+  if (IPO_GATE.test(t)){ IPO_RULES.forEach(([k, re]) => re.test(t) && r.ipo.push(k)); if (!r.ipo.length) r.ipo.push('상장 추진'); }
+  if (INV_GATE.test(t)){ INV_RULES.forEach(([k, re]) => re.test(t) && r.inv.push(k)); if (!r.inv.length && /투자|인베스트|캐피탈|파트너스|펀드/.test(t)) r.inv.push('투자자 언급'); }
+  if (GLOBAL_CTX.test(t)){   // 해외 사업 문맥이 있는 기사만 국가·파트너 추출
+    COUNTRIES.forEach(([k, re]) => re.test(t) && r.glb.countries.push(k));
+    PARTNERS.forEach(p => t.toLowerCase().includes(p.toLowerCase()) && r.glb.partners.push(p));
+  }
+  return r;
+}
+function newsOf(c){
+  const live = Array.isArray(NEWS[c.key]) && NEWS[c.key].length ? NEWS[c.key] : null;
+  const list = (live || c.news).map(n => ({...n, cls:classify(n)}));
+  list.sort((a, b) => String(b.date).localeCompare(String(a.date)));
+  return {list, live: !!live};
+}
+
+/* ── 렌더링 ── */
+function pill(n, kind){ return el('span', 'chip tag-' + kind, n); }
+
+function summaryRow(c){
+  const f = finOf(c), nw = newsOf(c), mom = MOM[c.mom] || ['', ''];
+  const b = el('button', 'head');
+  b.type = 'button'; b.setAttribute('aria-expanded', 'false');
+  const ico = el('div', 'ico', c.name.slice(0, 2)); ico.style.background = 'var(--c-' + c.sector + ')';
+  b.appendChild(el('div', 'nm', '', [ico, el('div', '', '', [el('b', '', c.name, c.cjos ? [el('span', 'chip cj', 'CJ온스타일 투자')] : null), el('small', '', c.brands)])]));
+  const fm = el('div', 'mcell');
+  fm.appendChild(el('div', 'big num', '매출 ' + fmt(f.sales)));
+  const y = yoy(f.sales, f.sPrev);
+  fm.appendChild(el('small', 'num', 'OP ' + fmt(f.op) + (margin(f.op, f.sales) ? ' (' + margin(f.op, f.sales) + ')' : '')));
+  if (y) fm.appendChild(el('small', 'num ' + y.cls, '매출 YoY ' + y.t));
+  if (f.interim) fm.appendChild(el('small', 'num', ilabel(f.interim) + ' 매출 ' + fmt(f.interim.sales)));
+  b.appendChild(fm);
+  b.appendChild(el('div', 'cell', c.investSummary));
+  const ip = el('div', 'cell');
+  ip.appendChild(el('span', 'chip ' + mom[1], mom[0]));
+  const stt = ipoState(c);
+  ip.appendChild(el('small', '', c.ipoWhen));
+  if (stt.latest) ip.appendChild(el('span', 'chip ' + (stt.delay ? 'hi' : 'tag-ipo'), '기사: ' + (KIND_LABEL[stt.latest.kind] || '') + ' · ' + stt.latest.date));
+  b.appendChild(ip);
+  const gl = el('div', 'cell');
+  const gr = globalRegions(c), regs = gr.length ? gr.map(g => g.region) : [...new Set(c.globals.map(g => g.region))];
+  if (regs.length) regs.slice(0, 5).forEach(r => gl.appendChild(el('span', 'chip', r))); else gl.appendChild(el('span', 'empty', '–'));
+  b.appendChild(gl);
+  const nc = el('div', 'cell news-c');
+  const top = nw.list[0];
+  if (top){ nc.appendChild(el('div', 'news1', top.hl)); nc.appendChild(el('small', '', top.date)); } else nc.appendChild(el('span', 'empty', '–'));
+  b.appendChild(nc);
+  return b;
+}
+
+function blk(label, v, y){ return el('div', '', '', [el('small', '', label), el('div', 'v num', v), y ? el('small', 'num ' + y.cls, y.t) : null]); }
+
+function finCard(c){
+  const f = finOf(c), card = el('div', 'card');
+  card.appendChild(el('h3', '', '', [el('span', '', '재무실적'), srcChip(f.src, f.url)]));
+  const kv = el('div', 'kv');
+  const ys = yoy(f.sales, f.sPrev) || (f.yoySales != null ? {t:(f.yoySales >= 0 ? '▲ ' : '▼ ') + Math.abs(f.yoySales) + '%', cls:f.yoySales >= 0 ? 'up' : 'down'} : null);
+  kv.appendChild(blk(f.year + ' 매출', fmt(f.sales), ys));
+  kv.appendChild(blk(f.year + ' 영업이익', fmt(f.op), yoy(f.op, f.oPrev)));
+  card.appendChild(kv);
+  const m = margin(f.op, f.sales);
+  if (m) card.appendChild(el('p', 'note num', '영업이익률 ' + m + (f.basis ? ' · ' + f.basis + ' 기준' : '')));
+  if (f.interim){
+    const i = f.interim, s = el('div', 'sep'), kv2 = el('div', 'kv');
+    s.appendChild(el('small', 'empty', ilabel(i) + (i.basis ? ' (' + i.basis + ')' : '') + ' '));
+    if (i.url){ const a = el('a', 'chip src dart', 'DART 보고서 ↗'); a.href = i.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; s.appendChild(a); }
+    kv2.appendChild(blk('매출', fmt(i.sales), yoy(i.sales, i.sPrev)));
+    kv2.appendChild(blk('영업이익', i.op == null ? '–' : fmt(i.op), yoy(i.op, i.oPrev)));
+    s.appendChild(kv2); card.appendChild(s);
+  }
+  if (f.note) card.appendChild(el('p', 'note', f.note));
+  if (f.checkUrl){ const l = el('a', 'chip src dart', 'DART 원문 확인 ↗'); l.href = f.checkUrl; l.target = '_blank'; l.rel = 'noopener noreferrer'; card.appendChild(l); }
+  return card;
+}
+
+function newsItem(n, tags, kind, compact){
+  const u = safeUrl(n.url || '');
+  const title = u ? Object.assign(el('a', '', n.hl), {href:u, target:'_blank', rel:'noopener noreferrer'}) : el('span', 't', n.hl);
+  const li = el('div', 'li', '', [el('span', 'd', n.date), title]);
+  if (tags && tags.length){ const w = el('div'); tags.forEach(t => w.appendChild(pill(t, kind))); li.appendChild(w); }
+  if (!compact && n.sum) li.appendChild(el('p', '', n.sum));
+  return li;
+}
+
+function investCard(c, nw){
+  const card = el('div', 'card');
+  card.appendChild(el('h3', '', '', [el('span', '', '투자자')]));
+  if (c.cjos){
+    const u = safeUrl(c.cjos.url || ''), li = el('div', 'li');
+    li.appendChild(el('span', 'chip cj', 'CJ온스타일 투자'));
+    li.appendChild(el('p', '', c.cjos.note));
+    if (u){ const a = el('a', '', '근거 기사 ↗'); a.href = u; a.target = '_blank'; a.rel = 'noopener noreferrer'; li.appendChild(a); }
+    card.appendChild(li);
+  }
+  c.investors.forEach(i => card.appendChild(el('div', 'li', '', [el('span', 't', i.name), el('p', '', i.type + (i.amt ? ' · ' + i.amt : ''))])));
+  if (c.investNote) card.appendChild(el('p', 'note', c.investNote));
+  const arts = nw.list.filter(n => n.cls.inv.length).slice(0, 3);
+  if (arts.length){
+    const s = el('div', 'sep'); s.appendChild(el('small', 'empty', '최신 기사 분석'));
+    arts.forEach(n => s.appendChild(newsItem(n, n.cls.inv, 'inv', true)));
+    card.appendChild(s);
+  }
+  return card;
+}
+
+/* ── 기사 기반 IPO 상태 (insights.json: 매일 자동 누적) ── */
+const STAGE_PAT = {pre:/Pre-?IPO/i, lead:/주관사|RFP/, filed:/예심/, approved:/예심/, offering:/공모/, listed:/공모/};
+const KIND_LABEL = {pre:'Pre-IPO', lead:'주관사 선정', filed:'예심 청구', approved:'예심 승인', offering:'공모·수요예측', listed:'상장 완료', delay:'지연·철회'};
+const insOf = c => (INS && INS.companies && INS.companies[c.key]) || null;
+function stageIdxOf(c, kind){ const p = STAGE_PAT[kind]; return p ? c.stages.findIndex(s => p.test(s)) : -1; }
+function ipoState(c){
+  const ins = insOf(c), sig = ins && ins.ipo && Array.isArray(ins.ipo.signals) ? ins.ipo.signals : [];
+  let idx = c.stageIdx, auto = null;
+  sig.forEach(s => { if (s.kind === 'delay') return; const i = stageIdxOf(c, s.kind); if (i > idx){ idx = i; auto = s; } });
+  const latest = sig[0] || null;
+  return {idx, boosted: idx > c.stageIdx, auto, latest, delay: !!(latest && latest.kind === 'delay'), sig};
+}
+function sigItem(s){
+  const u = safeUrl(s.url || '');
+  const title = u ? Object.assign(el('a', '', s.hl), {href:u, target:'_blank', rel:'noopener noreferrer'}) : el('span', 't', s.hl);
+  const w = el('div'); w.appendChild(el('span', 'chip ' + (s.kind === 'delay' ? 'hi' : 'tag-ipo'), KIND_LABEL[s.kind] || s.label || ''));
+  return el('div', 'li', '', [el('span', 'd', s.date), title, w]);
+}
+
+function ipoCard(c, nw){
+  const card = el('div', 'card'), st0 = ipoState(c), mom = MOM[c.mom] || ['', ''];
+  card.appendChild(el('h3', '', '', [el('span', '', 'IPO 현황'), el('span', 'chip ' + mom[1], '추진강도 ' + mom[0])]));
+  card.appendChild(el('div', 'big', c.stages[st0.idx] ? '현재 단계: ' + c.stages[st0.idx] : c.ipoLabel));
+  const tags = el('div');
+  if (st0.boosted) tags.appendChild(el('span', 'chip tag-ipo', '기사 기반 상향 (' + KIND_LABEL[st0.auto.kind] + ' · ' + st0.auto.date + ')'));
+  if (st0.delay) tags.appendChild(el('span', 'chip hi', '최근 기사: 지연·철회 신호'));
+  if (tags.children.length) card.appendChild(tags);
+  const st = el('div', 'steps'), lb = el('div', 'stl');
+  c.stages.forEach((s, i) => { st.appendChild(el('i', i <= st0.idx ? 'on' : '')); lb.appendChild(el('span', i === st0.idx ? 'on' : '', s)); });
+  card.appendChild(el('div', '', '', [st, lb]));
+  card.appendChild(el('p', 'note', c.ipoLabel + ' · ' + c.stageNote));
+  const kv = el('div', 'kv sep');
+  kv.appendChild(el('div', '', '', [el('small', '', '상장 시기'), el('div', '', c.ipoWhen)]));
+  kv.appendChild(el('div', '', '', [el('small', '', '기업가치 · 주관사'), el('div', '', c.valuation + ' · ' + c.banks)]));
+  card.appendChild(kv);
+  const s = el('div', 'sep');
+  if (st0.sig.length){
+    s.appendChild(el('small', 'empty', '기사 기반 IPO 신호 (자동 누적)'));
+    st0.sig.slice(0, 4).forEach(x => s.appendChild(sigItem(x)));
+    card.appendChild(s);
+  } else {
+    const arts = nw.list.filter(n => n.cls.ipo.length).slice(0, 3);
+    if (arts.length){ s.appendChild(el('small', 'empty', '최신 기사 분석')); arts.forEach(n => s.appendChild(newsItem(n, n.cls.ipo, 'ipo', true))); card.appendChild(s); }
+  }
+  return card;
+}
+
+/* ── 글로벌: 기사 기반 국가별 요약 (insights.json) ── */
+function globalRegions(c){
+  const ins = insOf(c);
+  return ins && Array.isArray(ins.global) ? ins.global : [];
+}
+function globalCard(c, nw){
+  const card = el('div', 'card wide'), regs = globalRegions(c);
+  card.appendChild(el('h3', '', '', [el('span', '', '글로벌 진출 현황'), el('span', 'chip src' + (regs.length ? ' dart' : ''), regs.length ? '기사 기반 요약 (매일 갱신)' : '기본 정보')]));
+  if (regs.length){
+    regs.forEach(g => {
+      const row = el('div', 'gl'), body = el('div');
+      row.appendChild(el('b', '', g.region));
+      (g.items || []).slice(0, 2).forEach(it => {
+        const u = safeUrl(it.url || ''), line = el('div', 'note');
+        line.appendChild(document.createTextNode(it.text + ' '));
+        line.appendChild(el('span', 'd', '(' + it.date + ')'));
+        if (u){ const a = el('a', '', ' 기사 ↗'); a.href = u; a.target = '_blank'; a.rel = 'noopener noreferrer'; line.appendChild(a); }
+        body.appendChild(line);
+      });
+      const chips = el('div');
+      (g.partners || []).forEach(p => chips.appendChild(el('span', 'chip tag-glb', '파트너 · ' + p)));
+      (g.products || []).forEach(p => chips.appendChild(el('span', 'chip tag-glb', '상품 · ' + p)));
+      if (chips.children.length) body.appendChild(chips);
+      row.appendChild(body);
+      card.appendChild(row);
+    });
+  } else {
+    c.globals.forEach(g => card.appendChild(el('div', 'gl', '', [el('b', '', g.region), el('span', '', g.text), el('span', 'chip', g.status)])));
+    if (!c.globals.length) card.appendChild(el('p', 'empty', '아직 기사에서 확인된 해외 진출 내용이 없습니다. 뉴스 수집 후 자동으로 채워집니다.'));
+  }
+  return card;
+}
+
+function newsCard(c, nw){
+  const card = el('div', 'card wide');
+  card.appendChild(el('h3', '', '', [el('span', '', '최신 뉴스'), el('span', 'chip src' + (nw.live ? ' dart' : ''), nw.live ? '네이버 뉴스 자동 수집' : '기본 수록 기사')]));
+  if (!nw.list.length) card.appendChild(el('p', 'empty', '수집된 기사가 없습니다.'));
+  nw.list.slice(0, 5).forEach(n => {
+    const li = newsItem(n, null, '', false), p = li.querySelector('p');
+    const tags = [...n.cls.ipo.map(t => ['ipo', t]), ...n.cls.inv.map(t => ['inv', t])];
+    if (tags.length){ const w = el('div'); tags.forEach(([k, t]) => w.appendChild(pill(t, k))); li.insertBefore(w, p); }
+    card.appendChild(li);
+  });
+  return card;
+}
+
+function detail(c){
+  const nw = newsOf(c), d = el('div', 'detail');
+  [finCard(c), investCard(c, nw), ipoCard(c, nw), globalCard(c, nw), newsCard(c, nw)].forEach(x => d.appendChild(x));
+  return d;
+}
+
+function render(){
+  const list = document.getElementById('list'), bar = document.getElementById('bar');
+  list.replaceChildren(); bar.replaceChildren();
+  const q = state.q.trim().toLowerCase();
+  const match = c => (state.sector === 'all' || c.sector === state.sector) && (!q || (c.name + c.brands).toLowerCase().includes(q));
+  const mk = (label, val, n) => {
+    const b = el('button', 'tab', label, [el('span', 'n', String(n))]);
+    b.type = 'button'; b.setAttribute('aria-pressed', String(state.sector === val));
+    b.onclick = () => { state.sector = val; render(); };
+    return b;
+  };
+  bar.appendChild(mk('전체', 'all', COS.length));
+  SECTORS.forEach(s => bar.appendChild(mk(SECTOR_LABEL[s], s, COS.filter(c => c.sector === s).length)));
+  const inp = el('input', 'search'); inp.type = 'search'; inp.placeholder = '기업·브랜드 검색'; inp.value = state.q; inp.setAttribute('aria-label', '기업 검색');
+  inp.oninput = () => { state.q = inp.value; const pos = inp.selectionStart; render(); const n = document.querySelector('.search'); n.focus(); n.setSelectionRange(pos, pos); };
+  bar.appendChild(inp);
+  SECTORS.forEach(s => {
+    const items = COS.filter(c => c.sector === s && match(c));
+    if (!items.length) return;
+    const sec = el('section', 'sec');
+    const i = el('i'); i.style.background = 'var(--c-' + s + ')';
+    sec.appendChild(el('h2', '', '', [i, el('b', '', SECTOR_LABEL[s]), el('span', '', items.length + '개사')]));
+    items.forEach(c => {
+      const box = el('article', 'co'), head = summaryRow(c);
+      box.appendChild(head);
+      const sync = () => { const on = state.open.has(c.key); head.setAttribute('aria-expanded', String(on)); const ex = box.querySelector('.detail'); if (ex) ex.remove(); if (on) box.appendChild(detail(c)); };
+      head.onclick = () => { if (state.open.has(c.key)) state.open.delete(c.key); else state.open.add(c.key); sync(); };
+      if (state.open.has(c.key)) sync();
+      sec.appendChild(box);
+    });
+    list.appendChild(sec);
+  });
+  if (!list.children.length) list.appendChild(el('p', 'empty', '조건에 맞는 기업이 없습니다.'));
+}
+
+/* ── 외부 데이터 로드 (실패해도 기본 데이터로 표시) ── */
+async function load(name){
+  try { const r = await fetch('./' + name + '?t=' + Date.now(), {cache:'no-store'}); if (!r.ok) return {}; const j = await r.json(); return (j && typeof j === 'object') ? j : {}; }
+  catch(e){ return {}; }
+}
+(async () => {
+  render();
+  [FIN, NEWS, INS] = await Promise.all([load('financials.json'), load('news.json'), load('insights.json')]);
+  const fmtT = s => String(s || '').replace('T', ' ').replace(' KST', '');
+  document.getElementById('stamp').replaceChildren(
+    el('div', '', '재무 갱신 ' + (fmtT(FIN._updated) || '–')),
+    el('div', '', '뉴스 갱신 ' + (fmtT(NEWS._updated) || '–')),
+    el('div', '', '분석 갱신 ' + (fmtT(INS._updated) || '–'))
+  );
+  render();
+})();
+
+</script>
+</body>
+</html>
