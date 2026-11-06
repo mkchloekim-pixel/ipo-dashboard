@@ -10,6 +10,16 @@
      "items": [
       {
        "date": "2026.11",
+       "text": "무신사, 中 선전 매장 2곳 동시 개점···첫 주말 4만명 몰려",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "wd": false,
+       "hl": "무신사, 中 선전 매장 2곳 동시 개점···첫 주말 4만명 몰려",
+       "url": "https://www.smartbizn.com/news/articleView.html?idxno=158192"
+      },
+      {
+       "date": "2026.11",
        "text": "무신사, 중국 선전 첫 진출…주말 방문객만 4만명 ↑",
        "lvl": "done",
        "entry": true,
@@ -17,16 +27,6 @@
        "wd": false,
        "hl": "무신사, 중국 선전 첫 진출…주말 방문객만 4만명 ↑",
        "url": "https://www.wolyo.co.kr/news/articleView.html?idxno=319922"
-      },
-      {
-       "date": "2026.11",
-       "text": "무신사, 中 선전 매장 2곳 동시 개점···첫 주말 4만명 몰려",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "무신사, 中 선전 매장 2곳 동시 개점···첫 주말 4만명 몰려",
-       "url": "https://www.smartbizn.com/news/articleView.html?idxno=158192"
       },
       {
        "date": "2026.11",
@@ -42,8 +42,8 @@
        "date": "2026.11",
        "text": "무신사는 올해 일본 도쿄 팝업스토어를 열고 중국에 신규 매장을 출점하는 등 해외 거점을 넓히고 있다",
        "lvl": "done",
-       "entry": false,
-       "exp": false,
+       "entry": true,
+       "exp": true,
        "wd": false,
        "hl": "무신사·29CM, '폴로 랄프 로렌' 가을·겨울 시즌 캠페인 동시 실시",
        "url": "https://www.etnews.com/20261102000264"
@@ -53,7 +53,7 @@
        "text": "中 선전서 이틀 만에 4만명 몰린 무신사…K-패션 앞세워 중국 공략 가속",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "中 선전서 이틀 만에 4만명 몰린 무신사…K-패션 앞세워 중국 공략 가속",
        "url": "https://www.techm.kr/news/articleView.html?idxno=156788"
@@ -76,8 +76,8 @@
        "date": "2026.11",
        "text": "무신사는 올해 일본 도쿄 팝업스토어를 열고 중국에 신규 매장을 출점하는 등 해외 거점을 넓히고 있다",
        "lvl": "done",
-       "entry": false,
-       "exp": false,
+       "entry": true,
+       "exp": true,
        "wd": false,
        "hl": "무신사·29CM, '폴로 랄프 로렌' 가을·겨울 시즌 캠페인 동시 실시",
        "url": "https://www.etnews.com/20261102000264"
@@ -90,7 +90,7 @@
      "n_done": 1,
      "n_plan": 0,
      "level": "confirmed",
-     "tag": "ongoing",
+     "tag": "new",
      "date": "2026.11"
     }
    ]
@@ -105,6 +105,26 @@
      "items": [
       {
        "date": "2026.10",
+       "text": "美 진출 1년 맞은 컬리USA…현지 인지도·고객 기반 확대 과제",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "wd": false,
+       "hl": "美 진출 1년 맞은 컬리USA…현지 인지도·고객 기반 확대 과제",
+       "url": "https://www.dailian.co.kr/news/view/1705430/?sc=Naver"
+      },
+      {
+       "date": "2026.10",
+       "text": "컬리는 현재 미국 법인 컬리USA를 통해 냉동 간편식과 한국 식품, 뷰티·생활용품을 판매하고 있다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "컬리, 넥스트키친 잔여지분 53.6% 확보···간편식 '기획부터 판매까지...",
+       "url": "https://www.greenpostkorea.co.kr/news/articleView.html?idxno=307583"
+      },
+      {
+       "date": "2026.10",
        "text": "컬리는 넥스트키친의 간편식 개발 역량을 활용해 미국을 중심으로 K푸드 수출 경쟁력도 강화할 계획이다",
        "lvl": "plan",
        "entry": false,
@@ -116,10 +136,10 @@
      ],
      "partners": [],
      "products": [],
-     "n_done": 0,
+     "n_done": 2,
      "n_plan": 1,
-     "level": "weak",
-     "tag": "weak",
+     "level": "confirmed",
+     "tag": "new",
      "date": "2026.10"
     }
    ]
@@ -134,9 +154,33 @@
      "items": [
       {
        "date": "2026.03",
-       "text": "오늘의집 운영사 버킷플레이스는 이르면 이달 미국 글로벌 커머스 서비스를 출시할 계획이라고 4일 밝혔다",
-       "lvl": "plan",
-       "entry": false,
+       "text": "이 서비스는 일본, 미국 등 해외에 진출하지 않은 한국 브랜드를 한국에서 현지로 판매하는 역직구 형태다",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "wd": false,
+       "hl": "해외 영토 넓히는 '오늘의집', 역직구로 美 커머스 시장 잡는다",
+       "url": "https://www.etnews.com/20260304000352"
+      }
+     ],
+     "partners": [],
+     "products": [
+      "버킷플레이스"
+     ],
+     "n_done": 1,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2026.03"
+    },
+    {
+     "region": "일본",
+     "items": [
+      {
+       "date": "2026.03",
+       "text": "이 서비스는 일본, 미국 등 해외에 진출하지 않은 한국 브랜드를 한국에서 현지로 판매하는 역직구 형태다",
+       "lvl": "done",
+       "entry": true,
        "exp": false,
        "wd": false,
        "hl": "해외 영토 넓히는 '오늘의집', 역직구로 美 커머스 시장 잡는다",
@@ -147,10 +191,10 @@
      "products": [
       "버킷플레이스"
      ],
-     "n_done": 0,
-     "n_plan": 1,
-     "level": "weak",
-     "tag": "weak",
+     "n_done": 1,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
      "date": "2026.03"
     }
    ]
@@ -173,7 +217,7 @@
        "date": "2026.11",
        "text": "티르티르는 미국 뷰티 편집숍 얼타뷰티(Ulta Beauty)의 730여 개 매장에 입점했으며, 로스앤젤레스와 두바이 등에서 팝업스토어와 옥외광고를 활용한 마케팅…",
        "lvl": "done",
-       "entry": false,
+       "entry": true,
        "exp": false,
        "wd": false,
        "hl": "티르티르, 프리미엄 브랜드 대상 쿠션·베이스 메이크업 부문 수상",
@@ -183,8 +227,8 @@
        "date": "2026.10",
        "text": "'조선미녀' 성공 DNA 담았다…美 시장 겨냥 '뎁티' 론칭",
        "lvl": "done",
-       "entry": false,
-       "exp": false,
+       "entry": true,
+       "exp": true,
        "wd": false,
        "hl": "'조선미녀' 성공 DNA 담았다…美 시장 겨냥 '뎁티' 론칭",
        "url": "http://www.joseilbo.com/news/news_read.php?uid=578157&class=17&grp="
@@ -211,18 +255,19 @@
       },
       {
        "date": "2026.10",
-       "text": "조선미녀는 해외 온라인 시장에서 확보한 인지도를 바탕으로 오프라인 판매채널을 확대해왔으며, 스킨1004는 북미와 유럽을 중심으로 해외사업을 강화하고 있다",
+       "text": "25일 뷰티업계에 따르면 구다이글로벌의 스킨케어 브랜드 조선미녀는 지난 6~7일 진행된 아마존 '프라임 빅딜 데이즈'에서 미국과 독일, 영국 등 주요 시장의 매…",
        "lvl": "done",
        "entry": false,
        "exp": true,
        "wd": false,
-       "hl": "[창간22주년 특집: K뷰티, 플랫폼이 되다]③ 구다이글로벌, 브랜드 M&A에...",
-       "url": "https://www.upkoreanews.kr/news/articleView.html?idxno=100805"
+       "hl": "독일 아이세럼 판매 459%↑…조선미녀, 美·유럽서 흥행 품목 확대",
+       "url": "https://www.news1.kr/industry/general-industry/6328507"
       }
      ],
      "partners": [
       "Ulta",
       "쇼피",
+      "아마존",
       "얼타",
       "타깃",
       "틱톡",
@@ -237,8 +282,44 @@
      "n_done": 5,
      "n_plan": 2,
      "level": "confirmed",
-     "tag": "expand",
+     "tag": "new",
      "date": "2026.11"
+    },
+    {
+     "region": "유럽",
+     "items": [
+      {
+       "date": "2026.10",
+       "text": "25일 뷰티업계에 따르면 구다이글로벌의 스킨케어 브랜드 조선미녀는 지난 6~7일 진행된 아마존 '프라임 빅딜 데이즈'에서 미국과 독일, 영국 등 주요 시장의 매…",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "wd": false,
+       "hl": "독일 아이세럼 판매 459%↑…조선미녀, 美·유럽서 흥행 품목 확대",
+       "url": "https://www.news1.kr/industry/general-industry/6328507"
+      },
+      {
+       "date": "2026.10",
+       "text": "◇영국 오프라인 유통망 확충, 현지법인 설립도 영국에서의 성장세는",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "wd": false,
+       "hl": "[더벨]조선미녀, 아마존 빅딜서 영국 매출 4배…유럽 성장세 부각",
+       "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
+      }
+     ],
+     "partners": [
+      "아마존"
+     ],
+     "products": [
+      "조선미녀"
+     ],
+     "n_done": 2,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.10"
     },
     {
      "region": "동남아",
@@ -269,17 +350,17 @@
      "date": "2026.10"
     },
     {
-     "region": "유럽",
+     "region": "일본",
      "items": [
       {
        "date": "2026.10",
-       "text": "조선미녀는 해외 온라인 시장에서 확보한 인지도를 바탕으로 오프라인 판매채널을 확대해왔으며, 스킨1004는 북미와 유럽을 중심으로 해외사업을 강화하고 있다",
+       "text": "구다이글로벌은 지난 4월 일본 현지법인 D&ACE의 사명을 '구다이글로벌재팬(Goodai Global JAPAN)'으로 변경하고 멀티브랜드 유통 플랫폼으로 사업…",
        "lvl": "done",
        "entry": false,
        "exp": true,
        "wd": false,
-       "hl": "[창간22주년 특집: K뷰티, 플랫폼이 되다]③ 구다이글로벌, 브랜드 M&A에...",
-       "url": "https://www.upkoreanews.kr/news/articleView.html?idxno=100805"
+       "hl": "[창간22주년 특집: K뷰티, 플랫폼이 되다]② 구다이글로벌, 멀티브랜드...",
+       "url": "https://www.upkoreanews.kr/news/articleView.html?idxno=100651"
       }
      ],
      "partners": [],
@@ -300,7 +381,84 @@
    "ipo": {
     "signals": []
    },
-   "global": []
+   "global": [
+    {
+     "region": "미국",
+     "items": [
+      {
+       "date": "2026.10",
+       "text": "이 제품들은 국내 올리브영뿐 아니라 미국 아마존과 일본 큐텐 등 해외 온라인 유통 채널에서도 판매되고 있다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "넘버즈인 '숫자 마스크팩', 국내외 누적 판매량 1억장 돌파",
+       "url": "https://www.dailian.co.kr/news/view/1701838/?sc=Naver"
+      },
+      {
+       "date": "2026.10",
+       "text": "현재 숫자 마스크팩은 국내 올리브영을 비롯해 미국 아마존(Amazon), 일본 큐텐(Qoo10) 등 국내외 유통 채널에서 판매되고 있다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "넘버즈인, 숫자 마스크팩 1억 장 판매… 국내외 유통 채널 확대",
+       "url": "https://www.edaily.co.kr/News/Read?newsId=02981526645613248&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
+      }
+     ],
+     "partners": [
+      "Amazon",
+      "아마존",
+      "큐텐"
+     ],
+     "products": [
+      "넘버즈인"
+     ],
+     "n_done": 2,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2026.10"
+    },
+    {
+     "region": "일본",
+     "items": [
+      {
+       "date": "2026.10",
+       "text": "이 제품들은 국내 올리브영뿐 아니라 미국 아마존과 일본 큐텐 등 해외 온라인 유통 채널에서도 판매되고 있다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "넘버즈인 '숫자 마스크팩', 국내외 누적 판매량 1억장 돌파",
+       "url": "https://www.dailian.co.kr/news/view/1701838/?sc=Naver"
+      },
+      {
+       "date": "2026.10",
+       "text": "현재 숫자 마스크팩은 국내 올리브영을 비롯해 미국 아마존(Amazon), 일본 큐텐(Qoo10) 등 국내외 유통 채널에서 판매되고 있다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "넘버즈인, 숫자 마스크팩 1억 장 판매… 국내외 유통 채널 확대",
+       "url": "https://www.edaily.co.kr/News/Read?newsId=02981526645613248&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
+      }
+     ],
+     "partners": [
+      "Amazon",
+      "아마존",
+      "큐텐"
+     ],
+     "products": [
+      "넘버즈인"
+     ],
+     "n_done": 2,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2026.10"
+    }
+   ]
   },
   "grace": {
    "ipo": {
@@ -344,7 +502,9 @@
      "partners": [
       "아마존"
      ],
-     "products": [],
+     "products": [
+      "EGONGEGONG"
+     ],
      "n_done": 0,
      "n_plan": 1,
      "level": "weak",
@@ -358,6 +518,222 @@
     "signals": []
    },
    "global": [
+    {
+     "region": "미국",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "최 의장은 아마존 등 해외 유통 플랫폼에 진출하는 국내 뷰티 브랜드가 늘면서 미국·일본·유럽·동남아시아",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "wd": false,
+       "hl": "최인석 레페리 의장 “K-뷰티 해외 공략, 사람·AI 크리에이터 조합이 승...",
+       "url": "https://www.donga.com/news/Economy/article/all/20261103/134956471/1"
+      },
+      {
+       "date": "2026.04",
+       "text": "레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "“K-뷰티 위상 드높여”…레페리 주관 도쿄 ‘셀렉트스토어’에 정부기...",
+       "url": "http://www.segyebiz.com/newsView/20260416523312?OutUrl=naver"
+      },
+      {
+       "date": "2026.04",
+       "text": "한편, 레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "레페리 주관 도쿄 ‘셀렉트스토어’에 주삿포로 총영사 축전…정부기관...",
+       "url": "https://www.donga.com/news/Economy/article/all/20260416/133754022/1"
+      },
+      {
+       "date": "2026.04",
+       "text": "레페리는 앞으로도 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해 나갈 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "장용수 총영사 \"K-뷰티, 이제는 세계의 기준\"…레페리 도쿄 행사에 축전",
+       "url": "https://www.news1.kr/industry/distribution/6138891"
+      }
+     ],
+     "partners": [
+      "아마존"
+     ],
+     "products": [],
+     "n_done": 1,
+     "n_plan": 3,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.11"
+    },
+    {
+     "region": "일본",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "최 의장은 아마존 등 해외 유통 플랫폼에 진출하는 국내 뷰티 브랜드가 늘면서 미국·일본·유럽·동남아시아",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "wd": false,
+       "hl": "최인석 레페리 의장 “K-뷰티 해외 공략, 사람·AI 크리에이터 조합이 승...",
+       "url": "https://www.donga.com/news/Economy/article/all/20261103/134956471/1"
+      },
+      {
+       "date": "2026.04",
+       "text": "레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "“K-뷰티 위상 드높여”…레페리 주관 도쿄 ‘셀렉트스토어’에 정부기...",
+       "url": "http://www.segyebiz.com/newsView/20260416523312?OutUrl=naver"
+      },
+      {
+       "date": "2026.04",
+       "text": "한편, 레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "레페리 주관 도쿄 ‘셀렉트스토어’에 주삿포로 총영사 축전…정부기관...",
+       "url": "https://www.donga.com/news/Economy/article/all/20260416/133754022/1"
+      },
+      {
+       "date": "2026.04",
+       "text": "레페리는 앞으로도 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해 나갈 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "장용수 총영사 \"K-뷰티, 이제는 세계의 기준\"…레페리 도쿄 행사에 축전",
+       "url": "https://www.news1.kr/industry/distribution/6138891"
+      }
+     ],
+     "partners": [
+      "아마존"
+     ],
+     "products": [],
+     "n_done": 1,
+     "n_plan": 3,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.11"
+    },
+    {
+     "region": "동남아",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "최 의장은 아마존 등 해외 유통 플랫폼에 진출하는 국내 뷰티 브랜드가 늘면서 미국·일본·유럽·동남아시아",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "wd": false,
+       "hl": "최인석 레페리 의장 “K-뷰티 해외 공략, 사람·AI 크리에이터 조합이 승...",
+       "url": "https://www.donga.com/news/Economy/article/all/20261103/134956471/1"
+      },
+      {
+       "date": "2026.04",
+       "text": "레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "“K-뷰티 위상 드높여”…레페리 주관 도쿄 ‘셀렉트스토어’에 정부기...",
+       "url": "http://www.segyebiz.com/newsView/20260416523312?OutUrl=naver"
+      },
+      {
+       "date": "2026.04",
+       "text": "한편, 레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "레페리 주관 도쿄 ‘셀렉트스토어’에 주삿포로 총영사 축전…정부기관...",
+       "url": "https://www.donga.com/news/Economy/article/all/20260416/133754022/1"
+      },
+      {
+       "date": "2026.04",
+       "text": "레페리는 앞으로도 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해 나갈 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "장용수 총영사 \"K-뷰티, 이제는 세계의 기준\"…레페리 도쿄 행사에 축전",
+       "url": "https://www.news1.kr/industry/distribution/6138891"
+      }
+     ],
+     "partners": [
+      "아마존"
+     ],
+     "products": [],
+     "n_done": 1,
+     "n_plan": 3,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.11"
+    },
+    {
+     "region": "유럽",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "최 의장은 아마존 등 해외 유통 플랫폼에 진출하는 국내 뷰티 브랜드가 늘면서 미국·일본·유럽·동남아시아",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "wd": false,
+       "hl": "최인석 레페리 의장 “K-뷰티 해외 공략, 사람·AI 크리에이터 조합이 승...",
+       "url": "https://www.donga.com/news/Economy/article/all/20261103/134956471/1"
+      },
+      {
+       "date": "2026.04",
+       "text": "레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "“K-뷰티 위상 드높여”…레페리 주관 도쿄 ‘셀렉트스토어’에 정부기...",
+       "url": "http://www.segyebiz.com/newsView/20260416523312?OutUrl=naver"
+      },
+      {
+       "date": "2026.04",
+       "text": "한편, 레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "레페리 주관 도쿄 ‘셀렉트스토어’에 주삿포로 총영사 축전…정부기관...",
+       "url": "https://www.donga.com/news/Economy/article/all/20260416/133754022/1"
+      },
+      {
+       "date": "2026.04",
+       "text": "레페리는 앞으로도 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해 나갈 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "장용수 총영사 \"K-뷰티, 이제는 세계의 기준\"…레페리 도쿄 행사에 축전",
+       "url": "https://www.news1.kr/industry/distribution/6138891"
+      }
+     ],
+     "partners": [
+      "아마존"
+     ],
+     "products": [],
+     "n_done": 1,
+     "n_plan": 3,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.11"
+    },
     {
      "region": "중국",
      "items": [
@@ -379,174 +755,6 @@
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.10"
-    },
-    {
-     "region": "미국",
-     "items": [
-      {
-       "date": "2026.04",
-       "text": "레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "“K-뷰티 위상 드높여”…레페리 주관 도쿄 ‘셀렉트스토어’에 정부기...",
-       "url": "http://www.segyebiz.com/newsView/20260416523312?OutUrl=naver"
-      },
-      {
-       "date": "2026.04",
-       "text": "한편, 레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "레페리 주관 도쿄 ‘셀렉트스토어’에 주삿포로 총영사 축전…정부기관...",
-       "url": "https://www.donga.com/news/Economy/article/all/20260416/133754022/1"
-      },
-      {
-       "date": "2026.04",
-       "text": "레페리는 앞으로도 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해 나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "장용수 총영사 \"K-뷰티, 이제는 세계의 기준\"…레페리 도쿄 행사에 축전",
-       "url": "https://www.news1.kr/industry/distribution/6138891"
-      }
-     ],
-     "partners": [],
-     "products": [],
-     "n_done": 0,
-     "n_plan": 3,
-     "level": "planned",
-     "tag": "planned",
-     "date": "2026.04"
-    },
-    {
-     "region": "일본",
-     "items": [
-      {
-       "date": "2026.04",
-       "text": "레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "“K-뷰티 위상 드높여”…레페리 주관 도쿄 ‘셀렉트스토어’에 정부기...",
-       "url": "http://www.segyebiz.com/newsView/20260416523312?OutUrl=naver"
-      },
-      {
-       "date": "2026.04",
-       "text": "한편, 레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "레페리 주관 도쿄 ‘셀렉트스토어’에 주삿포로 총영사 축전…정부기관...",
-       "url": "https://www.donga.com/news/Economy/article/all/20260416/133754022/1"
-      },
-      {
-       "date": "2026.04",
-       "text": "레페리는 앞으로도 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해 나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "장용수 총영사 \"K-뷰티, 이제는 세계의 기준\"…레페리 도쿄 행사에 축전",
-       "url": "https://www.news1.kr/industry/distribution/6138891"
-      }
-     ],
-     "partners": [],
-     "products": [],
-     "n_done": 0,
-     "n_plan": 3,
-     "level": "planned",
-     "tag": "planned",
-     "date": "2026.04"
-    },
-    {
-     "region": "동남아",
-     "items": [
-      {
-       "date": "2026.04",
-       "text": "레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "“K-뷰티 위상 드높여”…레페리 주관 도쿄 ‘셀렉트스토어’에 정부기...",
-       "url": "http://www.segyebiz.com/newsView/20260416523312?OutUrl=naver"
-      },
-      {
-       "date": "2026.04",
-       "text": "한편, 레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "레페리 주관 도쿄 ‘셀렉트스토어’에 주삿포로 총영사 축전…정부기관...",
-       "url": "https://www.donga.com/news/Economy/article/all/20260416/133754022/1"
-      },
-      {
-       "date": "2026.04",
-       "text": "레페리는 앞으로도 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해 나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "장용수 총영사 \"K-뷰티, 이제는 세계의 기준\"…레페리 도쿄 행사에 축전",
-       "url": "https://www.news1.kr/industry/distribution/6138891"
-      }
-     ],
-     "partners": [],
-     "products": [],
-     "n_done": 0,
-     "n_plan": 3,
-     "level": "planned",
-     "tag": "planned",
-     "date": "2026.04"
-    },
-    {
-     "region": "유럽",
-     "items": [
-      {
-       "date": "2026.04",
-       "text": "레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "“K-뷰티 위상 드높여”…레페리 주관 도쿄 ‘셀렉트스토어’에 정부기...",
-       "url": "http://www.segyebiz.com/newsView/20260416523312?OutUrl=naver"
-      },
-      {
-       "date": "2026.04",
-       "text": "한편, 레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "레페리 주관 도쿄 ‘셀렉트스토어’에 주삿포로 총영사 축전…정부기관...",
-       "url": "https://www.donga.com/news/Economy/article/all/20260416/133754022/1"
-      },
-      {
-       "date": "2026.04",
-       "text": "레페리는 앞으로도 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해 나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "장용수 총영사 \"K-뷰티, 이제는 세계의 기준\"…레페리 도쿄 행사에 축전",
-       "url": "https://www.news1.kr/industry/distribution/6138891"
-      }
-     ],
-     "partners": [],
-     "products": [],
-     "n_done": 0,
-     "n_plan": 3,
-     "level": "planned",
-     "tag": "planned",
-     "date": "2026.04"
     },
     {
      "region": "중동",
@@ -605,10 +813,20 @@
        "text": "황영수 리만코리아 글로벌최고영업책임자(CSO)는 \"일본은 리만에 중요한 시장으로, 이번 '자이언트 병풀 세미나'와 '하우스 오브 리만' 오픈은 현지 사업을 발전…",
        "lvl": "done",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "리만코리아, 日 화장품 시장 공략 박차",
        "url": "https://www.idaegu.co.kr/news/articleView.html?idxno=562835"
+      },
+      {
+       "date": "2026.10",
+       "text": "지난해 12월 현지 법인 리만재팬을 통해 일본 시장에 진출한 데 이어 고객·사업자와 소통할 거점을 추가했다",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "wd": false,
+       "hl": "리만코리아, 도쿄에 브랜드 공간 개설…일본 사업 거점 확대",
+       "url": "http://www.newslock.co.kr/news/articleView.html?idxno=138269"
       },
       {
        "date": "2026.07",
@@ -635,20 +853,10 @@
        "text": "리만코리아, 日 도쿄 롯폰기에 ‘하우스 오브 리만’ 개설…현지 공략",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "리만코리아, 日 도쿄 롯폰기에 ‘하우스 오브 리만’ 개설…현지 공략 ...",
        "url": "https://www.segye.com/newsView/20261022521819?OutUrl=naver"
-      },
-      {
-       "date": "2026.10",
-       "text": "리만코리아, 일본 시장 공략 속도…도쿄에 브랜드 거점 마련",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "리만코리아, 일본 시장 공략 속도…도쿄에 브랜드 거점 마련",
-       "url": "https://www.imaeil.com/page/view/2026102014324520269"
       }
      ],
      "partners": [],
@@ -656,7 +864,7 @@
       "라이프닝",
       "인셀덤"
      ],
-     "n_done": 3,
+     "n_done": 4,
      "n_plan": 4,
      "level": "confirmed",
      "tag": "new",
@@ -776,7 +984,7 @@
        "text": "한편, 리만코리아는 아시아를 비롯해 중남미, 유럽 등 글로벌 시장 공략에 나서고 있다",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "[인터뷰] 강영재 리만코리아 대표, \"K-뷰티의 미래는 원료에 있다\"",
        "url": "https://www.idaegu.com/news/articleView.html?idxno=664384"
@@ -1019,6 +1227,16 @@
      "items": [
       {
        "date": "2026.10",
+       "text": "프롬랩스는 미국 아마존에 이어 북미 세포라 1200여개 매장에 입점하며 해외 매출",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "wd": false,
+       "hl": "제2의 아누아 키웠다…더파운더즈 1조 눈앞",
+       "url": "https://www.sidae.com/article/2026102611264327154"
+      },
+      {
+       "date": "2026.10",
        "text": "더파운더즈, 북미 세포라 1200개 매장 진출한 ‘프롬랩스’ 글로벌 마케",
        "lvl": "done",
        "entry": true,
@@ -1026,16 +1244,6 @@
        "wd": false,
        "hl": "더파운더즈, 북미 세포라 1200개 매장 진출한 ‘프롬랩스’ 글로벌 마케...",
        "url": "https://www.venturesquare.net/1120938/"
-      },
-      {
-       "date": "2026.10",
-       "text": "프롬랩스는 미국 아마존에 이어 북미 세포라 1200여개 매장에 입점하며 해외 매출 비중을 30%까지",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "제2의 아누아 키웠다…더파운더즈 1조 눈앞",
-       "url": "https://www.sidae.com/article/2026102611264327154"
       }
      ],
      "partners": [
@@ -1059,8 +1267,8 @@
        "date": "2026.08",
        "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
        "lvl": "done",
-       "entry": false,
-       "exp": false,
+       "entry": true,
+       "exp": true,
        "wd": false,
        "hl": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
        "url": "https://www.theguru.co.kr/news/article.html?no=105333"
@@ -1073,7 +1281,7 @@
      "n_done": 1,
      "n_plan": 0,
      "level": "confirmed",
-     "tag": "ongoing",
+     "tag": "new",
      "date": "2026.08"
     },
     {
@@ -1083,8 +1291,8 @@
        "date": "2026.08",
        "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
        "lvl": "done",
-       "entry": false,
-       "exp": false,
+       "entry": true,
+       "exp": true,
        "wd": false,
        "hl": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
        "url": "https://www.theguru.co.kr/news/article.html?no=105333"
@@ -1097,7 +1305,7 @@
      "n_done": 1,
      "n_plan": 0,
      "level": "confirmed",
-     "tag": "ongoing",
+     "tag": "new",
      "date": "2026.08"
     }
    ]
@@ -1108,24 +1316,24 @@
    },
    "global": [
     {
-     "region": "유럽",
+     "region": "미국",
      "items": [
       {
-       "date": "2026.09",
-       "text": "성분에디터는 현재 유럽 15개국 980여 개 매장에 입점해 있으며, 연말까지 유럽 내 판매처를 2500곳",
+       "date": "2025.12",
+       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
        "lvl": "done",
        "entry": false,
        "exp": false,
        "wd": false,
-       "hl": "올리브인터내셔널, 3분기 누적 매출 2400억원...작년 연간 실적 넘어",
-       "url": "https://www.asiaa.co.kr/news/articleView.html?idxno=264581"
+       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
+       "url": "http://www.fnnews.com/news/202512081820152004"
       },
       {
        "date": "2026.10",
        "text": "올리브인터내셔널 '밀크터치' \"북미·유럽 공략 위한 인재 채용\"",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "올리브인터내셔널 '밀크터치' \"북미·유럽 공략 위한 인재 채용\"",
        "url": "https://www.fnnews.com/news/202610300852568212"
@@ -1139,8 +1347,77 @@
      "n_done": 1,
      "n_plan": 1,
      "level": "confirmed",
-     "tag": "ongoing",
+     "tag": "expand",
      "date": "2026.10"
+    },
+    {
+     "region": "유럽",
+     "items": [
+      {
+       "date": "2026.09",
+       "text": "성분에디터는 현재 유럽 15개국 980여 개 매장에 입점해 있으며, 연말까지 유럽 내 판매처를 2500곳",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "wd": false,
+       "hl": "올리브인터내셔널, 3분기 누적 매출 2400억원...작년 연간 실적 넘어",
+       "url": "https://www.asiaa.co.kr/news/articleView.html?idxno=264581"
+      },
+      {
+       "date": "2025.12",
+       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
+       "url": "http://www.fnnews.com/news/202512081820152004"
+      },
+      {
+       "date": "2026.10",
+       "text": "올리브인터내셔널 '밀크터치' \"북미·유럽 공략 위한 인재 채용\"",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "wd": false,
+       "hl": "올리브인터내셔널 '밀크터치' \"북미·유럽 공략 위한 인재 채용\"",
+       "url": "https://www.fnnews.com/news/202610300852568212"
+      }
+     ],
+     "partners": [],
+     "products": [
+      "밀크터치",
+      "성분에디터"
+     ],
+     "n_done": 2,
+     "n_plan": 1,
+     "level": "confirmed",
+     "tag": "expand",
+     "date": "2026.10"
+    },
+    {
+     "region": "일본",
+     "items": [
+      {
+       "date": "2025.12",
+       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
+       "url": "http://www.fnnews.com/news/202512081820152004"
+      }
+     ],
+     "partners": [],
+     "products": [
+      "성분에디터"
+     ],
+     "n_done": 1,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2025.12"
     },
     {
      "region": "동남아",
@@ -1159,7 +1436,7 @@
        "date": "2025.11",
        "text": "성분에디터, 인도네시아 최대 뷰티 플랫폼 '소시올라' 입점",
        "lvl": "done",
-       "entry": false,
+       "entry": true,
        "exp": true,
        "wd": false,
        "hl": "성분에디터, 인도네시아 최대 뷰티 플랫폼 '소시올라' 입점",
@@ -1175,30 +1452,6 @@
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2025.12"
-    },
-    {
-     "region": "미국",
-     "items": [
-      {
-       "date": "2026.10",
-       "text": "올리브인터내셔널 '밀크터치' \"북미·유럽 공략 위한 인재 채용\"",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "올리브인터내셔널 '밀크터치' \"북미·유럽 공략 위한 인재 채용\"",
-       "url": "https://www.fnnews.com/news/202610300852568212"
-      }
-     ],
-     "partners": [],
-     "products": [
-      "밀크터치"
-     ],
-     "n_done": 0,
-     "n_plan": 1,
-     "level": "weak",
-     "tag": "weak",
-     "date": "2026.10"
     }
    ]
   },
@@ -1225,7 +1478,7 @@
        "text": "주요 매장 해외 관광객 매출 80~90% 달해 중국, 일본, 동남아 이어 미국 진출도 추진 하이라이트브랜즈(대표 이준권)가 라이프스타일 브랜드 '코닥어패럴(Ko…",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "코닥어패럴, 한국 성공 발판으로 글로벌 확장",
        "url": "http://www.apparelnews.co.kr/news/news_view/?idx=226394"
@@ -1269,7 +1522,7 @@
        "text": "주요 매장 해외 관광객 매출 80~90% 달해 중국, 일본, 동남아 이어 미국 진출도 추진 하이라이트브랜즈(대표 이준권)가 라이프스타일 브랜드 '코닥어패럴(Ko…",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "코닥어패럴, 한국 성공 발판으로 글로벌 확장",
        "url": "http://www.apparelnews.co.kr/news/news_view/?idx=226394"
@@ -1279,7 +1532,7 @@
        "text": "도쿄서 터진 체리와 필름 감성...하이라이트브랜즈, 일본 공략 전략 적",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "도쿄서 터진 체리와 필름 감성...하이라이트브랜즈, 일본 공략 전략 적...",
        "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=446786"
@@ -1313,7 +1566,7 @@
        "text": "주요 매장 해외 관광객 매출 80~90% 달해 중국, 일본, 동남아 이어 미국 진출도 추진 하이라이트브랜즈(대표 이준권)가 라이프스타일 브랜드 '코닥어패럴(Ko…",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "코닥어패럴, 한국 성공 발판으로 글로벌 확장",
        "url": "http://www.apparelnews.co.kr/news/news_view/?idx=226394"
@@ -1327,7 +1580,7 @@
      "n_done": 1,
      "n_plan": 1,
      "level": "confirmed",
-     "tag": "ongoing",
+     "tag": "expand",
      "date": "2026.07"
     },
     {
@@ -1338,7 +1591,7 @@
        "text": "주요 매장 해외 관광객 매출 80~90% 달해 중국, 일본, 동남아 이어 미국 진출도 추진 하이라이트브랜즈(대표 이준권)가 라이프스타일 브랜드 '코닥어패럴(Ko…",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "코닥어패럴, 한국 성공 발판으로 글로벌 확장",
        "url": "http://www.apparelnews.co.kr/news/news_view/?idx=226394"
@@ -1366,7 +1619,7 @@
      "items": [
       {
        "date": "2026.10",
-       "text": "피스피스스튜디오는 올해 상반기 중국 현지 법인을 설립한 뒤 지난 6월 직진출 온라인 판매 첫날에도 약 6억원의 매출을 기록한 바 있습니다",
+       "text": "피스피스스튜디오는 올해 상반기 중국 현지 법인을 설립한 뒤 지난 6월 직진출 온라인 판매 첫날에도 약",
        "lvl": "done",
        "entry": true,
        "exp": false,
@@ -1389,7 +1642,7 @@
        "text": "오는 2027년 초에는 상하이 안푸루(安福路)에 마르디 메크르디의 글로벌 매장 가운데 최대 규모인 플래그십 스토어를 오픈할 계획으로, 현지 판매 채널 확대와 브…",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "마르디메크르디, 태국 정규 매장 오픈… 아시아 유통망 확대",
        "url": "https://www.fashionbiz.co.kr/article/230806"
@@ -1403,6 +1656,16 @@
        "wd": false,
        "hl": "피스피스스튜디오, 태국·마카오·인도네시아 판매 거점 확대",
        "url": "https://view.asiae.co.kr/article/2026110408585096180"
+      },
+      {
+       "date": "2026.05",
+       "text": "피스피스스튜디오 \"중국 직진출 본격화…해외 매출 비중 50% 목표\"",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "wd": false,
+       "hl": "피스피스스튜디오 \"중국 직진출 본격화…해외 매출 비중 50% 목표\"",
+       "url": "https://www.newstopkorea.com/news/articleView.html?idxno=45027"
       }
      ],
      "partners": [],
@@ -1411,10 +1674,48 @@
       "마르디메크르디"
      ],
      "n_done": 2,
-     "n_plan": 2,
+     "n_plan": 3,
      "level": "confirmed",
      "tag": "new",
      "date": "2026.11"
+    },
+    {
+     "region": "미국",
+     "items": [
+      {
+       "date": "2026.05",
+       "text": "피스피스스튜디오 마르디 메크르디, 26년 상반기 美 틱톡샵 입점",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "wd": false,
+       "hl": "피스피스스튜디오 마르디 메크르디, 26년 상반기 美 틱톡샵 입점",
+       "url": "https://www.kbsm.net/news/view.php?idx=519543"
+      },
+      {
+       "date": "2026.05",
+       "text": "마르디 메크르디는 아마존 내 브랜드 공식 스토어를 통해 북미 시장 진출을 위한 기초 체력을 탄탄히 다져왔다",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "wd": false,
+       "hl": "피스피스스튜디오 마르디 메크르디, 미국 시장 공략 본격화",
+       "url": "https://www.socialvalue.kr/news/view/1065588311129874"
+      }
+     ],
+     "partners": [
+      "아마존",
+      "틱톡",
+      "틱톡샵"
+     ],
+     "products": [
+      "마르디 메크르디"
+     ],
+     "n_done": 2,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.05"
     },
     {
      "region": "동남아",
@@ -1434,7 +1735,7 @@
        "text": "피스피스스튜디오 '마르디 메크르디', 태국 등 亞 주요 시장 공략 '가속",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "피스피스스튜디오 '마르디 메크르디', 태국 등 亞 주요 시장 공략 '가속...",
        "url": "https://www.widedaily.com/news/articleView.html?idxno=302790"
@@ -1520,7 +1821,7 @@
        "text": "'마뗑킴' 해외시장 공략 잰걸음 … 이달만 中·日·베트남 4개 출점",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "'마뗑킴' 해외시장 공략 잰걸음 … 이달만 中·日·베트남 4개 출점",
        "url": "https://www.mk.co.kr/article/12187401"
@@ -1575,7 +1876,7 @@
        "text": "日·대만 이어 새사업지 낙점 \"K컬처 인기 아프리카 공략\" 마뗑킴, 드파운드, 르셉템버 등 여성복 브랜드를",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "해외사업 늘리는 K패션 '마뗑킴' 中·베트남·칠레에 첫 매장 연다",
        "url": "https://www.mk.co.kr/article/12157558"
@@ -1645,17 +1946,27 @@
        "text": "'마뗑킴' 해외시장 공략 잰걸음 … 이달만 中·日·베트남 4개 출점",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "'마뗑킴' 해외시장 공략 잰걸음 … 이달만 中·日·베트남 4개 출점",
        "url": "https://www.mk.co.kr/article/12187401"
+      },
+      {
+       "date": "2026.10",
+       "text": "모모와 리노가 착용한 ‘와플 텍스처 후디 니트 집업’은 일본 유통 채널에서 발매 1주일 만에 준비 수량이 완판됐다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "마뗑킴, 2026년 앰버서더 마케팅 집행…‘와플 니트 집업’ 일본서 완판",
+       "url": "http://www.segyebiz.com/newsView/20261029518563?OutUrl=naver"
       },
       {
        "date": "2026.09",
        "text": "日·대만 이어 새사업지 낙점 \"K컬처 인기 아프리카 공략\" 마뗑킴, 드파운드, 르셉템버 등 여성복 브랜드를",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "해외사업 늘리는 K패션 '마뗑킴' 中·베트남·칠레에 첫 매장 연다",
        "url": "https://www.mk.co.kr/article/12157558"
@@ -1667,7 +1978,7 @@
       "마뗑킴"
      ],
      "n_done": 2,
-     "n_plan": 2,
+     "n_plan": 3,
      "level": "confirmed",
      "tag": "expand",
      "date": "2026.10"
@@ -1680,7 +1991,7 @@
        "text": "'마뗑킴' 해외시장 공략 잰걸음 … 이달만 中·日·베트남 4개 출점",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "'마뗑킴' 해외시장 공략 잰걸음 … 이달만 中·日·베트남 4개 출점",
        "url": "https://www.mk.co.kr/article/12187401"
@@ -1705,7 +2016,7 @@
        "text": "日·대만 이어 새사업지 낙점 \"K컬처 인기 아프리카 공략\" 마뗑킴, 드파운드, 르셉템버 등 여성복 브랜드를",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "해외사업 늘리는 K패션 '마뗑킴' 中·베트남·칠레에 첫 매장 연다",
        "url": "https://www.mk.co.kr/article/12157558"
@@ -1737,7 +2048,7 @@
        "text": "그레인온, ‘비타푸드 아시아 2026’ 참가…글로벌·동남아 시장 공략 가",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "그레인온, ‘비타푸드 아시아 2026’ 참가…글로벌·동남아 시장 공략 가...",
        "url": "https://view.asiae.co.kr/article/2026090410242125068"
@@ -1747,7 +2058,7 @@
        "text": "그레인온 관계자는 \"정제 효소가 아닌 원물 기반 발효 효소로 시장을 확장하고 있으며, 이탈리아·일본·동남아 등 해외 플랫폼에서도 성장세가 뚜렷하다\"며, \"202…",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "그레인온, 벤처천억기업 행사서 ‘신 성장 대표 기업’ 선정",
        "url": "https://view.asiae.co.kr/article/2025120114400355694"
@@ -1769,7 +2080,7 @@
        "text": "그레인온 관계자는 \"정제 효소가 아닌 원물 기반 발효 효소로 시장을 확장하고 있으며, 이탈리아·일본·동남아 등 해외 플랫폼에서도 성장세가 뚜렷하다\"며, \"202…",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "그레인온, 벤처천억기업 행사서 ‘신 성장 대표 기업’ 선정",
        "url": "https://view.asiae.co.kr/article/2025120114400355694"
@@ -1791,7 +2102,7 @@
        "text": "그레인온 관계자는 \"정제 효소가 아닌 원물 기반 발효 효소로 시장을 확장하고 있으며, 이탈리아·일본·동남아 등 해외 플랫폼에서도 성장세가 뚜렷하다\"며, \"202…",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "그레인온, 벤처천억기업 행사서 ‘신 성장 대표 기업’ 선정",
        "url": "https://view.asiae.co.kr/article/2025120114400355694"
@@ -1830,7 +2141,7 @@
        "text": "여행용품 유통사서 신발기업으로 르무통은 일본과 중국에 현지 법인을 설립하고 해외시장 공략에도 속도를 내고 있다",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "신발 하나가 매출 절반…르무통, 올해 2000억 넘본다 [권용훈의 트렌드...",
        "url": "https://www.hankyung.com/article/202609093955i"
@@ -1840,7 +2151,7 @@
        "text": "부스터즈는 하반기 ▲파트너 브랜드 신제품 출시 ▲오프라인 판매채널 확대 ▲일본 등 해외시장 진출 ▲K-뷰티·퍼스널케어 브랜드 라인업 확충을 추진한다",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "부스터즈, 브랜드·플랫폼 동반 성장…하반기 해외 확장",
        "url": "https://dealsite.co.kr/articles/165907"
@@ -1850,7 +2161,7 @@
        "text": "부스터즈는 하반기 파트너 브랜드의 신제품 출시와 오프라인 유통 채널 확대, 일본 등 해외 시장 진출, K-뷰티·퍼스널케어 브랜드 라인업 강화 등을 통해 성장세를…",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "FSN 子 부스터즈, 2분기 잠정 영업익 131억…분기 최대 실적",
        "url": "https://www.mt.co.kr/stock/2026/07/24/2026072410131718401"
@@ -1860,7 +2171,7 @@
        "text": "부스터즈는 올가을 서울 종로구에 프론투라인 첫 플래그십 스토어를 열고 오프라인 접점을 확대하는 한편 중국과 일본 등 아시아 시장 진출을 위한 유통 파트너십도 추…",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "15개월 키운 브랜드 품었다…부스터즈, '프론투라인' 경영권 인수",
        "url": "https://www.mt.co.kr/future/2026/07/31/2026073109365388710"
@@ -1894,7 +2205,7 @@
        "text": "여행용품 유통사서 신발기업으로 르무통은 일본과 중국에 현지 법인을 설립하고 해외시장 공략에도 속도를 내고 있다",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "신발 하나가 매출 절반…르무통, 올해 2000억 넘본다 [권용훈의 트렌드...",
        "url": "https://www.hankyung.com/article/202609093955i"
@@ -1904,7 +2215,7 @@
        "text": "부스터즈는 올가을 서울 종로구에 프론투라인 첫 플래그십 스토어를 열고 오프라인 접점을 확대하는 한편 중국과 일본 등 아시아 시장 진출을 위한 유통 파트너십도 추…",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "15개월 키운 브랜드 품었다…부스터즈, '프론투라인' 경영권 인수",
        "url": "https://www.mt.co.kr/future/2026/07/31/2026073109365388710"
@@ -1928,7 +2239,7 @@
        "text": "특히 부스터즈는 기존 파트너들의 글로벌 진출과 더불어 빠르게 성장하는 K-뷰티 시장을 핵심 타깃으로 삼을 계획이다",
        "lvl": "plan",
        "entry": false,
-       "exp": false,
+       "exp": true,
        "wd": false,
        "hl": "FSN 자회사 부스터즈, 200억 규모 투자 유치",
        "url": "http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202512010242&t=NN"
@@ -1975,6 +2286,6 @@
    "global": []
   }
  },
- "_rules": 6,
- "_updated": "2026-11-06T17:57:26 KST"
+ "_rules": 10,
+ "_updated": "2026-11-06T18:06:47 KST"
 }
