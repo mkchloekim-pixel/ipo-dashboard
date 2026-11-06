@@ -1,0 +1,209 @@
+"""
+DART 주요계정(매출·영업이익) → financials.json 자동 갱신
+
+- 20개사 전체를 조회하고, DART 정기보고서(주요계정 API)에서 값이 나온 회사만 기록한다.
+  (감사보고서만 있는 회사는 기록하지 않음 → 화면은 기존 수동 값 유지.
+   나중에 사업보고서/증권신고서가 올라오면 다음 실행부터 자동으로 DART 값으로 바뀐다.)
+- 조회 실패/데이터 없음이면 기존 financials.json의 해당 회사 값을 그대로 유지한다.
+- 연결 재무제표 우선, 없으면 별도. 전기(frmtrm) 값도 함께 저장해 YoY를 화면에서 계산한다.
+- 인증키는 환경변수 DART_API_KEY로만 받는다. (GitHub Actions Secrets 사용, 코드/로그에 노출 금지)
+
+사용법
+  PowerShell : $env:DART_API_KEY="발급받은키"; python fetch_dart.py
+  옵션       : --year 2025   --out financials.json   --selftest
+"""
+import argparse, io, json, os, re, sys, time, zipfile
+import xml.etree.ElementTree as ET
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+
+import requests
+
+BASE = 'https://opendart.fss.or.kr/api'
+TIMEOUT = 30
+MAX_ZIP_BYTES = 60 * 1024 * 1024
+SLEEP = 0.3
+
+# key(대시보드) → (DART 검색 법인명, 사업자등록번호 또는 None)
+COMPANIES = {
+    'musinsoa':  ('무신사', None),
+    'kurly':     ('컬리', None),
+    'ohouse':    ('버킷플레이스', None),
+    'oasis':     ('오아시스', '126-86-45211'),
+    'goodai':    ('구다이글로벌', None),
+    'founders':  ('더파운더즈', None),
+    'vinow':     ('비나우', None),
+    'olive':     ('올리브인터내셔널', None),
+    'liman':     ('리만코리아', None),
+    'grace':     ('그레이스', '213-81-95999'),
+    '2020':      ('이공이공', None),
+    'bnb':       ('비앤비코리아', '130-86-60341'),
+    'lafati':    ('레페리', None),
+    'nmodelin':  ('앤마들린', None),
+    'rebom':     ('리봄화장품', None),
+    'highlight': ('하이라이트브랜즈', None),
+    'hagohouse': ('하고하우스', None),
+    'boosterz':  ('부스터즈', None),
+    'peacenow':  ('피스피스스튜디오', None),
+    'grainon':   ('그레인온', None),
+}
+
+SALES_NAMES = ('매출액', '수익(매출액)', '영업수익', '매출')
+OP_NAMES = ('영업이익', '영업이익(손실)')
+
+
+def norm_name(n):
+    return re.sub(r'\(주\)|주식회사|\s', '', n or '')
+
+
+def norm_biz(n):
+    return re.sub(r'\D', '', n or '')
+
+
+def to_won(s):
+    """'2,367,100,000,000' / '-14,700,000,000' → int(원). 불가 시 None."""
+    try:
+        return int(str(s).replace(',', '').strip())
+    except Exception:
+        return None
+
+
+def api_get(path, key, **params):
+    params['crtfc_key'] = key
+    r = requests.get(f'{BASE}/{path}', params=params, timeout=TIMEOUT)
+    r.raise_for_status()
+    time.sleep(SLEEP)
+    return r
+
+
+def load_corp_codes(key):
+    r = api_get('corpCode.xml', key)
+    if len(r.content) > MAX_ZIP_BYTES:
+        raise RuntimeError('corpCode 응답이 비정상적으로 큽니다.')
+    try:
+        zf = zipfile.ZipFile(io.BytesIO(r.content))
+    except zipfile.BadZipFile:
+        raise RuntimeError('corpCode 다운로드 실패(키 유효성/일일 한도 확인): ' + r.text[:200].replace(key, '***'))
+    name = zf.namelist()[0]
+    if zf.getinfo(name).file_size > MAX_ZIP_BYTES * 4:
+        raise RuntimeError('압축 해제 크기가 비정상적으로 큽니다.')
+    root = ET.fromstring(zf.read(name))
+    return [(e.findtext('corp_code', '').strip(), e.findtext('corp_name', '').strip(),
+             e.findtext('stock_code', '').strip()) for e in root.iter('list')]
+
+
+def resolve_corp(key, rows, name, biz):
+    """이름 정확 일치 → 1건이면 확정, 여러 건이면 사업자등록번호로 구분. 실패 시 None."""
+    q = norm_name(name)
+    exact = [r for r in rows if norm_name(r[1]) == q]
+    if biz and exact:
+        hits = []
+        for code, nm, st in exact[:40]:
+            try:
+                b = api_get('company.json', key, corp_code=code).json().get('bizr_no', '')
+            except Exception:
+                continue
+            if norm_biz(b) == norm_biz(biz):
+                hits.append((code, nm, st))
+        return hits[0] if len(hits) == 1 else None
+    return exact[0] if len(exact) == 1 else None
+
+
+def extract_accounts(rows):
+    """주요계정 rows → {fs_div: {'sales': (당기, 전기), 'op': (당기, 전기)}} (원)"""
+    best = {}
+    for row in rows:
+        nm = (row.get('account_nm') or '').strip()
+        kind = 'sales' if nm in SALES_NAMES else 'op' if nm in OP_NAMES else None
+        if not kind:
+            continue
+        cur, prev = to_won(row.get('thstrm_amount')), to_won(row.get('frmtrm_amount'))
+        if cur is None:
+            continue
+        best.setdefault(row.get('fs_div'), {}).setdefault(kind, (cur, prev))
+    return best
+
+
+def fetch_main(key, corp_code, year):
+    d = api_get('fnlttSinglAcnt.json', key, corp_code=corp_code,
+                bsns_year=str(year), reprt_code='11011').json()
+    if d.get('status') != '000':
+        return None
+    best = extract_accounts(d.get('list', []))
+    for fs, label in (('CFS', '연결'), ('OFS', '별도')):
+        if fs in best and ('sales' in best[fs] or 'op' in best[fs]):
+            s = best[fs].get('sales', (None, None))
+            o = best[fs].get('op', (None, None))
+            return {'year': year, 'basis': label,
+                    'sales': s[0], 'sales_prev': s[1], 'op': o[0], 'op_prev': o[1]}
+    return None
+
+
+def selftest():
+    assert to_won('2,367,100,000,000') == 2367100000000
+    assert to_won('-14,700,000,000') == -14700000000 and to_won('') is None
+    rows = [
+        {'account_nm': '매출액', 'fs_div': 'OFS', 'thstrm_amount': '100', 'frmtrm_amount': '80'},
+        {'account_nm': '영업이익', 'fs_div': 'OFS', 'thstrm_amount': '10', 'frmtrm_amount': '8'},
+        {'account_nm': '매출액', 'fs_div': 'CFS', 'thstrm_amount': '1,200', 'frmtrm_amount': '1,000'},
+        {'account_nm': '영업이익(손실)', 'fs_div': 'CFS', 'thstrm_amount': '-30', 'frmtrm_amount': '5'},
+        {'account_nm': '당기순이익', 'fs_div': 'CFS', 'thstrm_amount': '9', 'frmtrm_amount': '9'},
+    ]
+    b = extract_accounts(rows)
+    assert b['CFS']['sales'] == (1200, 1000) and b['CFS']['op'] == (-30, 5)
+    assert b['OFS']['sales'] == (100, 80)
+    print('파싱 로직 OK')
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--year', type=int, default=datetime.now().year - 1)
+    ap.add_argument('--out', default='financials.json')
+    ap.add_argument('--selftest', action='store_true')
+    a = ap.parse_args()
+    if a.selftest:
+        selftest()
+        return
+
+    key = os.environ.get('DART_API_KEY', '').strip()
+    if not key:
+        sys.exit('환경변수 DART_API_KEY가 없습니다. (키를 코드에 직접 넣지 마세요)')
+
+    out = Path(a.out)
+    existing = {}
+    if out.exists():
+        try:
+            existing = json.loads(out.read_text('utf-8'))
+        except Exception:
+            existing = {}
+
+    rows = load_corp_codes(key)
+    result, ok = {}, 0
+    for k, (name, biz) in COMPANIES.items():
+        try:
+            hit = resolve_corp(key, rows, name, biz)
+            if not hit:
+                print(f'  [{k}] 법인 특정 실패 → 기존 유지')
+                if k in existing: result[k] = existing[k]
+                continue
+            data = fetch_main(key, hit[0], a.year)
+            if data:
+                data['corp_code'] = hit[0]
+                result[k] = data
+                ok += 1
+                print(f"  [{k}] {data['year']} {data['basis']} 매출 {data['sales']} / OP {data['op']}")
+            else:
+                print(f'  [{k}] 주요계정 없음 → 기존 유지')
+                if k in existing: result[k] = existing[k]
+        except Exception as e:                    # 키가 메시지에 섞이지 않도록 마스킹
+            print(f"  [{k}] 오류: {str(e).replace(key, '***')[:120]} → 기존 유지")
+            if k in existing: result[k] = existing[k]
+
+    result['_year'] = a.year
+    result['_updated'] = datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%dT%H:%M:%S KST')
+    out.write_text(json.dumps(result, ensure_ascii=False, indent=2), 'utf-8')
+    print(f'\n저장: {out}  |  이번 실행 갱신 {ok}개사')
+
+
+if __name__ == '__main__':
+    main()
