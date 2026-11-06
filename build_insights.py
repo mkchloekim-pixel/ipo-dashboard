@@ -21,7 +21,7 @@ from pathlib import Path
 NAMES = {"kurly": "컬리", "musinsoa": "무신사", "oasis": "오아시스", "ohouse": "오늘의집", "goodai": "구다이글로벌", "founders": "더파운더즈", "vinow": "비나우", "olive": "올리브인터내셔널", "liman": "리만코리아", "grace": "그레이스", "2020": "이공이공", "bnb": "비앤비코리아", "lafati": "레페리", "nmodelin": "앤마들린", "rebom": "리봄화장품", "highlight": "하이라이트브랜즈", "hagohouse": "하고하우스", "boosterz": "부스터즈", "peacenow": "피스피스스튜디오", "grainon": "그레인온"}
 
 
-RULES_VERSION = 6     # 필터 규칙을 바꾸면 올린다 → 이전 누적 이력을 버리고 새 규칙으로 다시 만든다
+RULES_VERSION = 10     # 필터 규칙을 바꾸면 올린다 → 이전 누적 이력을 버리고 새 규칙으로 다시 만든다
 
 # 기업별 자사 명칭(회사명·브랜드). 이 이름이 제목에 있어야 '자사 기사'로 본다.
 ALIASES = {      # 모든 기업 동일 형식: [회사명, 대표 브랜드, 자회사…]  ← 이 목록에 있는 이름만 '자사'·'자사 상품'으로 본다
@@ -33,7 +33,7 @@ ALIASES = {      # 모든 기업 동일 형식: [회사명, 대표 브랜드, �
     'vinow': ['비나우', '넘버즈인', '프위'],
     'grace': ['그레이스'],
     'bnb': ['비앤비코리아', '진백글로벌'],
-    '2020': ['이공이공'],
+    '2020': ['이공이공', 'EGONGEGONG'],
     'lafati': ['레페리'],
     'liman': ['리만코리아', '인셀덤', '보타팜', '보타랩', '라이프닝'],
     'founders': ['더파운더즈', '아누아', '프로젝트21', '프롬랩스'],
@@ -97,7 +97,7 @@ def about_others(key, text):
     t = text
     for a in sorted(_own(key), key=len, reverse=True):
         t = t.replace(a, ' ')
-    oth = _count(t, _others(key))
+    oth = _count(t, [o for o in _others(key) if o not in CHANNELS])
     return oth > 0 and oth >= own
 
 
@@ -115,11 +115,27 @@ def article_ok_ipo(key, n):
     return has_own(key, hl + ' ' + clean(n.get('sum'))) and not other_hits(key, hl)
 
 
-def segment_ok(key, seg, is_headline):
-    """분석에 쓸 문장: 제목이면 통과, 요약 문장은 자사 명칭이 있고 타사 명칭이 없어야 한다."""
+# 제품이 판매되는 유통 채널(소매점·플랫폼). 문장에 나와도 '타사 기사'로 보지 않는다(제목에 나오면 기존대로 혼합 기사로 제외).
+CHANNELS = {'올리브영', '쿠팡', '다이소', '네이버쇼핑', '11번가', 'G마켓', '이마트', '홈플러스', 'SSG', '롯데온', '알리익스프레스', '테무', '지그재그', '에이블리', 'W컨셉'}
+PRONOUN_START = re.compile(r'^(이|해당|이들|이번)\s*(제품|제품들|브랜드|상품|회사|기업|마스크팩|서비스)')
+_STOP = {'국내외', '글로벌', '해외', '시장', '브랜드', '제품', '진출', '확대', '유통', '채널', '판매', '현재', '지난', '올해'}
+
+
+def _words(t):
+    return {w for w in re.findall(r'[0-9A-Za-z가-힣]{2,}', t) if w not in _STOP}
+
+
+def segment_ok(key, seg, is_headline, hl=''):
+    """분석에 쓸 문장: 제목이면 통과. 요약 문장은 타사·타 브랜드 명칭이 없어야 하고(유통 채널은 허용),
+    자사 명칭이 있거나, '이 제품들은…' 같은 지시어로 시작하거나, 제목과 핵심 단어 2개 이상을 공유해야 한다(같은 주체의 문장)."""
     if is_headline:
         return True
-    return has_own(key, seg) and not other_hits(key, seg)
+    if [o for o in other_hits(key, seg) if o not in CHANNELS]:
+        return False
+    if has_own(key, seg) or PRONOUN_START.search(seg):
+        return True
+    sw = _words(seg)
+    return sum(1 for w in _words(hl) if any(x.startswith(w) for x in sw)) >= 2
 
 
 MAX_SIGNALS = 10
@@ -130,15 +146,17 @@ NEW_MONTHS = 6          # '신규 진출' 판정 기간: 최근 6개월
 KST = timezone(timedelta(hours=9))
 LVL_ORDER = {'confirmed': 0, 'planned': 1, 'weak': 2}
 # 모든 기업 동일 판정 — 문장 단위로 '계획' 표현이 있으면 계획, 실제 행위 표현이 있으면 확정, 그 외(단순 언급)는 제외
+OVERSEAS_SALES_RE = re.compile(r'해외\s*매출|수출\s*비중|수출\s*매출|매출\s*비중|해외\s*비중|해외\s*수출')   # 상장 기사 속 '해외 매출 비중' 문장은 진출 근거로 인정
 PLAN_RE = re.compile(r'추진|검토|계획|예정|목표|준비|노린다|노리|전망|방침|나선다|나설|타진|모색|저울질|도전장|하겠다|할\s*것|채비|앞두|'
                      r'(?:진출|입점|출시|론칭|런칭|오픈|확대|수출|공략)할|공략|겨냥')
 DONE_RE = re.compile(r'진출|입점|출점|론칭|런칭|출시|오픈|개점|문을\s*열|수출|공급\s*계약|계약을?\s*체결|계약\s*체결|법인\s*설립|설립했|'
-                     r'현지\s*법인|(?:팝업|매장|점포|채널|입점|출점).{0,4}(?:확대|확장|추가)|\d\s*호점|판매\s*개시|판매를\s*시작|선보|상륙|팝업.{0,6}(?:개최|운영|열|오픈)')
+                     r'현지\s*법인|판매(?:되고|하고)\s*있|판매\s*중|(?:팝업|매장|점포|채널|입점|출점).{0,4}(?:확대|확장|추가)|\d\s*호점|판매\s*개시|판매를\s*시작|선보|상륙|팝업.{0,6}(?:개최|운영|열|오픈)')
 
 
-ENTRY_RE = re.compile(r'진출|상륙')                       # 기사에 '진출'이라고 직접 언급된 문장 → 신규 진출 판정에 사용
-EXPAND_RE = re.compile(r'확대|확장|추가|\d\s*호점|[2-9]호|늘|증가|급증|껑충|배\s*이상|성장|흥행|성료|본격|가속|확충|속도')
+ENTRY_RE = re.compile(r'진출|상륙|입점|출점|론칭|런칭|법인\s*설립|현지\s*오픈|첫\s*매장')                       # 기사에 '진출'이라고 직접 언급된 문장 → 신규 진출 판정에 사용
+EXPAND_RE = re.compile(r'공략|겨냥|판매처|판로|넓히|넓힌|넓혀|확대|확장|추가|\d\s*호점|[2-9]호|늘|증가|급증|껑충|배\s*이상|성장|흥행|성료|본격|가속|확충|속도')
 WITHDRAW_RE = re.compile(r'철수|폐점|영업\s*종료|사업\s*중단|운영\s*중단|매각|청산|접는다|접기로')
+CURRENT_RE = re.compile(r'입점해\s*있|진출해\s*있|운영\s*중|판매\s*중|운영하고\s*있|판매하고\s*있|진출해\s*왔|전개하고\s*있')
 RESULT_RE = re.compile(r'통했다|찍고|성공|거래액|수출액|성료|흥행|돌파|달성|급증|증가|껑충|배\s*이상|신규\s*회원|방문|흑자|운영\s*중|계약을?\s*맺|독점\s*유통')
 FUTURE_RE = re.compile(r'예정|목표|계획|전망|방침|추진|검토|준비|나선다|나설|노린다|노리')
 
@@ -147,7 +165,11 @@ def seg_level(seg):
     """문장 → 'done'(확정) / 'plan'(계획) / None(단순 언급·제외)"""
     if WITHDRAW_RE.search(seg):
         return 'done'
+    if OVERSEAS_SALES_RE.search(seg) and not FUTURE_RE.search(seg):
+        return 'done'
     if RESULT_RE.search(seg) and not FUTURE_RE.search(seg):      # 거래액·성료 등 실적/결과 표현 → 이미 진행된 해외 사업
+        return 'done'
+    if CURRENT_RE.search(seg) and PLAN_RE.search(seg):          # '현재 N곳 입점, 연말까지 확대할 계획' → 이미 진출 + 확장 중
         return 'done'
     if PLAN_RE.search(seg):
         return 'plan'
@@ -269,9 +291,11 @@ def extract_global(key, n, company_name):
     products = sorted(prods.values())
     res = {}
     for i, seg in enumerate(segments(n)):
-        if not segment_ok(key, seg, i == 0):                 # 요약 문장은 자사 명칭이 직접 있는 문장만
+        if not segment_ok(key, seg, i == 0, clean(n.get('hl'))):                 # 요약 문장은 자사 명칭이 직접 있는 문장만
             continue
-        if not GLOBAL_VERB.search(seg) or IPO_GATE.search(seg):   # 상장 관련 문장은 진출 요약에서 제외
+        if not (GLOBAL_VERB.search(seg) or OVERSEAS_SALES_RE.search(seg)):
+            continue
+        if IPO_GATE.search(seg) and not OVERSEAS_SALES_RE.search(seg):   # 상장 관련 문장은 진출 요약에서 제외(해외 매출 비중 문장은 예외)
             continue
         lvl = seg_level(seg)
         if not lvl:                                          # 국가·채널만 나오는 단순 언급은 제외
@@ -284,9 +308,9 @@ def extract_global(key, n, company_name):
             e = res.setdefault(r, {'region': r, 'text': trim(seg), 'lvl': lvl, 'entry': False, 'exp': False, 'wd': False, 'partners': set(), 'products': set()})
             if lvl == 'done' and e['lvl'] != 'done':         # 같은 기사에서 확정 표현이 있으면 확정 우선
                 e.update(text=trim(seg), lvl='done')
+            e['exp'] = e['exp'] or bool(EXPAND_RE.search(seg))      # 확대·공략 표현은 확정/계획 문장 모두 기록
             if lvl == 'done':
-                e['entry'] = e['entry'] or bool(ENTRY_RE.search(seg))
-                e['exp'] = e['exp'] or bool(EXPAND_RE.search(seg))
+                e['entry'] = e['entry'] or bool(ENTRY_RE.search(seg) and not CURRENT_RE.search(seg))   # '입점해 있다'는 이미 진출한 상태
                 e['wd'] = e['wd'] or bool(WITHDRAW_RE.search(seg))
             e['partners'].update(parts)
             e['products'].update(products)
@@ -311,7 +335,7 @@ TAG_ORDER = {'new': 0, 'expand': 1, 'ongoing': 2, 'withdraw': 3, 'planned': 4, '
 def region_tag(level, items):
     """국가별 태그: 신규 진출 / 확장 중 / 운영 중 / 축소·철수 / 예정 / 근거 약함 (모든 기업 동일 기준)
     - 신규 진출: 최근 6개월 안에 '진출'이라고 직접 언급된 확정 기사가 있고, 6개월보다 오래된 확정 기사는 없을 때
-    - 확장 중: 최근 6개월 확정 기사에 확대 표현(추가·호점·증가 등)이 있을 때
+    - 확장 중: 최근 6개월 기사(확정·계획 모두)에 확대·공략 표현(판매처 확대·공략·추가·증가 등)이 있을 때
     - 축소·철수: 최근 6개월 기사에 철수·폐점·매각 표현이 있을 때"""
     rec = lambda x: in_window(x.get('date'), months=NEW_MONTHS)
     done = [x for x in items if x.get('lvl') == 'done']
@@ -320,7 +344,7 @@ def region_tag(level, items):
     if level == 'confirmed':
         if any(x.get('entry') and rec(x) for x in done) and not any(not rec(x) for x in done):
             return 'new'
-        if any(x.get('exp') and rec(x) for x in done):
+        if any(x.get('exp') and rec(x) for x in items):
             return 'expand'
         return 'ongoing'
     return 'planned' if level == 'planned' else 'weak'
@@ -379,13 +403,13 @@ def analyze(key, name, articles, prev, glb_extra=()):
     old_glb = []
     for g in prev.get('global', []):                         # 이전 이력도 같은 규칙으로 다시 검증
         items = [it for it in g.get('items', []) if article_ok(key, {'hl': it.get('hl'), 'sum': it.get('text')})
-                 and (clean(it.get('text')) == trim(clean(it.get('hl'))) or segment_ok(key, clean(it.get('text')), False))]
+                 and (clean(it.get('text')) == trim(clean(it.get('hl'))) or segment_ok(key, clean(it.get('text')), False, clean(it.get('hl'))))]
         for it in items:
             it['lvl'] = it.get('lvl') or seg_level(clean(it.get('text'))) or 'plan'
             tx = clean(it.get('text'))
+            it.setdefault('exp', bool(EXPAND_RE.search(tx)))
             if it['lvl'] == 'done':
-                it.setdefault('entry', bool(ENTRY_RE.search(tx)))
-                it.setdefault('exp', bool(EXPAND_RE.search(tx)))
+                it.setdefault('entry', bool(ENTRY_RE.search(tx) and not CURRENT_RE.search(tx)))
                 it.setdefault('wd', bool(WITHDRAW_RE.search(tx)))
         if items:
             old_glb.append({**g, 'items': items})
@@ -472,13 +496,24 @@ def selftest():
     tg = lambda arts: analyze('musinsoa', '무신사', [], {}, arts)['global'][0]['tag']
     assert tg([mk('무신사, 베트남 진출', M(1), 't1')]) == 'new'
     assert tg([mk('무신사, 베트남 진출', M(1), 't1'), mk('무신사, 베트남 거래액 증가', M(9), 't0')]) == 'ongoing'   # 6개월 넘은 확정 기사가 있으면 신규 아님
-    assert tg([mk('무신사, 일본 팝업 오픈', M(1), 't2')]) == 'ongoing'                    # '진출' 언급 없음 → 신규 아님
+    assert tg([mk('무신사, 일본 팝업 오픈', M(1), 't2')]) == 'ongoing'                    # 진출·입점 등 언급 없음 → 신규 아님
+    assert tg([mk('아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다'.replace('아누아', '무신사'), M(3), 't8')]) == 'new'
     assert tg([mk('무신사, 일본 진출', M(10), 't3')]) == 'ongoing'                         # 6개월 넘은 진출 → 운영 중
     assert tg([mk('무신사, 일본 팝업 확대', M(1), 't4'), mk('무신사, 일본 진출', M(10), 't5')]) == 'expand'
     assert tg([mk('무신사, 일본 거래액 증가', M(2), 't6')]) == 'expand'
     assert tg([mk('무신사, 중국 매장 철수', M(1), 't7')]) == 'withdraw'
     assert tg([mk('무신사, 미국 진출 추진', M(1), 'p1'), mk('무신사 미국 진출 검토', M(1), 'p2')]) == 'planned'
     assert tg([mk('무신사, 미국 진출 추진', M(1), 'p1')]) == 'weak'
+    assert seg_level('성분에디터는 현재 유럽 15개국 980여 개 매장에 입점해 있으며, 연말까지 판매처를 2500곳으로 확대할 계획이다') == 'done'
+    r = analyze('olive', '올리브인터내셔널', [], {}, [
+        {'hl': '올리브인터내셔널, 3분기 누적 매출 2400억원', 'sum': '성분에디터는 현재 유럽 15개국 980여 개 매장에 입점해 있으며, 연말까지 유럽 판매처를 2500곳으로 확대할 계획이다.', 'url': 'o1', 'date': M(2)},
+        {'hl': "올리브인터내셔널 '밀크터치' 북미·유럽 공략 위한 인재 채용", 'sum': '', 'url': 'o2', 'date': M(1)}])
+    assert [(g['region'], g['tag']) for g in r['global'] if g['region'] == '유럽'] == [('유럽', 'expand')], r
+    # 상장 기사 속 해외 매출 비중 문장 → 해외 운영 근거(운영 중), 상장 일정 문장은 계속 제외
+    g = extract_global('bnb', {'hl': '비앤비코리아, 상장 심사 지연', 'sum': '비앤비코리아는 중국 매출 비중이 40%에 달한다. 비앤비코리아는 코스닥 상장 예심을 청구했다.', 'url': 'b1', 'date': NOW}, '비앤비코리아')
+    assert [(e['region'], e['lvl']) for e in g] == [('중국', 'done')], g
+    g = extract_global('2020', {'hl': 'EGONGEGONG, 미국 아마존 진출', 'sum': '', 'url': 'e1', 'date': NOW}, '이공이공')
+    assert [e['region'] for e in g] == ['미국']
     print('분석 로직 OK')
 
 

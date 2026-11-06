@@ -21,6 +21,8 @@ TIMEOUT = 10
 SLEEP = 0.12
 KEEP_PER_CO = 30
 SUFFIXES = ['해외 진출', '수출', '글로벌', '미국', '일본', '중국', '동남아', '유럽']
+# 대표 이름(첫 번째)에만 추가로 붙이는 검색어: 해외 매출 비중·플랫폼 기사까지 포착(모든 기업 동일)
+EXTRA_SUFFIXES = ['해외 매출', '수출 비중', '아마존', '현지 법인']
 
 # key: (검색 이름(최대 3개, 제목에 하나라도 있어야 통과), 제외 키워드(제목+요약))
 COMPANIES = {
@@ -32,7 +34,7 @@ COMPANIES = {
     'vinow':    (['넘버즈인', '비나우', '프위'], []),
     'grace':    (['그레이스 뷰티', '그레이스 화장품'], ['골프', '은혜', '성당', '교회', '기도', '찬양', '축복']),
     'bnb':      (['비앤비코리아', '진백글로벌'], []),
-    '2020':     (['이공이공', 'egongegong'], ['이공계', '이공계열', '이공대', '공대']),
+    '2020':     (['이공이공', 'EGONGEGONG'], ['이공계', '이공계열', '이공대', '공대']),
     'lafati':   (['레페리'], []),
     'liman':    (['리만코리아', '인셀덤', '보타팜'], []),
     'founders': (['아누아', '더파운더즈'], []),
@@ -92,6 +94,7 @@ PLACES = re.compile(r'日本|日(?=[\s·,…]|$)|中(?=[\s·,…]|$)|美(?=[\s·
                     r'아마존|세포라|얼타|울타|돈키호테|라쿠텐|쇼피|틱톡샵|큐텐|코스트코|월마트|타깃|로프트|도큐핸즈|라자다|타오바오|샤오홍슈|DHL', re.I)
 # 'IPO·상장'만 다룬 기사는 진출 정보가 아니므로 제외
 IPO_ONLY = re.compile(r'상장|IPO|기업공개|예심|공모')
+SALES_SHARE = re.compile(r'해외\s*매출|수출\s*비중|수출\s*매출|매출\s*비중|해외\s*비중')   # 상장 기사라도 해외 매출 비중이 있으면 허용
 
 
 def clean(t):
@@ -110,7 +113,7 @@ def to_ym(pub):
 def keep_article(title, desc, names, exclude, others=()):
     """제목에 회사/브랜드명, 해외 문맥+국가/파트너 존재, 제외 키워드 없음, IPO 전용 기사 아님"""
     full = title + ' ' + desc
-    if not any(n in title for n in names):
+    if not any(n.lower() in title.lower() for n in names):      # 대소문자 무시(EGONGEGONG 등)
         return False
     if any(x in full for x in exclude):
         return False
@@ -120,7 +123,7 @@ def keep_article(title, desc, names, exclude, others=()):
         return False
     if not (GLOBAL_CTX.search(full) and PLACES.search(full)):
         return False
-    if IPO_ONLY.search(title) and not re.search(r'진출|수출|입점|출점|론칭|현지', title):
+    if IPO_ONLY.search(title) and not re.search(r'진출|수출|입점|출점|론칭|현지', title) and not SALES_SHARE.search(full):
         return False
     return True
 
@@ -197,6 +200,8 @@ def selftest():
     assert not keep_article('컬리 미국 진출', '무신사·29CM 등 K패션도 미국 공략', ['컬리'], [], oth)     # 요약에 타 브랜드
     assert keep_article('컬리 미국 진출', '뷰티컬리가 미국 고객 대상 배송 시작', ['컬리'], [], oth)
     assert not keep_article('롯데백화점·컬리, 동남아 진출 경쟁', '', ['컬리'], [], oth)          # 타사 혼합
+    assert keep_article('EGONGEGONG, 미국 아마존 진출', '', ['이공이공', 'EGONGEGONG'], [])
+    assert keep_article('비앤비코리아 상장 심사 지연', '중국 매출 비중 40%, 해외 매출 확대', ['비앤비코리아'], [])
     assert clean('<b>가</b>&quot;나&quot;') == '가"나"'
     print('필터 로직 OK')
 
@@ -229,8 +234,8 @@ def main():
     for key, (names, exclude) in COMPANIES.items():
         found, errors = [], 0
         others = others_for(key)
-        for name in names[:3]:
-            for suf in SUFFIXES:
+        for ni, name in enumerate(names[:3]):
+            for suf in SUFFIXES + (EXTRA_SUFFIXES if ni == 0 else []):
                 try:
                     items = fetch_query(session, headers, f'{name} {suf}')
                 except Exception as e:                       # 키가 메시지에 섞이지 않도록 마스킹
