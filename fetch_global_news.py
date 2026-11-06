@@ -95,7 +95,7 @@ def keep_article(title, desc, names, exclude, others=()):
         return False
     if any(x in full for x in exclude):
         return False
-    if others and mixed_title(title, names, others):          # 타사·경쟁사가 제목에 함께 나오면 제외
+    if others and mixed_title(full, names, others):           # 제목·요약에 타사·경쟁사(다른 브랜드)가 함께 나오면 제외
         return False
     if not (GLOBAL_CTX.search(full) and PLACES.search(full)):
         return False
@@ -167,6 +167,9 @@ def selftest():
     assert safe_url('javascript:alert(1)') == '' and safe_url('https://a.com') == 'https://a.com'
     oth = others_for('kurly')
     assert keep_article('컬리, 미국 진출…역직구 확대', '', ['컬리'], [], oth)
+    assert not keep_article('컬리 동남아 진출', '코리아360은 롯데백화점과 동남아 진출', ['컬리'], [], oth)   # 요약에 타사
+    assert not keep_article('컬리 미국 진출', '무신사·29CM 등 K패션도 미국 공략', ['컬리'], [], oth)     # 요약에 타 브랜드
+    assert keep_article('컬리 미국 진출', '뷰티컬리가 미국 고객 대상 배송 시작', ['컬리'], [], oth)
     assert not keep_article('롯데백화점·컬리, 동남아 진출 경쟁', '', ['컬리'], [], oth)          # 타사 혼합
     assert clean('<b>가</b>&quot;나&quot;') == '가"나"'
     print('필터 로직 OK')

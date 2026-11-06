@@ -124,6 +124,69 @@ BRANDS = {
 }
 NAMES = {"kurly": "컬리", "musinsoa": "무신사", "oasis": "오아시스", "ohouse": "오늘의집", "goodai": "구다이글로벌", "founders": "더파운더즈", "vinow": "비나우", "olive": "올리브인터내셔널", "liman": "리만코리아", "grace": "그레이스", "2020": "이공이공", "bnb": "비앤비코리아", "lafati": "레페리", "nmodelin": "앤마들린", "rebom": "리봄화장품", "highlight": "하이라이트브랜즈", "hagohouse": "하고하우스", "boosterz": "부스터즈", "peacenow": "피스피스스튜디오", "grainon": "그레인온"}
 
+
+RULES_VERSION = 3     # 필터 규칙을 바꾸면 올린다 → 이전 누적 이력을 버리고 새 규칙으로 다시 만든다
+
+# 기업별 자사 명칭(회사명·브랜드). 이 이름이 제목에 있어야 '자사 기사'로 본다.
+ALIASES = {
+    'musinsoa': ['무신사', '29CM'], 'kurly': ['컬리', '마켓컬리', '뷰티컬리'], 'ohouse': ['오늘의집', '버킷플레이스'],
+    'oasis': ['오아시스'], 'goodai': ['구다이글로벌', '조선미녀', '스킨1004', '티르티르', '라운드랩', '크레이버'],
+    'vinow': ['비나우', '넘버즈인', '프위'], 'grace': ['그레이스'], 'bnb': ['비앤비코리아', '진백글로벌'],
+    '2020': ['이공이공'], 'lafati': ['레페리'], 'liman': ['리만코리아', '인셀덤', '보타팜'],
+    'founders': ['더파운더즈', '아누아', '프로젝트21', '프롬랩스'],
+    'olive': ['올리브인터내셔널', '성분에디터', '밀크터치', '마미케어'],
+    'highlight': ['하이라이트브랜즈', '말본', '코닥어패럴'], 'peacenow': ['피스피스스튜디오', '마르디메크르디', '마르디 메크르디'],
+    'hagohouse': ['하고하우스', '마뗑킴', '드파운드', '유니폼브릿지'], 'grainon': ['그레인온'],
+    'boosterz': ['부스터즈', '르무통', '링티'], 'nmodelin': ['앤마들린'], 'rebom': ['리봄화장품', '리봄'],
+}
+# 타사 혼합 기사를 걸러내기 위한 경쟁사·유통사 (투자자·증권사·파트너는 넣지 않는다)
+COMPETITORS = ['롯데백화점', '롯데쇼핑', '롯데온', '롯데', '신세계', '현대백화점', '이마트', '쿠팡', 'SSG', '홈플러스',
+               '올리브영', '11번가', 'G마켓', '알리익스프레스', '테무', '아모레퍼시픽', 'LG생활건강', '다이소',
+               '에이블리', '지그재그', '브랜디', 'W컨셉', '코리아360', '네이버쇼핑', '카카오']
+
+
+def _own(key):
+    return ALIASES.get(key) or [NAMES.get(key, '')]
+
+
+def _others(key):
+    own = _own(key)
+    pool = [a for k, v in ALIASES.items() if k != key for a in v] + COMPETITORS
+    return [o for o in pool if o and not any(o in a or a in o for a in own)]
+
+
+def has_own(key, text):
+    return any(a and a in text for a in _own(key))
+
+
+def other_hits(key, text):
+    """text 안에서 자사 명칭에 포함된 부분을 제외하고, 타사·경쟁사 명칭이 있으면 목록으로 반환"""
+    t = text
+    for a in sorted(_own(key), key=len, reverse=True):
+        t = t.replace(a, ' ')
+    return [o for o in _others(key) if o in t]
+
+
+def article_ok(key, n):
+    """자사 기사 판정(글로벌용, 엄격): 제목에 자사 명칭이 있고, 제목·요약 어디에도 타사·경쟁사 명칭이 없어야 한다.
+    여러 기업이 함께 언급된 기사는 어느 기업의 기사로도 인용하지 않는다."""
+    hl = clean(n.get('hl'))
+    return has_own(key, hl) and not other_hits(key, hl + ' ' + clean(n.get('sum')))
+
+
+def article_ok_ipo(key, n):
+    """IPO 신호용(완화): 제목 또는 요약에 자사 명칭이 있고, 제목에 타사·경쟁사가 함께 나오지 않아야 한다."""
+    hl = clean(n.get('hl'))
+    return has_own(key, hl + ' ' + clean(n.get('sum'))) and not other_hits(key, hl)
+
+
+def segment_ok(key, seg, is_headline):
+    """분석에 쓸 문장: 제목이면 통과, 요약 문장은 자사 명칭이 있고 타사 명칭이 없어야 한다."""
+    if is_headline:
+        return True
+    return has_own(key, seg) and not other_hits(key, seg)
+
+
 MAX_SIGNALS = 10
 MAX_REGIONS = 8
 MAX_ITEMS = 3
@@ -221,12 +284,16 @@ def trim(s, n=90):
 
 def extract_global(key, n, company_name):
     """기사 1건 → [{'region','text','partners','products'}]  (해외 문맥 문장 기준)"""
+    if not article_ok(key, n):                               # 타사 혼합·타사 기사는 인용하지 않는다
+        return []
     full = article_text(n)
     company_name = company_name or NAMES.get(key, '')
     brands = [b for b in BRANDS.get(key, []) if b and not (company_name and (b in company_name or company_name in b))]
     products = sorted({b for b in brands if b in full})
     res = {}
-    for seg in segments(n):
+    for i, seg in enumerate(segments(n)):
+        if not segment_ok(key, seg, i == 0):                 # 요약 문장은 자사 명칭이 직접 있는 문장만
+            continue
         if not GLOBAL_VERB.search(seg) or IPO_GATE.search(seg):   # 상장 관련 문장은 진출 요약에서 제외
             continue
         regs = [name for name, re_ in COUNTRIES if re_.search(seg)]
@@ -276,6 +343,8 @@ def merge_global(old, new):
 def analyze(key, name, articles, prev, glb_extra=()):
     sig_new, glb_new = [], []
     for n in articles:
+        if not article_ok_ipo(key, n):
+            continue
         kind = classify_ipo(n)
         if kind:
             sig_new.append({'date': n.get('date', ''), 'kind': kind, 'label': KIND_LABEL[kind],
@@ -284,8 +353,15 @@ def analyze(key, name, articles, prev, glb_extra=()):
         for e in extract_global(key, n, name):
             e.update(date=n.get('date', ''), hl=clean(n.get('hl')), url=n.get('url', ''))
             glb_new.append(e)
-    return {'ipo': {'signals': merge_signals((prev.get('ipo') or {}).get('signals', []), sig_new)},
-            'global': merge_global(prev.get('global', []), glb_new)}
+    old_sig = [x for x in (prev.get('ipo') or {}).get('signals', []) if not other_hits(key, clean(x.get('hl')))]
+    old_glb = []
+    for g in prev.get('global', []):                         # 이전 이력도 같은 규칙으로 다시 검증
+        items = [it for it in g.get('items', []) if article_ok(key, {'hl': it.get('hl'), 'sum': it.get('text')})
+                 and (clean(it.get('text')) == trim(clean(it.get('hl'))) or segment_ok(key, clean(it.get('text')), False))]
+        if items:
+            old_glb.append({**g, 'items': items})
+    return {'ipo': {'signals': merge_signals(old_sig, sig_new)},
+            'global': merge_global(old_glb, glb_new)}
 
 
 def selftest():
@@ -309,16 +385,32 @@ def selftest():
     assert extract_global('musinsoa', {'hl': '무신사, 미국 클래식 패션 브랜드와 협업 컬렉션 선발매', 'sum': ''}, '무신사') == []
     assert extract_global('goodai', {'hl': '구다이글로벌 자회사, 일본 IPO 무산위기', 'sum': ''}, '구다이글로벌') == []
     # 파트너만 있는 경우
-    assert extract_global('x', {'hl': '컬리, 아마존 입점', 'sum': ''}, '컬리')[0]['region'] == '글로벌 채널'
+    assert extract_global('kurly', {'hl': '컬리, 아마존 입점', 'sum': ''}, '컬리')[0]['region'] == '글로벌 채널'
     # 누적: 뉴스가 사라져도 이력 유지, 중복 제거
-    prev = analyze('a', '에이', [n], {})
-    again = analyze('a', '에이', [], prev)
+    prev = analyze('musinsoa', '무신사', [n], {})
+    again = analyze('musinsoa', '무신사', [], prev)
     assert again['ipo']['signals'][0]['kind'] == 'filed'
-    twice = analyze('a', '에이', [n], prev)
+    twice = analyze('musinsoa', '무신사', [n], prev)
     assert len(twice['ipo']['signals']) == 1
     # 해외 전용 수집분은 글로벌 요약에만 반영(IPO 신호에는 영향 없음)
     r = analyze('goodai', '구다이글로벌', [], {}, [{'hl': '스킨1004, 일본 돈키호테 입점', 'sum': '', 'url': 'g1', 'date': '2026.10'}])
     assert r['global'][0]['region'] == '일본' and r['ipo']['signals'] == []
+    # 자사 기사 필터: 타사 혼합 기사·타사 문장은 인용하지 않는다
+    assert article_ok('kurly', {'hl': '컬리, 미국 진출 확대'})
+    assert not article_ok('kurly', {'hl': '컬리 동남아 진출', 'sum': '코리아360은 롯데백화점과 함께 동남아 진출'})   # 요약에 타사
+    assert not article_ok('kurly', {'hl': '컬리 미국 진출', 'sum': '무신사·29CM도 미국 공략'})                      # 요약에 타 브랜드
+    assert article_ok('kurly', {'hl': '컬리 미국 진출', 'sum': '뷰티컬리가 미국 소비자 대상 배송을 시작'})
+    assert not article_ok('kurly', {'hl': '롯데백화점·컬리, 동남아 진출 경쟁'})        # 제목에 타사
+    assert not article_ok('kurly', {'hl': '롯데백화점, 동남아 진출'})                  # 제목에 자사 없음
+    mixed = {'hl': '컬리, 오프라인 확대', 'sum': '코리아360은 롯데백화점과 동남아 진출을 추진한다.'}
+    assert extract_global('kurly', mixed, '컬리') == []                              # 요약 문장에 자사 명칭 없음
+    ok = {'hl': '컬리, 뷰티컬리 일본 진출', 'sum': '컬리는 일본 현지 팝업을 열었다.'}
+    assert [e['region'] for e in extract_global('kurly', ok, '컬리')] == ['일본']
+    assert other_hits('olive', '올리브인터내셔널과 올리브영') == ['올리브영']
+    r = analyze('kurly', '컬리', [mixed], {'global': [{'region': '동남아', 'items': [{'date': '2026.11', 'text': '코리아360은 동남아', 'hl': '컬리, 오프라인 확대', 'url': ''}], 'partners': [], 'products': []}]})
+    assert r['global'] == [], r                                                      # 이전 이력의 잘못된 항목도 제거
+    assert article_ok_ipo('grainon', {'hl': '신한투자증권 IPO 주관사 선정', 'sum': '그레인온은 27.1Q 상장을 목표로 한다.'})
+    assert not article_ok_ipo('highlight', {'hl': '무신사 풍선효과 노린다…하이라이트브랜즈 상장 저울질', 'sum': ''})   # 제목에 타사
     print('분석 로직 OK')
 
 
@@ -341,7 +433,7 @@ def main():
             return {}
 
     news, extra, prev, gnews = load(a.news), load(a.extra), load(a.out), load(a.gnews)
-    prev_c = prev.get('companies', {}) if isinstance(prev, dict) else {}
+    prev_c = prev.get('companies', {}) if isinstance(prev, dict) and prev.get('_rules') == RULES_VERSION else {}
     keys = [k for k in news if not k.startswith('_')]
     keys += [k for k in list(extra) + list(gnews) if k not in keys and not k.startswith('_')]
     out = {}
@@ -351,7 +443,7 @@ def main():
         out[k] = analyze(k, NAMES.get(k, ''), arts, prev_c.get(k, {}), gl)
     for k, v in prev_c.items():                           # 이번에 기사가 없는 회사도 이력 유지
         out.setdefault(k, v)
-    res = {'companies': out, '_updated': datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%dT%H:%M:%S KST')}
+    res = {'companies': out, '_rules': RULES_VERSION, '_updated': datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%dT%H:%M:%S KST')}
     Path(a.out).write_text(json.dumps(res, ensure_ascii=False, indent=1), 'utf-8')
     n_sig = sum(len(v['ipo']['signals']) for v in out.values())
     n_glb = sum(len(v['global']) for v in out.values())
