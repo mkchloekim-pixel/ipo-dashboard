@@ -1,0 +1,39 @@
+name: Update insights (IPO 상태·글로벌 요약)
+
+on:
+  workflow_run:
+    workflows: ["뉴스 자동 수집"]      # 뉴스 수집이 끝나면 이어서 실행
+    types: [completed]
+  schedule:
+    - cron: '40 22 * * *'              # 매일 07:40 KST (뉴스 수집이 지연/실패해도 한 번 더 실행)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-insights
+  cancel-in-progress: false
+
+jobs:
+  insights:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build insights.json
+        run: python build_insights.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add insights.json
+          if git diff --cached --quiet; then
+            echo "변경 없음"
+          else
+            git commit -m "Update insights.json"
+            git pull --rebase
+            git push
+          fi
