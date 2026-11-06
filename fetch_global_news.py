@@ -49,7 +49,8 @@ COMPANIES = {
 # 타사 혼합 기사를 걸러내기 위한 경쟁사·유통사 (투자자·증권사·파트너는 넣지 않는다)
 COMPETITORS = ['롯데백화점', '롯데쇼핑', '롯데온', '롯데', '신세계', '현대백화점', '이마트', '쿠팡', 'SSG', '홈플러스',
                '올리브영', '11번가', 'G마켓', '알리익스프레스', '테무', '아모레퍼시픽', 'LG생활건강', '다이소',
-               '에이블리', '지그재그', '브랜디', 'W컨셉', '코리아360', '네이버쇼핑', '카카오']
+               '에이블리', '지그재그', '브랜디', 'W컨셉', '코리아360', '네이버쇼핑', '카카오',
+               'LG생건', '프레시안', '기픈']
 
 
 def others_for(key):
@@ -64,6 +65,24 @@ def mixed_title(title, names, others):
     for a in sorted(names, key=len, reverse=True):
         t = t.replace(a, ' ')
     return any(o in t for o in others)
+
+
+REF_AFTER = re.compile(r'^\s*(가|이|의)?\s*(키운|육성한|길러낸|투자한|인수한|출신|입점\s*브랜드|입점사|납품|협력사|파트너사|에서\s*(성장|출발|시작))')
+
+
+def is_reference(title, names):
+    """'컬리가 키운 브랜드…' 처럼 자사를 출처로만 언급 → 주인공은 다른 브랜드"""
+    return any(REF_AFTER.search(title[m.end():m.end() + 14]) for a in names for m in re.finditer(re.escape(a), title))
+
+
+def about_others(text, names, others):
+    """본문(제목+요약)에서 타사·타 브랜드 언급이 자사 언급 이상이면 타사 중심 기사"""
+    own = sum(text.count(a) for a in names)
+    t = text
+    for a in sorted(names, key=len, reverse=True):
+        t = t.replace(a, ' ')
+    oth = sum(t.count(o) for o in others)
+    return oth > 0 and oth >= own
 
 
 # 해외 사업 문맥 + 국가/파트너 중 하나
@@ -95,7 +114,9 @@ def keep_article(title, desc, names, exclude, others=()):
         return False
     if any(x in full for x in exclude):
         return False
-    if others and mixed_title(full, names, others):           # 제목·요약에 타사·경쟁사(다른 브랜드)가 함께 나오면 제외
+    if others and (mixed_title(title, names, others)          # 제목에 타사·경쟁사가 함께 나오면 제외
+                   or is_reference(title, names)              # 자사를 출처로만 언급('컬리가 키운 브랜드')
+                   or about_others(full, names, others)):     # 본문이 타사·타 브랜드 중심
         return False
     if not (GLOBAL_CTX.search(full) and PLACES.search(full)):
         return False
@@ -167,6 +188,9 @@ def selftest():
     assert safe_url('javascript:alert(1)') == '' and safe_url('https://a.com') == 'https://a.com'
     oth = others_for('kurly')
     assert keep_article('컬리, 미국 진출…역직구 확대', '', ['컬리'], [], oth)
+    assert not keep_article('"컬리가 키운 브랜드 이제 세계로"…LG생건 프레시안, K웰니스 뷰티 도전장', '미국 일본 진출', ['컬리'], [], oth)
+    assert not keep_article('컬리가 키운 브랜드 세계로', '미국 진출', ['컬리'], [], oth)
+    assert not keep_article("FSN 자회사 부스터즈 지원 '기픈', 무신사 뷰티 1위", '글로벌 진출', ['무신사'], [], others_for('musinsoa'))
     assert not keep_article('컬리 동남아 진출', '코리아360은 롯데백화점과 동남아 진출', ['컬리'], [], oth)   # 요약에 타사
     assert not keep_article('컬리 미국 진출', '무신사·29CM 등 K패션도 미국 공략', ['컬리'], [], oth)     # 요약에 타 브랜드
     assert keep_article('컬리 미국 진출', '뷰티컬리가 미국 고객 대상 배송 시작', ['컬리'], [], oth)

@@ -125,7 +125,7 @@ BRANDS = {
 NAMES = {"kurly": "컬리", "musinsoa": "무신사", "oasis": "오아시스", "ohouse": "오늘의집", "goodai": "구다이글로벌", "founders": "더파운더즈", "vinow": "비나우", "olive": "올리브인터내셔널", "liman": "리만코리아", "grace": "그레이스", "2020": "이공이공", "bnb": "비앤비코리아", "lafati": "레페리", "nmodelin": "앤마들린", "rebom": "리봄화장품", "highlight": "하이라이트브랜즈", "hagohouse": "하고하우스", "boosterz": "부스터즈", "peacenow": "피스피스스튜디오", "grainon": "그레인온"}
 
 
-RULES_VERSION = 3     # 필터 규칙을 바꾸면 올린다 → 이전 누적 이력을 버리고 새 규칙으로 다시 만든다
+RULES_VERSION = 4     # 필터 규칙을 바꾸면 올린다 → 이전 누적 이력을 버리고 새 규칙으로 다시 만든다
 
 # 기업별 자사 명칭(회사명·브랜드). 이 이름이 제목에 있어야 '자사 기사'로 본다.
 ALIASES = {
@@ -142,7 +142,8 @@ ALIASES = {
 # 타사 혼합 기사를 걸러내기 위한 경쟁사·유통사 (투자자·증권사·파트너는 넣지 않는다)
 COMPETITORS = ['롯데백화점', '롯데쇼핑', '롯데온', '롯데', '신세계', '현대백화점', '이마트', '쿠팡', 'SSG', '홈플러스',
                '올리브영', '11번가', 'G마켓', '알리익스프레스', '테무', '아모레퍼시픽', 'LG생활건강', '다이소',
-               '에이블리', '지그재그', '브랜디', 'W컨셉', '코리아360', '네이버쇼핑', '카카오']
+               '에이블리', '지그재그', '브랜디', 'W컨셉', '코리아360', '네이버쇼핑', '카카오',
+               'LG생건', '프레시안', '기픈']   # 기사 속 타 브랜드·타사(대시보드 외)
 
 
 def _own(key):
@@ -167,11 +168,38 @@ def other_hits(key, text):
     return [o for o in _others(key) if o in t]
 
 
+# '자사가 키운/출신' 처럼 자사를 배경·출처로만 언급하는 표현 → 기사의 주인공은 다른 브랜드/기업
+REF_AFTER = re.compile(r'^\s*(가|이|의)?\s*(키운|육성한|길러낸|투자한|인수한|출신|입점\s*브랜드|입점사|납품|협력사|파트너사|에서\s*(성장|출발|시작))')
+
+
+def is_reference(key, text):
+    for a in _own(key):
+        for m in re.finditer(re.escape(a), text):
+            if REF_AFTER.search(text[m.end():m.end() + 14]):
+                return True
+    return False
+
+
+def _count(text, names):
+    return sum(text.count(n) for n in names if n)
+
+
+def about_others(key, text):
+    """본문(제목+요약)에서 타사·타 브랜드 언급 횟수가 자사 언급 이상이면 타사 중심 기사로 본다"""
+    own = _count(text, _own(key))
+    t = text
+    for a in sorted(_own(key), key=len, reverse=True):
+        t = t.replace(a, ' ')
+    oth = _count(t, _others(key))
+    return oth > 0 and oth >= own
+
+
 def article_ok(key, n):
-    """자사 기사 판정(글로벌용, 엄격): 제목에 자사 명칭이 있고, 제목·요약 어디에도 타사·경쟁사 명칭이 없어야 한다.
-    여러 기업이 함께 언급된 기사는 어느 기업의 기사로도 인용하지 않는다."""
+    """자사 기사 판정(글로벌용, 엄격): 제목에 자사 명칭이 있고, 제목에 타사가 없으며,
+    자사를 출처로만 언급(예: '컬리가 키운 브랜드')하거나 타사 중심인 기사는 제외한다."""
     hl = clean(n.get('hl'))
-    return has_own(key, hl) and not other_hits(key, hl + ' ' + clean(n.get('sum')))
+    full = hl + ' ' + clean(n.get('sum'))
+    return has_own(key, hl) and not other_hits(key, hl) and not is_reference(key, hl) and not about_others(key, full)
 
 
 def article_ok_ipo(key, n):
@@ -397,6 +425,10 @@ def selftest():
     assert r['global'][0]['region'] == '일본' and r['ipo']['signals'] == []
     # 자사 기사 필터: 타사 혼합 기사·타사 문장은 인용하지 않는다
     assert article_ok('kurly', {'hl': '컬리, 미국 진출 확대'})
+    assert not article_ok('kurly', {'hl': '"컬리가 키운 브랜드 이제 세계로"…LG생건 프레시안, K웰니스 뷰티 도전장', 'sum': ''})   # 타사 중심
+    assert not article_ok('kurly', {'hl': '컬리가 키운 브랜드 세계로', 'sum': ''})                                      # 출처로만 언급
+    assert not article_ok('boosterz', {'hl': "FSN 자회사 부스터즈 지원 '기픈', 무신사 뷰티 실시간 랭킹 1위", 'sum': ''})
+    assert not article_ok('musinsoa', {'hl': "FSN 자회사 부스터즈 지원 '기픈', 무신사 뷰티 실시간 랭킹 1위", 'sum': ''})
     assert not article_ok('kurly', {'hl': '컬리 동남아 진출', 'sum': '코리아360은 롯데백화점과 함께 동남아 진출'})   # 요약에 타사
     assert not article_ok('kurly', {'hl': '컬리 미국 진출', 'sum': '무신사·29CM도 미국 공략'})                      # 요약에 타 브랜드
     assert article_ok('kurly', {'hl': '컬리 미국 진출', 'sum': '뷰티컬리가 미국 소비자 대상 배송을 시작'})
