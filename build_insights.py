@@ -21,7 +21,7 @@ from pathlib import Path
 NAMES = {"kurly": "컬리", "musinsoa": "무신사", "oasis": "오아시스", "ohouse": "오늘의집", "goodai": "구다이글로벌", "founders": "더파운더즈", "vinow": "비나우", "olive": "올리브인터내셔널", "liman": "리만코리아", "grace": "그레이스", "2020": "이공이공", "bnb": "비앤비코리아", "lafati": "레페리", "nmodelin": "앤마들린", "rebom": "리봄화장품", "highlight": "하이라이트브랜즈", "hagohouse": "하고하우스", "boosterz": "부스터즈", "peacenow": "피스피스스튜디오", "grainon": "그레인온"}
 
 
-RULES_VERSION = 5     # 필터 규칙을 바꾸면 올린다 → 이전 누적 이력을 버리고 새 규칙으로 다시 만든다
+RULES_VERSION = 6     # 필터 규칙을 바꾸면 올린다 → 이전 누적 이력을 버리고 새 규칙으로 다시 만든다
 
 # 기업별 자사 명칭(회사명·브랜드). 이 이름이 제목에 있어야 '자사 기사'로 본다.
 ALIASES = {      # 모든 기업 동일 형식: [회사명, 대표 브랜드, 자회사…]  ← 이 목록에 있는 이름만 '자사'·'자사 상품'으로 본다
@@ -126,21 +126,27 @@ MAX_SIGNALS = 10
 MAX_REGIONS = 10
 MAX_ITEMS = 5
 WINDOW_MONTHS = 12      # 모든 기업 동일: 최근 12개월 기사만 반영
+NEW_MONTHS = 6          # '신규 진출' 판정 기간: 최근 6개월
 KST = timezone(timedelta(hours=9))
 LVL_ORDER = {'confirmed': 0, 'planned': 1, 'weak': 2}
 # 모든 기업 동일 판정 — 문장 단위로 '계획' 표현이 있으면 계획, 실제 행위 표현이 있으면 확정, 그 외(단순 언급)는 제외
 PLAN_RE = re.compile(r'추진|검토|계획|예정|목표|준비|노린다|노리|전망|방침|나선다|나설|타진|모색|저울질|도전장|하겠다|할\s*것|채비|앞두|'
                      r'(?:진출|입점|출시|론칭|런칭|오픈|확대|수출|공략)할|공략|겨냥')
 DONE_RE = re.compile(r'진출|입점|출점|론칭|런칭|출시|오픈|개점|문을\s*열|수출|공급\s*계약|계약을?\s*체결|계약\s*체결|법인\s*설립|설립했|'
-                     r'현지\s*법인|판매\s*개시|판매를\s*시작|선보|상륙|팝업.{0,6}(?:개최|운영|열|오픈)')
+                     r'현지\s*법인|(?:팝업|매장|점포|채널|입점|출점).{0,4}(?:확대|확장|추가)|\d\s*호점|판매\s*개시|판매를\s*시작|선보|상륙|팝업.{0,6}(?:개최|운영|열|오픈)')
 
 
+ENTRY_RE = re.compile(r'진출|상륙')                       # 기사에 '진출'이라고 직접 언급된 문장 → 신규 진출 판정에 사용
+EXPAND_RE = re.compile(r'확대|확장|추가|\d\s*호점|[2-9]호|늘|증가|급증|껑충|배\s*이상|성장|흥행|성료|본격|가속|확충|속도')
+WITHDRAW_RE = re.compile(r'철수|폐점|영업\s*종료|사업\s*중단|운영\s*중단|매각|청산|접는다|접기로')
 RESULT_RE = re.compile(r'통했다|찍고|성공|거래액|수출액|성료|흥행|돌파|달성|급증|증가|껑충|배\s*이상|신규\s*회원|방문|흑자|운영\s*중|계약을?\s*맺|독점\s*유통')
 FUTURE_RE = re.compile(r'예정|목표|계획|전망|방침|추진|검토|준비|나선다|나설|노린다|노리')
 
 
 def seg_level(seg):
     """문장 → 'done'(확정) / 'plan'(계획) / None(단순 언급·제외)"""
+    if WITHDRAW_RE.search(seg):
+        return 'done'
     if RESULT_RE.search(seg) and not FUTURE_RE.search(seg):      # 거래액·성료 등 실적/결과 표현 → 이미 진행된 해외 사업
         return 'done'
     if PLAN_RE.search(seg):
@@ -148,13 +154,13 @@ def seg_level(seg):
     return 'done' if DONE_RE.search(seg) else None
 
 
-def in_window(date, today=None):
+def in_window(date, today=None, months=None):
     m = re.match(r'(\d{4})\.(\d{1,2})', str(date or ''))
     if not m:
         return False
     t = today or datetime.now(KST)
     d = (t.year * 12 + t.month) - (int(m.group(1)) * 12 + int(m.group(2)))
-    return -1 <= d <= WINDOW_MONTHS
+    return -1 <= d <= (WINDOW_MONTHS if months is None else months)
 
 
 
@@ -193,7 +199,7 @@ def _hit(kind, t):
     return False
 
 
-GLOBAL_VERB = re.compile(r'영토\s*확장|거래액|수출액|총판|독점\s*유통|유통\s*계약|진출|수출|입점|출점|현지|법인|해외|글로벌|론칭|오픈|팝업|상륙|공략|매장|계약|파트너십|공급|납품|판매\s*개시|직진출|역직구|점유율|유통망|채널')
+GLOBAL_VERB = re.compile(r'철수|폐점|영업\s*종료|영토\s*확장|거래액|수출액|총판|독점\s*유통|유통\s*계약|진출|수출|입점|출점|현지|법인|해외|글로벌|론칭|오픈|팝업|상륙|공략|매장|계약|파트너십|공급|납품|판매\s*개시|직진출|역직구|점유율|유통망|채널')
 _DESC = r'(?!\s*(?:의\s*)?(?:클래식|패션|브랜드|디자이너|스타|배우|셀럽|기업|업체|유명|명품))'
 COUNTRIES = [
     ('미국', re.compile(r'(?:미국|미주|북미|\bUSA?\b|美(?=[\s·,…]|$))' + _DESC, re.I)),
@@ -275,9 +281,13 @@ def extract_global(key, n, company_name):
         if not regs and parts:
             regs = ['글로벌 채널']
         for r in regs:
-            e = res.setdefault(r, {'region': r, 'text': trim(seg), 'lvl': lvl, 'partners': set(), 'products': set()})
+            e = res.setdefault(r, {'region': r, 'text': trim(seg), 'lvl': lvl, 'entry': False, 'exp': False, 'wd': False, 'partners': set(), 'products': set()})
             if lvl == 'done' and e['lvl'] != 'done':         # 같은 기사에서 확정 표현이 있으면 확정 우선
                 e.update(text=trim(seg), lvl='done')
+            if lvl == 'done':
+                e['entry'] = e['entry'] or bool(ENTRY_RE.search(seg))
+                e['exp'] = e['exp'] or bool(EXPAND_RE.search(seg))
+                e['wd'] = e['wd'] or bool(WITHDRAW_RE.search(seg))
             e['partners'].update(parts)
             e['products'].update(products)
     return [{**e, 'partners': sorted(e['partners']), 'products': sorted(e['products'])} for e in res.values()]
@@ -295,6 +305,27 @@ def merge_signals(old, new):
     return out[:MAX_SIGNALS]
 
 
+TAG_ORDER = {'new': 0, 'expand': 1, 'ongoing': 2, 'withdraw': 3, 'planned': 4, 'weak': 5}
+
+
+def region_tag(level, items):
+    """국가별 태그: 신규 진출 / 확장 중 / 운영 중 / 축소·철수 / 예정 / 근거 약함 (모든 기업 동일 기준)
+    - 신규 진출: 최근 6개월 안에 '진출'이라고 직접 언급된 확정 기사가 있고, 6개월보다 오래된 확정 기사는 없을 때
+    - 확장 중: 최근 6개월 확정 기사에 확대 표현(추가·호점·증가 등)이 있을 때
+    - 축소·철수: 최근 6개월 기사에 철수·폐점·매각 표현이 있을 때"""
+    rec = lambda x: in_window(x.get('date'), months=NEW_MONTHS)
+    done = [x for x in items if x.get('lvl') == 'done']
+    if any(x.get('wd') and rec(x) for x in done):
+        return 'withdraw'
+    if level == 'confirmed':
+        if any(x.get('entry') and rec(x) for x in done) and not any(not rec(x) for x in done):
+            return 'new'
+        if any(x.get('exp') and rec(x) for x in done):
+            return 'expand'
+        return 'ongoing'
+    return 'planned' if level == 'planned' else 'weak'
+
+
 def merge_global(old, new):
     regs = {g['region']: {**g, 'items': list(g.get('items', [])), 'partners': set(g.get('partners', [])),
                           'products': set(g.get('products', []))} for g in old}
@@ -302,7 +333,8 @@ def merge_global(old, new):
         g = regs.setdefault(e['region'], {'region': e['region'], 'items': [], 'partners': set(), 'products': set()})
         g['partners'].update(e['partners'])
         g['products'].update(e['products'])
-        it = {'date': e['date'], 'text': e['text'], 'lvl': e.get('lvl', 'plan'), 'hl': e['hl'], 'url': e['url']}
+        it = {'date': e['date'], 'text': e['text'], 'lvl': e.get('lvl', 'plan'), 'entry': e.get('entry', False), 'exp': e.get('exp', False),
+              'wd': e.get('wd', False), 'hl': e['hl'], 'url': e['url']}
         dup = next((x for x in g['items'] if (x.get('url') and x.get('url') == it['url']) or x.get('text') == it['text']), None)
         if dup is None:
             g['items'].append(it)
@@ -318,14 +350,15 @@ def merge_global(old, new):
         done = {x.get('url') or x['hl'] for x in items if x.get('lvl') == 'done'}
         plan = {x.get('url') or x['hl'] for x in items if x.get('lvl') != 'done'} - done
         g['n_done'], g['n_plan'] = len(done), len(plan)
-        # 확정 1건 이상 → 확정 / 계획 2건 이상 → 계획 / 그 외 → 보도 1건(약함)
+        # 확정 1건 이상 → 확정 / 계획 2건 이상 → 계획 / 그 외 → 근거 약함
         g['level'] = 'confirmed' if done else ('planned' if len(plan) >= 2 else 'weak')
+        g['tag'] = region_tag(g['level'], items)
         g['items'] = items[:MAX_ITEMS]
         g['date'] = max(x.get('date', '') for x in items)
         g['partners'], g['products'] = sorted(g['partners']), sorted(g['products'])
         out.append(g)
     out.sort(key=lambda g: g['date'], reverse=True)
-    out.sort(key=lambda g: LVL_ORDER[g['level']])
+    out.sort(key=lambda g: TAG_ORDER[g['tag']])
     return out[:MAX_REGIONS]
 
 
@@ -349,6 +382,11 @@ def analyze(key, name, articles, prev, glb_extra=()):
                  and (clean(it.get('text')) == trim(clean(it.get('hl'))) or segment_ok(key, clean(it.get('text')), False))]
         for it in items:
             it['lvl'] = it.get('lvl') or seg_level(clean(it.get('text'))) or 'plan'
+            tx = clean(it.get('text'))
+            if it['lvl'] == 'done':
+                it.setdefault('entry', bool(ENTRY_RE.search(tx)))
+                it.setdefault('exp', bool(EXPAND_RE.search(tx)))
+                it.setdefault('wd', bool(WITHDRAW_RE.search(tx)))
         if items:
             old_glb.append({**g, 'items': items})
     return {'ipo': {'signals': merge_signals(old_sig, sig_new)},
@@ -429,6 +467,18 @@ def selftest():
     # 확정이 계획보다 위에 정렬
     r = analyze('musinsoa', '무신사', [], {}, [mk('무신사, 미국 진출 추진', NOW, 'b1'), mk('무신사, 일본 진출', OLD[:0] or NOW, 'a1')])
     assert [g['level'] for g in r['global']] == ['confirmed', 'weak']
+    # 태그: 신규 진출 / 확장 중 / 운영 중 / 축소·철수
+    M = lambda n: (datetime.now(KST) - timedelta(days=30 * n)).strftime('%Y.%m')
+    tg = lambda arts: analyze('musinsoa', '무신사', [], {}, arts)['global'][0]['tag']
+    assert tg([mk('무신사, 베트남 진출', M(1), 't1')]) == 'new'
+    assert tg([mk('무신사, 베트남 진출', M(1), 't1'), mk('무신사, 베트남 거래액 증가', M(9), 't0')]) == 'ongoing'   # 6개월 넘은 확정 기사가 있으면 신규 아님
+    assert tg([mk('무신사, 일본 팝업 오픈', M(1), 't2')]) == 'ongoing'                    # '진출' 언급 없음 → 신규 아님
+    assert tg([mk('무신사, 일본 진출', M(10), 't3')]) == 'ongoing'                         # 6개월 넘은 진출 → 운영 중
+    assert tg([mk('무신사, 일본 팝업 확대', M(1), 't4'), mk('무신사, 일본 진출', M(10), 't5')]) == 'expand'
+    assert tg([mk('무신사, 일본 거래액 증가', M(2), 't6')]) == 'expand'
+    assert tg([mk('무신사, 중국 매장 철수', M(1), 't7')]) == 'withdraw'
+    assert tg([mk('무신사, 미국 진출 추진', M(1), 'p1'), mk('무신사 미국 진출 검토', M(1), 'p2')]) == 'planned'
+    assert tg([mk('무신사, 미국 진출 추진', M(1), 'p1')]) == 'weak'
     print('분석 로직 OK')
 
 
