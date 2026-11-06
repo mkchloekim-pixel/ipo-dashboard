@@ -104,6 +104,7 @@ footer{margin-top:30px;font-size:11.5px;color:var(--text3);line-height:1.7}
   .card.wide{grid-column:auto}
   .search{width:100%;margin-left:0}
 }
+.gl.weak{opacity:.6}
 </style>
 </head>
 <body>
@@ -312,7 +313,7 @@ function summaryRow(c){
   if (stt.latest) ip.appendChild(el('span', 'chip ' + (stt.delay ? 'hi' : 'tag-ipo'), '기사: ' + (KIND_LABEL[stt.latest.kind] || '') + ' · ' + stt.latest.date));
   b.appendChild(ip);
   const gl = el('div', 'cell');
-  const gr = globalRegions(c), regs = [...new Set(gr.map(g => g.region).concat(c.globals.map(g => g.region)))];
+  const gr = globalRegions(c), regs = [...new Set(gr.filter(g => g.level !== 'weak').map(g => g.region).concat(c.globals.map(g => g.region)))];
   if (regs.length) regs.slice(0, 5).forEach(r => gl.appendChild(el('span', 'chip', r))); else gl.appendChild(el('span', 'empty', '–'));
   b.appendChild(gl);
   const nc = el('div', 'cell news-c');
@@ -444,7 +445,10 @@ function globalCard(c, nw){
     regs.forEach(g => {
       const row = el('div', 'gl'), body = el('div');
       row.appendChild(el('b', '', g.region));
-      (g.items || []).slice(0, 2).forEach(it => {
+      const lv = {confirmed: ['확정 ' + (g.n_done || 1) + '건', 'tag-glb'], planned: ['계획 ' + (g.n_plan || 2) + '건', 'tag-ipo'], weak: ['보도 1건 · 근거 약함', '']}[g.level] || ['', ''];
+      if (lv[0]){ const lc = el('div'); lc.appendChild(el('span', 'chip ' + lv[1], lv[0])); body.appendChild(lc); }
+      if (g.level === 'weak') row.classList.add('weak');
+      (g.items || []).slice(0, 3).forEach(it => {
         const u = safeUrl(it.url || ''), line = el('div', 'note');
         line.appendChild(document.createTextNode(it.text + ' '));
         line.appendChild(el('span', 'd', '(' + it.date + ')'));
