@@ -256,10 +256,35 @@ function classify(n){
   }
   return r;
 }
+/* 중복 기사 제거: 같은 URL, 같은 제목, 또는 제목이 매우 유사한(통신사 배포·언론사 재게재) 기사는 1건만 남긴다 */
+function normUrl(u){
+  try { const x = new URL(u); return (x.hostname.replace(/^www\./, '') + x.pathname).replace(/\/+$/, '').toLowerCase(); }
+  catch (e) { return ''; }
+}
+function normTitle(t){
+  return String(t || '').toLowerCase().replace(/\[[^\]]*\]|\([^)]*\)|【[^】]*】/g, ' ').replace(/[^0-9a-z가-힣]+/g, '');
+}
+function bigrams(t){ const s = new Set(); for (let i = 0; i < t.length - 1; i++) s.add(t.slice(i, i + 2)); return s; }
+function similar(a, b){
+  if (!a.size || !b.size) return false;
+  let inter = 0; a.forEach(x => { if (b.has(x)) inter++; });
+  return inter / Math.min(a.size, b.size) >= 0.7 && inter / (a.size + b.size - inter) >= 0.55;
+}
+function dedupeNews(arr){
+  const keep = [];
+  for (const n of arr){
+    const u = normUrl(n.url), t = normTitle(n.hl), bg = bigrams(t);
+    const i = keep.findIndex(k => (u && u === k.u) || (t && t === k.t) || similar(bg, k.bg));
+    if (i < 0){ keep.push({n, u, t, bg}); continue; }
+    const k = keep[i];                                   // 요약이 더 길거나 날짜가 더 이른 쪽을 대표로 유지
+    if (String(n.sum || '').length > String(k.n.sum || '').length) k.n = {...n, date: k.n.date > n.date ? n.date : k.n.date};
+  }
+  return keep.map(k => k.n);
+}
 function newsOf(c){
   const live = Array.isArray(NEWS[c.key]) && NEWS[c.key].length ? NEWS[c.key] : null;
-  const list = (live || c.news).map(n => ({...n, cls:classify(n)}));
-  list.sort((a, b) => String(b.date).localeCompare(String(a.date)));
+  const src = (live || c.news).slice().sort((a, b) => String(b.date).localeCompare(String(a.date)));
+  const list = dedupeNews(src).map(n => ({...n, cls:classify(n)}));
   return {list, live: !!live};
 }
 

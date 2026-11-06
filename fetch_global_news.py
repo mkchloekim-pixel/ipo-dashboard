@@ -46,6 +46,26 @@ COMPANIES = {
     'rebom':    (['리봄화장품'], []),
 }
 
+# 타사 혼합 기사를 걸러내기 위한 경쟁사·유통사 (투자자·증권사·파트너는 넣지 않는다)
+COMPETITORS = ['롯데백화점', '롯데쇼핑', '롯데온', '롯데', '신세계', '현대백화점', '이마트', '쿠팡', 'SSG', '홈플러스',
+               '올리브영', '11번가', 'G마켓', '알리익스프레스', '테무', '아모레퍼시픽', 'LG생활건강', '다이소',
+               '에이블리', '지그재그', '브랜디', 'W컨셉', '코리아360', '네이버쇼핑', '카카오']
+
+
+def others_for(key):
+    own = COMPANIES[key][0]
+    pool = [n for k, (names, _) in COMPANIES.items() if k != key for n in names] + COMPETITORS
+    return [o for o in pool if o and not any(o in a or a in o for a in own)]
+
+
+def mixed_title(title, names, others):
+    """제목에서 자사 명칭 부분을 빼고도 타사·경쟁사 명칭이 남아 있으면 혼합 기사로 본다"""
+    t = title
+    for a in sorted(names, key=len, reverse=True):
+        t = t.replace(a, ' ')
+    return any(o in t for o in others)
+
+
 # 해외 사업 문맥 + 국가/파트너 중 하나
 GLOBAL_CTX = re.compile(r'진출|수출|입점|출점|현지|법인|해외|글로벌|론칭|오픈|팝업|상륙|공략|매장|계약|파트너십|공급|납품|역직구|유통망|채널')
 PLACES = re.compile(r'미국|미주|북미|일본|중국|상하이|베이징|티몰|동남아|베트남|태국|인도네시아|말레이시아|싱가포르|필리핀|유럽|영국|프랑스|독일|이탈리아|스페인|'
@@ -68,12 +88,14 @@ def to_ym(pub):
         return ''
 
 
-def keep_article(title, desc, names, exclude):
+def keep_article(title, desc, names, exclude, others=()):
     """제목에 회사/브랜드명, 해외 문맥+국가/파트너 존재, 제외 키워드 없음, IPO 전용 기사 아님"""
     full = title + ' ' + desc
     if not any(n in title for n in names):
         return False
     if any(x in full for x in exclude):
+        return False
+    if others and mixed_title(title, names, others):          # 타사·경쟁사가 제목에 함께 나오면 제외
         return False
     if not (GLOBAL_CTX.search(full) and PLACES.search(full)):
         return False
@@ -93,14 +115,36 @@ def fetch_query(session, headers, q):
     return r.json().get('items', [])
 
 
+def _norm_title(t):
+    t = re.sub(r'\[[^\]]*\]|\([^)]*\)|【[^】]*】', ' ', (t or '').lower())
+    return re.sub(r'[^0-9a-z가-힣]+', '', t)
+
+
+def _norm_url(u):
+    m = re.match(r'^https?://(?:www\.)?([^?#]+)', u or '')
+    return m.group(1).rstrip('/').lower() if m else (u or '')
+
+
+def _bg(t):
+    return {t[i:i + 2] for i in range(len(t) - 1)}
+
+
+def _similar(a, b):
+    if not a or not b:
+        return False
+    i = len(a & b)
+    return i / min(len(a), len(b)) >= 0.7 and i / len(a | b) >= 0.55
+
+
 def merge(old, new):
-    seen, out = set(), []
+    kept = []                                    # (url, title, bigrams, article)
     for a in new + old:
-        k = a.get('url') or a['hl']
-        if k in seen:
-            continue
-        seen.add(k)
-        out.append(a)
+        u, t = _norm_url(a.get('url')), _norm_title(a['hl'])
+        b = _bg(t)
+        if any((u and u == k[0]) or (t and t == k[1]) or _similar(b, k[2]) for k in kept):
+            continue                             # 같은 URL·같은 제목·유사 제목은 1건만
+        kept.append((u, t, b, a))
+    out = [k[3] for k in kept]
     out.sort(key=lambda a: a.get('date', ''), reverse=True)
     return out[:KEEP_PER_CO]
 
@@ -115,7 +159,15 @@ def selftest():
     assert keep_article('컬리, 미국 진출…역직구 확대', '', ['컬리'], ['단발'])
     m = merge([{'hl': 'a', 'url': 'u1', 'date': '2026.01'}], [{'hl': 'a2', 'url': 'u1', 'date': '2026.02'}, {'hl': 'b', 'url': 'u2', 'date': '2026.03'}])
     assert [x['url'] for x in m] == ['u2', 'u1'] and m[1]['hl'] == 'a2'
+    d = merge([], [{'hl': '컬리, 미국 진출 [단독]', 'url': 'https://a.com/1?x=1', 'date': '2026.05'},
+                   {'hl': '컬리 미국 진출', 'url': 'https://b.com/2', 'date': '2026.05'},
+                   {'hl': '컬리, 미국 진출…역직구 확대', 'url': 'https://c.com/3', 'date': '2026.05'},
+                   {'hl': '조선미녀 세포라 입점', 'url': 'https://a.com/1', 'date': '2026.04'}])
+    assert len(d) == 2, d                                                  # 중복 제거
     assert safe_url('javascript:alert(1)') == '' and safe_url('https://a.com') == 'https://a.com'
+    oth = others_for('kurly')
+    assert keep_article('컬리, 미국 진출…역직구 확대', '', ['컬리'], [], oth)
+    assert not keep_article('롯데백화점·컬리, 동남아 진출 경쟁', '', ['컬리'], [], oth)          # 타사 혼합
     assert clean('<b>가</b>&quot;나&quot;') == '가"나"'
     print('필터 로직 OK')
 
@@ -147,6 +199,7 @@ def main():
     result, total = {}, 0
     for key, (names, exclude) in COMPANIES.items():
         found, errors = [], 0
+        others = others_for(key)
         for name in names[:3]:
             for suf in SUFFIXES:
                 try:
@@ -159,7 +212,7 @@ def main():
                     continue
                 for it in items:
                     title, desc = clean(it.get('title')), clean(it.get('description'))
-                    if keep_article(title, desc, names, exclude):
+                    if keep_article(title, desc, names, exclude, others):
                         found.append({'date': to_ym(it.get('pubDate', '')), 'hl': title,
                                       'sum': desc[:150], 'url': safe_url(it.get('originallink') or it.get('link', ''))})
         merged = merge(existing.get(key, []), found)
