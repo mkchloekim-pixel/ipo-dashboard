@@ -224,6 +224,16 @@
        "url": "http://www.beyondpost.co.kr/view.php?ud=20261103150100579546a9e4dd7f_30"
       },
       {
+       "date": "2026.11",
+       "text": "미국에서 선스크린이 일반의약품 규제 체계의 적용을 받는 가운데, 스킨1004는 미국 OTC 관련 등록 절차가 완료된 제품을 현지 시장에 선보이고 있다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "스킨1004, 글로벌 판매 성과...실리콘투, 'K-beauty by StyleKorean' 팝업",
+       "url": "https://www.slist.kr/news/articleView.html?idxno=779891"
+      },
+      {
        "date": "2026.10",
        "text": "'조선미녀' 성공 DNA 담았다…美 시장 겨냥 '뎁티' 론칭",
        "lvl": "done",
@@ -252,16 +262,6 @@
        "wd": false,
        "hl": "'전략 수정' 구다이글로벌, 포트폴리오 다각화 통할까?",
        "url": "http://www.the-biz.co.kr/news/articleView.html?idxno=730075"
-      },
-      {
-       "date": "2026.10",
-       "text": "25일 뷰티업계에 따르면 구다이글로벌의 스킨케어 브랜드 조선미녀는 지난 6~7일 진행된 아마존 '프라임 빅딜 데이즈'에서 미국과 독일, 영국 등 주요 시장의 매…",
-       "lvl": "done",
-       "entry": false,
-       "exp": true,
-       "wd": false,
-       "hl": "독일 아이세럼 판매 459%↑…조선미녀, 美·유럽서 흥행 품목 확대",
-       "url": "https://www.news1.kr/industry/general-industry/6328507"
       }
      ],
      "partners": [
@@ -279,7 +279,7 @@
       "조선미녀",
       "티르티르"
      ],
-     "n_done": 5,
+     "n_done": 6,
      "n_plan": 2,
      "level": "confirmed",
      "tag": "new",
@@ -2287,5 +2287,5 @@
   }
  },
  "_rules": 10,
- "_updated": "2026-11-08T09:57:10 KST"
+ "_updated": "2026-11-08T10:27:31 KST"
 }
