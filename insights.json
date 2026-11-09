@@ -551,16 +551,6 @@
      "items": [
       {
        "date": "2026.10",
-       "text": "25일 뷰티업계에 따르면 구다이글로벌의 스킨케어 브랜드 조선미녀는 지난 6~7일 진행된 아마존 '프라임 빅딜 데이즈'에서 미국과 독일, 영국 등 주요 시장의 매…",
-       "lvl": "done",
-       "entry": false,
-       "exp": true,
-       "past": false,
-       "hl": "독일 아이세럼 판매 459%↑…조선미녀, 美·유럽서 흥행 품목 확대",
-       "url": "https://www.news1.kr/industry/general-industry/6328507"
-      },
-      {
-       "date": "2026.10",
        "text": "◇영국 오프라인 유통망 확충, 현지법인 설립도 영국에서의 성장세는",
        "lvl": "done",
        "entry": true,
@@ -568,6 +558,16 @@
        "past": false,
        "hl": "[더벨]조선미녀, 아마존 빅딜서 영국 매출 4배…유럽 성장세 부각",
        "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
+      },
+      {
+       "date": "2026.10",
+       "text": "25일 뷰티업계에 따르면 구다이글로벌의 스킨케어 브랜드 조선미녀는 지난 6~7일 진행된 아마존 '프라임 빅딜 데이즈'에서 미국과 독일, 영국 등 주요 시장의 매…",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "독일 아이세럼 판매 459%↑…조선미녀, 美·유럽서 흥행 품목 확대",
+       "url": "https://www.news1.kr/industry/general-industry/6328507"
       }
      ],
      "n_done": 2,
@@ -1022,6 +1022,7 @@
    ],
    "investors": [],
    "max_items": 1,
+   "max_articles": 1,
    "invest_summary": "Series B: 투자사명 비공개",
    "base_investors": []
   },
@@ -1509,27 +1510,6 @@
      "key": false
     },
     {
-     "region": "일본",
-     "items": [
-      {
-       "date": "2025.12",
-       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": true,
-       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
-       "url": "http://www.fnnews.com/news/202512081820152004"
-      }
-     ],
-     "n_done": 1,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "ongoing",
-     "date": "2025.12",
-     "key": false
-    },
-    {
      "region": "동남아",
      "items": [
       {
@@ -1554,6 +1534,27 @@
       }
      ],
      "n_done": 2,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2025.12",
+     "key": false
+    },
+    {
+     "region": "일본",
+     "items": [
+      {
+       "date": "2025.12",
+       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
+       "url": "http://www.fnnews.com/news/202512081820152004"
+      }
+     ],
+     "n_done": 1,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -2387,6 +2388,9 @@
      "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815",
      "hl": "FSN 자회사 부스터즈, 374억 투자유치...몸값 1900억 '껑충'"
     }
+   ],
+   "exclude": [
+    "커머스부문"
    ]
   },
   "nmodelin": {
@@ -2428,6 +2432,7 @@
      "url": "https://zdnet.co.kr/view/?no=20250819180628"
     }
    ],
+   "hide_articles": true,
    "invest_summary": "Series A: 위벤처스 · 인탑스인베스트먼트 · 에이치지이니셔티브 (누적 30억원)",
    "base_investors": [
     {
@@ -2484,5 +2489,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-09T14:05:28 KST"
+ "_updated": "2026-11-09T14:11:23 KST"
 }
