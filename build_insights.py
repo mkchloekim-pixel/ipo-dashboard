@@ -3,8 +3,8 @@ news.json(네이버 뉴스 자동 수집 결과) → insights.json 자동 생성
 
 - IPO 신호 : 기사에서 진행 단계(Pre-IPO / 주관사 선정 / 예심 청구 / 예심 승인 / 공모·수요예측 / 상장 완료)와
              지연·철회 신호를 키워드로 분류해 날짜순으로 누적한다. (뉴스가 5건만 유지돼도 이력은 남음)
-- 글로벌   : 해외 사업 문맥(진출·수출·입점·현지법인 등)이 있는 문장에서 국가 / 파트너사 / 상품을 추출해
-             국가별 핵심 문장 1~3개로 요약·누적한다.
+- 글로벌   : 해외 사업 문맥(진출·수출·입점·현지법인 등)이 있는 문장에서 국가를 추출해
+             국가별 핵심 문장 1~3개로 요약·누적하고, 국가별 진출 상태 태그를 붙인다.
 - 규칙 기반(키워드) 분류이므로 오분류가 있을 수 있다. 화면에는 근거 기사 링크를 함께 표시한다.
 - 외부 서비스 호출 없음(로컬 파일만 읽고 씀). 키·토큰 불필요.
 
@@ -17,14 +17,13 @@ import argparse, json, re, sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-# 회사별 브랜드/상품명 (글로벌 상품 추출용)
 NAMES = {"kurly": "컬리", "musinsoa": "무신사", "oasis": "오아시스", "ohouse": "오늘의집", "goodai": "구다이글로벌", "founders": "더파운더즈", "vinow": "비나우", "olive": "올리브인터내셔널", "liman": "리만코리아", "grace": "그레이스", "2020": "이공이공", "bnb": "비앤비코리아", "lafati": "레페리", "nmodelin": "앤마들린", "rebom": "리봄화장품", "highlight": "하이라이트브랜즈", "hagohouse": "하고하우스", "boosterz": "부스터즈", "peacenow": "피스피스스튜디오", "grainon": "그레인온"}
 
 
-RULES_VERSION = 10     # 필터 규칙을 바꾸면 올린다 → 이전 누적 이력을 버리고 새 규칙으로 다시 만든다
+RULES_VERSION = 11     # 필터 규칙을 바꾸면 올린다 → 이전 누적 이력을 버리고 새 규칙으로 다시 만든다
 
 # 기업별 자사 명칭(회사명·브랜드). 이 이름이 제목에 있어야 '자사 기사'로 본다.
-ALIASES = {      # 모든 기업 동일 형식: [회사명, 대표 브랜드, 자회사…]  ← 이 목록에 있는 이름만 '자사'·'자사 상품'으로 본다
+ALIASES = {      # 모든 기업 동일 형식: [회사명, 대표 브랜드, 자회사…]  ← 이 목록에 있는 이름만 '자사'로 본다
     'musinsoa': ['무신사', '무신사 스탠다드', '무신사 뷰티', '29CM'],
     'kurly': ['컬리', '마켓컬리', '뷰티컬리'],
     'ohouse': ['오늘의집', '버킷플레이스'],
@@ -142,9 +141,8 @@ MAX_SIGNALS = 10
 MAX_REGIONS = 10
 MAX_ITEMS = 5
 WINDOW_MONTHS = 12      # 모든 기업 동일: 최근 12개월 기사만 반영
-NEW_MONTHS = 6          # '신규 진출' 판정 기간: 최근 6개월
+NEW_MONTHS = 6          # '신규 진출'·'확장 중' 판정 기간: 최근 6개월
 KST = timezone(timedelta(hours=9))
-LVL_ORDER = {'confirmed': 0, 'planned': 1, 'weak': 2}
 # 모든 기업 동일 판정 — 문장 단위로 '계획' 표현이 있으면 계획, 실제 행위 표현이 있으면 확정, 그 외(단순 언급)는 제외
 OVERSEAS_SALES_RE = re.compile(r'해외\s*매출|수출\s*비중|수출\s*매출|매출\s*비중|해외\s*비중|해외\s*수출')   # 상장 기사 속 '해외 매출 비중' 문장은 진출 근거로 인정
 PLAN_RE = re.compile(r'추진|검토|계획|예정|목표|준비|노린다|노리|전망|방침|나선다|나설|타진|모색|저울질|도전장|하겠다|할\s*것|채비|앞두|'
@@ -183,7 +181,6 @@ def in_window(date, today=None, months=None):
     t = today or datetime.now(KST)
     d = (t.year * 12 + t.month) - (int(m.group(1)) * 12 + int(m.group(2)))
     return -1 <= d <= (WINDOW_MONTHS if months is None else months)
-
 
 
 IPO_GATE = re.compile(r'상장|IPO|기업공개|예심|예비심사|공모|주관사', re.I)
@@ -239,6 +236,7 @@ COUNTRIES = [
     ('중앙아시아·러시아', re.compile(r'(?:몽골|카자흐스탄|우즈벡|우즈베키스탄|러시아|CIS)' + _DESC)),
     ('튀르키예·아프리카', re.compile(r'(?:튀르키예|터키|아프리카|이집트)' + _DESC)),
 ]
+# 국가는 없고 해외 유통 플랫폼만 언급된 문장을 '글로벌 채널'로 묶기 위한 목록(화면에는 파트너 태그로 표시하지 않는다)
 PARTNERS = ['아마존', '세포라', '울타', '돈키호테', '라쿠텐', '쇼피', '틱톡샵', '티몰', '큐텐', '코스트코', '월마트',
             '타깃', '얼타', '로프트', '도큐핸즈', '라자다', '타오바오', '샤오홍슈', '틱톡', 'DHL', '로손', '아이허브', 'Amazon', 'Sephora', 'Ulta', 'Shopee', 'TikTok Shop', 'Costco',
             'Walmart', 'Target']
@@ -278,17 +276,9 @@ def trim(s, n=90):
 
 
 def extract_global(key, n, company_name):
-    """기사 1건 → [{'region','text','partners','products'}]  (해외 문맥 문장 기준)"""
+    """기사 1건 → [{'region','text','lvl','entry','exp','wd'}]  (해외 문맥 문장 기준)"""
     if not article_ok(key, n):                               # 타사 혼합·타사 기사는 인용하지 않는다
         return []
-    full = article_text(n)
-    company_name = company_name or NAMES.get(key, '')
-    brands = [b for b in _own(key) if b and not (company_name and (b in company_name or company_name in b))]
-    prods = {}
-    for b in brands:
-        if b in full:
-            prods.setdefault(b.replace(' ', ''), b)           # '마르디 메크르디'/'마르디메크르디' 같은 표기 중복 제거
-    products = sorted(prods.values())
     res = {}
     for i, seg in enumerate(segments(n)):
         if not segment_ok(key, seg, i == 0, clean(n.get('hl'))):                 # 요약 문장은 자사 명칭이 직접 있는 문장만
@@ -305,16 +295,14 @@ def extract_global(key, n, company_name):
         if not regs and parts:
             regs = ['글로벌 채널']
         for r in regs:
-            e = res.setdefault(r, {'region': r, 'text': trim(seg), 'lvl': lvl, 'entry': False, 'exp': False, 'wd': False, 'partners': set(), 'products': set()})
+            e = res.setdefault(r, {'region': r, 'text': trim(seg), 'lvl': lvl, 'entry': False, 'exp': False, 'wd': False})
             if lvl == 'done' and e['lvl'] != 'done':         # 같은 기사에서 확정 표현이 있으면 확정 우선
                 e.update(text=trim(seg), lvl='done')
             e['exp'] = e['exp'] or bool(EXPAND_RE.search(seg))      # 확대·공략 표현은 확정/계획 문장 모두 기록
             if lvl == 'done':
                 e['entry'] = e['entry'] or bool(ENTRY_RE.search(seg) and not CURRENT_RE.search(seg))   # '입점해 있다'는 이미 진출한 상태
                 e['wd'] = e['wd'] or bool(WITHDRAW_RE.search(seg))
-            e['partners'].update(parts)
-            e['products'].update(products)
-    return [{**e, 'partners': sorted(e['partners']), 'products': sorted(e['products'])} for e in res.values()]
+    return list(res.values())
 
 
 def merge_signals(old, new):
@@ -333,30 +321,32 @@ TAG_ORDER = {'new': 0, 'expand': 1, 'ongoing': 2, 'withdraw': 3, 'planned': 4, '
 
 
 def region_tag(level, items):
-    """국가별 태그: 신규 진출 / 확장 중 / 운영 중 / 축소·철수 / 예정 / 근거 약함 (모든 기업 동일 기준)
-    - 신규 진출: 최근 6개월 안에 '진출'이라고 직접 언급된 확정 기사가 있고, 6개월보다 오래된 확정 기사는 없을 때
-    - 확장 중: 최근 6개월 기사(확정·계획 모두)에 확대·공략 표현(판매처 확대·공략·추가·증가 등)이 있을 때
-    - 축소·철수: 최근 6개월 기사에 철수·폐점·매각 표현이 있을 때"""
+    """국가별 태그 — 모든 기업 동일. 위에서부터 먼저 해당하는 것을 적용하고, 애매하면 '진출'(진출 여부만)로 둔다.
+      1) 철수       : 최근 6개월 기사에 철수·폐점·매각·영업종료 표현
+      2) 예정       : 진출 확정 기사는 없고 계획 기사 2건 이상      / 근거 약함: 계획 기사 1건
+      3) 신규 진출  : 진출 확정 기사가 있고, 최근 6개월 안에 '진출·상륙·입점·출점·론칭' 표현 기사가 있으며,
+                      6개월보다 오래된 확정 기사는 없음 (최근 12개월 기준)
+      4) 확장 중    : 진출 확정 기사가 있고, 최근 6개월 안에 확대·공략·증가 표현이 있는 서로 다른 기사가 2건 이상
+      5) 진출(ongoing): 진출 확정 기사는 있으나 3)·4)에 해당하지 않음(= 기사가 부족하거나 애매한 경우)
+    """
     rec = lambda x: in_window(x.get('date'), months=NEW_MONTHS)
+    key = lambda x: x.get('url') or x.get('hl')
     done = [x for x in items if x.get('lvl') == 'done']
     if any(x.get('wd') and rec(x) for x in done):
         return 'withdraw'
-    if level == 'confirmed':
-        if any(x.get('entry') and rec(x) for x in done) and not any(not rec(x) for x in done):
-            return 'new'
-        if any(x.get('exp') and rec(x) for x in items):
-            return 'expand'
-        return 'ongoing'
-    return 'planned' if level == 'planned' else 'weak'
+    if level != 'confirmed':
+        return 'planned' if level == 'planned' else 'weak'
+    if any(x.get('entry') and rec(x) for x in done) and not any(not rec(x) for x in done):
+        return 'new'
+    if len({key(x) for x in items if x.get('exp') and rec(x)}) >= 2:
+        return 'expand'
+    return 'ongoing'
 
 
 def merge_global(old, new):
-    regs = {g['region']: {**g, 'items': list(g.get('items', [])), 'partners': set(g.get('partners', [])),
-                          'products': set(g.get('products', []))} for g in old}
+    regs = {g['region']: {'region': g['region'], 'items': list(g.get('items', []))} for g in old}
     for e in new:
-        g = regs.setdefault(e['region'], {'region': e['region'], 'items': [], 'partners': set(), 'products': set()})
-        g['partners'].update(e['partners'])
-        g['products'].update(e['products'])
+        g = regs.setdefault(e['region'], {'region': e['region'], 'items': []})
         it = {'date': e['date'], 'text': e['text'], 'lvl': e.get('lvl', 'plan'), 'entry': e.get('entry', False), 'exp': e.get('exp', False),
               'wd': e.get('wd', False), 'hl': e['hl'], 'url': e['url']}
         dup = next((x for x in g['items'] if (x.get('url') and x.get('url') == it['url']) or x.get('text') == it['text']), None)
@@ -379,7 +369,6 @@ def merge_global(old, new):
         g['tag'] = region_tag(g['level'], items)
         g['items'] = items[:MAX_ITEMS]
         g['date'] = max(x.get('date', '') for x in items)
-        g['partners'], g['products'] = sorted(g['partners']), sorted(g['products'])
         out.append(g)
     out.sort(key=lambda g: g['date'], reverse=True)
     out.sort(key=lambda g: TAG_ORDER[g['tag']])
@@ -412,7 +401,7 @@ def analyze(key, name, articles, prev, glb_extra=()):
                 it.setdefault('entry', bool(ENTRY_RE.search(tx) and not CURRENT_RE.search(tx)))
                 it.setdefault('wd', bool(WITHDRAW_RE.search(tx)))
         if items:
-            old_glb.append({**g, 'items': items})
+            old_glb.append({'region': g['region'], 'items': items})
     return {'ipo': {'signals': merge_signals(old_sig, sig_new)},
             'global': merge_global(old_glb, glb_new)}
 
@@ -420,6 +409,7 @@ def analyze(key, name, articles, prev, glb_extra=()):
 def selftest():
     NOW = datetime.now(KST).strftime('%Y.%m')
     OLD = (datetime.now(KST) - timedelta(days=500)).strftime('%Y.%m')
+    M = lambda n: (datetime.now(KST) - timedelta(days=30 * n)).strftime('%Y.%m')
     n = {'hl': '무신사, 코스피 상장예비심사 청구', 'sum': '한국투자·씨티 주관. 공모 2,660만주 예정.', 'url': 'u1', 'date': '2026.09'}
     assert classify_ipo(n) == 'filed'
     assert classify_ipo({'hl': 'A사 IPO 주관사 선정 확정', 'sum': ''}) == 'lead'
@@ -432,75 +422,66 @@ def selftest():
     assert classify_ipo({'hl': 'I사 예심 청구 일정 확정 예정', 'sum': ''}) is None
     assert classify_ipo({'hl': 'D사 수요예측 흥행, 공모가 확정', 'sum': ''}) == 'offering'
     g = extract_global('goodai', {'hl': '스킨1004, 일본 돈키호테 입점 확대', 'sum': '조선미녀도 일본 현지 매장 오픈.'}, '구다이글로벌')
-    assert [e['region'] for e in g] == ['일본'] and 'DHL' not in g[0]['partners'] and '돈키호테' in g[0]['partners']
-    g = extract_global('goodai', {'hl': '스킨1004, 일본 돈키호테 입점 확대', 'sum': ''}, '구다이글로벌')
-    assert g[0]['products'] == ['스킨1004'] and g[0]['lvl'] == 'done'
-    # 해외 문맥 없는 '미국 브랜드' 협업 기사는 제외
+    assert [e['region'] for e in g] == ['일본'] and g[0]['lvl'] == 'done'
     assert extract_global('musinsoa', {'hl': '무신사, 미국 클래식 패션 브랜드와 협업 컬렉션 선발매', 'sum': ''}, '무신사') == []
     assert extract_global('goodai', {'hl': '구다이글로벌 자회사, 일본 IPO 무산위기', 'sum': ''}, '구다이글로벌') == []
-    # 파트너만 있는 경우
     assert extract_global('kurly', {'hl': '컬리, 아마존 입점', 'sum': ''}, '컬리')[0]['region'] == '글로벌 채널'
-    # 누적: 뉴스가 사라져도 이력 유지, 중복 제거
     prev = analyze('musinsoa', '무신사', [n], {})
     again = analyze('musinsoa', '무신사', [], prev)
     assert again['ipo']['signals'][0]['kind'] == 'filed'
     twice = analyze('musinsoa', '무신사', [n], prev)
     assert len(twice['ipo']['signals']) == 1
-    # 해외 전용 수집분은 글로벌 요약에만 반영(IPO 신호에는 영향 없음)
     r = analyze('goodai', '구다이글로벌', [], {}, [{'hl': '스킨1004, 일본 돈키호테 입점', 'sum': '', 'url': 'g1', 'date': NOW}])
     assert r['global'][0]['region'] == '일본' and r['ipo']['signals'] == [] and r['global'][0]['level'] == 'confirmed'
-    # 자사 기사 필터: 타사 혼합 기사·타사 문장은 인용하지 않는다
+    # 자사 기사 필터
     assert article_ok('kurly', {'hl': '컬리, 미국 진출 확대'})
-    assert not article_ok('kurly', {'hl': '"컬리가 키운 브랜드 이제 세계로"…LG생건 프레시안, K웰니스 뷰티 도전장', 'sum': ''})   # 타사 중심
-    assert not article_ok('kurly', {'hl': '컬리가 키운 브랜드 세계로', 'sum': ''})                                      # 출처로만 언급
+    assert not article_ok('kurly', {'hl': '"컬리가 키운 브랜드 이제 세계로"…LG생건 프레시안, K웰니스 뷰티 도전장', 'sum': ''})
+    assert not article_ok('kurly', {'hl': '컬리가 키운 브랜드 세계로', 'sum': ''})
     assert not article_ok('boosterz', {'hl': "FSN 자회사 부스터즈 지원 '기픈', 무신사 뷰티 실시간 랭킹 1위", 'sum': ''})
     assert not article_ok('musinsoa', {'hl': "FSN 자회사 부스터즈 지원 '기픈', 무신사 뷰티 실시간 랭킹 1위", 'sum': ''})
-    assert not article_ok('kurly', {'hl': '컬리 동남아 진출', 'sum': '코리아360은 롯데백화점과 함께 동남아 진출'})   # 요약에 타사
-    assert not article_ok('kurly', {'hl': '컬리 미국 진출', 'sum': '무신사·29CM도 미국 공략'})                      # 요약에 타 브랜드
+    assert not article_ok('kurly', {'hl': '컬리 동남아 진출', 'sum': '코리아360은 롯데백화점과 함께 동남아 진출'})
+    assert not article_ok('kurly', {'hl': '컬리 미국 진출', 'sum': '무신사·29CM도 미국 공략'})
     assert article_ok('kurly', {'hl': '컬리 미국 진출', 'sum': '뷰티컬리가 미국 소비자 대상 배송을 시작'})
-    assert not article_ok('kurly', {'hl': '롯데백화점·컬리, 동남아 진출 경쟁'})        # 제목에 타사
-    assert not article_ok('kurly', {'hl': '롯데백화점, 동남아 진출'})                  # 제목에 자사 없음
+    assert not article_ok('kurly', {'hl': '롯데백화점·컬리, 동남아 진출 경쟁'})
+    assert not article_ok('kurly', {'hl': '롯데백화점, 동남아 진출'})
     mixed = {'hl': '컬리, 오프라인 확대', 'sum': '코리아360은 롯데백화점과 동남아 진출을 추진한다.'}
-    assert extract_global('kurly', mixed, '컬리') == []                              # 요약 문장에 자사 명칭 없음
+    assert extract_global('kurly', mixed, '컬리') == []
     ok = {'hl': '컬리, 뷰티컬리 일본 진출', 'sum': '컬리는 일본 현지 팝업을 열었다.'}
     assert [e['region'] for e in extract_global('kurly', ok, '컬리')] == ['일본']
     assert other_hits('olive', '올리브인터내셔널과 올리브영') == ['올리브영']
-    r = analyze('kurly', '컬리', [mixed], {'global': [{'region': '동남아', 'items': [{'date': '2026.11', 'text': '코리아360은 동남아', 'hl': '컬리, 오프라인 확대', 'url': ''}], 'partners': [], 'products': []}]})
-    assert r['global'] == [], r                                                      # 이전 이력의 잘못된 항목도 제거
+    r = analyze('kurly', '컬리', [mixed], {'global': [{'region': '동남아', 'items': [{'date': '2026.11', 'text': '코리아360은 동남아', 'hl': '컬리, 오프라인 확대', 'url': ''}]}]})
+    assert r['global'] == [], r
     assert article_ok_ipo('grainon', {'hl': '신한투자증권 IPO 주관사 선정', 'sum': '그레인온은 27.1Q 상장을 목표로 한다.'})
-    assert not article_ok_ipo('highlight', {'hl': '무신사 풍선효과 노린다…하이라이트브랜즈 상장 저울질', 'sum': ''})   # 제목에 타사
-    # 공통 기준: 확정 / 계획 / 단순 언급 구분
+    assert not article_ok_ipo('highlight', {'hl': '무신사 풍선효과 노린다…하이라이트브랜즈 상장 저울질', 'sum': ''})
+    # 문장 단계
     assert seg_level('조선미녀, 일본 돈키호테 입점') == 'done'
     assert seg_level('컬리, 미국 진출 추진') == 'plan'
     assert seg_level('일본 시장 공략 나선다') == 'plan'
     assert seg_level('일본 소비자 반응 뜨겁다') is None
-    assert extract_global('kurly', {'hl': '컬리, 일본 소비자 반응 뜨겁다 해외 글로벌 채널', 'sum': ''}, '컬리') == []     # 단순 언급 제외
+    assert extract_global('kurly', {'hl': '컬리, 일본 소비자 반응 뜨겁다 해외 글로벌 채널', 'sum': ''}, '컬리') == []
+
     def mk(h, d, u):
         return {'hl': h, 'sum': '', 'url': u, 'date': d}
-    # 확정 1건 → 확정
     r = analyze('musinsoa', '무신사', [], {}, [mk('무신사, 일본 진출', NOW, 'a1')])
     assert r['global'][0]['level'] == 'confirmed' and r['global'][0]['n_done'] == 1
-    # 계획 1건 → 약함(보도 1건), 계획 2건 → 계획
     r = analyze('musinsoa', '무신사', [], {}, [mk('무신사, 미국 진출 추진', NOW, 'b1')])
     assert r['global'][0]['level'] == 'weak'
     r = analyze('musinsoa', '무신사', [], {}, [mk('무신사, 미국 진출 추진', NOW, 'b1'), mk('무신사 미국 진출 검토 중', NOW, 'b2')])
     assert r['global'][0]['level'] == 'planned' and r['global'][0]['n_plan'] == 2
-    # 12개월 초과 기사는 제외
     r = analyze('musinsoa', '무신사', [], {}, [mk('무신사, 일본 진출', OLD, 'c1')])
     assert r['global'] == []
-    # 확정이 계획보다 위에 정렬
-    r = analyze('musinsoa', '무신사', [], {}, [mk('무신사, 미국 진출 추진', NOW, 'b1'), mk('무신사, 일본 진출', OLD[:0] or NOW, 'a1')])
+    r = analyze('musinsoa', '무신사', [], {}, [mk('무신사, 미국 진출 추진', NOW, 'b1'), mk('무신사, 일본 진출', NOW, 'a1')])
     assert [g['level'] for g in r['global']] == ['confirmed', 'weak']
-    # 태그: 신규 진출 / 확장 중 / 운영 중 / 축소·철수
-    M = lambda n: (datetime.now(KST) - timedelta(days=30 * n)).strftime('%Y.%m')
+    # 태그(진출 여부 기준 + 애매하면 '진출')
     tg = lambda arts: analyze('musinsoa', '무신사', [], {}, arts)['global'][0]['tag']
     assert tg([mk('무신사, 베트남 진출', M(1), 't1')]) == 'new'
     assert tg([mk('무신사, 베트남 진출', M(1), 't1'), mk('무신사, 베트남 거래액 증가', M(9), 't0')]) == 'ongoing'   # 6개월 넘은 확정 기사가 있으면 신규 아님
     assert tg([mk('무신사, 일본 팝업 오픈', M(1), 't2')]) == 'ongoing'                    # 진출·입점 등 언급 없음 → 신규 아님
-    assert tg([mk('아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다'.replace('아누아', '무신사'), M(3), 't8')]) == 'new'
-    assert tg([mk('무신사, 일본 진출', M(10), 't3')]) == 'ongoing'                         # 6개월 넘은 진출 → 운영 중
-    assert tg([mk('무신사, 일본 팝업 확대', M(1), 't4'), mk('무신사, 일본 진출', M(10), 't5')]) == 'expand'
-    assert tg([mk('무신사, 일본 거래액 증가', M(2), 't6')]) == 'expand'
+    assert tg([mk('무신사, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다', M(3), 't8')]) == 'new'
+    assert tg([mk('무신사, 일본 진출', M(10), 't3')]) == 'ongoing'                         # 6개월 넘은 진출 → 진출
+    assert tg([mk('무신사, 일본 팝업 확대', M(1), 't4'), mk('무신사, 일본 진출', M(10), 't5')]) == 'ongoing'   # 확대 기사 1건 → 애매 → 진출
+    assert tg([mk('무신사, 일본 팝업 확대', M(1), 't4'), mk('무신사, 일본 거래액 증가', M(2), 't9'), mk('무신사, 일본 진출', M(10), 't5')]) == 'expand'
+    assert tg([mk('무신사, 일본 거래액 증가', M(2), 't6')]) == 'ongoing'
     assert tg([mk('무신사, 중국 매장 철수', M(1), 't7')]) == 'withdraw'
     assert tg([mk('무신사, 미국 진출 추진', M(1), 'p1'), mk('무신사 미국 진출 검토', M(1), 'p2')]) == 'planned'
     assert tg([mk('무신사, 미국 진출 추진', M(1), 'p1')]) == 'weak'
@@ -509,7 +490,6 @@ def selftest():
         {'hl': '올리브인터내셔널, 3분기 누적 매출 2400억원', 'sum': '성분에디터는 현재 유럽 15개국 980여 개 매장에 입점해 있으며, 연말까지 유럽 판매처를 2500곳으로 확대할 계획이다.', 'url': 'o1', 'date': M(2)},
         {'hl': "올리브인터내셔널 '밀크터치' 북미·유럽 공략 위한 인재 채용", 'sum': '', 'url': 'o2', 'date': M(1)}])
     assert [(g['region'], g['tag']) for g in r['global'] if g['region'] == '유럽'] == [('유럽', 'expand')], r
-    # 상장 기사 속 해외 매출 비중 문장 → 해외 운영 근거(운영 중), 상장 일정 문장은 계속 제외
     g = extract_global('bnb', {'hl': '비앤비코리아, 상장 심사 지연', 'sum': '비앤비코리아는 중국 매출 비중이 40%에 달한다. 비앤비코리아는 코스닥 상장 예심을 청구했다.', 'url': 'b1', 'date': NOW}, '비앤비코리아')
     assert [(e['region'], e['lvl']) for e in g] == [('중국', 'done')], g
     g = extract_global('2020', {'hl': 'EGONGEGONG, 미국 아마존 진출', 'sum': '', 'url': 'e1', 'date': NOW}, '이공이공')
