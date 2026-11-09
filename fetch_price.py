@@ -167,9 +167,24 @@ def main():
             code = str(c.get('code') or '').strip()
             params = {'resultType': 'json', 'numOfRows': 50, 'pageNo': 1, 'beginBasDt': begin}
             params.update({'likeSrtnCd': code.lstrip('A')} if code else {'likeItmsNm': c['name']})
-            url = f'{API_URL}?serviceKey={kq}&{urlencode(params)}'          # 키는 직접 붙여 이중 인코딩을 막는다
-            try:
-                r = requests.get(url, timeout=20)
+params = {
+    'serviceKey': key,
+    'resultType': 'json',
+    'numOfRows': 50,
+    'pageNo': 1,
+    'beginBasDt': begin
+}
+
+if code:
+    params['likeSrtnCd'] = code.lstrip('A')
+else:
+    params['likeItmsNm'] = c['name']
+
+r = requests.get(
+    API_URL,
+    params=params,
+    timeout=20
+)
                 body = mask(r.text[:200]).replace('\n', ' ')
                 if r.status_code != 200:
                     print(f'  ⚠ [{k}] HTTP {r.status_code}: {body}')
