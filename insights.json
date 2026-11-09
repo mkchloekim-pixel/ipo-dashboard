@@ -47,7 +47,7 @@
        "lvl": "done",
        "entry": false,
        "exp": true,
-       "past": true,
+       "past": false,
        "hl": "무신사 스탠다드, 日 현지 MZ 공략 속도…거래액 연평균 100%↑",
        "url": "https://www.newsis.com/view/NISX20261109_0003859715"
       },
@@ -66,14 +66,14 @@
        "text": "무신사, 첫 오프라인 5년 만에 100곳 시대…일본 거래액도 3년 새 4배로",
        "lvl": "done",
        "entry": false,
-       "exp": true,
+       "exp": false,
        "past": false,
        "hl": "무신사, 첫 오프라인 5년 만에 100곳 시대…일본 거래액도 3년 새 4배로",
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 5,
-     "n_plan": 2,
+     "n_done": 7,
+     "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -168,20 +168,10 @@
        "past": false,
        "hl": "무신사, 5년 만에 오프라인 매장 100곳 달성…방문객 92% 성장",
        "url": "https://www.yna.co.kr/view/AKR20261109029200030?input=1195m"
-      },
-      {
-       "date": "2026.11",
-       "text": "사업에 접목하고, 무신사만의 속도와 실행력으로 오프라인 시장에 빠르게 안착했다”며 “중국에 이어 일본과 동남아시아 등으로 해외 매장을 늘려 국내에서 검증한 오프…",
-       "lvl": "plan",
-       "entry": false,
-       "exp": true,
-       "past": false,
-       "hl": "무신사, 오프라인 100호점 초읽기… 올해만 40곳 새로 열어",
-       "url": "https://biz.chosun.com/distribution/fashion-beauty/2026/11/09/HLGZKH7WFVEGRL73QXLDVEY4ZQ/?utm_source=naver&utm_medium=original&utm_campaign=biz"
       }
      ],
      "n_done": 0,
-     "n_plan": 3,
+     "n_plan": 2,
      "level": "planned",
      "tag": "planned",
      "date": "2026.11",
@@ -314,7 +304,24 @@
     "signals": []
    },
    "global": [],
-   "investors": []
+   "investors": [
+    {
+     "name": "토스",
+     "amt": "300억",
+     "kind": "투자 유치",
+     "date": "2026.09",
+     "hl": "오아시스마켓, 토스로부터 300억 투자 유치…신규사업 확대",
+     "url": "https://www.edaily.co.kr/News/Read?newsId=03745766645581104&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
+    },
+    {
+     "name": "확장…토스",
+     "amt": "300억",
+     "kind": "투자 유치",
+     "date": "2026.09",
+     "hl": "오아시스마켓, 토스쇼핑 손잡고 외연 확장…토스서 300억 투자 유치",
+     "url": "https://www.megaeconomy.co.kr/news/newsview.php?ncode=1065591941542402"
+    }
+   ]
   },
   "goodai": {
    "ipo": {
@@ -376,7 +383,7 @@
       }
      ],
      "n_done": 6,
-     "n_plan": 1,
+     "n_plan": 2,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -410,6 +417,16 @@
       },
       {
        "date": "2026.11",
+       "text": "글로벌 메이크업 브랜드 티르티르(TIRTIR)가 몽골 울란바토르에서 첫 단독 브랜드 팝업을 성공적으로 마치며, 브랜드 경험 확대 및 현지 소비자 접점 강화에 나…",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "티르티르, 몽골 울란바토르에서 현지 인플루언서 40명과 첫 단독 팝업스...",
+       "url": "http://www.fashionn.com/board/read_new.php?table=1006&number=63092"
+      },
+      {
+       "date": "2026.11",
        "text": "티르티르, 몽골 뷰티시장 공략 본격화…현지 소비자 접점 확대",
        "lvl": "plan",
        "entry": false,
@@ -419,7 +436,7 @@
        "url": "https://www.m-i.kr/news/articleView.html?idxno=2015916"
       }
      ],
-     "n_done": 2,
+     "n_done": 3,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "expand",
@@ -479,6 +496,27 @@
      "base": true,
      "note": "일본 법인(구다이글로벌 Japan) 유통 거점",
      "src": "https://www.goodai-global.com/ko",
+     "key": true
+    },
+    {
+     "region": "중남미",
+     "items": [
+      {
+       "date": "2026.07",
+       "text": "브랜드 조선미녀와 티르티르, 스킨1004 등이 브라질 세포라에 입점한 상태다",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "구다이글로벌 실리콘투 나란히 '경제사절단'에, 천주혁 김성운 '끈끈한...",
+       "url": "https://www.businesspost.co.kr/BP?command=article_view&num=443075"
+      }
+     ],
+     "n_done": 1,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.07",
      "key": true
     }
    ],
@@ -564,7 +602,16 @@
      "key": false
     }
    ],
-   "investors": [],
+   "investors": [
+    {
+     "name": "CJ온스타일",
+     "amt": "",
+     "kind": "투자 유치",
+     "date": "2026.07",
+     "hl": "비나우, IPO 앞두고 배당 10배...투자자 선제적 자금 회수",
+     "url": "https://dealsite.co.kr/articles/164993"
+    }
+   ],
    "note": {
     "text": "일본 비중이 높으나 신규 해외영업 인력 채용 확대 중.",
     "title": "㈜비나우 채용 - [리더/경력] B2B 해외영업 중동/북미/유럽/중남미 권역 | 잡코리아",
@@ -1907,7 +1954,24 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [
+    {
+     "name": "재작년 대명화학으",
+     "amt": "",
+     "kind": "투자 유치",
+     "date": "2022.11",
+     "hl": "하고엘앤에프, 감성 라이프웨어 '드파운드'에 투자 확정",
+     "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=105762"
+    },
+    {
+     "name": "대명화학으",
+     "amt": "",
+     "kind": "투자 유치",
+     "date": "2022.11",
+     "hl": "하고엘앤에프, ‘드파운드’ 투자...26번째 브랜드로",
+     "url": "http://www.fashionbiz.co.kr/TN/?cate=2&recom=2&idx=196529"
+    }
+   ]
   },
   "grainon": {
    "ipo": {
@@ -1957,6 +2021,16 @@
      "region": "일본",
      "items": [
       {
+       "date": "2026.03",
+       "text": "FSN, '르무통' 폭발적 성장세에 턴어라운드…일본 시장 본격 진출에 \"지",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "FSN, '르무통' 폭발적 성장세에 턴어라운드…일본 시장 본격 진출에 \"지...",
+       "url": "http://www.newsprime.co.kr/news/article.html?no=727760"
+      },
+      {
        "date": "2026.11",
        "text": "부스터즈는 외국인 관광객이 많은 서촌의 입지를 살려 해외 고객을 끌어들이고, 중국·일본 등 아시아 유통망도 넓힐 계획이다",
        "lvl": "plan",
@@ -1995,24 +2069,14 @@
        "past": false,
        "hl": "FSN 子 부스터즈, 2분기 잠정 영업익 131억…분기 최대 실적",
        "url": "https://www.mt.co.kr/stock/2026/07/24/2026072410131718401"
-      },
-      {
-       "date": "2026.07",
-       "text": "부스터즈는 올가을 서울 종로구에 프론투라인 첫 플래그십 스토어를 열고 오프라인 접점을 확대하는 한편 중국과 일본 등 아시아 시장 진출을 위한 유통 파트너십도 추…",
-       "lvl": "plan",
-       "entry": false,
-       "exp": true,
-       "past": false,
-       "hl": "15개월 키운 브랜드 품었다…부스터즈, '프론투라인' 경영권 인수",
-       "url": "https://www.mt.co.kr/future/2026/07/31/2026073109365388710"
       }
      ],
-     "n_done": 0,
+     "n_done": 1,
      "n_plan": 6,
-     "level": "planned",
-     "tag": "planned",
+     "level": "confirmed",
+     "tag": "expand",
      "date": "2026.11",
-     "key": false
+     "key": true
     },
     {
      "region": "중국",
@@ -2056,7 +2120,16 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [
+    {
+     "name": "커머스부문)",
+     "amt": "",
+     "kind": "투자 유치",
+     "date": "2024.10",
+     "hl": "'CJ온스타일 투자' 부스터즈, 100억 콜옵션 무산 배경은",
+     "url": "https://dealsite.co.kr/articles/128993"
+    }
+   ]
   },
   "nmodelin": {
    "ipo": {
@@ -2090,5 +2163,5 @@
   }
  },
  "_rules": 15,
- "_updated": "2026-11-09T13:27:32 KST"
+ "_updated": "2026-11-09T13:31:31 KST"
 }
