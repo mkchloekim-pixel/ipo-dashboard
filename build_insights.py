@@ -389,8 +389,7 @@ def merge_global(old, new):
 
 
 def apply_presence(glb, base):
-    """기준 정보(presence.json) 반영: 이미 진출한 국가는 '신규 진출'로 보지 않고 핵심 국가(key)로 표시.
-    key=True → 화면에서 강조. 신규/확장 구분은 화면에 쓰지 않는다."""
+    """기준 정보(presence.json) 반영: 이미 진출한 국가는 '신규 진출'로 보지 않고 핵심 국가(key)로 표시."""
     by = {g['region']: g for g in glb}
     for b in base:
         g = by.get(b.get('region'))
@@ -583,6 +582,9 @@ def main():
         arts = [x for x in (news.get(k) or []) if isinstance(x, dict)] + [x for x in (extra.get(k) or []) if isinstance(x, dict)]
         gl = [x for x in (gnews.get(k) or []) if isinstance(x, dict)]
         out[k] = analyze(k, NAMES.get(k, ''), arts, prev_c.get(k, {}), gl, [b for b in (presence.get(k) or []) if isinstance(b, dict) and b.get('region')])
+    for k, t in (presence.get('_summary') or {}).items():
+        if k in out and isinstance(t, str):
+            out[k]['summary'] = t[:300]
     for k, v in prev_c.items():                           # 이번에 기사가 없는 회사도 이력 유지
         out.setdefault(k, v)
     res = {'companies': out, '_rules': RULES_VERSION, '_updated': datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%dT%H:%M:%S KST')}

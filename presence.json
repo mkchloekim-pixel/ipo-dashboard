@@ -1,20 +1,96 @@
 {
- "_note": "기업이 이미 진출해 있는 국가 기준 정보(기사 분석과 별개). region 은 build_insights.py COUNTRIES 의 국가명과 동일하게 쓴다. 사람이 출처 확인 후 추가/수정. 개인정보·비공개 정보는 넣지 않는다.",
+ "_note": "기업이 이미 진출해 있는 국가 기준 정보(기사 분석과 별개). region 은 build_insights.py COUNTRIES 의 국가명과 동일. 사람이 출처 확인 후 추가/수정. 개인정보·비공개 정보 금지.",
  "goodai": [
-  {"region": "미국", "note": "미국 법인(구다이글로벌 USA) 유통 거점", "src": "https://www.goodai-global.com/ko"},
-  {"region": "일본", "note": "일본 법인(구다이글로벌 Japan) 유통 거점", "src": "https://www.goodai-global.com/ko"}
+  {
+   "region": "미국",
+   "note": "미국 법인(구다이글로벌 USA) 유통 거점",
+   "src": "https://www.goodai-global.com/ko"
+  },
+  {
+   "region": "일본",
+   "note": "일본 법인(구다이글로벌 Japan) 유통 거점",
+   "src": "https://www.goodai-global.com/ko"
+  }
  ],
  "musinsoa": [
-  {"region": "일본", "note": "일본 법인 운영", "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968"},
-  {"region": "중국", "note": "중국(상하이) 법인 운영", "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968"},
-  {"region": "대만", "note": "대만 현지법인 설립(2026.07)", "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968"}
+  {
+   "region": "일본",
+   "note": "일본 법인 운영",
+   "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968"
+  },
+  {
+   "region": "중국",
+   "note": "중국(상하이) 법인 운영",
+   "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968"
+  },
+  {
+   "region": "대만",
+   "note": "대만 현지법인 설립(2026.07)",
+   "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968"
+  }
  ],
  "founders": [
-  {"region": "미국", "note": "아누아 북미 판매(글로벌 세일즈 채용 기사 기준)", "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904"},
-  {"region": "일본", "note": "아누아 일본 판매(글로벌 세일즈 채용 기사 기준)", "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904"},
-  {"region": "유럽", "note": "아누아 유럽 판매(글로벌 세일즈 채용 기사 기준)", "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904"}
+  {
+   "region": "미국",
+   "note": "미국 법인(Anua Inc.) 보유, 핵심 인력은 한국 상주",
+   "src": "https://thefounders.careers/home-brand"
+  },
+  {
+   "region": "일본",
+   "note": "일본 법인 2021년 설립",
+   "src": "https://www.thebell.co.kr/front/newsview.asp?key=202407161113121840104171"
+  },
+  {
+   "region": "유럽",
+   "note": "아누아 유럽 판매(글로벌 세일즈 채용 기사 기준)",
+   "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904"
+  }
  ],
  "vinow": [
-  {"region": "일본", "note": "일본 비중 높음(해외영업 채용 공고 기준)", "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173"}
- ]
+  {
+   "region": "일본",
+   "note": "일본 비중 높음(해외영업 채용 공고 기준)",
+   "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173"
+  }
+ ],
+ "hagohouse": [
+  {
+   "region": "동남아",
+   "note": "태국 센트럴리테일 현지 유통 파트너 확보, 베트남 하노이 롯데몰도 센트럴그룹이 유통",
+   "src": "https://www.thebell.co.kr/front/newsview.asp?key=202610151333018840108185"
+  },
+  {
+   "region": "중국",
+   "note": "중화권 미스토홀딩스 협업 기반 중국 현지 총판 진출",
+   "src": "https://www.thebell.co.kr/front/newsview.asp?key=202610151333018840108185"
+  }
+ ],
+ "2020": [
+  {
+   "region": "미국",
+   "note": "미국 법인 2018년 설립, 한국 브랜드 미국 시장 진출 중",
+   "src": "https://m.thebell.co.kr/m/newsview.asp?newskey=202607081544329400109564"
+  }
+ ],
+ "lafati": [
+  {
+   "region": "일본",
+   "note": "도쿄 거점 셀렉트 스토어 운영 이력",
+   "src": "https://www.news1.kr/industry/distribution/6125593"
+  },
+  {
+   "region": "홍콩",
+   "note": "홍콩 법인 2015년 설립",
+   "src": "https://www.leferi.co.kr/ko/about"
+  }
+ ],
+ "_summary": {
+  "hagohouse": "동남아는 센트럴그룹(태국 센트럴리테일·베트남 하노이 롯데몰 유통), 중화권은 미스토홀딩스 협업 총판 등 현지 유통 파트너 중심으로 진출.",
+  "2020": "미국 법인을 2018년 설립해 미국 시장에 이미 진출 중. 미국 '계획' 표기는 해당 없음.",
+  "lafati": "일본 도쿄 거점 셀렉트 스토어 운영 이력, 홍콩 법인 2015년 설립. 일본·홍콩 모두 기진출.",
+  "founders": "일본 법인(2021)·미국 법인(Anua Inc.) 보유, 해외 매출 비중 약 90%(회사 소개 기준). 일본·미국은 신규·계획이 아닌 기진출 시장.",
+  "goodai": "미국·일본 법인 거점 보유.",
+  "musinsoa": "일본·중국 법인 운영, 대만 현지법인 2026.07 설립.",
+  "vinow": "일본 비중이 높고 해외영업 인력 채용 확대 중."
+ }
 }
