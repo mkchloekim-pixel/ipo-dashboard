@@ -1,0 +1,20 @@
+{
+ "_note": "기업이 이미 진출해 있는 국가 기준 정보(기사 분석과 별개). region 은 build_insights.py COUNTRIES 의 국가명과 동일하게 쓴다. 사람이 출처 확인 후 추가/수정. 개인정보·비공개 정보는 넣지 않는다.",
+ "goodai": [
+  {"region": "미국", "note": "미국 법인(구다이글로벌 USA) 유통 거점", "src": "https://www.goodai-global.com/ko"},
+  {"region": "일본", "note": "일본 법인(구다이글로벌 Japan) 유통 거점", "src": "https://www.goodai-global.com/ko"}
+ ],
+ "musinsoa": [
+  {"region": "일본", "note": "일본 법인 운영", "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968"},
+  {"region": "중국", "note": "중국(상하이) 법인 운영", "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968"},
+  {"region": "대만", "note": "대만 현지법인 설립(2026.07)", "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968"}
+ ],
+ "founders": [
+  {"region": "미국", "note": "아누아 북미 판매(글로벌 세일즈 채용 기사 기준)", "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904"},
+  {"region": "일본", "note": "아누아 일본 판매(글로벌 세일즈 채용 기사 기준)", "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904"},
+  {"region": "유럽", "note": "아누아 유럽 판매(글로벌 세일즈 채용 기사 기준)", "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904"}
+ ],
+ "vinow": [
+  {"region": "일본", "note": "일본 비중 높음(해외영업 채용 공고 기준)", "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173"}
+ ]
+}
