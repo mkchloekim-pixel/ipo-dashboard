@@ -389,7 +389,7 @@
      "url": "https://www.edaily.co.kr/News/Read?newsId=03745766645581104&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
     }
    ],
-   "invest_summary": "외부 투자자 정보 없음 (자체 흑자 경영)",
+   "invest_summary": "–",
    "base_investors": []
   },
   "goodai": {
@@ -551,16 +551,6 @@
      "items": [
       {
        "date": "2026.10",
-       "text": "◇영국 오프라인 유통망 확충, 현지법인 설립도 영국에서의 성장세는",
-       "lvl": "done",
-       "entry": true,
-       "exp": true,
-       "past": false,
-       "hl": "[더벨]조선미녀, 아마존 빅딜서 영국 매출 4배…유럽 성장세 부각",
-       "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
-      },
-      {
-       "date": "2026.10",
        "text": "25일 뷰티업계에 따르면 구다이글로벌의 스킨케어 브랜드 조선미녀는 지난 6~7일 진행된 아마존 '프라임 빅딜 데이즈'에서 미국과 독일, 영국 등 주요 시장의 매…",
        "lvl": "done",
        "entry": false,
@@ -568,6 +558,16 @@
        "past": false,
        "hl": "독일 아이세럼 판매 459%↑…조선미녀, 美·유럽서 흥행 품목 확대",
        "url": "https://www.news1.kr/industry/general-industry/6328507"
+      },
+      {
+       "date": "2026.10",
+       "text": "◇영국 오프라인 유통망 확충, 현지법인 설립도 영국에서의 성장세는",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "[더벨]조선미녀, 아마존 빅딜서 영국 매출 4배…유럽 성장세 부각",
+       "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
       }
      ],
      "n_done": 2,
@@ -745,16 +745,7 @@
     "signals": []
    },
    "global": [],
-   "investors": [
-    {
-     "name": "이끌었던 제조사",
-     "amt": "",
-     "kind": "지분 인수",
-     "date": "2024.10",
-     "hl": "서영이앤티, 마유크림 열풍 이끌었던 제조사 비앤비코리아 인수",
-     "url": "https://www.meconomynews.com/news/articleView.html?idxno=102698"
-    }
-   ],
+   "investors": [],
    "invest_summary": "경영권 인수(M&A): 진백글로벌",
    "base_investors": [
     {
@@ -1518,6 +1509,27 @@
      "key": false
     },
     {
+     "region": "일본",
+     "items": [
+      {
+       "date": "2025.12",
+       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
+       "url": "http://www.fnnews.com/news/202512081820152004"
+      }
+     ],
+     "n_done": 1,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2025.12",
+     "key": false
+    },
+    {
      "region": "동남아",
      "items": [
       {
@@ -1542,27 +1554,6 @@
       }
      ],
      "n_done": 2,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "ongoing",
-     "date": "2025.12",
-     "key": false
-    },
-    {
-     "region": "일본",
-     "items": [
-      {
-       "date": "2025.12",
-       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": true,
-       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
-       "url": "http://www.fnnews.com/news/202512081820152004"
-      }
-     ],
-     "n_done": 1,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -1928,86 +1919,9 @@
     }
    ],
    "investors": [],
-   "invest_summary": "Series A: 위벤처스 · 한국투자파트너스 · KB인베스트먼트 · 이앤인베스트먼트 · IMM인베스트먼트 · SL인베스트먼트 · 미래에셋벤처투자 (500억원, 2023.09) / 엑시트: KB인베스트먼트 구주 일부 매각(HB인베스트먼트 인수), 무신사파트너스 지분 전량 정리 (보도 기준)",
-   "base_investors": [
-    {
-     "name": "위벤처스",
-     "kind": "시리즈 투자",
-     "amt": "500억원 (시리즈A)",
-     "date": "2023.09",
-     "src": "https://www.topdaily.kr/articles/105957",
-     "hl": "[VC 포트폴리오] [피스피스스튜디오] '마르디메크르디' 유니콘 노린다…..."
-    },
-    {
-     "name": "한국투자파트너스",
-     "kind": "시리즈 투자",
-     "amt": "500억원 (시리즈A)",
-     "date": "2023.09",
-     "src": "https://dealsite.co.kr/articles/164160",
-     "hl": "K패션 피스피스스튜디오 쇼크…IMM·HB인베 좌절"
-    },
-    {
-     "name": "이앤인베스트먼트",
-     "kind": "시리즈 투자",
-     "amt": "500억원 (시리즈A)",
-     "date": "2023.09",
-     "src": "https://dealsite.co.kr/articles/125271",
-     "hl": "IPO 추진 피스피스스튜디오, 해외진출에 방점"
-    },
-    {
-     "name": "IMM인베스트먼트",
-     "kind": "시리즈 투자",
-     "amt": "500억원 (시리즈A)",
-     "date": "2023.09",
-     "src": "https://dealsite.co.kr/articles/164160",
-     "hl": "K패션 피스피스스튜디오 쇼크…IMM·HB인베 좌절"
-    },
-    {
-     "name": "SL인베스트먼트",
-     "kind": "시리즈 투자",
-     "amt": "500억원 (시리즈A)",
-     "date": "2023.09",
-     "src": "https://dealsite.co.kr/articles/164160",
-     "hl": "K패션 피스피스스튜디오 쇼크…IMM·HB인베 좌절"
-    },
-    {
-     "name": "미래에셋벤처투자",
-     "kind": "시리즈 투자",
-     "amt": "500억원 (시리즈A)",
-     "date": "2023.09",
-     "src": "https://dealsite.co.kr/articles/164160",
-     "hl": "K패션 피스피스스튜디오 쇼크…IMM·HB인베 좌절"
-    },
-    {
-     "name": "KB인베스트먼트",
-     "kind": "시리즈 투자 · 구주 일부 매각(엑시트, 약 3배)",
-     "amt": "500억원 (시리즈A)",
-     "date": "2023.09",
-     "src": "https://dealsite.co.kr/articles/164160",
-     "hl": "K패션 피스피스스튜디오 쇼크…IMM·HB인베 좌절"
-    },
-    {
-     "name": "무신사파트너스",
-     "kind": "초기 투자 · 지분 전량 정리(엑시트)",
-     "amt": "",
-     "date": "",
-     "src": ""
-    },
-    {
-     "name": "HB인베스트먼트",
-     "kind": "구주 인수(KB인베스트먼트 보유분 일부)",
-     "amt": "",
-     "date": "",
-     "src": ""
-    },
-    {
-     "name": "스톤브릿지벤처스",
-     "kind": "구주 인수",
-     "amt": "100억원대",
-     "date": "",
-     "src": ""
-    }
-   ]
+   "hide_investors": true,
+   "invest_summary": "Series A 투자 이후 엑시트 완료",
+   "base_investors": []
   },
   "hagohouse": {
    "ipo": {
@@ -2237,16 +2151,7 @@
      "key": false
     }
    ],
-   "investors": [
-    {
-     "name": "재작년 대명화학으",
-     "amt": "",
-     "kind": "투자 유치",
-     "date": "2022.11",
-     "hl": "하고엘앤에프, ‘드파운드’ 투자...26번째 브랜드로",
-     "url": "http://www.fashionbiz.co.kr/TN/?cate=2&recom=2&idx=196529"
-    }
-   ],
+   "investors": [],
    "invest_summary": "투자 유치: SV인베스트먼트 · LB인베스트먼트 · 대명화학",
    "base_investors": [
     {
@@ -2311,7 +2216,8 @@
     }
    ],
    "investors": [],
-   "invest_summary": "외부 투자자 정보 없음",
+   "hide_investors": true,
+   "invest_summary": "Series A 투자유치 (비공개) / CJ온스타일 투자",
    "base_investors": []
   },
   "boosterz": {
@@ -2424,14 +2330,6 @@
    ],
    "investors": [
     {
-     "name": "지난달 하나벤처스",
-     "amt": "104억 원",
-     "kind": "투자 유치",
-     "date": "2025.01",
-     "hl": "부스터즈, 104억 투자 유치 완료",
-     "url": "https://dealsite.co.kr/articles/135053"
-    },
-    {
      "name": "스마트스터디벤처스",
      "amt": "104억 원",
      "kind": "투자 유치",
@@ -2505,14 +2403,6 @@
    },
    "global": [],
    "investors": [
-    {
-     "name": "3곳으",
-     "amt": "",
-     "kind": "투자 유치",
-     "date": "2026.08",
-     "hl": "'뷰티 릴스' 강자 앤마들린, 코스닥 상장 도전장",
-     "url": "https://www.newstopkorea.com/news/articleView.html?idxno=46788"
-    },
     {
      "name": "인탑스인베스트먼트",
      "amt": "30억원",
@@ -2593,6 +2483,6 @@
    ]
   }
  },
- "_rules": 16,
- "_updated": "2026-11-09T13:55:20 KST"
+ "_rules": 17,
+ "_updated": "2026-11-09T14:05:28 KST"
 }
