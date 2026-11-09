@@ -474,7 +474,13 @@ function ipoCard(c, nw){
   card.appendChild(el('p', 'note', c.ipoLabel + ' · ' + c.stageNote));
   const kv = el('div', 'kv sep');
   kv.appendChild(el('div', '', '', [el('small', '', '상장 시기'), el('div', '', c.ipoWhen)]));
-  kv.appendChild(el('div', '', '', [el('small', '', '기업가치 · 주관사'), el('div', '', c.valuation + ' · ' + c.banks)]));
+  /* 상장 완료 기업: 상장 당시 기업가치(수기)는 현재 값이 아니므로 표시하지 않고, 시세 데이터가 있으면 현재 시가총액을 표시 */
+  if (c.mom === 'listed'){
+    const pp = priceOf(c), mcs = pp ? fmtEok(pp.mktcap) : '';
+    kv.appendChild(el('div', '', '', [el('small', '', mcs ? '시가총액 · 주관사' : '주관사'), el('div', '', (mcs ? mcs + ' (' + String(pp.date || '') + ' 기준) · ' : '') + c.banks)]));
+  } else {
+    kv.appendChild(el('div', '', '', [el('small', '', '기업가치 · 주관사'), el('div', '', c.valuation + ' · ' + c.banks)]));
+  }
   card.appendChild(kv);
   const s = el('div', 'sep');
   if (st0.sig.length){
