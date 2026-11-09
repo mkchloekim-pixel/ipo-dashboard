@@ -136,7 +136,7 @@
        "url": "https://www.smartbizn.com/news/articleView.html?idxno=158192"
       }
      ],
-     "n_done": 6,
+     "n_done": 7,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
@@ -168,7 +168,32 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "Series C: Sequoia Capital · IMM인베스트먼트 · Wellington Management (누적 약 4,000억원+)",
+   "base_investors": [
+    {
+     "name": "Sequoia Capital",
+     "kind": "Series B",
+     "amt": "투자완료",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "IMM인베스트먼트",
+     "kind": "Series B",
+     "amt": "투자완료",
+     "date": "2026.10",
+     "src": "https://dealsite.co.kr/articles/170442",
+     "hl": "[라이프 체인저] 한국 남자의 변신…이젠 뷰티로 여성도 홀리는 무신사"
+    },
+    {
+     "name": "Wellington Management",
+     "kind": "Series C",
+     "amt": "약 2,000억",
+     "date": "",
+     "src": ""
+    }
+   ]
   },
   "kurly": {
    "ipo": {
@@ -237,7 +262,41 @@
      "key": true
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "투자 유치: Anchor Equity Partners · DST Global · Hillhouse Investment · 네이버 (누적 1.2조원+, 2026.05 네이버 330억원 추가)",
+   "base_investors": [
+    {
+     "name": "Anchor Equity Partners",
+     "kind": "전략적 투자자",
+     "amt": "투자유지",
+     "date": "2026.06",
+     "src": "https://www.newspim.com/news/view/20260602000800",
+     "hl": "이익 체력 키운 컬리…IPO 로드맵 재가동"
+    },
+    {
+     "name": "DST Global",
+     "kind": "재무적 투자자",
+     "amt": "투자유지",
+     "date": "2025.02",
+     "src": "https://www.topdaily.kr/articles/101498",
+     "hl": "[VC 포트폴리오] [컬리] ③ 멀어지는 IPO…투자자, 엑시트 시점은"
+    },
+    {
+     "name": "Hillhouse Investment",
+     "kind": "재무적 투자자",
+     "amt": "투자유지",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "네이버",
+     "kind": "전략적 투자자",
+     "amt": "26.5월 330억 추가",
+     "date": "2026.11",
+     "src": "http://www.newstomato.com/ReadNews.aspx?no=1319289&inflow=N",
+     "hl": "(단독)네이버제트 '꼼수' 분사…스티컬리 분리매각 추진"
+    }
+   ]
   },
   "ohouse": {
    "ipo": {
@@ -287,7 +346,33 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "투자 유치: BRV Capital Management · 소프트뱅크벤처스 · 본엔젤스 (누적 약 3,000억원+)",
+   "base_investors": [
+    {
+     "name": "BRV Capital Management",
+     "kind": "재무적 투자자",
+     "amt": "투자유지",
+     "date": "2025.02",
+     "src": "https://zdnet.co.kr/view/?no=20250228153051",
+     "hl": "오늘의집, 日 열도 정조준...인기 韓 가구 무료배송으로 영향력↑"
+    },
+    {
+     "name": "소프트뱅크벤처스",
+     "kind": "재무적 투자자",
+     "amt": "투자유지",
+     "date": "2026.06",
+     "src": "https://www.hankookilbo.com/news/article/A2026061511590000409?did=NA",
+     "hl": "이노션+SBVA, 블라인드·오늘의집 등 혁신기업 성장 지원"
+    },
+    {
+     "name": "본엔젤스",
+     "kind": "초기 투자자",
+     "amt": "투자유지",
+     "date": "",
+     "src": ""
+    }
+   ]
   },
   "oasis": {
    "ipo": {
@@ -297,13 +382,15 @@
    "investors": [
     {
      "name": "토스",
-     "amt": "300억원",
+     "amt": "300억",
      "kind": "투자 유치",
      "date": "2026.09",
-     "hl": "오아시스마켓, 토스로부터 300억원 투자 유치…전용관 협력도",
-     "url": "https://zdnet.co.kr/view/?no=20260917143831"
+     "hl": "오아시스마켓, 토스로부터 300억 투자 유치…신규사업 확대",
+     "url": "https://www.edaily.co.kr/News/Read?newsId=03745766645581104&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
     }
-   ]
+   ],
+   "invest_summary": "외부 투자자 정보 없음 (자체 흑자 경영)",
+   "base_investors": []
   },
   "goodai": {
    "ipo": {
@@ -464,16 +551,6 @@
      "items": [
       {
        "date": "2026.10",
-       "text": "25일 뷰티업계에 따르면 구다이글로벌의 스킨케어 브랜드 조선미녀는 지난 6~7일 진행된 아마존 '프라임 빅딜 데이즈'에서 미국과 독일, 영국 등 주요 시장의 매…",
-       "lvl": "done",
-       "entry": false,
-       "exp": true,
-       "past": false,
-       "hl": "독일 아이세럼 판매 459%↑…조선미녀, 美·유럽서 흥행 품목 확대",
-       "url": "https://www.news1.kr/industry/general-industry/6328507"
-      },
-      {
-       "date": "2026.10",
        "text": "◇영국 오프라인 유통망 확충, 현지법인 설립도 영국에서의 성장세는",
        "lvl": "done",
        "entry": true,
@@ -481,6 +558,16 @@
        "past": false,
        "hl": "[더벨]조선미녀, 아마존 빅딜서 영국 매출 4배…유럽 성장세 부각",
        "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
+      },
+      {
+       "date": "2026.10",
+       "text": "25일 뷰티업계에 따르면 구다이글로벌의 스킨케어 브랜드 조선미녀는 지난 6~7일 진행된 아마존 '프라임 빅딜 데이즈'에서 미국과 독일, 영국 등 주요 시장의 매…",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "독일 아이세럼 판매 459%↑…조선미녀, 美·유럽서 흥행 품목 확대",
+       "url": "https://www.news1.kr/industry/general-industry/6328507"
       }
      ],
      "n_done": 2,
@@ -512,7 +599,9 @@
      "key": true
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "Pre-IPO: 투자자명 비공개 컨소시엄 (8,000억원)",
+   "base_investors": []
   },
   "vinow": {
    "ipo": {
@@ -599,14 +688,57 @@
     "text": "일본 비중이 높으나 신규 해외영업 인력 채용 확대 중.",
     "title": "㈜비나우 채용 - [리더/경력] B2B 해외영업 중동/북미/유럽/중남미 권역 | 잡코리아",
     "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173"
-   }
+   },
+   "invest_summary": "Pre-IPO: IMM인베스트먼트 · LB PE · 브아원캐피탈파트너스 (투자 완료)",
+   "base_investors": [
+    {
+     "name": "IMM인베스트먼트",
+     "kind": "Pre-IPO",
+     "amt": "누적 550억",
+     "date": "2026.03",
+     "src": "https://www.insightkorea.co.kr/news/articleView.html?idxno=242291",
+     "hl": "[히든챔피언②] '넘버즈인·퓌' 띄운 비나우, K뷰티 신흥 강자 우뚝"
+    },
+    {
+     "name": "LB PE",
+     "kind": "Pre-IPO",
+     "amt": "Co-GP 300억",
+     "date": "2025.04",
+     "src": "https://www.the-stock.kr/news/articleView.html?idxno=30430",
+     "hl": "비나우, 현 밸류 최소 1.2조…FI '대박' 기대감"
+    },
+    {
+     "name": "브아원캐피탈파트너스",
+     "kind": "Pre-IPO",
+     "amt": "상동",
+     "date": "",
+     "src": ""
+    }
+   ]
   },
   "grace": {
    "ipo": {
     "signals": []
    },
    "global": [],
-   "investors": []
+   "investors": [],
+   "invest_summary": "투자 유치: DS투자파트너스 · 청담인베스트먼트 (117억원, 2025.12) / 기존 PE 경영권 투자(투자사명 비공개)",
+   "base_investors": [
+    {
+     "name": "DS투자파트너스",
+     "kind": "신규 투자 (2025.12, 청담인베스트먼트와 합산 117억원)",
+     "amt": "",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "청담인베스트먼트",
+     "kind": "신규 투자 (2025.12, DS투자파트너스와 합산 117억원)",
+     "amt": "",
+     "date": "",
+     "src": ""
+    }
+   ]
   },
   "bnb": {
    "ipo": {
@@ -621,6 +753,17 @@
      "date": "2024.10",
      "hl": "서영이앤티, 마유크림 열풍 이끌었던 제조사 비앤비코리아 인수",
      "url": "https://www.meconomynews.com/news/articleView.html?idxno=102698"
+    }
+   ],
+   "invest_summary": "경영권 인수(M&A): 진백글로벌",
+   "base_investors": [
+    {
+     "name": "진백글로벌",
+     "kind": "전략적 인수",
+     "amt": "M&A 완료",
+     "date": "2026.10",
+     "src": "https://www.newsis.com/view/NISX20261026_0003841172",
+     "hl": "비앤비코리아, 상장 심사 5개월째 표류…심사 지연 이유는"
     }
    ]
   },
@@ -662,7 +805,33 @@
      "key": true
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "Series D: 한국투자파트너스 · 라구나인베스트먼트 / Pre-IPO: 효성 (300억원, 2026.08)",
+   "base_investors": [
+    {
+     "name": "한국투자파트너스",
+     "kind": "Series D 리드",
+     "amt": "370억원",
+     "date": "2025.08",
+     "src": "https://www.sedaily.com/NewsView/2GWLI0YLC0",
+     "hl": "\"‘이공이공’도 상장 착수\" K뷰티, IPO시장 진격…\"中 우회수출 차단\" ..."
+    },
+    {
+     "name": "라구나인베스트먼트",
+     "kind": "Series C 참여",
+     "amt": "70억원",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "효성",
+     "kind": "프리IPO (26.8)",
+     "amt": "300억원",
+     "date": "2026.08",
+     "src": "https://biz.chosun.com/stock/market_trend/2026/08/10/LJVHGRMH5VCQ7GY4YTSPXLHPMY/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+     "hl": "[단독] 뷰티로 영역 확장… 효성, K뷰티 커머스 이공이공에 300억 투자"
+    }
+   ]
   },
   "lafati": {
    "ipo": {
@@ -861,7 +1030,9 @@
     }
    ],
    "investors": [],
-   "max_items": 1
+   "max_items": 1,
+   "invest_summary": "Series B: 투자사명 비공개",
+   "base_investors": []
   },
   "liman": {
    "ipo": {
@@ -1155,7 +1326,17 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "경영권 투자: IMM PE (약 2,500억원, 2022)",
+   "base_investors": [
+    {
+     "name": "IMM PE",
+     "kind": "경영권 투자 (2022)",
+     "amt": "약 2,500억원",
+     "date": "",
+     "src": ""
+    }
+   ]
   },
   "founders": {
    "ipo": {
@@ -1255,7 +1436,9 @@
      "key": true
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "외부 투자자 없음 (외부 VC 투자 이력 없음)",
+   "base_investors": []
   },
   "olive": {
    "ipo": {
@@ -1335,27 +1518,6 @@
      "key": false
     },
     {
-     "region": "일본",
-     "items": [
-      {
-       "date": "2025.12",
-       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": true,
-       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
-       "url": "http://www.fnnews.com/news/202512081820152004"
-      }
-     ],
-     "n_done": 1,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "ongoing",
-     "date": "2025.12",
-     "key": false
-    },
-    {
      "region": "동남아",
      "items": [
       {
@@ -1385,9 +1547,73 @@
      "tag": "ongoing",
      "date": "2025.12",
      "key": false
+    },
+    {
+     "region": "일본",
+     "items": [
+      {
+       "date": "2025.12",
+       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
+       "url": "http://www.fnnews.com/news/202512081820152004"
+      }
+     ],
+     "n_done": 1,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2025.12",
+     "key": false
     }
    ],
-   "investors": []
+   "investors": [
+    {
+     "name": "IMM인베스트먼트",
+     "amt": "100억 원",
+     "kind": "시리즈 투자",
+     "date": "2023.12",
+     "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치",
+     "url": "https://www.sedaily.com/NewsView/29YF3RX82P"
+    },
+    {
+     "name": "프라이머사제",
+     "amt": "100억 원",
+     "kind": "시리즈 투자",
+     "date": "2023.12",
+     "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치",
+     "url": "https://www.sedaily.com/NewsView/29YF3RX82P"
+    }
+   ],
+   "invest_summary": "투자 유치: 올리브영 · 프라이머 · IMM인베스트먼트",
+   "base_investors": [
+    {
+     "name": "올리브영",
+     "kind": "전략적 투자자",
+     "amt": "30억",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "프라이머",
+     "kind": "재무적 투자자",
+     "amt": "Series B",
+     "date": "2023.12",
+     "src": "https://www.sedaily.com/NewsView/29YF3RX82P",
+     "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치"
+    },
+    {
+     "name": "IMM인베스트먼트",
+     "kind": "재무적 투자자",
+     "amt": "Series B",
+     "date": "2023.12",
+     "src": "https://www.sedaily.com/NewsView/29YF3RX82P",
+     "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치"
+    }
+   ]
   },
   "highlight": {
    "ipo": {
@@ -1529,7 +1755,17 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "대명화학그룹 계열 (외부 투자자 정보 없음)",
+   "base_investors": [
+    {
+     "name": "대명화학그룹",
+     "kind": "모기업(그룹 계열)",
+     "amt": "외부 투자 이력 없음(보도)",
+     "date": "",
+     "src": ""
+    }
+   ]
   },
   "peacenow": {
    "ipo": {
@@ -1692,48 +1928,84 @@
     }
    ],
    "investors": [],
+   "invest_summary": "Series A: 위벤처스 · 한국투자파트너스 · KB인베스트먼트 · 이앤인베스트먼트 · IMM인베스트먼트 · SL인베스트먼트 · 미래에셋벤처투자 (500억원, 2023.09) / 엑시트: KB인베스트먼트 구주 일부 매각(HB인베스트먼트 인수), 무신사파트너스 지분 전량 정리 (보도 기준)",
    "base_investors": [
     {
      "name": "위벤처스",
      "kind": "시리즈 투자",
      "amt": "500억원 (시리즈A)",
-     "date": "2023.09"
+     "date": "2023.09",
+     "src": "https://www.topdaily.kr/articles/105957",
+     "hl": "[VC 포트폴리오] [피스피스스튜디오] '마르디메크르디' 유니콘 노린다…..."
     },
     {
      "name": "한국투자파트너스",
      "kind": "시리즈 투자",
      "amt": "500억원 (시리즈A)",
-     "date": "2023.09"
-    },
-    {
-     "name": "KB인베스트먼트",
-     "kind": "시리즈 투자",
-     "amt": "500억원 (시리즈A)",
-     "date": "2023.09"
+     "date": "2023.09",
+     "src": "https://dealsite.co.kr/articles/164160",
+     "hl": "K패션 피스피스스튜디오 쇼크…IMM·HB인베 좌절"
     },
     {
      "name": "이앤인베스트먼트",
      "kind": "시리즈 투자",
      "amt": "500억원 (시리즈A)",
-     "date": "2023.09"
+     "date": "2023.09",
+     "src": "https://dealsite.co.kr/articles/125271",
+     "hl": "IPO 추진 피스피스스튜디오, 해외진출에 방점"
     },
     {
      "name": "IMM인베스트먼트",
      "kind": "시리즈 투자",
      "amt": "500억원 (시리즈A)",
-     "date": "2023.09"
+     "date": "2023.09",
+     "src": "https://dealsite.co.kr/articles/164160",
+     "hl": "K패션 피스피스스튜디오 쇼크…IMM·HB인베 좌절"
     },
     {
      "name": "SL인베스트먼트",
      "kind": "시리즈 투자",
      "amt": "500억원 (시리즈A)",
-     "date": "2023.09"
+     "date": "2023.09",
+     "src": "https://dealsite.co.kr/articles/164160",
+     "hl": "K패션 피스피스스튜디오 쇼크…IMM·HB인베 좌절"
     },
     {
      "name": "미래에셋벤처투자",
      "kind": "시리즈 투자",
      "amt": "500억원 (시리즈A)",
-     "date": "2023.09"
+     "date": "2023.09",
+     "src": "https://dealsite.co.kr/articles/164160",
+     "hl": "K패션 피스피스스튜디오 쇼크…IMM·HB인베 좌절"
+    },
+    {
+     "name": "KB인베스트먼트",
+     "kind": "시리즈 투자 · 구주 일부 매각(엑시트, 약 3배)",
+     "amt": "500억원 (시리즈A)",
+     "date": "2023.09",
+     "src": "https://dealsite.co.kr/articles/164160",
+     "hl": "K패션 피스피스스튜디오 쇼크…IMM·HB인베 좌절"
+    },
+    {
+     "name": "무신사파트너스",
+     "kind": "초기 투자 · 지분 전량 정리(엑시트)",
+     "amt": "",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "HB인베스트먼트",
+     "kind": "구주 인수(KB인베스트먼트 보유분 일부)",
+     "amt": "",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "스톤브릿지벤처스",
+     "kind": "구주 인수",
+     "amt": "100억원대",
+     "date": "",
+     "src": ""
     }
    ]
   },
@@ -1974,6 +2246,31 @@
      "hl": "하고엘앤에프, ‘드파운드’ 투자...26번째 브랜드로",
      "url": "http://www.fashionbiz.co.kr/TN/?cate=2&recom=2&idx=196529"
     }
+   ],
+   "invest_summary": "투자 유치: SV인베스트먼트 · LB인베스트먼트 · 대명화학",
+   "base_investors": [
+    {
+     "name": "SV인베스트먼트",
+     "kind": "재무적 투자자 (FI)",
+     "amt": "보유 중",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "LB인베스트먼트",
+     "kind": "재무적 투자자 (FI)",
+     "amt": "보유 중",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "대명화학",
+     "kind": "전략적 투자자 (SI) · 2020년",
+     "amt": "초기 투자",
+     "date": "2026.11",
+     "src": "https://www.fnnews.com/news/202611081237422710",
+     "hl": "모회사 삼키는 '마뗑킴'…하고하우스 피봇 본격화"
+    }
    ]
   },
   "grainon": {
@@ -2013,7 +2310,9 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "외부 투자자 정보 없음",
+   "base_investors": []
   },
   "boosterz": {
    "ipo": {
@@ -2125,12 +2424,70 @@
    ],
    "investors": [
     {
+     "name": "지난달 하나벤처스",
+     "amt": "104억 원",
+     "kind": "투자 유치",
+     "date": "2025.01",
+     "hl": "부스터즈, 104억 투자 유치 완료",
+     "url": "https://dealsite.co.kr/articles/135053"
+    },
+    {
+     "name": "스마트스터디벤처스",
+     "amt": "104억 원",
+     "kind": "투자 유치",
+     "date": "2025.01",
+     "hl": "부스터즈, 104억 투자 유치 완료",
+     "url": "https://dealsite.co.kr/articles/135053"
+    },
+    {
      "name": "커머스부문)",
      "amt": "",
      "kind": "투자 유치",
      "date": "2024.10",
      "hl": "'CJ온스타일 투자' 부스터즈, 100억 콜옵션 무산 배경은",
      "url": "https://dealsite.co.kr/articles/128993"
+    }
+   ],
+   "invest_summary": "Series C: 에스비아이인베스트먼트 · 엔베스터 · 레이크브릿지에쿼티파트너스 · 하나벤처스 / 지분 인수: 우주텍",
+   "base_investors": [
+    {
+     "name": "우주텍",
+     "kind": "최대주주",
+     "amt": "지분 48.01%",
+     "date": "2024.10",
+     "src": "https://www.hankyung.com/article/202410295596i",
+     "hl": "[마켓칼럼] 글로벌 풋웨어 시장 고성장…토종 브랜드 '르무통'에 주목"
+    },
+    {
+     "name": "하나벤처스",
+     "kind": "팔로온 투자자",
+     "amt": "Series C",
+     "date": "2026.01",
+     "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815",
+     "hl": "FSN 자회사 부스터즈, 374억 투자유치...몸값 1900억 '껑충'"
+    },
+    {
+     "name": "에스비아이인베스트먼트",
+     "kind": "신규 투자자",
+     "amt": "Series C",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "엔베스터",
+     "kind": "신규 투자자",
+     "amt": "Series C",
+     "date": "2026.01",
+     "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815",
+     "hl": "FSN 자회사 부스터즈, 374억 투자유치...몸값 1900억 '껑충'"
+    },
+    {
+     "name": "레이크브릿지에쿼티파트너스",
+     "kind": "신규 투자자",
+     "amt": "Series C",
+     "date": "2026.01",
+     "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815",
+     "hl": "FSN 자회사 부스터즈, 374억 투자유치...몸값 1900억 '껑충'"
     }
    ]
   },
@@ -2148,6 +2505,14 @@
    },
    "global": [],
    "investors": [
+    {
+     "name": "3곳으",
+     "amt": "",
+     "kind": "투자 유치",
+     "date": "2026.08",
+     "hl": "'뷰티 릴스' 강자 앤마들린, 코스닥 상장 도전장",
+     "url": "https://www.newstopkorea.com/news/articleView.html?idxno=46788"
+    },
     {
      "name": "인탑스인베스트먼트",
      "amt": "30억원",
@@ -2172,6 +2537,33 @@
      "hl": "앤마들린 '글로브', 30억원 투자 유치",
      "url": "https://zdnet.co.kr/view/?no=20250819180628"
     }
+   ],
+   "invest_summary": "Series A: 위벤처스 · 인탑스인베스트먼트 · 에이치지이니셔티브 (누적 30억원)",
+   "base_investors": [
+    {
+     "name": "위벤처스",
+     "kind": "Series A (25.8)",
+     "amt": "10억",
+     "date": "2026.08",
+     "src": "https://www.newstopkorea.com/news/articleView.html?idxno=46788",
+     "hl": "'뷰티 릴스' 강자 앤마들린, 코스닥 상장 도전장"
+    },
+    {
+     "name": "인탑스인베스트먼트",
+     "kind": "Series A (25.8)",
+     "amt": "10억",
+     "date": "2026.08",
+     "src": "https://www.newstopkorea.com/news/articleView.html?idxno=46788",
+     "hl": "'뷰티 릴스' 강자 앤마들린, 코스닥 상장 도전장"
+    },
+    {
+     "name": "에이치지이니셔티브",
+     "kind": "Series A (25.8)",
+     "amt": "10억",
+     "date": "2025.08",
+     "src": "https://zdnet.co.kr/view/?no=20250819180628",
+     "hl": "앤마들린 '글로브', 30억원 투자 유치"
+    }
    ]
   },
   "rebom": {
@@ -2187,9 +2579,20 @@
     ]
    },
    "global": [],
-   "investors": []
+   "investors": [],
+   "invest_summary": "경영권 인수: 동국제약 (지분 약 53.7%, 약 306억원, 2024.10)",
+   "base_investors": [
+    {
+     "name": "동국제약",
+     "kind": "경영권 인수 (24.10)",
+     "amt": "약 306억",
+     "date": "2024.10",
+     "src": "https://m.dailypharm.com/user/news/12470",
+     "hl": "동국제약, 리봄화장품 307억에 인수"
+    }
+   ]
   }
  },
  "_rules": 16,
- "_updated": "2026-11-09T13:44:44 KST"
+ "_updated": "2026-11-09T13:55:20 KST"
 }
