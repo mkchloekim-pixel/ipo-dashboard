@@ -127,6 +127,7 @@ footer{margin-top:30px;font-size:11.5px;color:var(--text3);line-height:1.7}
     재무실적: DART 정기보고서(주요계정) 우선, 미제출 법인은 감사보고서에서 추출, 둘 다 없으면 수동 입력값(검증 필요). 최신 실적은 올해 반기·분기 누적 기준.<br>
     뉴스: 네이버 뉴스 검색 API 자동 수집(매일). IPO 단계·글로벌 진출 요약은 수집된 기사에서 키워드 규칙으로 자동 추출·누적한 참고 정보이며, 단계 바는 '수동 입력 단계'와 '기사 기반 단계' 중 더 진척된 쪽을 표시합니다(오분류 가능, 근거 기사 링크 확인).<br>
     'CJ온스타일 투자' 표시는 공개 보도로 확인된 건만 반영한 것으로, 표시가 없다고 투자 이력이 없다는 뜻은 아닙니다.<br>
+    글로벌 진출 태그 기준(기사 기반 자동 분류, 최근 12개월 기사): <b>진출</b> = 해당 국가 이름 바로 옆에 진출·입점·출점·수출·판매 등 실제 행위가 보도됨 · <b>신규 진출</b> = 최근 6개월 내 처음 진출을 알린 기사가 있고 그 이전 진출 기사는 없음 · <b>확장 중</b> = 최근 6개월 내 확대·공략·증가 표현이 있는 서로 다른 기사 2건 이상 · <b>계획</b> = 추진·검토·목표 등 계획 표현만 있고 진출 확정 보도는 없음. 해당 기업 단독 기사만 사용하며 타사·타 브랜드 혼합 기사, 국가명만 언급된 기사, 철수·축소 기사는 제외합니다. 키워드 규칙에 따른 자동 분류이므로 오분류가 있을 수 있어 근거 기사 링크로 확인하세요.<br>
     본 자료는 공개 정보 기반 참고용이며 투자 판단의 근거가 될 수 없습니다. 수치는 원문 공시로 확인하세요.
   </footer>
 </div>
@@ -313,7 +314,7 @@ function summaryRow(c){
   if (stt.latest) ip.appendChild(el('span', 'chip ' + (stt.delay ? 'hi' : 'tag-ipo'), '기사: ' + (KIND_LABEL[stt.latest.kind] || '') + ' · ' + stt.latest.date));
   b.appendChild(ip);
   const gl = el('div', 'cell');
-  const gr = globalRegions(c), regs = [...new Set(gr.filter(g => g.level !== 'weak' && g.tag !== 'withdraw').map(g => g.region))];
+  const gr = globalRegions(c), regs = [...new Set(gr.map(g => g.region))];
   if (regs.length) regs.slice(0, 5).forEach(r => gl.appendChild(el('span', 'chip', r))); else gl.appendChild(el('span', 'empty', '–'));
   b.appendChild(gl);
   const nc = el('div', 'cell news-c');
@@ -445,10 +446,9 @@ function globalCard(c, nw){
     regs.forEach(g => {
       const row = el('div', 'gl'), body = el('div');
       row.appendChild(el('b', '', g.region));
-      const TAGS = {new: ['신규 진출', 'mh'], expand: ['확장 중', 'tag-glb'], ongoing: ['진출', 'ml'], withdraw: ['축소·철수', 'hi'], planned: ['예정', 'tag-ipo'], weak: ['근거 약함', '']};
-      const lv = TAGS[g.tag] || {confirmed: TAGS.ongoing, planned: TAGS.planned, weak: TAGS.weak}[g.level] || ['', ''];
+      const TAGS = {new: ['신규 진출', 'mh'], expand: ['확장 중', 'tag-glb'], ongoing: ['진출', 'ml'], planned: ['계획', 'tag-ipo']};
+      const lv = TAGS[g.tag] || ['', ''];
       if (lv[0]){ const lc = el('div'); lc.appendChild(el('span', 'chip ' + lv[1], lv[0])); body.appendChild(lc); }
-      if (g.level === 'weak') row.classList.add('weak');
       (g.items || []).slice(0, 3).forEach(it => {
         const u = safeUrl(it.url || ''), line = el('div', 'note');
         line.appendChild(document.createTextNode(it.text + ' '));
