@@ -139,7 +139,10 @@ def main():
         return
     raw = os.environ.get('DATA_GO_KR_KEY', '')
     key = raw.strip().strip('"\'')
-    cfg = json.loads(Path(a.config).read_text('utf-8')) if Path(a.config).exists() else {}
+    try:
+        cfg = json.loads(Path(a.config).read_text('utf-8')) if Path(a.config).exists() else {}
+    except ValueError as ex:
+        sys.exit(f'price_config.json 형식 오류: {ex}  (쉼표·따옴표·중괄호 위치와 숫자 쉼표(3,535 → 3535)를 확인하세요. 기존 price.json 은 변경하지 않았습니다.)')
     out_p = Path(a.out)
     prev = {}
     try:
