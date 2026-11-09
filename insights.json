@@ -16,7 +16,6 @@
      "base": true,
      "note": "대만 현지법인 설립(2026.07)",
      "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968",
-     "expanding": false,
      "key": true
     },
     {
@@ -81,7 +80,6 @@
      "base": true,
      "note": "일본 법인 운영",
      "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968",
-     "expanding": false,
      "key": true
     },
     {
@@ -146,7 +144,6 @@
      "base": true,
      "note": "중국(상하이) 법인 운영",
      "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968",
-     "expanding": false,
      "key": true
     },
     {
@@ -383,7 +380,6 @@
      "base": true,
      "note": "미국 법인(구다이글로벌 USA) 유통 거점",
      "src": "https://www.goodai-global.com/ko",
-     "expanding": false,
      "key": true
     },
     {
@@ -480,7 +476,6 @@
      "base": true,
      "note": "일본 법인(구다이글로벌 Japan) 유통 거점",
      "src": "https://www.goodai-global.com/ko",
-     "expanding": false,
      "key": true
     }
    ],
@@ -521,52 +516,9 @@
      "tag": "ongoing",
      "date": "2026.10",
      "base": true,
-     "note": "일본 법인(BENOW JAPAN) 운영, 일본 중심 해외 비중 높음. 홈페이지: 세계 약 14개국 수출",
+     "note": "일본 법인(BENOW JAPAN) 운영, 일본 중심 해외 비중 높음",
      "src": "https://www.benow.co.jp/",
-     "expanding": false,
      "key": true
-    },
-    {
-     "region": "중동",
-     "items": [],
-     "n_done": 0,
-     "n_plan": 0,
-     "date": "",
-     "level": "confirmed",
-     "tag": "ongoing",
-     "base": true,
-     "note": "해외영업(중동 권역) 채용 공고 — 확대 신호",
-     "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173",
-     "expanding": true,
-     "key": false
-    },
-    {
-     "region": "유럽",
-     "items": [],
-     "n_done": 0,
-     "n_plan": 0,
-     "date": "",
-     "level": "confirmed",
-     "tag": "ongoing",
-     "base": true,
-     "note": "해외영업(유럽 권역) 채용 공고 — 확대 신호",
-     "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173",
-     "expanding": true,
-     "key": false
-    },
-    {
-     "region": "중남미",
-     "items": [],
-     "n_done": 0,
-     "n_plan": 0,
-     "date": "",
-     "level": "confirmed",
-     "tag": "ongoing",
-     "base": true,
-     "note": "해외영업(중남미 권역) 채용 공고 — 확대 신호",
-     "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173",
-     "expanding": true,
-     "key": false
     },
     {
      "region": "미국",
@@ -597,14 +549,14 @@
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.10",
-     "base": true,
-     "note": "해외영업(북미 권역) 채용 공고 — 확대 신호",
-     "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173",
-     "expanding": true,
      "key": false
     }
    ],
-   "summary": "일본 법인 중심으로 해외 비중이 높고(홈페이지: 약 14개국 수출), 중동·북미·유럽·중남미 해외영업 채용 등 권역 확대 중."
+   "note": {
+    "text": "일본 비중이 높으나 신규 해외영업 인력 채용 확대 중.",
+    "title": "㈜비나우 채용 - [리더/경력] B2B 해외영업 중동/북미/유럽/중남미 권역 | 잡코리아",
+    "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173"
+   }
   },
   "grace": {
    "ipo": {
@@ -653,7 +605,6 @@
      "base": true,
      "note": "미국 법인 2018년 설립, 한국 브랜드 미국 시장 진출 중",
      "src": "https://m.thebell.co.kr/m/newsview.asp?newskey=202607081544329400109564",
-     "expanding": false,
      "key": true
     }
    ],
@@ -675,7 +626,6 @@
      "base": true,
      "note": "도쿄 거점 셀렉트 스토어 운영 이력",
      "src": "https://www.news1.kr/industry/distribution/6125593",
-     "expanding": false,
      "key": true
     },
     {
@@ -689,7 +639,6 @@
      "base": true,
      "note": "홍콩 법인 2015년 설립",
      "src": "https://www.leferi.co.kr/ko/about",
-     "expanding": false,
      "key": true
     },
     {
@@ -857,7 +806,8 @@
      "key": false
     }
    ],
-   "summary": "일본 도쿄 거점 셀렉트 스토어 운영 이력, 홍콩 법인 2015년 설립. 일본·홍콩 모두 기진출."
+   "summary": "일본 도쿄 거점 셀렉트 스토어 운영 이력, 홍콩 법인 2015년 설립. 일본·홍콩 모두 기진출.",
+   "max_items": 1
   },
   "liman": {
    "ipo": {
@@ -1168,7 +1118,6 @@
      "base": true,
      "note": "일본 법인 2021년 설립",
      "src": "https://www.thebell.co.kr/front/newsview.asp?key=202407161113121840104171",
-     "expanding": false,
      "key": true
     },
     {
@@ -1203,7 +1152,6 @@
      "base": true,
      "note": "미국 법인(Anua Inc.) 보유, 핵심 인력은 한국 상주",
      "src": "https://thefounders.careers/home-brand",
-     "expanding": false,
      "key": true
     },
     {
@@ -1228,7 +1176,6 @@
      "base": true,
      "note": "아누아 유럽 판매(글로벌 세일즈 채용 기사 기준)",
      "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904",
-     "expanding": false,
      "key": true
     },
     {
@@ -1715,7 +1662,6 @@
      "base": true,
      "note": "중화권 미스토홀딩스 협업 기반 중국 현지 총판 진출",
      "src": "https://www.thebell.co.kr/front/newsview.asp?key=202610151333018840108185",
-     "expanding": false,
      "key": true
     },
     {
@@ -1760,7 +1706,6 @@
      "base": true,
      "note": "태국 센트럴리테일 현지 유통 파트너 확보, 베트남 하노이 롯데몰도 센트럴그룹이 유통",
      "src": "https://www.thebell.co.kr/front/newsview.asp?key=202610151333018840108185",
-     "expanding": false,
      "key": true
     },
     {
@@ -2097,5 +2042,5 @@
   }
  },
  "_rules": 14,
- "_updated": "2026-11-09T10:56:43 KST"
+ "_updated": "2026-11-09T11:01:42 KST"
 }
