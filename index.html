@@ -410,7 +410,10 @@ function investCard(c, nw){
   }
   const exPat = (insOf(c) || {}).exclude || [], FAILED = /무산|불발|철회|좌초|결렬|취소|백지화|콜옵션/;
   const arts = nw.list.filter(n => n.cls.inv.length && !FAILED.test((n.hl || '') + ' ' + (n.sum || '')) && !exPat.some(p => p && ((n.hl || '').includes(p) || (n.url || '').includes(p)))).slice(0, 3);   // 성사되지 않은 투자 기사·지정 제외 기사는 표시 안 함
-  const linked = new Set(rows.map(r => r.url).filter(Boolean)), arts2 = (insI.hide_articles ? [] : insI.max_articles ? nw.list.filter(n => n.cls.inv.length).sort((x, y) => (y.cls.inv.includes('밸류에이션') ? 1 : 0) - (x.cls.inv.includes('밸류에이션') ? 1 : 0)).slice(0, insI.max_articles) : arts.filter(n => !linked.has(n.url)));   // 투자자 링크와 중복되는 기사는 제외, 지정 기업은 이 칸 숨김
+  const linked = new Set(rows.map(r => r.url).filter(Boolean));   // 투자자 링크와 중복되는 기사는 제외, 지정 기업은 이 칸 숨김/1건만
+  const arts2 = insI.hide_articles ? [] : insI.max_articles
+    ? nw.list.filter(n => n.cls.inv.length).sort((x, y) => (y.cls.inv.includes('밸류에이션') ? 1 : 0) - (x.cls.inv.includes('밸류에이션') ? 1 : 0)).slice(0, insI.max_articles)
+    : arts.filter(n => !linked.has(n.url));
   if (arts2.length){
     const s = el('div', 'sep'); s.appendChild(el('small', 'empty', '최신 기사 분석'));
     arts2.forEach(n => s.appendChild(newsItem(n, n.cls.inv, 'inv', true)));

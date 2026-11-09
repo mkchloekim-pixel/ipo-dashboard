@@ -733,15 +733,15 @@ def main():
     for k, t in (presence.get('_notes') or {}).items():
         if k in out and isinstance(t, dict):
             out[k]['note'] = {'text': str(t.get('text', ''))[:300], 'title': str(t.get('title', ''))[:120], 'src': str(t.get('src', ''))}
-    for k in (presence.get('_hide_investors') or []):                  # 투자자 목록을 숨기는 기업(요약 문구만 표시)
-        if k in out:
-            out[k]['hide_investors'] = True
     for k, n in (presence.get('_max_articles') or {}).items():          # '최신 기사 분석' 칸에 남길 기사 수(밸류에이션 기사 우선)
         if k in out and isinstance(n, int) and 1 <= n <= 3:
             out[k]['max_articles'] = n
     for k in (presence.get('_hide_articles') or []):                   # '최신 기사 분석' 칸을 숨기는 기업(투자자 링크와 중복)
         if k in out:
             out[k]['hide_articles'] = True
+    for k in (presence.get('_hide_investors') or []):                  # 투자자 목록을 숨기는 기업(요약 문구만 표시)
+        if k in out:
+            out[k]['hide_investors'] = True
     for k, t in (presence.get('_invest_summary') or {}).items():     # 요약 행 투자자 문구(정식 투자사명, 통일 형식)
         if k in out and isinstance(t, str):
             out[k]['invest_summary'] = t[:400]
