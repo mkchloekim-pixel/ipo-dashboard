@@ -128,7 +128,8 @@ footer{margin-top:30px;font-size:11.5px;color:var(--text3);line-height:1.7}
     재무실적: DART 정기보고서(주요계정) 우선, 미제출 법인은 감사보고서에서 추출, 둘 다 없으면 수동 입력값(검증 필요). 최신 실적은 올해 반기·분기 누적 기준.<br>
     뉴스: 네이버 뉴스 검색 API 자동 수집(매일). IPO 단계·글로벌 진출 요약은 수집된 기사에서 키워드 규칙으로 자동 추출·누적한 참고 정보이며, 단계 바는 '수동 입력 단계'와 '기사 기반 단계' 중 더 진척된 쪽을 표시합니다(오분류 가능, 근거 기사 링크 확인).<br>
     'CJ온스타일 투자' 표시는 공개 보도로 확인된 건만 반영한 것으로, 표시가 없다고 투자 이력이 없다는 뜻은 아닙니다.<br>
-    글로벌 국가 표시: 굵은 녹색 칩=기업 공식 정보·기사로 확인된 주요 진출 국가, 일반 칩=기사로 확인된 진출 국가, 파란색 '(계획)'=계획·추진 단계(진출 기사 없음). 신규·확장 구분은 사용하지 않으며, 과거 회고·철수 기사는 반영하지 않습니다. 국가 칩 아래 문구는 채용 공고 등 참고 정보입니다(출처 링크 확인).<br>
+    글로벌 국가 표시: 굵은 녹색 칩=기업 공식 정보·기사로 확인된 주요 진출 국가, 일반 칩=기사로 확인된 진출 국가, 파란색 '(계획)'=계획·추진 단계(진출 기사 없음). 신규·확장 구분은 사용하지 않으며, 과거 회고·철수 기사는 반영하지 않습니다.<br>
+    투자자: 기사 제목·요약에서 '자사가 투자를 유치한 건'만 자동 추출(근거 기사 링크 표시)하고, 기사에 없는 기존 투자자는 '기준 정보'로 함께 표시합니다. 자사가 투자한 건은 제외합니다.<br>
     본 자료는 공개 정보 기반 참고용이며 투자 판단의 근거가 될 수 없습니다. 수치는 원문 공시로 확인하세요.
   </footer>
 </div>
@@ -374,7 +375,13 @@ function investCard(c, nw){
     if (u){ const a = el('a', '', '근거 기사 ↗'); a.href = u; a.target = '_blank'; a.rel = 'noopener noreferrer'; li.appendChild(a); }
     card.appendChild(li);
   }
-  c.investors.forEach(i => card.appendChild(el('div', 'li', '', [el('span', 't', i.name), el('p', '', i.type + (i.amt ? ' · ' + i.amt : ''))])));
+  const autoInv = ((insOf(c) || {}).investors) || [], nrm = x => String(x).replace(/\s/g, '').toLowerCase();
+  autoInv.forEach(i => {      // 기사에서 자동 추출한 투자자(자사가 유치한 건만) — 근거 기사 링크 포함
+    const u = safeUrl(i.url || ''), t = u ? Object.assign(el('a', '', i.name), {href: u, target: '_blank', rel: 'noopener noreferrer'}) : el('span', 't', i.name);
+    card.appendChild(el('div', 'li', '', [t, el('p', '', [i.kind, i.amt, i.date, '기사 기반'].filter(Boolean).join(' · '))]));
+  });
+  c.investors.filter(i => !autoInv.some(a => nrm(a.name).includes(nrm(i.name)) || nrm(i.name).includes(nrm(a.name))))
+    .forEach(i => card.appendChild(el('div', 'li', '', [el('span', 't', i.name), el('p', '', i.type + (i.amt ? ' · ' + i.amt : '') + ' · 기준 정보')])));
   if (c.investNote) card.appendChild(el('p', 'note', c.investNote));
   if (c.directInvests && c.directInvests.length){        // 회사가 직접 투자한 이력 (외부 투자 유치와 구분)
     const s = el('div', 'sep'); s.appendChild(el('small', 'empty', '직접 투자 이력 (회사가 투자한 곳)'));
@@ -448,8 +455,6 @@ function globalRegions(c){
 function globalCard(c, nw){
   const card = el('div', 'card wide'), regs = globalRegions(c);
   card.appendChild(el('h3', '', '', [el('span', '', '글로벌 진출 현황'), el('span', 'chip src' + (regs.length ? ' dart' : ''), regs.length ? '기사·기업 정보 기반 (매일 갱신)' : '정보 없음')]));
-  const ps = (insOf(c) || {}).summary;
-  if (ps) card.appendChild(el('p', 'note', '요약: ' + ps));
   if (regs.length){
     regs.forEach(g => {
       const row = el('div', 'gl'), body = el('div');
