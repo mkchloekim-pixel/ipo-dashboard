@@ -389,17 +389,21 @@ def merge_global(old, new):
 
 
 def apply_presence(glb, base):
-    """기준 정보(presence.json) 반영: 이미 진출한 국가는 '신규 진출'로 보지 않고 핵심 국가(key)로 표시."""
+    """기준 정보(presence.json) 반영: 이미 진출한 국가는 '신규 진출'로 보지 않고 핵심 국가(key)로 표시.
+    stage='expanding' 항목은 진출 확정이 아닌 '확대 중'(채용·확대 신호)으로만 표시한다."""
     by = {g['region']: g for g in glb}
     for b in base:
         g = by.get(b.get('region'))
+        exp = b.get('stage') == 'expanding'
         if g is None:
             g = {'region': b['region'], 'items': [], 'n_done': 0, 'n_plan': 0, 'date': ''}
             glb.append(g)
             by[b['region']] = g
-        g.update(level='confirmed', tag='ongoing', base=True, note=b.get('note', ''), src=b.get('src', ''))
+        if exp and g.get('base') and not g.get('expanding'):
+            continue
+        g.update(level='confirmed', tag='ongoing', base=True, note=b.get('note', ''), src=b.get('src', ''), expanding=exp)
     for g in glb:
-        g['key'] = bool(g.get('base') or g.get('tag') in ('new', 'expand'))
+        g['key'] = bool((g.get('base') and not g.get('expanding')) or g.get('tag') in ('new', 'expand'))
         if g.get('base'):
             g['tag'] = 'ongoing'
     glb.sort(key=lambda g: (g['tag'] == 'planned', not g['key'], ''.join(chr(255 - ord(c)) for c in g.get('date', ''))))
@@ -534,8 +538,9 @@ def selftest():
     assert tg([mk('무신사, 일본 팝업 확대', M(1), 't4'), mk('무신사, 일본 진출', M(10), 't5')]) == 'ongoing'   # 확대 기사 1건 → 애매 → 진출
     assert tg([mk('무신사, 일본 팝업 확대', M(1), 't4'), mk('무신사, 일본 거래액 증가', M(2), 't9'), mk('무신사, 일본 진출', M(10), 't5')]) == 'expand'
     assert tg([mk('무신사, 일본 거래액 증가', M(2), 't6')]) == 'ongoing'
-    _b = analyze('musinsoa', '무신사', [], {}, [], [{'region': '일본', 'note': 'x', 'src': ''}])['global']
+    _b = analyze('musinsoa', '무신사', [], {}, [], [{'region': '일본', 'note': 'x', 'src': ''}, {'region': '유럽', 'stage': 'expanding'}])['global']
     assert _b[0]['region'] == '일본' and _b[0]['key'] and _b[0]['tag'] == 'ongoing', _b
+    assert [g for g in _b if g['region'] == '유럽'][0]['expanding'] and not [g for g in _b if g['region'] == '유럽'][0]['key'], _b
     assert analyze('musinsoa', '무신사', [], {}, [mk('무신사, 중국 매장 철수', M(1), 't7')])['global'] == []   # 철수는 표기 안 함
     assert seg_level('성분에디터는 현재 유럽 15개국 980여 개 매장에 입점해 있으며, 연말까지 판매처를 2500곳으로 확대할 계획이다') == 'done'
     r = analyze('olive', '올리브인터내셔널', [], {}, [

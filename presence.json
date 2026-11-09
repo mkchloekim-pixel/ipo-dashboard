@@ -1,5 +1,5 @@
 {
- "_note": "기업이 이미 진출해 있는 국가 기준 정보(기사 분석과 별개). region 은 build_insights.py COUNTRIES 의 국가명과 동일. 사람이 출처 확인 후 추가/수정. 개인정보·비공개 정보 금지.",
+ "_note": "기업이 이미 진출해 있는 국가 기준 정보(기사 분석과 별개). region 은 build_insights.py COUNTRIES 의 국가명과 동일. stage='expanding' 은 진출 확정이 아닌 확대 신호(채용 등). 사람이 출처 확인 후 추가/수정. 개인정보·비공개 정보 금지.",
  "goodai": [
   {
    "region": "미국",
@@ -49,7 +49,31 @@
  "vinow": [
   {
    "region": "일본",
-   "note": "일본 비중 높음(해외영업 채용 공고 기준)",
+   "note": "일본 법인(BENOW JAPAN) 운영, 일본 중심 해외 비중 높음. 홈페이지: 세계 약 14개국 수출",
+   "src": "https://www.benow.co.jp/"
+  },
+  {
+   "region": "중동",
+   "stage": "expanding",
+   "note": "해외영업(중동 권역) 채용 공고 — 확대 신호",
+   "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173"
+  },
+  {
+   "region": "미국",
+   "stage": "expanding",
+   "note": "해외영업(북미 권역) 채용 공고 — 확대 신호",
+   "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173"
+  },
+  {
+   "region": "유럽",
+   "stage": "expanding",
+   "note": "해외영업(유럽 권역) 채용 공고 — 확대 신호",
+   "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173"
+  },
+  {
+   "region": "중남미",
+   "stage": "expanding",
+   "note": "해외영업(중남미 권역) 채용 공고 — 확대 신호",
    "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173"
   }
  ],
@@ -91,6 +115,6 @@
   "founders": "일본 법인(2021)·미국 법인(Anua Inc.) 보유, 해외 매출 비중 약 90%(회사 소개 기준). 일본·미국은 신규·계획이 아닌 기진출 시장.",
   "goodai": "미국·일본 법인 거점 보유.",
   "musinsoa": "일본·중국 법인 운영, 대만 현지법인 2026.07 설립.",
-  "vinow": "일본 비중이 높고 해외영업 인력 채용 확대 중."
+  "vinow": "일본 법인 중심으로 해외 비중이 높고(홈페이지: 약 14개국 수출), 중동·북미·유럽·중남미 해외영업 채용 등 권역 확대 중."
  }
 }
