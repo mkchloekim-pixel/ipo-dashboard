@@ -161,16 +161,6 @@
       },
       {
        "date": "2026.11",
-       "text": "사업에 접목하고, 무신사만의 속도와 실행력으로 오프라인 시장에 빠르게 안착했다”며 “중국에 이어 일본과 동남아시아 등으로 해외 매장을 늘려 국내에서 검증한 오프…",
-       "lvl": "plan",
-       "entry": false,
-       "exp": true,
-       "past": false,
-       "hl": "무신사, 오프라인 100호점 초읽기… 올해만 40곳 새로 열어",
-       "url": "https://biz.chosun.com/distribution/fashion-beauty/2026/11/09/HLGZKH7WFVEGRL73QXLDVEY4ZQ/?utm_source=naver&utm_medium=original&utm_campaign=biz"
-      },
-      {
-       "date": "2026.11",
        "text": "무신사 관계자는 \"중국에 이어 일본과 동남아시아로 해외 매장을 늘려 국내에서 검증한 오프라인 모델을 세계 시장으로 확장하겠다\"고 말했다",
        "lvl": "plan",
        "entry": false,
@@ -178,6 +168,16 @@
        "past": false,
        "hl": "무신사, 5년 만에 오프라인 매장 100곳 달성…방문객 92% 성장",
        "url": "https://www.yna.co.kr/view/AKR20261109029200030?input=1195m"
+      },
+      {
+       "date": "2026.11",
+       "text": "사업에 접목하고, 무신사만의 속도와 실행력으로 오프라인 시장에 빠르게 안착했다”며 “중국에 이어 일본과 동남아시아 등으로 해외 매장을 늘려 국내에서 검증한 오프…",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "무신사, 오프라인 100호점 초읽기… 올해만 40곳 새로 열어",
+       "url": "https://biz.chosun.com/distribution/fashion-beauty/2026/11/09/HLGZKH7WFVEGRL73QXLDVEY4ZQ/?utm_source=naver&utm_medium=original&utm_campaign=biz"
       }
      ],
      "n_done": 0,
@@ -431,16 +431,6 @@
      "items": [
       {
        "date": "2026.10",
-       "text": "25일 뷰티업계에 따르면 구다이글로벌의 스킨케어 브랜드 조선미녀는 지난 6~7일 진행된 아마존 '프라임 빅딜 데이즈'에서 미국과 독일, 영국 등 주요 시장의 매…",
-       "lvl": "done",
-       "entry": false,
-       "exp": true,
-       "past": false,
-       "hl": "독일 아이세럼 판매 459%↑…조선미녀, 美·유럽서 흥행 품목 확대",
-       "url": "https://www.news1.kr/industry/general-industry/6328507"
-      },
-      {
-       "date": "2026.10",
        "text": "◇영국 오프라인 유통망 확충, 현지법인 설립도 영국에서의 성장세는",
        "lvl": "done",
        "entry": true,
@@ -448,6 +438,16 @@
        "past": false,
        "hl": "[더벨]조선미녀, 아마존 빅딜서 영국 매출 4배…유럽 성장세 부각",
        "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
+      },
+      {
+       "date": "2026.10",
+       "text": "25일 뷰티업계에 따르면 구다이글로벌의 스킨케어 브랜드 조선미녀는 지난 6~7일 진행된 아마존 '프라임 빅딜 데이즈'에서 미국과 독일, 영국 등 주요 시장의 매…",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "독일 아이세럼 판매 459%↑…조선미녀, 美·유럽서 흥행 품목 확대",
+       "url": "https://www.news1.kr/industry/general-industry/6328507"
       }
      ],
      "n_done": 2,
@@ -1321,27 +1321,6 @@
      "key": false
     },
     {
-     "region": "일본",
-     "items": [
-      {
-       "date": "2025.12",
-       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": true,
-       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
-       "url": "http://www.fnnews.com/news/202512081820152004"
-      }
-     ],
-     "n_done": 1,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "ongoing",
-     "date": "2025.12",
-     "key": false
-    },
-    {
      "region": "동남아",
      "items": [
       {
@@ -1366,6 +1345,27 @@
       }
      ],
      "n_done": 2,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2025.12",
+     "key": false
+    },
+    {
+     "region": "일본",
+     "items": [
+      {
+       "date": "2025.12",
+       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
+       "url": "http://www.fnnews.com/news/202512081820152004"
+      }
+     ],
+     "n_done": 1,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -2090,5 +2090,5 @@
   }
  },
  "_rules": 15,
- "_updated": "2026-11-09T13:20:55 KST"
+ "_updated": "2026-11-09T13:27:32 KST"
 }
