@@ -23,16 +23,6 @@
      "items": [
       {
        "date": "2026.11",
-       "text": "무신사는 올해 일본 도쿄 팝업스토어를 열고 중국에 신규 매장을 출점하는 등 해외 거점을 넓히고 있다",
-       "lvl": "done",
-       "entry": true,
-       "exp": true,
-       "past": false,
-       "hl": "무신사·29CM, '폴로 랄프 로렌' 가을·겨울 시즌 캠페인 동시 실시",
-       "url": "https://www.etnews.com/20261102000264"
-      },
-      {
-       "date": "2026.11",
        "text": "무신사 글로벌 스토어의 일본 지역 거래액이 2024년 대비 약 4배로 늘어난 가운데 겨울 코트 컬렉션을 앞세워 브랜드",
        "lvl": "done",
        "entry": false,
@@ -70,9 +60,19 @@
        "past": false,
        "hl": "유니클로처럼 유명 디자이너 영입한 무신사…가격도 달라질까",
        "url": "https://economist.co.kr/article/view/ecn202611060044"
+      },
+      {
+       "date": "2026.11",
+       "text": "무신사, 첫 오프라인 5년 만에 100곳 시대…일본 거래액도 3년 새 4배로",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "무신사, 첫 오프라인 5년 만에 100곳 시대…일본 거래액도 3년 새 4배로",
+       "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 6,
+     "n_done": 5,
      "n_plan": 2,
      "level": "confirmed",
      "tag": "ongoing",
@@ -87,56 +87,56 @@
      "items": [
       {
        "date": "2026.11",
-       "text": "무신사, 中 선전 매장 2곳 동시 개점···첫 주말 4만명 몰려",
+       "text": "무신사는 지난해 12월 중국 상하이에 첫 매장 2곳을 열며 해외 오프라인 시장에 진출했다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "무신사, 국내외 매장 100곳 시대…5년 만에 누적 방문객 1억명",
+       "url": "https://www.edaily.co.kr/News/Read?newsId=02148406645644080&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
+      },
+      {
+       "date": "2026.11",
+       "text": "무신사는 지난해 12월 중국 상하이에 매장 2곳을 열며 해외 오프라인시장에 진출했다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "온라인 넘어 거리로… 무신사, 오프라인 매장 100곳 시대 연다",
+       "url": "http://www.the-biz.co.kr/news/articleView.html?idxno=730946"
+      },
+      {
+       "date": "2026.11",
+       "text": "무신사는 지난해 12월 중국 상하이에 첫 오프라인 매장 2곳을 열며 해외 시장에 진출했다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "무신사 “매장 100개 시대”…외국인 주문이 절반 넘었다",
+       "url": "https://biz.heraldcorp.com/article/10929961?ref=naver"
+      },
+      {
+       "date": "2026.11",
+       "text": "무신사 스탠다드는 중국과 일본 등 해외시장에서 국내에 출시한 상품을 중심으로 판매하고 있다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "유니클로처럼 유명 디자이너 영입한 무신사…가격도 달라질까",
+       "url": "https://economist.co.kr/article/view/ecn202611060044"
+      },
+      {
+       "date": "2026.11",
+       "text": "무신사는 지난해 12월 중국 상하이에 첫 오프라인 매장 2곳을 개점한 데 이어 올해 상하이와 항저우, 선전 등에 5곳을 추가했다",
        "lvl": "done",
        "entry": false,
        "exp": true,
        "past": true,
-       "hl": "무신사, 中 선전 매장 2곳 동시 개점···첫 주말 4만명 몰려",
-       "url": "https://www.smartbizn.com/news/articleView.html?idxno=158192"
-      },
-      {
-       "date": "2026.11",
-       "text": "'첫 주말 4만명 몰렸다'…무신사, 中선전서 K패션 수출 플랫폼 입지 넓",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "'첫 주말 4만명 몰렸다'…무신사, 中선전서 K패션 수출 플랫폼 입지 넓...",
-       "url": "https://www.wikileaks-kr.org/news/articleView.html?idxno=194121"
-      },
-      {
-       "date": "2026.11",
-       "text": "무신사, 중국 선전 첫 진출…주말 방문객만 4만명 ↑",
-       "lvl": "done",
-       "entry": true,
-       "exp": false,
-       "past": false,
-       "hl": "무신사, 중국 선전 첫 진출…주말 방문객만 4만명 ↑",
-       "url": "https://www.wolyo.co.kr/news/articleView.html?idxno=319922"
-      },
-      {
-       "date": "2026.11",
-       "text": "[포토] 무신사, 중국 선전에 매장 2곳 동시 개점…주말 4만명 방문",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "[포토] 무신사, 중국 선전에 매장 2곳 동시 개점…주말 4만명 방문",
-       "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=284106"
-      },
-      {
-       "date": "2026.11",
-       "text": "무신사는 올해 일본 도쿄 팝업스토어를 열고 중국에 신규 매장을 출점하는 등 해외 거점을 넓히고 있다",
-       "lvl": "done",
-       "entry": true,
-       "exp": true,
-       "past": false,
-       "hl": "무신사·29CM, '폴로 랄프 로렌' 가을·겨울 시즌 캠페인 동시 실시",
-       "url": "https://www.etnews.com/20261102000264"
+       "hl": "'유통 공룡' 무신사, 오프라인 매장 '100개' 시대 온다",
+       "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2489751"
       }
      ],
-     "n_done": 10,
+     "n_done": 7,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
@@ -161,16 +161,6 @@
       },
       {
        "date": "2026.11",
-       "text": "무신사 관계자는 \"중국에 이어 일본과 동남아시아로 해외 매장을 늘려 국내에서 검증한 오프라인 모델을 세계 시장으로 확장하겠다\"고 말했다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": true,
-       "past": false,
-       "hl": "무신사, 5년 만에 오프라인 매장 100곳 달성…방문객 92% 성장",
-       "url": "https://www.yna.co.kr/view/AKR20261109029200030?input=1195m"
-      },
-      {
-       "date": "2026.11",
        "text": "사업에 접목하고, 무신사만의 속도와 실행력으로 오프라인 시장에 빠르게 안착했다”며 “중국에 이어 일본과 동남아시아 등으로 해외 매장을 늘려 국내에서 검증한 오프…",
        "lvl": "plan",
        "entry": false,
@@ -178,6 +168,16 @@
        "past": false,
        "hl": "무신사, 오프라인 100호점 초읽기… 올해만 40곳 새로 열어",
        "url": "https://biz.chosun.com/distribution/fashion-beauty/2026/11/09/HLGZKH7WFVEGRL73QXLDVEY4ZQ/?utm_source=naver&utm_medium=original&utm_campaign=biz"
+      },
+      {
+       "date": "2026.11",
+       "text": "무신사 관계자는 \"중국에 이어 일본과 동남아시아로 해외 매장을 늘려 국내에서 검증한 오프라인 모델을 세계 시장으로 확장하겠다\"고 말했다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "무신사, 5년 만에 오프라인 매장 100곳 달성…방문객 92% 성장",
+       "url": "https://www.yna.co.kr/view/AKR20261109029200030?input=1195m"
       }
      ],
      "n_done": 0,
@@ -188,7 +188,7 @@
      "key": false
     }
    ],
-   "summary": "일본·중국 법인 운영, 대만 현지법인 2026.07 설립."
+   "investors": []
   },
   "kurly": {
    "ipo": {
@@ -256,7 +256,8 @@
      "date": "2026.11",
      "key": true
     }
-   ]
+   ],
+   "investors": []
   },
   "ohouse": {
    "ipo": {
@@ -305,13 +306,15 @@
      "date": "2026.03",
      "key": false
     }
-   ]
+   ],
+   "investors": []
   },
   "oasis": {
    "ipo": {
     "signals": []
    },
-   "global": []
+   "global": [],
+   "investors": []
   },
   "goodai": {
    "ipo": {
@@ -428,16 +431,6 @@
      "items": [
       {
        "date": "2026.10",
-       "text": "◇영국 오프라인 유통망 확충, 현지법인 설립도 영국에서의 성장세는",
-       "lvl": "done",
-       "entry": true,
-       "exp": true,
-       "past": false,
-       "hl": "[더벨]조선미녀, 아마존 빅딜서 영국 매출 4배…유럽 성장세 부각",
-       "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
-      },
-      {
-       "date": "2026.10",
        "text": "25일 뷰티업계에 따르면 구다이글로벌의 스킨케어 브랜드 조선미녀는 지난 6~7일 진행된 아마존 '프라임 빅딜 데이즈'에서 미국과 독일, 영국 등 주요 시장의 매…",
        "lvl": "done",
        "entry": false,
@@ -445,6 +438,16 @@
        "past": false,
        "hl": "독일 아이세럼 판매 459%↑…조선미녀, 美·유럽서 흥행 품목 확대",
        "url": "https://www.news1.kr/industry/general-industry/6328507"
+      },
+      {
+       "date": "2026.10",
+       "text": "◇영국 오프라인 유통망 확충, 현지법인 설립도 영국에서의 성장세는",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "[더벨]조선미녀, 아마존 빅딜서 영국 매출 4배…유럽 성장세 부각",
+       "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
       }
      ],
      "n_done": 2,
@@ -479,7 +482,16 @@
      "key": true
     }
    ],
-   "summary": "미국·일본 법인 거점 보유."
+   "investors": [
+    {
+     "name": "늘리는... 2024년",
+     "amt": "",
+     "kind": "지분 인수",
+     "date": "2026.10",
+     "hl": "구다이글로벌 조선미녀, 英 부츠서 K뷰티 존재감",
+     "url": "http://www.00news.co.kr/news/articleView.html?idxno=107426"
+    }
+   ]
   },
   "vinow": {
    "ipo": {
@@ -552,6 +564,7 @@
      "key": false
     }
    ],
+   "investors": [],
    "note": {
     "text": "일본 비중이 높으나 신규 해외영업 인력 채용 확대 중.",
     "title": "㈜비나우 채용 - [리더/경력] B2B 해외영업 중동/북미/유럽/중남미 권역 | 잡코리아",
@@ -562,13 +575,40 @@
    "ipo": {
     "signals": []
    },
-   "global": []
+   "global": [],
+   "investors": []
   },
   "bnb": {
    "ipo": {
     "signals": []
    },
-   "global": []
+   "global": [],
+   "investors": [
+    {
+     "name": "서영이앤티가",
+     "amt": "",
+     "kind": "지분 인수",
+     "date": "2026.07",
+     "hl": "[더벨][비앤비코리아 IPO] 모회사 서영이앤티 사업도 시장서 '재평가'",
+     "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202607011355431360105172"
+    },
+    {
+     "name": "특수목적법인을 세워",
+     "amt": "",
+     "kind": "지분 인수",
+     "date": "2026.06",
+     "hl": "[더벨][비앤비코리아 IPO] 공모자금 절반 구주매출, 빚부터 갚는다",
+     "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202605281427261920101532"
+    },
+    {
+     "name": "이끌었던 제조사",
+     "amt": "",
+     "kind": "지분 인수",
+     "date": "2024.10",
+     "hl": "서영이앤티, 마유크림 열풍 이끌었던 제조사 비앤비코리아 인수",
+     "url": "https://www.meconomynews.com/news/articleView.html?idxno=102698"
+    }
+   ]
   },
   "2020": {
    "ipo": {
@@ -608,7 +648,7 @@
      "key": true
     }
    ],
-   "summary": "미국 법인을 2018년 설립해 미국 시장에 이미 진출 중."
+   "investors": []
   },
   "lafati": {
    "ipo": {
@@ -806,7 +846,7 @@
      "key": false
     }
    ],
-   "summary": "일본 도쿄 거점 셀렉트 스토어 운영 이력, 홍콩 법인 2015년 설립. 일본·홍콩 모두 기진출.",
+   "investors": [],
    "max_items": 1
   },
   "liman": {
@@ -1100,7 +1140,8 @@
      "date": "2026.07",
      "key": false
     }
-   ]
+   ],
+   "investors": []
   },
   "founders": {
    "ipo": {
@@ -1200,7 +1241,7 @@
      "key": true
     }
    ],
-   "summary": "일본 법인(2021)·미국 법인(Anua Inc.) 보유, 해외 매출 비중 약 90%(회사 소개 기준). 일본·미국은 신규·계획이 아닌 기진출 시장."
+   "investors": []
   },
   "olive": {
    "ipo": {
@@ -1280,6 +1321,27 @@
      "key": false
     },
     {
+     "region": "일본",
+     "items": [
+      {
+       "date": "2025.12",
+       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
+       "url": "http://www.fnnews.com/news/202512081820152004"
+      }
+     ],
+     "n_done": 1,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2025.12",
+     "key": false
+    },
+    {
      "region": "동남아",
      "items": [
       {
@@ -1309,29 +1371,9 @@
      "tag": "ongoing",
      "date": "2025.12",
      "key": false
-    },
-    {
-     "region": "일본",
-     "items": [
-      {
-       "date": "2025.12",
-       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": true,
-       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
-       "url": "http://www.fnnews.com/news/202512081820152004"
-      }
-     ],
-     "n_done": 1,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "ongoing",
-     "date": "2025.12",
-     "key": false
     }
-   ]
+   ],
+   "investors": []
   },
   "highlight": {
    "ipo": {
@@ -1472,7 +1514,8 @@
      "date": "2026.07",
      "key": false
     }
-   ]
+   ],
+   "investors": []
   },
   "peacenow": {
    "ipo": {
@@ -1633,7 +1676,8 @@
      "date": "2026.05",
      "key": false
     }
-   ]
+   ],
+   "investors": []
   },
   "hagohouse": {
    "ipo": {
@@ -1863,7 +1907,7 @@
      "key": false
     }
    ],
-   "summary": "동남아는 센트럴그룹(태국 센트럴리테일·베트남 하노이 롯데몰 유통), 중화권은 미스토홀딩스 협업 총판 등 현지 유통 파트너 중심으로 진출."
+   "investors": []
   },
   "grainon": {
    "ipo": {
@@ -1901,7 +1945,8 @@
      "date": "2026.09",
      "key": false
     }
-   ]
+   ],
+   "investors": []
   },
   "boosterz": {
    "ipo": {
@@ -2010,7 +2055,8 @@
      "date": "2026.11",
      "key": false
     }
-   ]
+   ],
+   "investors": []
   },
   "nmodelin": {
    "ipo": {
@@ -2024,7 +2070,8 @@
      }
     ]
    },
-   "global": []
+   "global": [],
+   "investors": []
   },
   "rebom": {
    "ipo": {
@@ -2038,9 +2085,10 @@
      }
     ]
    },
-   "global": []
+   "global": [],
+   "investors": []
   }
  },
- "_rules": 14,
- "_updated": "2026-11-09T11:06:40 KST"
+ "_rules": 15,
+ "_updated": "2026-11-09T13:20:55 KST"
 }
