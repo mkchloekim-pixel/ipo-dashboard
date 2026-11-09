@@ -94,6 +94,10 @@
  "_max_items": {
   "lafati": 1
  },
+ "_hide_investors": [
+  "peacenow",
+  "grainon"
+ ],
  "_investors": {
   "kurly": [
    {
@@ -343,74 +347,13 @@
     "date": ""
    }
   ],
-  "peacenow": [
-   {
-    "name": "위벤처스",
-    "kind": "시리즈 투자",
-    "amt": "500억원 (시리즈A)",
-    "date": "2023.09"
-   },
-   {
-    "name": "한국투자파트너스",
-    "kind": "시리즈 투자",
-    "amt": "500억원 (시리즈A)",
-    "date": "2023.09"
-   },
-   {
-    "name": "이앤인베스트먼트",
-    "kind": "시리즈 투자",
-    "amt": "500억원 (시리즈A)",
-    "date": "2023.09"
-   },
-   {
-    "name": "IMM인베스트먼트",
-    "kind": "시리즈 투자",
-    "amt": "500억원 (시리즈A)",
-    "date": "2023.09"
-   },
-   {
-    "name": "SL인베스트먼트",
-    "kind": "시리즈 투자",
-    "amt": "500억원 (시리즈A)",
-    "date": "2023.09"
-   },
-   {
-    "name": "미래에셋벤처투자",
-    "kind": "시리즈 투자",
-    "amt": "500억원 (시리즈A)",
-    "date": "2023.09"
-   },
-   {
-    "name": "KB인베스트먼트",
-    "kind": "시리즈 투자 · 구주 일부 매각(엑시트, 약 3배)",
-    "amt": "500억원 (시리즈A)",
-    "date": "2023.09"
-   },
-   {
-    "name": "무신사파트너스",
-    "kind": "초기 투자 · 지분 전량 정리(엑시트)",
-    "amt": "",
-    "date": ""
-   },
-   {
-    "name": "HB인베스트먼트",
-    "kind": "구주 인수(KB인베스트먼트 보유분 일부)",
-    "amt": "",
-    "date": ""
-   },
-   {
-    "name": "스톤브릿지벤처스",
-    "kind": "구주 인수",
-    "amt": "100억원대",
-    "date": ""
-   }
-  ],
+  "peacenow": [],
   "grainon": []
  },
  "_invest_summary": {
   "kurly": "투자 유치: Anchor Equity Partners · DST Global · Hillhouse Investment · 네이버 (누적 1.2조원+, 2026.05 네이버 330억원 추가)",
   "musinsoa": "Series C: Sequoia Capital · IMM인베스트먼트 · Wellington Management (누적 약 4,000억원+)",
-  "oasis": "외부 투자자 정보 없음 (자체 흑자 경영)",
+  "oasis": "–",
   "ohouse": "투자 유치: BRV Capital Management · 소프트뱅크벤처스 · 본엔젤스 (누적 약 3,000억원+)",
   "goodai": "Pre-IPO: 투자자명 비공개 컨소시엄 (8,000억원)",
   "founders": "외부 투자자 없음 (외부 VC 투자 이력 없음)",
@@ -426,7 +369,7 @@
   "highlight": "대명화학그룹 계열 (외부 투자자 정보 없음)",
   "hagohouse": "투자 유치: SV인베스트먼트 · LB인베스트먼트 · 대명화학",
   "boosterz": "Series C: 에스비아이인베스트먼트 · 엔베스터 · 레이크브릿지에쿼티파트너스 · 하나벤처스 / 지분 인수: 우주텍",
-  "peacenow": "Series A: 위벤처스 · 한국투자파트너스 · KB인베스트먼트 · 이앤인베스트먼트 · IMM인베스트먼트 · SL인베스트먼트 · 미래에셋벤처투자 (500억원, 2023.09) / 엑시트: KB인베스트먼트 구주 일부 매각(HB인베스트먼트 인수), 무신사파트너스 지분 전량 정리 (보도 기준)",
-  "grainon": "외부 투자자 정보 없음"
+  "peacenow": "Series A 투자 이후 엑시트 완료",
+  "grainon": "Series A 투자유치 (비공개) / CJ온스타일 투자"
  }
 }

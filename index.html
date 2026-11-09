@@ -309,10 +309,10 @@ function summaryRow(c){
   if (f.interim) fm.appendChild(el('small', 'num', ilabel(f.interim) + ' 매출 ' + fmt(f.interim.sales)));
   b.appendChild(fm);
   { const iv = insOf(c) || {}, cell = el('div', 'cell');
-    const stxt = iv.invest_summary || c.investSummary || '–';
+    const stxt = (typeof iv.invest_summary === 'string' ? iv.invest_summary : c.investSummary) || '–';
     cell.appendChild(document.createTextNode(stxt));
     const seenN = stxt.replace(/\s/g, '');
-    const fresh = (iv.investors || []).filter(i => !seenN.includes(String(i.name).replace(/\s/g, ''))).slice(0, 2);   // 기사에서 새로 확인된 투자자 추가 표기
+    const fresh = iv.hide_investors ? [] : (iv.investors || []).filter(i => !seenN.includes(String(i.name).replace(/\s/g, ''))).slice(0, 2);   // 기사에서 새로 확인된 투자자 추가 표기
     if (fresh.length){ const nd = el('div', 'note'); nd.textContent = '기사: ' + fresh.map(i => i.name + (i.amt ? ' ' + i.amt : '') + (i.date ? '(' + i.date + ')' : '')).join(' · '); cell.appendChild(nd); }
     b.appendChild(cell); }
   const ip = el('div', 'cell');
@@ -390,6 +390,7 @@ function investCard(c, nw){
   (insI.base_investors || []).forEach(i => rows.push({name: i.name, url: i.src, meta: [i.kind, i.amt, i.date, i.src ? '근거 기사' : '기준 정보']}));
   const named = (c.investors || []).filter(i => !NONAME.test(i.name)), unnamed = (c.investors || []).filter(i => NONAME.test(i.name));
   const seen = [];
+  if (insI.hide_investors) rows.length = 0;      // 요약 문구만 표시하는 기업
   rows.forEach(r => {
     const k = nrm(r.name);
     if (seen.some(s => s === k || s.includes(k) || k.includes(s))) return;       // 같은 투자자는 1번만(기사 기반 우선)
@@ -397,7 +398,7 @@ function investCard(c, nw){
     const u = safeUrl(r.url || ''), t = u ? Object.assign(el('a', '', r.name), {href: u, target: '_blank', rel: 'noopener noreferrer'}) : el('span', 't', r.name);
     card.appendChild(el('div', 'li', '', [t, el('p', '', r.meta.filter(Boolean).join(' · '))]));
   });
-  if (unnamed.length) card.appendChild(el('p', 'note', '비공개·참고: ' + unnamed.map(i => i.name + (i.amt ? '(' + i.amt + ')' : '')).join(', ')));
+  if (unnamed.length && !insI.hide_investors) card.appendChild(el('p', 'note', '비공개·참고: ' + unnamed.map(i => i.name + (i.amt ? '(' + i.amt + ')' : '')).join(', ')));
   if (c.investNote) card.appendChild(el('p', 'note', c.investNote));
   if (c.directInvests && c.directInvests.length){        // 회사가 직접 투자한 이력 (외부 투자 유치와 구분)
     const s = el('div', 'sep'); s.appendChild(el('small', 'empty', '직접 투자 이력 (회사가 투자한 곳)'));

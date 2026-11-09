@@ -21,7 +21,7 @@ from pathlib import Path
 NAMES = {"kurly": "컬리", "musinsoa": "무신사", "oasis": "오아시스", "ohouse": "오늘의집", "goodai": "구다이글로벌", "founders": "더파운더즈", "vinow": "비나우", "olive": "올리브인터내셔널", "liman": "리만코리아", "grace": "그레이스", "2020": "이공이공", "bnb": "비앤비코리아", "lafati": "레페리", "nmodelin": "앤마들린", "rebom": "리봄화장품", "highlight": "하이라이트브랜즈", "hagohouse": "하고하우스", "boosterz": "부스터즈", "peacenow": "피스피스스튜디오", "grainon": "그레인온"}
 
 
-RULES_VERSION = 16     # 필터 규칙을 바꾸면 올린다 → 이전 누적 이력을 버리고 새 규칙으로 다시 만든다
+RULES_VERSION = 17     # 필터 규칙을 바꾸면 올린다 → 이전 누적 이력을 버리고 새 규칙으로 다시 만든다
 
 # 기업별 자사 명칭(회사명·브랜드). 이 이름이 제목에 있어야 '자사 기사'로 본다.
 ALIASES = {      # 모든 기업 동일 형식: [회사명, 대표 브랜드, 자회사…]  ← 이 목록에 있는 이름만 '자사'로 본다
@@ -393,7 +393,9 @@ def merge_global(old, new):
 AMT_RE = r'(?:약\s*)?\d[\d,\.]*\s*(?:억|조)(?:\s*원)?'
 INV_STOP = {'투자사', '투자자', '기관', '컨소시엄', '업계', '안팎', '외부', '신규', '국내외', '해외', '전략적', '재무적', '기존', '대기업',
             '일부', '복수', '여러', '다수', '현지', '글로벌', '국내', '개인', '주주', '기업', '회사', '자사', '벤처', '펀드', '확장', '성장'}
-NAME_BAD_END = ('는', '은', '한', '된', '린', '할', '하는', '하고', '한다', '하며', '에서', '으로')
+FIN_WORD = re.compile(r'인베스트|파트너스|캐피탈|벤처|펀드|증권|자산운용|운용|투자|PE\b|VC\b|Capital|Partners|Ventures|Investment|Equity|Fund|그룹|홀딩스|제약|화학|물산|전자|건설|금융|은행|생명|화재|카드|텔레콤|네이버|카카오|토스', re.I)
+BAD_WORD = re.compile(r'재작년|작년|올해|지난|이끌|제조사|제조|\d+\s*(?:곳|개사|개|명)|[곳군]으로|여\s*곳|주요|대표|관계자|업체|회사들|기업들|이후|당시|최근|현재|앞서|통해|위해|대한|관련|기반|중심')
+NAME_BAD_END = ('으', '로', '에', '를', '을', '의', '과', '와', '도', '만', '까지', '부터', '이', '가', '께', '에게', '는', '은', '한', '된', '린', '할', '하는', '하고', '한다', '하며', '에서', '으로')
 INV_FROM = re.compile(r'(?:서|에서|로부터|한테서)\s*(?:총\s*|약\s*)?(?:' + AMT_RE + r')?\s*(?:규모\s*)?(?:의\s*)?(?:프리\s*IPO\s*|pre-?IPO\s*|시리즈\s*[A-Z]\s*|전략적\s*)?(?:투자\s*)?(?:를\s*|을\s*)?유치', re.I)
 
 
@@ -414,11 +416,22 @@ def _split_investors(seg, key):
         nm = re.sub(r'^(?:' + _alias_re(key) + r')(?:은|는|이|가|,)?\s*', '', nm).strip()
         if ' ' in nm and len(nm) > 14:
             nm = nm.split(' ')[-1]
-        if (2 <= len(nm) <= 20 and nm not in INV_STOP and not nm.endswith(NAME_BAD_END)
+        if (2 <= len(nm) <= 20 and nm not in INV_STOP and valid_investor_name(nm)
                 and not re.fullmatch(r'[\d,\.% ]+', nm) and not re.search(r'\d{4}|\.\.|…', nm)
                 and not re.search(_alias_re(key), nm) and not re.search(r'유치|투자|억|조원|원$|규모|인수|늘리|확대', nm)):
             out.append(nm)
     return out
+
+
+def valid_investor_name(nm):
+    """투자사 이름 검증: 시간·수량·일반명사·조사로 끝나는 조각(예: '재작년 대명화학으', '3곳으로', '이끌었던 제조사')은 버린다.
+    공백이 있는 이름은 금융·기관 단어가 있어야 인정한다."""
+    nm = (nm or '').strip()
+    if not (2 <= len(nm) <= 30) or BAD_WORD.search(nm) or nm.endswith(NAME_BAD_END) or re.search(r'[\.…,;:]', nm):
+        return False
+    if ' ' in nm and not FIN_WORD.search(nm):
+        return False
+    return True
 
 
 def extract_investors(key, n):
@@ -548,7 +561,7 @@ def analyze(key, name, articles, prev, glb_extra=(), base=()):
             old_glb.append({'region': g['region'], 'items': items})
     return {'ipo': {'signals': merge_signals(old_sig, sig_new)},
             'global': apply_presence(merge_global(old_glb, glb_new), base),
-            'investors': merge_investors(prev.get('investors', []), [i for n in list(articles) + list(glb_extra) for i in extract_investors(key, n)])}
+            'investors': merge_investors([x for x in prev.get('investors', []) if valid_investor_name(x.get('name'))], [i for n in list(articles) + list(glb_extra) for i in extract_investors(key, n)])}
 
 
 def selftest():
@@ -655,6 +668,9 @@ def selftest():
     assert _i('vinow', '비나우, IMM인베스트먼트·LB PE로부터 1,000억 투자 유치') == [('IMM인베스트먼트', '1,000억'), ('LB PE', '1,000억')]
     assert _i('nmodelin', "앤마들린 '글로브', 30억원 투자 유치", '앤마들린이 인탑스인베스트먼트·에이치지이니셔티브·위벤처스로부터 총 30억원 규모의 투자를 유치했다고') == [('인탑스인베스트먼트', '30억원'), ('에이치지이니셔티브', '30억원'), ('위벤처스', '30억원')]
     assert _i('goodai', '구다이글로벌, M&A 넘어 자체 브랜드 육성…글로벌 사업 확대', '늘리는... 2024년 라운드랩을 인수') == []   # 자사 브랜드 인수는 투자자 아님
+    assert _i('hagohouse', '하고하우스, 재작년 대명화학으로부터 투자 유치') == []              # 조각난 이름은 버림
+    assert _i('nmodelin', '앤마들린, 3곳으로부터 30억 투자 유치') == []
+    assert _i('bnb', '비앤비코리아, 이끌었던 제조사서 투자 유치') == []
     assert _i('kurly', '네이버, 컬리에 330억 투자') == [('네이버', '330억')]
     assert _i('liman', 'IMM PE, 리만코리아 지분 인수') == [('IMM PE', '')]
     assert _i('kurly', '컬리, 신제품 출시', '투자 유치 소식은 없다') == []
@@ -712,6 +728,9 @@ def main():
     for k, t in (presence.get('_notes') or {}).items():
         if k in out and isinstance(t, dict):
             out[k]['note'] = {'text': str(t.get('text', ''))[:300], 'title': str(t.get('title', ''))[:120], 'src': str(t.get('src', ''))}
+    for k in (presence.get('_hide_investors') or []):                  # 투자자 목록을 숨기는 기업(요약 문구만 표시)
+        if k in out:
+            out[k]['hide_investors'] = True
     for k, t in (presence.get('_invest_summary') or {}).items():     # 요약 행 투자자 문구(정식 투자사명, 통일 형식)
         if k in out and isinstance(t, str):
             out[k]['invest_summary'] = t[:400]
