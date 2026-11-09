@@ -394,7 +394,7 @@ AMT_RE = r'(?:약\s*)?\d[\d,\.]*\s*(?:억|조)(?:\s*원)?'
 INV_STOP = {'투자사', '투자자', '기관', '컨소시엄', '업계', '안팎', '외부', '신규', '국내외', '해외', '전략적', '재무적', '기존', '대기업',
             '일부', '복수', '여러', '다수', '현지', '글로벌', '국내', '개인', '주주', '기업', '회사', '자사', '벤처', '펀드', '확장', '성장'}
 FIN_WORD = re.compile(r'인베스트|파트너스|캐피탈|벤처|펀드|증권|자산운용|운용|투자|PE\b|VC\b|Capital|Partners|Ventures|Investment|Equity|Fund|그룹|홀딩스|제약|화학|물산|전자|건설|금융|은행|생명|화재|카드|텔레콤|네이버|카카오|토스', re.I)
-BAD_WORD = re.compile(r'재작년|작년|올해|지난|이끌|제조사|제조|\d+\s*(?:곳|개사|개|명)|[곳군]으로|여\s*곳|주요|대표|관계자|업체|회사들|기업들|이후|당시|최근|현재|앞서|통해|위해|대한|관련|기반|중심')
+BAD_WORD = re.compile(r'부문|사업부|본부|사업|부서|계열사|자회사|그룹사|담당|임원|\)|\(|\[|\]|「|」|["“”\'‘’]|재작년|작년|올해|지난|이끌|제조사|제조|\d+\s*(?:곳|개사|개|명)|[곳군]으로|여\s*곳|주요|대표|관계자|업체|회사들|기업들|이후|당시|최근|현재|앞서|통해|위해|대한|관련|기반|중심')
 NAME_BAD_END = ('으', '로', '에', '를', '을', '의', '과', '와', '도', '만', '까지', '부터', '이', '가', '께', '에게', '는', '은', '한', '된', '린', '할', '하는', '하고', '한다', '하며', '에서', '으로')
 INV_FROM = re.compile(r'(?:서|에서|로부터|한테서)\s*(?:총\s*|약\s*)?(?:' + AMT_RE + r')?\s*(?:규모\s*)?(?:의\s*)?(?:프리\s*IPO\s*|pre-?IPO\s*|시리즈\s*[A-Z]\s*|전략적\s*)?(?:투자\s*)?(?:를\s*|을\s*)?유치', re.I)
 
@@ -430,6 +430,7 @@ def valid_investor_name(nm):
     """투자사 이름 검증: 시간·수량·일반명사·조사로 끝나는 조각(예: '재작년 대명화학으', '3곳으로', '이끌었던 제조사')은 버린다.
     공백이 있는 이름은 금융·기관 단어가 있어야 인정한다."""
     nm = (nm or '').strip()
+    nm = nm.strip()
     if not (2 <= len(nm) <= 30) or BAD_WORD.search(nm) or nm.endswith(NAME_BAD_END) or re.search(r'[\.…,;:]', nm):
         return False
     if ' ' in nm and not FIN_WORD.search(nm):
@@ -676,6 +677,8 @@ def selftest():
     assert _i('nmodelin', '앤마들린, 3곳으로부터 30억 투자 유치') == []
     assert _i('bnb', '비앤비코리아, 이끌었던 제조사서 투자 유치') == []
     assert _i('boosterz', '부스터즈 커머스부문, 콜옵션 무산…투자자서 100억 유치 불발') == []         # 무산·불발 기사 제외
+    assert not valid_investor_name('커머스부문)') and not valid_investor_name('커머스부문') and not valid_investor_name('[단독] 효성')
+    assert valid_investor_name('스마트스터디벤처스') and valid_investor_name('하나벤처스')
     assert _i('kurly', '네이버, 컬리에 330억 투자') == [('네이버', '330억')]
     assert _i('liman', 'IMM PE, 리만코리아 지분 인수') == [('IMM PE', '')]
     assert _i('kurly', '컬리, 신제품 출시', '투자 유치 소식은 없다') == []
@@ -733,10 +736,10 @@ def main():
     for k, t in (presence.get('_notes') or {}).items():
         if k in out and isinstance(t, dict):
             out[k]['note'] = {'text': str(t.get('text', ''))[:300], 'title': str(t.get('title', ''))[:120], 'src': str(t.get('src', ''))}
-    for k, n in (presence.get('_max_articles') or {}).items():          # '최신 기사 분석' 칸에 남길 기사 수(밸류에이션 기사 우선)
+    for k, n in (presence.get('_max_articles') or {}).items():
         if k in out and isinstance(n, int) and 1 <= n <= 3:
             out[k]['max_articles'] = n
-    for k in (presence.get('_hide_articles') or []):                   # '최신 기사 분석' 칸을 숨기는 기업(투자자 링크와 중복)
+    for k in (presence.get('_hide_articles') or []):
         if k in out:
             out[k]['hide_articles'] = True
     for k in (presence.get('_hide_investors') or []):                  # 투자자 목록을 숨기는 기업(요약 문구만 표시)
@@ -751,7 +754,7 @@ def main():
             out[k]['base_investors'] = link_investors(k, [i for i in lst if isinstance(i, dict) and i.get('name')], pool)
     for k, pats in (presence.get('_exclude') or {}).items():       # 사람이 지정한 제외 기사(제목 일부 또는 URL 일부) — 투자자 근거·링크에서 제거
         if k in out and isinstance(pats, list):
-            bad = lambda x: any(p and (p in str(x.get('hl', '')) or p in str(x.get('url', x.get('src', '')))) for p in pats)
+            bad = lambda x: any(p and (p in str(x.get('hl', '')) or p in str(x.get('name', '')) or p in str(x.get('url', x.get('src', '')))) for p in pats)
             out[k]['exclude'] = [str(p)[:60] for p in pats]
             out[k]['investors'] = [i for i in out[k].get('investors', []) if not bad(i)]
             for i in out[k].get('base_investors', []):
