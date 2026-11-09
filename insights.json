@@ -59,10 +59,6 @@
        "url": "https://www.techm.kr/news/articleView.html?idxno=156788"
       }
      ],
-     "partners": [],
-     "products": [
-      "29CM"
-     ],
      "n_done": 4,
      "n_plan": 1,
      "level": "confirmed",
@@ -82,10 +78,6 @@
        "hl": "무신사·29CM, '폴로 랄프 로렌' 가을·겨울 시즌 캠페인 동시 실시",
        "url": "https://www.etnews.com/20261102000264"
       }
-     ],
-     "partners": [],
-     "products": [
-      "29CM"
      ],
      "n_done": 1,
      "n_plan": 0,
@@ -134,8 +126,6 @@
        "url": "https://daily.hankooki.com/news/articleView.html?idxno=1413346"
       }
      ],
-     "partners": [],
-     "products": [],
      "n_done": 2,
      "n_plan": 1,
      "level": "confirmed",
@@ -163,10 +153,6 @@
        "url": "https://www.etnews.com/20260304000352"
       }
      ],
-     "partners": [],
-     "products": [
-      "버킷플레이스"
-     ],
      "n_done": 1,
      "n_plan": 0,
      "level": "confirmed",
@@ -186,10 +172,6 @@
        "hl": "해외 영토 넓히는 '오늘의집', 역직구로 美 커머스 시장 잡는다",
        "url": "https://www.etnews.com/20260304000352"
       }
-     ],
-     "partners": [],
-     "products": [
-      "버킷플레이스"
      ],
      "n_done": 1,
      "n_plan": 0,
@@ -215,16 +197,6 @@
      "items": [
       {
        "date": "2026.11",
-       "text": "티르티르는 미국 뷰티 편집숍 얼타뷰티(Ulta Beauty)의 730여 개 매장에 입점했으며, 로스앤젤레스와 두바이 등에서 팝업스토어와 옥외광고를 활용한 마케팅…",
-       "lvl": "done",
-       "entry": true,
-       "exp": false,
-       "wd": false,
-       "hl": "티르티르, 프리미엄 브랜드 대상 쿠션·베이스 메이크업 부문 수상",
-       "url": "http://www.beyondpost.co.kr/view.php?ud=20261103150100579546a9e4dd7f_30"
-      },
-      {
-       "date": "2026.11",
        "text": "미국에서 선스크린이 일반의약품 규제 체계의 적용을 받는 가운데, 스킨1004는 미국 OTC 관련 등록 절차가 완료된 제품을 현지 시장에 선보이고 있다",
        "lvl": "done",
        "entry": false,
@@ -232,6 +204,16 @@
        "wd": false,
        "hl": "스킨1004, 글로벌 판매 성과...실리콘투, 'K-beauty by StyleKorean' 팝업",
        "url": "https://www.slist.kr/news/articleView.html?idxno=779891"
+      },
+      {
+       "date": "2026.11",
+       "text": "티르티르는 미국 뷰티 편집숍 얼타뷰티(Ulta Beauty)의 730여 개 매장에 입점했으며, 로스앤젤레스와 두바이 등에서 팝업스토어와 옥외광고를 활용한 마케팅…",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "wd": false,
+       "hl": "티르티르, 프리미엄 브랜드 대상 쿠션·베이스 메이크업 부문 수상",
+       "url": "http://www.beyondpost.co.kr/view.php?ud=20261103150100579546a9e4dd7f_30"
       },
       {
        "date": "2026.10",
@@ -264,21 +246,6 @@
        "url": "http://www.the-biz.co.kr/news/articleView.html?idxno=730075"
       }
      ],
-     "partners": [
-      "Ulta",
-      "쇼피",
-      "아마존",
-      "얼타",
-      "타깃",
-      "틱톡",
-      "틱톡샵"
-     ],
-     "products": [
-      "라운드랩",
-      "스킨1004",
-      "조선미녀",
-      "티르티르"
-     ],
      "n_done": 6,
      "n_plan": 2,
      "level": "confirmed",
@@ -309,12 +276,6 @@
        "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
       }
      ],
-     "partners": [
-      "아마존"
-     ],
-     "products": [
-      "조선미녀"
-     ],
      "n_done": 2,
      "n_plan": 0,
      "level": "confirmed",
@@ -335,18 +296,10 @@
        "url": "https://www.insightkorea.co.kr/news/articleView.html?idxno=257508"
       }
      ],
-     "partners": [
-      "쇼피",
-      "틱톡",
-      "틱톡샵"
-     ],
-     "products": [
-      "조선미녀"
-     ],
      "n_done": 1,
      "n_plan": 0,
      "level": "confirmed",
-     "tag": "expand",
+     "tag": "ongoing",
      "date": "2026.10"
     },
     {
@@ -363,16 +316,10 @@
        "url": "https://www.upkoreanews.kr/news/articleView.html?idxno=100651"
       }
      ],
-     "partners": [],
-     "products": [
-      "스킨1004",
-      "조선미녀",
-      "티르티르"
-     ],
      "n_done": 1,
      "n_plan": 0,
      "level": "confirmed",
-     "tag": "expand",
+     "tag": "ongoing",
      "date": "2026.10"
     }
    ]
@@ -406,14 +353,6 @@
        "url": "https://www.edaily.co.kr/News/Read?newsId=02981526645613248&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
       }
      ],
-     "partners": [
-      "Amazon",
-      "아마존",
-      "큐텐"
-     ],
-     "products": [
-      "넘버즈인"
-     ],
      "n_done": 2,
      "n_plan": 0,
      "level": "confirmed",
@@ -443,14 +382,6 @@
        "hl": "넘버즈인, 숫자 마스크팩 1억 장 판매… 국내외 유통 채널 확대",
        "url": "https://www.edaily.co.kr/News/Read?newsId=02981526645613248&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
       }
-     ],
-     "partners": [
-      "Amazon",
-      "아마존",
-      "큐텐"
-     ],
-     "products": [
-      "넘버즈인"
      ],
      "n_done": 2,
      "n_plan": 0,
@@ -498,12 +429,6 @@
        "hl": "팻랩, 에일리 모델 발탁... 이공이공과 미국 아마존 진출 추진",
        "url": "https://www.globalepic.co.kr/view.php?ud=20261013095608315237600e7ec7_29"
       }
-     ],
-     "partners": [
-      "아마존"
-     ],
-     "products": [
-      "EGONGEGONG"
      ],
      "n_done": 0,
      "n_plan": 1,
@@ -562,10 +487,6 @@
        "url": "https://www.news1.kr/industry/distribution/6138891"
       }
      ],
-     "partners": [
-      "아마존"
-     ],
-     "products": [],
      "n_done": 1,
      "n_plan": 3,
      "level": "confirmed",
@@ -616,10 +537,6 @@
        "url": "https://www.news1.kr/industry/distribution/6138891"
       }
      ],
-     "partners": [
-      "아마존"
-     ],
-     "products": [],
      "n_done": 1,
      "n_plan": 3,
      "level": "confirmed",
@@ -670,10 +587,6 @@
        "url": "https://www.news1.kr/industry/distribution/6138891"
       }
      ],
-     "partners": [
-      "아마존"
-     ],
-     "products": [],
      "n_done": 1,
      "n_plan": 3,
      "level": "confirmed",
@@ -724,10 +637,6 @@
        "url": "https://www.news1.kr/industry/distribution/6138891"
       }
      ],
-     "partners": [
-      "아마존"
-     ],
-     "products": [],
      "n_done": 1,
      "n_plan": 3,
      "level": "confirmed",
@@ -748,8 +657,6 @@
        "url": "https://www.peoplewatch.co.kr/article/view/ppw202610270017"
       }
      ],
-     "partners": [],
-     "products": [],
      "n_done": 1,
      "n_plan": 0,
      "level": "confirmed",
@@ -790,8 +697,6 @@
        "url": "https://www.news1.kr/industry/distribution/6138891"
       }
      ],
-     "partners": [],
-     "products": [],
      "n_done": 0,
      "n_plan": 3,
      "level": "planned",
@@ -859,11 +764,6 @@
        "url": "https://www.segye.com/newsView/20261022521819?OutUrl=naver"
       }
      ],
-     "partners": [],
-     "products": [
-      "라이프닝",
-      "인셀덤"
-     ],
      "n_done": 4,
      "n_plan": 4,
      "level": "confirmed",
@@ -923,12 +823,6 @@
        "hl": "﻿리만코리아, 채널A 특별기획 다큐 '더 헤리티지: K-뷰티의 미래를 담...",
        "url": "https://www.gukjenews.com/news/articleView.html?idxno=3466017"
       }
-     ],
-     "partners": [],
-     "products": [
-      "라이프닝",
-      "보타랩",
-      "인셀덤"
      ],
      "n_done": 5,
      "n_plan": 0,
@@ -990,12 +884,6 @@
        "url": "https://www.idaegu.com/news/articleView.html?idxno=664384"
       }
      ],
-     "partners": [],
-     "products": [
-      "라이프닝",
-      "보타랩",
-      "인셀덤"
-     ],
      "n_done": 4,
      "n_plan": 1,
      "level": "confirmed",
@@ -1056,12 +944,6 @@
        "url": "https://www.gukjenews.com/news/articleView.html?idxno=3466017"
       }
      ],
-     "partners": [],
-     "products": [
-      "라이프닝",
-      "보타랩",
-      "인셀덤"
-     ],
      "n_done": 5,
      "n_plan": 0,
      "level": "confirmed",
@@ -1111,11 +993,6 @@
        "hl": "[현장] \"병풀부터 클로렐라까지\"…리만코리아, '제주 라이프스타일 기업...",
        "url": "https://www.goodkyung.com/news/articleView.html?idxno=285336"
       }
-     ],
-     "partners": [],
-     "products": [
-      "라이프닝",
-      "인셀덤"
      ],
      "n_done": 4,
      "n_plan": 0,
@@ -1177,12 +1054,6 @@
        "url": "https://www.gukjenews.com/news/articleView.html?idxno=3466017"
       }
      ],
-     "partners": [],
-     "products": [
-      "라이프닝",
-      "보타랩",
-      "인셀덤"
-     ],
      "n_done": 5,
      "n_plan": 1,
      "level": "confirmed",
@@ -1202,12 +1073,6 @@
        "hl": "[현장] \"병풀부터 클로렐라까지\"…리만코리아, '제주 라이프스타일 기업...",
        "url": "https://www.goodkyung.com/news/articleView.html?idxno=285336"
       }
-     ],
-     "partners": [],
-     "products": [
-      "라이프닝",
-      "보타랩",
-      "인셀덤"
      ],
      "n_done": 1,
      "n_plan": 0,
@@ -1246,14 +1111,6 @@
        "url": "https://www.venturesquare.net/1120938/"
       }
      ],
-     "partners": [
-      "세포라",
-      "아마존"
-     ],
-     "products": [
-      "아누아",
-      "프롬랩스"
-     ],
      "n_done": 2,
      "n_plan": 0,
      "level": "confirmed",
@@ -1273,10 +1130,6 @@
        "hl": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
        "url": "https://www.theguru.co.kr/news/article.html?no=105333"
       }
-     ],
-     "partners": [],
-     "products": [
-      "아누아"
      ],
      "n_done": 1,
      "n_plan": 0,
@@ -1298,10 +1151,6 @@
        "url": "https://www.theguru.co.kr/news/article.html?no=105333"
       }
      ],
-     "partners": [],
-     "products": [
-      "아누아"
-     ],
      "n_done": 1,
      "n_plan": 0,
      "level": "confirmed",
@@ -1315,41 +1164,6 @@
     "signals": []
    },
    "global": [
-    {
-     "region": "미국",
-     "items": [
-      {
-       "date": "2025.12",
-       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "wd": false,
-       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
-       "url": "http://www.fnnews.com/news/202512081820152004"
-      },
-      {
-       "date": "2026.10",
-       "text": "올리브인터내셔널 '밀크터치' \"북미·유럽 공략 위한 인재 채용\"",
-       "lvl": "plan",
-       "entry": false,
-       "exp": true,
-       "wd": false,
-       "hl": "올리브인터내셔널 '밀크터치' \"북미·유럽 공략 위한 인재 채용\"",
-       "url": "https://www.fnnews.com/news/202610300852568212"
-      }
-     ],
-     "partners": [],
-     "products": [
-      "밀크터치",
-      "성분에디터"
-     ],
-     "n_done": 1,
-     "n_plan": 1,
-     "level": "confirmed",
-     "tag": "expand",
-     "date": "2026.10"
-    },
     {
      "region": "유럽",
      "items": [
@@ -1384,15 +1198,40 @@
        "url": "https://www.fnnews.com/news/202610300852568212"
       }
      ],
-     "partners": [],
-     "products": [
-      "밀크터치",
-      "성분에디터"
-     ],
      "n_done": 2,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "expand",
+     "date": "2026.10"
+    },
+    {
+     "region": "미국",
+     "items": [
+      {
+       "date": "2025.12",
+       "text": "올리브인터내셔널 이진호 대표는 \"성분에디터 등 뷰티 브랜드가 고함량 성분에 확실한 효과로 북미와 유럽, 일본 등 해외 시장에서 수요가 활발하다\"며 \"지난해 매출…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "wd": false,
+       "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
+       "url": "http://www.fnnews.com/news/202512081820152004"
+      },
+      {
+       "date": "2026.10",
+       "text": "올리브인터내셔널 '밀크터치' \"북미·유럽 공략 위한 인재 채용\"",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "wd": false,
+       "hl": "올리브인터내셔널 '밀크터치' \"북미·유럽 공략 위한 인재 채용\"",
+       "url": "https://www.fnnews.com/news/202610300852568212"
+      }
+     ],
+     "n_done": 1,
+     "n_plan": 1,
+     "level": "confirmed",
+     "tag": "ongoing",
      "date": "2026.10"
     },
     {
@@ -1408,10 +1247,6 @@
        "hl": "美·유럽 사로잡은 콜라겐팩...올리브인터내셔널 매출 2천억 눈앞",
        "url": "http://www.fnnews.com/news/202512081820152004"
       }
-     ],
-     "partners": [],
-     "products": [
-      "성분에디터"
      ],
      "n_done": 1,
      "n_plan": 0,
@@ -1442,10 +1277,6 @@
        "hl": "성분에디터, 인도네시아 최대 뷰티 플랫폼 '소시올라' 입점",
        "url": "https://www.gokorea.kr/news/articleView.html?idxno=846151"
       }
-     ],
-     "partners": [],
-     "products": [
-      "성분에디터"
      ],
      "n_done": 2,
      "n_plan": 0,
@@ -1494,10 +1325,6 @@
        "url": "https://www.news1.kr/industry/distribution/6197104"
       }
      ],
-     "partners": [],
-     "products": [
-      "코닥어패럴"
-     ],
      "n_done": 1,
      "n_plan": 2,
      "level": "confirmed",
@@ -1538,10 +1365,6 @@
        "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=446786"
       }
      ],
-     "partners": [],
-     "products": [
-      "코닥어패럴"
-     ],
      "n_done": 1,
      "n_plan": 2,
      "level": "confirmed",
@@ -1572,15 +1395,10 @@
        "url": "http://www.apparelnews.co.kr/news/news_view/?idx=226394"
       }
      ],
-     "partners": [],
-     "products": [
-      "말본",
-      "코닥어패럴"
-     ],
      "n_done": 1,
      "n_plan": 1,
      "level": "confirmed",
-     "tag": "expand",
+     "tag": "ongoing",
      "date": "2026.07"
     },
     {
@@ -1596,10 +1414,6 @@
        "hl": "코닥어패럴, 한국 성공 발판으로 글로벌 확장",
        "url": "http://www.apparelnews.co.kr/news/news_view/?idx=226394"
       }
-     ],
-     "partners": [],
-     "products": [
-      "코닥어패럴"
      ],
      "n_done": 0,
      "n_plan": 1,
@@ -1668,11 +1482,6 @@
        "url": "https://www.newstopkorea.com/news/articleView.html?idxno=45027"
       }
      ],
-     "partners": [],
-     "products": [
-      "마르디 메크르디",
-      "마르디메크르디"
-     ],
      "n_done": 2,
      "n_plan": 3,
      "level": "confirmed",
@@ -1702,14 +1511,6 @@
        "hl": "피스피스스튜디오 마르디 메크르디, 미국 시장 공략 본격화",
        "url": "https://www.socialvalue.kr/news/view/1065588311129874"
       }
-     ],
-     "partners": [
-      "아마존",
-      "틱톡",
-      "틱톡샵"
-     ],
-     "products": [
-      "마르디 메크르디"
      ],
      "n_done": 2,
      "n_plan": 0,
@@ -1741,11 +1542,6 @@
        "url": "https://www.widedaily.com/news/articleView.html?idxno=302790"
       }
      ],
-     "partners": [],
-     "products": [
-      "마르디 메크르디",
-      "마르디메크르디"
-     ],
      "n_done": 1,
      "n_plan": 1,
      "level": "confirmed",
@@ -1775,10 +1571,6 @@
        "hl": "피스피스스튜디오, 日 유니섹스 라인 초기 판매 호조",
        "url": "https://view.asiae.co.kr/article/2026103008455775964"
       }
-     ],
-     "partners": [],
-     "products": [
-      "마르디 메크르디"
      ],
      "n_done": 2,
      "n_plan": 0,
@@ -1826,11 +1618,6 @@
        "hl": "'마뗑킴' 해외시장 공략 잰걸음 … 이달만 中·日·베트남 4개 출점",
        "url": "https://www.mk.co.kr/article/12187401"
       }
-     ],
-     "partners": [],
-     "products": [
-      "드파운드",
-      "마뗑킴"
      ],
      "n_done": 2,
      "n_plan": 1,
@@ -1882,11 +1669,6 @@
        "url": "https://www.mk.co.kr/article/12157558"
       }
      ],
-     "partners": [],
-     "products": [
-      "드파운드",
-      "마뗑킴"
-     ],
      "n_done": 3,
      "n_plan": 1,
      "level": "confirmed",
@@ -1906,11 +1688,6 @@
        "hl": "\"K-패션 하면 마뗑킴 생각나요\"…외국인들 인증샷 쏟아진 하고하우스",
        "url": "https://www.news1.kr/industry/distribution/6269315"
       }
-     ],
-     "partners": [],
-     "products": [
-      "드파운드",
-      "마뗑킴"
      ],
      "n_done": 1,
      "n_plan": 0,
@@ -1972,11 +1749,6 @@
        "url": "https://www.mk.co.kr/article/12157558"
       }
      ],
-     "partners": [],
-     "products": [
-      "드파운드",
-      "마뗑킴"
-     ],
      "n_done": 2,
      "n_plan": 3,
      "level": "confirmed",
@@ -1997,11 +1769,6 @@
        "url": "https://www.mk.co.kr/article/12187401"
       }
      ],
-     "partners": [],
-     "products": [
-      "드파운드",
-      "마뗑킴"
-     ],
      "n_done": 0,
      "n_plan": 1,
      "level": "weak",
@@ -2021,11 +1788,6 @@
        "hl": "해외사업 늘리는 K패션 '마뗑킴' 中·베트남·칠레에 첫 매장 연다",
        "url": "https://www.mk.co.kr/article/12157558"
       }
-     ],
-     "partners": [],
-     "products": [
-      "드파운드",
-      "마뗑킴"
      ],
      "n_done": 0,
      "n_plan": 1,
@@ -2064,8 +1826,6 @@
        "url": "https://view.asiae.co.kr/article/2025120114400355694"
       }
      ],
-     "partners": [],
-     "products": [],
      "n_done": 0,
      "n_plan": 2,
      "level": "planned",
@@ -2086,8 +1846,6 @@
        "url": "https://view.asiae.co.kr/article/2025120114400355694"
       }
      ],
-     "partners": [],
-     "products": [],
      "n_done": 0,
      "n_plan": 1,
      "level": "weak",
@@ -2108,8 +1866,6 @@
        "url": "https://view.asiae.co.kr/article/2025120114400355694"
       }
      ],
-     "partners": [],
-     "products": [],
      "n_done": 0,
      "n_plan": 1,
      "level": "weak",
@@ -2177,10 +1933,6 @@
        "url": "https://www.mt.co.kr/future/2026/07/31/2026073109365388710"
       }
      ],
-     "partners": [],
-     "products": [
-      "르무통"
-     ],
      "n_done": 0,
      "n_plan": 6,
      "level": "planned",
@@ -2221,10 +1973,6 @@
        "url": "https://www.mt.co.kr/future/2026/07/31/2026073109365388710"
       }
      ],
-     "partners": [],
-     "products": [
-      "르무통"
-     ],
      "n_done": 0,
      "n_plan": 3,
      "level": "planned",
@@ -2245,10 +1993,6 @@
        "url": "http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202512010242&t=NN"
       }
      ],
-     "partners": [
-      "타깃"
-     ],
-     "products": [],
      "n_done": 0,
      "n_plan": 1,
      "level": "weak",
@@ -2286,6 +2030,6 @@
    "global": []
   }
  },
- "_rules": 10,
- "_updated": "2026-11-08T10:46:50 KST"
+ "_rules": 11,
+ "_updated": "2026-11-09T09:19:07 KST"
 }
