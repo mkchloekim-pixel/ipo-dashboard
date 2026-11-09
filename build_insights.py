@@ -477,6 +477,29 @@ def merge_investors(old, new):
     return sorted(d.values(), key=lambda x: x.get('date', ''), reverse=True)[:10]
 
 
+INV_CTX = re.compile(r'투자|유치|지분|인수|시리즈|라운드|프리\s*IPO|펀드|엑시트|구주|매각|참여')
+
+
+def link_investors(key, invs, pool):
+    """투자사별 근거 기사 링크: 입력된 src(http)가 있으면 그대로, 없으면 수집 기사 중
+    '자사 기사(제목에 자사명) + 제목·요약에 투자사명 + 투자 문맥'인 최신 기사를 붙인다. 없으면 링크 없이 표시."""
+    out = []
+    for i in invs:
+        it = {kk: str(v)[:80] for kk, v in i.items() if kk in ('name', 'kind', 'amt', 'date', 'src')}
+        if not re.match(r'^https?://', it.get('src', '')):
+            nm = re.sub(r'\s', '', it['name']).lower()
+            cand = [a for a in pool if has_own(key, clean(a.get('hl'))) and not is_reference(key, clean(a.get('hl')))
+                    and nm in re.sub(r'\s', '', (clean(a.get('hl')) + clean(a.get('sum')))).lower()
+                    and INV_CTX.search(clean(a.get('hl')) + ' ' + clean(a.get('sum'))) and re.match(r'^https?://', a.get('url', ''))]
+            cand.sort(key=lambda a: a.get('date', ''), reverse=True)
+            it['src'] = cand[0]['url'] if cand else ''
+            if cand:
+                it['hl'] = clean(cand[0].get('hl'))[:80]
+                it['date'] = it.get('date') or cand[0].get('date', '')
+        out.append(it)
+    return out
+
+
 def apply_presence(glb, base):
     """기준 정보(presence.json) 반영: 이미 진출한 국가는 '신규 진출'로 보지 않고 핵심 국가(key)로 표시."""
     by = {g['region']: g for g in glb}
@@ -689,9 +712,13 @@ def main():
     for k, t in (presence.get('_notes') or {}).items():
         if k in out and isinstance(t, dict):
             out[k]['note'] = {'text': str(t.get('text', ''))[:300], 'title': str(t.get('title', ''))[:120], 'src': str(t.get('src', ''))}
-    for k, lst in (presence.get('_investors') or {}).items():      # 사람이 출처 확인해 넣은 투자자(기사에 없는 기존 투자자)
+    for k, t in (presence.get('_invest_summary') or {}).items():     # 요약 행 투자자 문구(정식 투자사명, 통일 형식)
+        if k in out and isinstance(t, str):
+            out[k]['invest_summary'] = t[:400]
+    for k, lst in (presence.get('_investors') or {}).items():      # 투자사별 근거 기사 링크: 직접 입력 src → 없으면 수집 기사에서 자동 매칭
         if k in out and isinstance(lst, list):
-            out[k]['base_investors'] = [{kk: str(v)[:80] for kk, v in i.items() if kk in ('name', 'kind', 'amt', 'date', 'src')} for i in lst if isinstance(i, dict) and i.get('name')]
+            pool = [x for x in (news.get(k) or []) + (extra.get(k) or []) + (gnews.get(k) or []) if isinstance(x, dict)]
+            out[k]['base_investors'] = link_investors(k, [i for i in lst if isinstance(i, dict) and i.get('name')], pool)
     for k, v in prev_c.items():                           # 이번에 기사가 없는 회사도 이력 유지
         out.setdefault(k, v)
     res = {'companies': out, '_rules': RULES_VERSION, '_updated': datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%dT%H:%M:%S KST')}

@@ -4,7 +4,7 @@
 - 기존 news.json 수집기와 별개로 동작한다. (기존 파일 수정 불필요)
 - 모든 기업에 대해 "{이름} + 해외 진출/수출/미국/일본/중국/동남아/유럽 ..." 형태로 검색해
   해외 사업 문맥(진출·수출·입점·현지법인 등)이 있는 기사만 남긴다.
-- 투자 유치 기사(회사명 + 투자 유치/지분 투자/프리IPO 등)도 별도 검색해 같은 파일에 함께 누적한다(투자자 자동 추출용).
+- 투자 유치 기사(회사명 + 투자 유치/지분 투자/프리IPO 등)와, presence.json 에 적힌 투자사별 기사(회사명 + 투자사명)도 함께 수집한다(투자자 자동 추출·근거 링크용).
 - 기존 global_news.json 이력은 유지하며 누적한다(회사당 최대 30건). 새 결과가 0건이면 기존 값 유지.
 - build_insights.py 가 이 파일을 읽어 국가/파트너/상품 요약을 만든다.
 - 인증정보는 환경변수 NAVER_CLIENT_ID / NAVER_CLIENT_SECRET 로만 받는다(코드·로그에 출력 금지).
@@ -20,14 +20,15 @@ from pathlib import Path
 API_URL = 'https://openapi.naver.com/v1/search/news.json'
 TIMEOUT = 10
 SLEEP = 0.12
-KEEP_PER_CO = 40
+KEEP_PER_CO = 50
 SUFFIXES = ['해외 진출', '수출', '글로벌', '미국', '일본', '중국', '동남아', '유럽']
 # 대표 이름(첫 번째)에만 추가로 붙이는 검색어: 해외 매출 비중·플랫폼 기사까지 포착(모든 기업 동일)
 EXTRA_SUFFIXES = ['해외 매출', '수출 비중', '아마존', '현지 법인']
 
-# 투자 유치 기사 수집용 검색어(대표 이름·두 번째 이름에 붙임). 최신순 5건 한도와 무관하게 투자 기사를 별도로 확보한다.
+# 투자 유치 기사 수집용 검색어. 최신순 5건 한도와 무관하게 투자 기사를 별도로 확보한다.
 INV_SUFFIXES = ['투자 유치', '지분 투자', '프리IPO 투자', '시리즈 투자']
-INV_TITLE = re.compile(r'유치|투자|지분|인수|프리\s*IPO|시리즈\s*[A-Z]|라운드')
+INV_TITLE = re.compile(r'유치|투자|지분|인수|프리\s*IPO|시리즈\s*[A-Z]|라운드|매각|엑시트|구주')
+INV_PER_CO = 8          # presence.json 투자사별 검색: 기업당 최대 투자사 수
 
 # key: (검색 이름(최대 3개, 제목에 하나라도 있어야 통과), 제외 키워드(제목+요약))
 COMPANIES = {
@@ -49,7 +50,7 @@ COMPANIES = {
     'hagohouse': (['하고하우스', '마뗑킴', '드파운드'], ['하트시그널', '드라마', '출연', '배우', '연예', '예능', '방송']),
     'grainon':  (['그레인온', '카무트 효소'], ['카무트 밀', '카무트 쌀', '카무트 재배', '카무트 효능']),
     'boosterz': (['부스터즈', '르무통', '링티'], ['게임', '스타트업 부스터', '부스터샷', '창업 부스터', '부스터 프로그램']),
-    'nmodelin': (['앤마들린'], []),
+    'nmodelin': (['앤마들린', '글로브'], []),
     'rebom':    (['리봄화장품'], []),
 }
 
@@ -139,12 +140,15 @@ def others_companies(key):
     return [n for k, (names, _) in COMPANIES.items() if k != key for n in names if n and not any(n in a or a in n for a in own)]
 
 
-def keep_invest_article(title, desc, names, exclude, others=()):
-    """투자 유치 기사: 제목에 자사명 + 제목에 투자 표현, 제외 키워드 없음, 타사 중심·참고 언급 아님. 해외 문맥은 요구하지 않는다."""
+def keep_invest_article(title, desc, names, exclude, others=(), investor=''):
+    """투자 기사: 제목에 자사명 + 투자 표현(제목), 제외 키워드 없음, 타사 중심·참고 언급 아님. 해외 문맥은 요구하지 않는다.
+    investor 가 주어지면 제목·요약에 그 투자사명도 있어야 한다."""
     full = title + ' ' + desc
     if not any(n.lower() in title.lower() for n in names):
         return False
-    if any(x in full for x in exclude) or not INV_TITLE.search(title):
+    if any(x in full for x in exclude) or not INV_TITLE.search(title + (' ' + desc if investor else '')):
+        return False
+    if investor and investor.replace(' ', '').lower() not in full.replace(' ', '').lower():
         return False
     if others and (mixed_title(title, names, others) or is_reference(title, names) or about_others(full, names, others)):
         return False
@@ -226,9 +230,11 @@ def selftest():
     assert keep_article('EGONGEGONG, 미국 아마존 진출', '', ['이공이공', 'EGONGEGONG'], [])
     assert keep_article('비앤비코리아 상장 심사 지연', '중국 매출 비중 40%, 해외 매출 확대', ['비앤비코리아'], [])
     assert keep_invest_article('오아시스, 토스서 300억 유치...커머스 시너지 기대감', '', ['오아시스마켓', '오아시스 새벽배송', '오아시스'], ['갤러거'], others_companies('oasis'))
-    assert not keep_invest_article('오아시스마켓 할인 행사', '', ['오아시스마켓'], [])                      # 투자 표현 없음
-    assert not keep_invest_article('컬리, 단독 투자 소식', '무신사도 투자', ['컬리'], [], others_companies('kurly'))   # 타사 언급 이상
-    assert keep_invest_article('컬리, 카카오서 투자 유치', '', ['컬리'], [], others_companies('kurly'))      # 투자자 이름(경쟁사 목록)은 허용
+    assert not keep_invest_article('오아시스마켓 할인 행사', '', ['오아시스마켓'], [])
+    assert keep_invest_article('[단독] 효성, 이공이공에 300억 투자', '프리IPO', ['이공이공'], [], others_companies('2020'), '효성')
+    assert not keep_invest_article('이공이공, 신제품 출시', '효성 언급', ['이공이공'], [], others_companies('2020'), '효성')   # 투자 표현 없음
+    assert not keep_invest_article('이공이공, 300억 투자 유치', '', ['이공이공'], [], others_companies('2020'), '효성')            # 해당 투자사 없음
+    assert keep_invest_article('컬리, 카카오서 투자 유치', '', ['컬리'], [], others_companies('kurly'))
     assert clean('<b>가</b>&quot;나&quot;') == '가"나"'
     print('필터 로직 OK')
 
@@ -257,6 +263,11 @@ def main():
         except Exception:
             existing = {}
 
+    presence = {}
+    try:
+        presence = json.loads(Path('presence.json').read_text('utf-8')) if Path('presence.json').exists() else {}
+    except Exception:
+        presence = {}
     result, total = {}, 0
     for key, (names, exclude) in COMPANIES.items():
         found, errors = [], 0
@@ -277,21 +288,23 @@ def main():
                         found.append({'date': to_ym(it.get('pubDate', '')), 'hl': title,
                                       'sum': desc[:150], 'url': safe_url(it.get('originallink') or it.get('link', ''))})
         inv_others = others_companies(key)
-        for name in names[:3]:                                # 투자 유치 기사 별도 수집
-            for suf in INV_SUFFIXES:
-                try:
-                    items = fetch_query(session, headers, f'{name} {suf}')
-                except Exception as e:
-                    errors += 1
-                    msg = str(e).replace(cid, '***').replace(sec, '***')[:80]
-                    if errors <= 2:
-                        print(f'    ⚠ [{name} {suf}] {msg}')
-                    continue
-                for it in items:
-                    title, desc = clean(it.get('title')), clean(it.get('description'))
-                    if keep_invest_article(title, desc, names, exclude, inv_others):
-                        found.append({'date': to_ym(it.get('pubDate', '')), 'hl': title,
-                                      'sum': desc[:150], 'url': safe_url(it.get('originallink') or it.get('link', ''))})
+        queries = [(n, suf, '') for n in names[:3] for suf in INV_SUFFIXES]                       # 투자 유치 기사
+        invs = [i.get('name') for i in (presence.get('_investors') or {}).get(key, []) if isinstance(i, dict) and i.get('name')][:INV_PER_CO]
+        queries += [(names[0], inv, inv) for inv in invs]                                         # 투자사별 근거 기사(회사명 + 투자사명)
+        for name, suf, investor in queries:
+            try:
+                items = fetch_query(session, headers, f'{name} {suf}')
+            except Exception as e:
+                errors += 1
+                msg = str(e).replace(cid, '***').replace(sec, '***')[:80]
+                if errors <= 2:
+                    print(f'    ⚠ [{name} {suf}] {msg}')
+                continue
+            for it in items:
+                title, desc = clean(it.get('title')), clean(it.get('description'))
+                if keep_invest_article(title, desc, names, exclude, inv_others, investor):
+                    found.append({'date': to_ym(it.get('pubDate', '')), 'hl': title,
+                                  'sum': desc[:150], 'url': safe_url(it.get('originallink') or it.get('link', ''))})
         merged = merge(existing.get(key, []), found)
         result[key] = merged
         total += len(found)

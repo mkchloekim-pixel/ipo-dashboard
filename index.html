@@ -308,7 +308,13 @@ function summaryRow(c){
   if (y) fm.appendChild(el('small', 'num ' + y.cls, '매출 YoY ' + y.t));
   if (f.interim) fm.appendChild(el('small', 'num', ilabel(f.interim) + ' 매출 ' + fmt(f.interim.sales)));
   b.appendChild(fm);
-  b.appendChild(el('div', 'cell', c.investSummary));
+  { const iv = insOf(c) || {}, cell = el('div', 'cell');
+    const stxt = iv.invest_summary || c.investSummary || '–';
+    cell.appendChild(document.createTextNode(stxt));
+    const seenN = stxt.replace(/\s/g, '');
+    const fresh = (iv.investors || []).filter(i => !seenN.includes(String(i.name).replace(/\s/g, ''))).slice(0, 2);   // 기사에서 새로 확인된 투자자 추가 표기
+    if (fresh.length){ const nd = el('div', 'note'); nd.textContent = '기사: ' + fresh.map(i => i.name + (i.amt ? ' ' + i.amt : '') + (i.date ? '(' + i.date + ')' : '')).join(' · '); cell.appendChild(nd); }
+    b.appendChild(cell); }
   const ip = el('div', 'cell');
   ip.appendChild(el('span', 'chip ' + mom[1], mom[0]));
   const stt = ipoState(c);
@@ -381,9 +387,8 @@ function investCard(c, nw){
   const NONAME = /자체|외부 투자|없음|비공개|컨소시엄|투자사$|^series|^pre-?ipo|^PE 투자/i;
   const rows = [];
   (insI.investors || []).forEach(i => rows.push({name: i.name, url: i.url, meta: [i.kind, i.amt, i.date, '기사 기반']}));
-  (insI.base_investors || []).forEach(i => rows.push({name: i.name, url: i.src, meta: [i.kind, i.amt, i.date, '기준 정보']}));
+  (insI.base_investors || []).forEach(i => rows.push({name: i.name, url: i.src, meta: [i.kind, i.amt, i.date, i.src ? '근거 기사' : '기준 정보']}));
   const named = (c.investors || []).filter(i => !NONAME.test(i.name)), unnamed = (c.investors || []).filter(i => NONAME.test(i.name));
-  named.forEach(i => rows.push({name: i.name, url: '', meta: [i.type, i.amt, '', '기준 정보']}));
   const seen = [];
   rows.forEach(r => {
     const k = nrm(r.name);

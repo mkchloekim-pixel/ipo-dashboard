@@ -95,6 +95,254 @@
   "lafati": 1
  },
  "_investors": {
+  "kurly": [
+   {
+    "name": "Anchor Equity Partners",
+    "kind": "전략적 투자자",
+    "amt": "투자유지",
+    "date": ""
+   },
+   {
+    "name": "DST Global",
+    "kind": "재무적 투자자",
+    "amt": "투자유지",
+    "date": ""
+   },
+   {
+    "name": "Hillhouse Investment",
+    "kind": "재무적 투자자",
+    "amt": "투자유지",
+    "date": ""
+   },
+   {
+    "name": "네이버",
+    "kind": "전략적 투자자",
+    "amt": "26.5월 330억 추가",
+    "date": ""
+   }
+  ],
+  "musinsoa": [
+   {
+    "name": "Sequoia Capital",
+    "kind": "Series B",
+    "amt": "투자완료",
+    "date": ""
+   },
+   {
+    "name": "IMM인베스트먼트",
+    "kind": "Series B",
+    "amt": "투자완료",
+    "date": ""
+   },
+   {
+    "name": "Wellington Management",
+    "kind": "Series C",
+    "amt": "약 2,000억",
+    "date": ""
+   }
+  ],
+  "oasis": [],
+  "ohouse": [
+   {
+    "name": "BRV Capital Management",
+    "kind": "재무적 투자자",
+    "amt": "투자유지",
+    "date": ""
+   },
+   {
+    "name": "소프트뱅크벤처스",
+    "kind": "재무적 투자자",
+    "amt": "투자유지",
+    "date": ""
+   },
+   {
+    "name": "본엔젤스",
+    "kind": "초기 투자자",
+    "amt": "투자유지",
+    "date": ""
+   }
+  ],
+  "goodai": [],
+  "founders": [],
+  "vinow": [
+   {
+    "name": "IMM인베스트먼트",
+    "kind": "Pre-IPO",
+    "amt": "누적 550억",
+    "date": ""
+   },
+   {
+    "name": "LB PE",
+    "kind": "Pre-IPO",
+    "amt": "Co-GP 300억",
+    "date": ""
+   },
+   {
+    "name": "브아원캐피탈파트너스",
+    "kind": "Pre-IPO",
+    "amt": "상동",
+    "date": ""
+   }
+  ],
+  "olive": [
+   {
+    "name": "올리브영",
+    "kind": "전략적 투자자",
+    "amt": "30억",
+    "date": ""
+   },
+   {
+    "name": "프라이머",
+    "kind": "재무적 투자자",
+    "amt": "Series B",
+    "date": ""
+   },
+   {
+    "name": "IMM인베스트먼트",
+    "kind": "재무적 투자자",
+    "amt": "Series B",
+    "date": ""
+   }
+  ],
+  "liman": [
+   {
+    "name": "IMM PE",
+    "kind": "경영권 투자 (2022)",
+    "amt": "약 2,500억원",
+    "date": ""
+   }
+  ],
+  "grace": [
+   {
+    "name": "DS투자파트너스",
+    "kind": "신규 투자 (2025.12, 청담인베스트먼트와 합산 117억원)",
+    "amt": "",
+    "date": ""
+   },
+   {
+    "name": "청담인베스트먼트",
+    "kind": "신규 투자 (2025.12, DS투자파트너스와 합산 117억원)",
+    "amt": "",
+    "date": ""
+   }
+  ],
+  "2020": [
+   {
+    "name": "한국투자파트너스",
+    "kind": "Series D 리드",
+    "amt": "370억원",
+    "date": ""
+   },
+   {
+    "name": "라구나인베스트먼트",
+    "kind": "Series C 참여",
+    "amt": "70억원",
+    "date": ""
+   },
+   {
+    "name": "효성",
+    "kind": "프리IPO (26.8)",
+    "amt": "300억원",
+    "date": ""
+   }
+  ],
+  "bnb": [
+   {
+    "name": "진백글로벌",
+    "kind": "전략적 인수",
+    "amt": "M&A 완료",
+    "date": ""
+   }
+  ],
+  "lafati": [],
+  "nmodelin": [
+   {
+    "name": "위벤처스",
+    "kind": "Series A (25.8)",
+    "amt": "10억",
+    "date": ""
+   },
+   {
+    "name": "인탑스인베스트먼트",
+    "kind": "Series A (25.8)",
+    "amt": "10억",
+    "date": ""
+   },
+   {
+    "name": "에이치지이니셔티브",
+    "kind": "Series A (25.8)",
+    "amt": "10억",
+    "date": ""
+   }
+  ],
+  "rebom": [
+   {
+    "name": "동국제약",
+    "kind": "경영권 인수 (24.10)",
+    "amt": "약 306억",
+    "date": ""
+   }
+  ],
+  "highlight": [
+   {
+    "name": "대명화학그룹",
+    "kind": "모기업(그룹 계열)",
+    "amt": "외부 투자 이력 없음(보도)",
+    "date": ""
+   }
+  ],
+  "hagohouse": [
+   {
+    "name": "SV인베스트먼트",
+    "kind": "재무적 투자자 (FI)",
+    "amt": "보유 중",
+    "date": ""
+   },
+   {
+    "name": "LB인베스트먼트",
+    "kind": "재무적 투자자 (FI)",
+    "amt": "보유 중",
+    "date": ""
+   },
+   {
+    "name": "대명화학",
+    "kind": "전략적 투자자 (SI) · 2020년",
+    "amt": "초기 투자",
+    "date": ""
+   }
+  ],
+  "boosterz": [
+   {
+    "name": "우주텍",
+    "kind": "최대주주",
+    "amt": "지분 48.01%",
+    "date": ""
+   },
+   {
+    "name": "하나벤처스",
+    "kind": "팔로온 투자자",
+    "amt": "Series C",
+    "date": ""
+   },
+   {
+    "name": "에스비아이인베스트먼트",
+    "kind": "신규 투자자",
+    "amt": "Series C",
+    "date": ""
+   },
+   {
+    "name": "엔베스터",
+    "kind": "신규 투자자",
+    "amt": "Series C",
+    "date": ""
+   },
+   {
+    "name": "레이크브릿지에쿼티파트너스",
+    "kind": "신규 투자자",
+    "amt": "Series C",
+    "date": ""
+   }
+  ],
   "peacenow": [
    {
     "name": "위벤처스",
@@ -104,12 +352,6 @@
    },
    {
     "name": "한국투자파트너스",
-    "kind": "시리즈 투자",
-    "amt": "500억원 (시리즈A)",
-    "date": "2023.09"
-   },
-   {
-    "name": "KB인베스트먼트",
     "kind": "시리즈 투자",
     "amt": "500억원 (시리즈A)",
     "date": "2023.09"
@@ -137,7 +379,54 @@
     "kind": "시리즈 투자",
     "amt": "500억원 (시리즈A)",
     "date": "2023.09"
+   },
+   {
+    "name": "KB인베스트먼트",
+    "kind": "시리즈 투자 · 구주 일부 매각(엑시트, 약 3배)",
+    "amt": "500억원 (시리즈A)",
+    "date": "2023.09"
+   },
+   {
+    "name": "무신사파트너스",
+    "kind": "초기 투자 · 지분 전량 정리(엑시트)",
+    "amt": "",
+    "date": ""
+   },
+   {
+    "name": "HB인베스트먼트",
+    "kind": "구주 인수(KB인베스트먼트 보유분 일부)",
+    "amt": "",
+    "date": ""
+   },
+   {
+    "name": "스톤브릿지벤처스",
+    "kind": "구주 인수",
+    "amt": "100억원대",
+    "date": ""
    }
-  ]
+  ],
+  "grainon": []
+ },
+ "_invest_summary": {
+  "kurly": "투자 유치: Anchor Equity Partners · DST Global · Hillhouse Investment · 네이버 (누적 1.2조원+, 2026.05 네이버 330억원 추가)",
+  "musinsoa": "Series C: Sequoia Capital · IMM인베스트먼트 · Wellington Management (누적 약 4,000억원+)",
+  "oasis": "외부 투자자 정보 없음 (자체 흑자 경영)",
+  "ohouse": "투자 유치: BRV Capital Management · 소프트뱅크벤처스 · 본엔젤스 (누적 약 3,000억원+)",
+  "goodai": "Pre-IPO: 투자자명 비공개 컨소시엄 (8,000억원)",
+  "founders": "외부 투자자 없음 (외부 VC 투자 이력 없음)",
+  "vinow": "Pre-IPO: IMM인베스트먼트 · LB PE · 브아원캐피탈파트너스 (투자 완료)",
+  "olive": "투자 유치: 올리브영 · 프라이머 · IMM인베스트먼트",
+  "liman": "경영권 투자: IMM PE (약 2,500억원, 2022)",
+  "grace": "투자 유치: DS투자파트너스 · 청담인베스트먼트 (117억원, 2025.12) / 기존 PE 경영권 투자(투자사명 비공개)",
+  "2020": "Series D: 한국투자파트너스 · 라구나인베스트먼트 / Pre-IPO: 효성 (300억원, 2026.08)",
+  "bnb": "경영권 인수(M&A): 진백글로벌",
+  "lafati": "Series B: 투자사명 비공개",
+  "nmodelin": "Series A: 위벤처스 · 인탑스인베스트먼트 · 에이치지이니셔티브 (누적 30억원)",
+  "rebom": "경영권 인수: 동국제약 (지분 약 53.7%, 약 306억원, 2024.10)",
+  "highlight": "대명화학그룹 계열 (외부 투자자 정보 없음)",
+  "hagohouse": "투자 유치: SV인베스트먼트 · LB인베스트먼트 · 대명화학",
+  "boosterz": "Series C: 에스비아이인베스트먼트 · 엔베스터 · 레이크브릿지에쿼티파트너스 · 하나벤처스 / 지분 인수: 우주텍",
+  "peacenow": "Series A: 위벤처스 · 한국투자파트너스 · KB인베스트먼트 · 이앤인베스트먼트 · IMM인베스트먼트 · SL인베스트먼트 · 미래에셋벤처투자 (500억원, 2023.09) / 엑시트: KB인베스트먼트 구주 일부 매각(HB인베스트먼트 인수), 무신사파트너스 지분 전량 정리 (보도 기준)",
+  "grainon": "외부 투자자 정보 없음"
  }
 }
