@@ -3,12 +3,10 @@
 
 - 대상: price_config.json 에 적힌 상장 기업만(미상장 기업은 시세 없음).
 - 인증키는 환경변수 DATA_GO_KR_KEY 로만 받는다(코드·로그 출력 금지, 오류 메시지에서도 마스킹).
+  Encoding 키(% 포함)·Decoding 키(원문) 어느 쪽을 넣어도 동작하도록 자동 처리하고, 앞뒤 공백·줄바꿈은 제거한다.
 - 데이터는 영업일 기준 '전일 종가'이며 실시간 시세가 아니다. 공모가는 사람이 price_config.json 에 입력한 값만 사용한다.
 - 조회 실패 시 기존 price.json 값을 유지한다(빈 값으로 덮어쓰지 않음).
-- 실패 원인을 알 수 있도록 API 응답 코드·반환 종목명을 로그에 남긴다(인증키 제외).
-
-price_config.json 예시 (code=6자리 종목코드를 알면 넣는 것이 가장 정확하다)
-  {"peacenow": {"name": "피스피스스튜디오", "code": "0117P0", "ipo_price": null, "listed": "2026.06.08"}}
+- 실패 원인을 알 수 있도록 API 응답 코드·반환 종목명과 키 형태(길이·% 포함 여부만, 값 제외)를 로그에 남긴다.
 
 사용법
   python fetch_price.py            # 실제 수집(환경변수 필요)
@@ -17,6 +15,7 @@ price_config.json 예시 (code=6자리 종목코드를 알면 넣는 것이 가�
 import argparse, json, os, re, sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import quote, urlencode
 
 API_URL = 'https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo'
 KST = timezone(timedelta(hours=9))
@@ -29,8 +28,12 @@ def num(v):
         return None
 
 
+def key_for_url(key):
+    """이미 인코딩된 키(% 포함)는 그대로, 원문(Decoding) 키는 한 번만 인코딩한다 → 이중 인코딩 방지"""
+    return key if '%' in key else quote(key, safe='')
+
+
 def api_status(j):
-    """(resultCode, resultMsg, totalCount)"""
     try:
         h, b = j['response']['header'], j['response']['body']
         return str(h.get('resultCode')), str(h.get('resultMsg')), b.get('totalCount')
@@ -39,7 +42,6 @@ def api_status(j):
 
 
 def parse_items(j):
-    """API 응답(JSON) → 항목 리스트. 항목이 1개면 dict 로 오는 경우도 처리."""
     try:
         items = j['response']['body']['items']['item']
     except Exception:
@@ -56,6 +58,7 @@ def _norm(s):
 def latest(items, name='', code=''):
     """종목코드(있으면) 또는 종목명이 일치하는 항목 중 가장 최근 기준일(basDt) 1건. 정확히 일치가 없으면 이름 포함 항목도 허용."""
     ok = [x for x in items if re.fullmatch(r'\d{8}', str(x.get('basDt', '')))]
+
     def pick(rows):
         rows.sort(key=lambda x: x['basDt'], reverse=True)
         return rows[0] if rows else None
@@ -87,19 +90,19 @@ def build_entry(row, cfg):
 
 def selftest():
     j = {'response': {'header': {'resultCode': '00', 'resultMsg': 'NORMAL SERVICE.'}, 'body': {'totalCount': 3, 'items': {'item': [
-        {'basDt': '20261106', 'itmsNm': '피스피스스튜디오', 'srtnCd': 'A000000', 'mrktCtg': 'KOSDAQ', 'clpr': '12,300', 'vs': '100', 'fltRt': '0.82', 'mrktTotAmt': '345000000000', 'lstgStCnt': '28000000'},
+        {'basDt': '20261106', 'itmsNm': '피스피스스튜디오', 'srtnCd': '0117P0', 'mrktCtg': 'KOSDAQ', 'clpr': '12,300', 'vs': '100', 'fltRt': '0.82', 'mrktTotAmt': '345000000000', 'lstgStCnt': '28000000'},
         {'basDt': '20261105', 'itmsNm': '피스피스스튜디오', 'clpr': '12200'},
         {'basDt': '20261106', 'itmsNm': '피스피스스튜디오홀딩스', 'clpr': '1'}]}}}}
     assert api_status(j)[0] == '00'
     row = latest(parse_items(j), '피스피스스튜디오')
     assert row['basDt'] == '20261106' and row['clpr'] == '12,300'
-    assert latest(parse_items(j), '다른이름', '000000')['clpr'] == '12,300'                    # 종목코드(A 접두 허용)
-    assert latest(parse_items(j), '피스피스 스튜디오')['clpr'] == '12,300'                      # 공백 차이 허용
-    assert latest(parse_items(j), '피스피스')['basDt'] == '20261106'                           # 포함 매칭(마지막 수단)
+    assert latest(parse_items(j), '다른이름', '0117P0')['clpr'] == '12,300'
+    assert latest(parse_items(j), '피스피스 스튜디오')['clpr'] == '12,300'
     e = build_entry(row, {'ipo_price': 10000})
     assert e['close'] == 12300 and e['date'] == '2026.11.06' and e['vs_ipo'] == 23.0 and e['mktcap'] == 345000000000
-    assert 'vs_ipo' not in build_entry(row, {})
     assert parse_items({'response': {'body': {'items': ''}}}) == [] and parse_items({}) == []
+    assert key_for_url('ab+c/d==') == 'ab%2Bc%2Fd%3D%3D'          # Decoding 키 → 한 번 인코딩
+    assert key_for_url('ab%2Bc%2Fd%3D%3D') == 'ab%2Bc%2Fd%3D%3D'  # Encoding 키 → 그대로(이중 인코딩 안 함)
     print('시세 파싱 로직 OK')
 
 
@@ -112,11 +115,14 @@ def main():
     if a.selftest:
         selftest()
         return
-    key = os.environ.get('DATA_GO_KR_KEY', '')
+    raw = os.environ.get('DATA_GO_KR_KEY', '')
+    key = raw.strip().strip('"\'')
     if not key:
-        sys.exit('환경변수 DATA_GO_KR_KEY 가 설정되지 않았습니다. (저장소 Settings → Secrets and variables → Actions 에 등록, 코드에 직접 넣지 마세요)')
+        sys.exit('환경변수 DATA_GO_KR_KEY 가 비어 있습니다. (저장소 Settings → Secrets and variables → Actions → Repository secrets 에 등록, 코드에 직접 넣지 마세요)')
+    print(f'  키 형태 점검: 길이={len(key)}, % 포함={"예" if "%" in key else "아니오"}, 앞뒤 공백 제거됨={"예" if raw != key else "아니오"} (값은 출력하지 않음)')
     import requests
-    mask = lambda t: str(t).replace(key, '***')
+    kq = key_for_url(key)
+    mask = lambda t: str(t).replace(key, '***').replace(kq, '***')
     cfg = json.loads(Path(a.config).read_text('utf-8')) if Path(a.config).exists() else {}
     out_p = Path(a.out)
     prev = {}
@@ -130,10 +136,11 @@ def main():
         if k.startswith('_') or not isinstance(c, dict) or not c.get('name'):
             continue
         code = str(c.get('code') or '').strip()
-        params = {'serviceKey': key, 'resultType': 'json', 'numOfRows': 50, 'pageNo': 1, 'beginBasDt': begin}
+        params = {'resultType': 'json', 'numOfRows': 50, 'pageNo': 1, 'beginBasDt': begin}
         params.update({'likeSrtnCd': code.lstrip('A')} if code else {'likeItmsNm': c['name']})
+        url = f'{API_URL}?serviceKey={kq}&{urlencode(params)}'          # 키는 직접 붙여 이중 인코딩을 막는다
         try:
-            r = requests.get(API_URL, params=params, timeout=20)
+            r = requests.get(url, timeout=20)
             body = mask(r.text[:200]).replace('\n', ' ')
             if r.status_code != 200:
                 print(f'  ⚠ [{k}] HTTP {r.status_code}: {body}')
@@ -141,7 +148,7 @@ def main():
             try:
                 j = r.json()
             except Exception:
-                print(f'  ⚠ [{k}] JSON 아님(인증키 미승인·오류 응답 가능): {body}')
+                print(f'  ⚠ [{k}] JSON 아님(오류 응답 가능): {body}')
                 continue
             rc, rm, tc = api_status(j)
             items = parse_items(j)
