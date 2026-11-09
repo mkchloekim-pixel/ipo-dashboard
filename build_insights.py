@@ -399,6 +399,9 @@ NAME_BAD_END = ('으', '로', '에', '를', '을', '의', '과', '와', '도', '
 INV_FROM = re.compile(r'(?:서|에서|로부터|한테서)\s*(?:총\s*|약\s*)?(?:' + AMT_RE + r')?\s*(?:규모\s*)?(?:의\s*)?(?:프리\s*IPO\s*|pre-?IPO\s*|시리즈\s*[A-Z]\s*|전략적\s*)?(?:투자\s*)?(?:를\s*|을\s*)?유치', re.I)
 
 
+FAIL_RE = re.compile(r'무산|불발|철회|좌초|결렬|취소|백지화|콜옵션')      # 성사되지 않은 투자·인수 기사는 투자자 근거로 쓰지 않는다
+
+
 def _alias_re(key):
     return '|'.join(re.escape(a) for a in sorted(ALIASES.get(key, []), key=len, reverse=True))
 
@@ -439,7 +442,7 @@ def extract_investors(key, n):
     ① '자사, ○○서(에서·로부터) N억 유치'  ② '○○, 자사에 N억 투자'(제목)  ③ '○○, 자사 지분 인수'(제목, 회사명 기준)
     자사 브랜드를 인수한 건·자사가 투자한 건은 제외한다."""
     hl, sm = clean(n.get('hl')), clean(n.get('sum'))
-    if not has_own(key, hl) or is_reference(key, hl):
+    if not has_own(key, hl) or is_reference(key, hl) or FAIL_RE.search(hl + ' ' + sm):
         return []
     al, co = _alias_re(key), _company_re(key)
     found = []
@@ -503,6 +506,7 @@ def link_investors(key, invs, pool):
             nm = re.sub(r'\s', '', it['name']).lower()
             cand = [a for a in pool if has_own(key, clean(a.get('hl'))) and not is_reference(key, clean(a.get('hl')))
                     and nm in re.sub(r'\s', '', (clean(a.get('hl')) + clean(a.get('sum')))).lower()
+                    and not FAIL_RE.search(clean(a.get('hl')) + ' ' + clean(a.get('sum')))
                     and INV_CTX.search(clean(a.get('hl')) + ' ' + clean(a.get('sum'))) and re.match(r'^https?://', a.get('url', ''))]
             cand.sort(key=lambda a: a.get('date', ''), reverse=True)
             it['src'] = cand[0]['url'] if cand else ''
@@ -671,6 +675,7 @@ def selftest():
     assert _i('hagohouse', '하고하우스, 재작년 대명화학으로부터 투자 유치') == []              # 조각난 이름은 버림
     assert _i('nmodelin', '앤마들린, 3곳으로부터 30억 투자 유치') == []
     assert _i('bnb', '비앤비코리아, 이끌었던 제조사서 투자 유치') == []
+    assert _i('boosterz', '부스터즈 커머스부문, 콜옵션 무산…투자자서 100억 유치 불발') == []         # 무산·불발 기사 제외
     assert _i('kurly', '네이버, 컬리에 330억 투자') == [('네이버', '330억')]
     assert _i('liman', 'IMM PE, 리만코리아 지분 인수') == [('IMM PE', '')]
     assert _i('kurly', '컬리, 신제품 출시', '투자 유치 소식은 없다') == []
@@ -731,6 +736,12 @@ def main():
     for k in (presence.get('_hide_investors') or []):                  # 투자자 목록을 숨기는 기업(요약 문구만 표시)
         if k in out:
             out[k]['hide_investors'] = True
+    for k, n in (presence.get('_max_articles') or {}).items():          # '최신 기사 분석' 칸에 남길 기사 수(밸류에이션 기사 우선)
+        if k in out and isinstance(n, int) and 1 <= n <= 3:
+            out[k]['max_articles'] = n
+    for k in (presence.get('_hide_articles') or []):                   # '최신 기사 분석' 칸을 숨기는 기업(투자자 링크와 중복)
+        if k in out:
+            out[k]['hide_articles'] = True
     for k, t in (presence.get('_invest_summary') or {}).items():     # 요약 행 투자자 문구(정식 투자사명, 통일 형식)
         if k in out and isinstance(t, str):
             out[k]['invest_summary'] = t[:400]
@@ -738,6 +749,15 @@ def main():
         if k in out and isinstance(lst, list):
             pool = [x for x in (news.get(k) or []) + (extra.get(k) or []) + (gnews.get(k) or []) if isinstance(x, dict)]
             out[k]['base_investors'] = link_investors(k, [i for i in lst if isinstance(i, dict) and i.get('name')], pool)
+    for k, pats in (presence.get('_exclude') or {}).items():       # 사람이 지정한 제외 기사(제목 일부 또는 URL 일부) — 투자자 근거·링크에서 제거
+        if k in out and isinstance(pats, list):
+            bad = lambda x: any(p and (p in str(x.get('hl', '')) or p in str(x.get('url', x.get('src', '')))) for p in pats)
+            out[k]['exclude'] = [str(p)[:60] for p in pats]
+            out[k]['investors'] = [i for i in out[k].get('investors', []) if not bad(i)]
+            for i in out[k].get('base_investors', []):
+                if bad(i):
+                    i['src'] = ''
+                    i.pop('hl', None)
     for k, v in prev_c.items():                           # 이번에 기사가 없는 회사도 이력 유지
         out.setdefault(k, v)
     res = {'companies': out, '_rules': RULES_VERSION, '_updated': datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%dT%H:%M:%S KST')}

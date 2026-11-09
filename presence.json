@@ -98,6 +98,11 @@
   "peacenow",
   "grainon"
  ],
+ "_exclude": {
+  "boosterz": [
+   "커머스부문"
+  ]
+ },
  "_investors": {
   "kurly": [
    {
@@ -371,5 +376,11 @@
   "boosterz": "Series C: 에스비아이인베스트먼트 · 엔베스터 · 레이크브릿지에쿼티파트너스 · 하나벤처스 / 지분 인수: 우주텍",
   "peacenow": "Series A 투자 이후 엑시트 완료",
   "grainon": "Series A 투자유치 (비공개) / CJ온스타일 투자"
+ },
+ "_hide_articles": [
+  "nmodelin"
+ ],
+ "_max_articles": {
+  "lafati": 1
  }
 }
