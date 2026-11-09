@@ -128,6 +128,22 @@ def selftest():
     print('시세 파싱 로직 OK')
 
 
+def diagnose(requests, key, kq, mask):
+    """호출이 막힐 때 원인 구분용: 조건을 바꿔 3번 더 시도하고 결과만 로그에 남긴다(키는 마스킹)."""
+    base = {'numOfRows': '1', 'pageNo': '1'}
+    ua = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Accept-Language': 'ko-KR,ko;q=0.9'}
+    tries = [('1 최소 파라미터', f'{API_URL}?serviceKey={kq}&numOfRows=1&pageNo=1', None, None),
+             ('2 최소 파라미터 + 브라우저 헤더', f'{API_URL}?serviceKey={kq}&numOfRows=1&pageNo=1', ua, None),
+             ('3 requests 파라미터 방식', API_URL, None, dict(base, serviceKey=key))]
+    for name, url, hdr, prm in tries:
+        try:
+            r = requests.get(url, headers=hdr, params=prm, timeout=20)
+            print(f'  진단 {name}: HTTP {r.status_code} {mask(r.text[:120])!r}')
+        except Exception as ex:
+            print(f'  진단 {name}: 예외 {mask(ex)[:100]}')
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--config', default='price_config.json')
@@ -155,16 +171,11 @@ def main():
         print(f'  키 형태 점검: 길이={len(key)}, % 포함={"예" if "%" in key else "아니오"}, 앞뒤 공백 제거됨={"예" if raw != key else "아니오"} (값은 출력하지 않음)')
         import requests
         kq = key_for_url(key)
-        import hashlib
-        print(f'  키 지문(SHA-256 앞 8자리): {hashlib.sha256(key.encode("utf-8")).hexdigest()[:8]}  ← 포털 키의 지문과 같은지 비교(키 복원 불가)')
-        try:                                                       # 실행 서버의 접속 국가(진단용, 공개 정보만 조회)
-            print(f'  실행 서버 접속 국가: {requests.get("https://ipinfo.io/country", timeout=5).text.strip()[:5]}')
-        except Exception:
-            print('  실행 서버 접속 국가: 확인 실패')
     else:
         print('  ⚠ 환경변수 DATA_GO_KR_KEY 가 비어 있습니다 → API 조회 없이 수기(manual) 값만 사용합니다.')
     mask = lambda t: str(t).replace(key, '***').replace(kq, '***') if key else str(t)
     begin = (datetime.now(KST) - timedelta(days=21)).strftime('%Y%m%d')
+    diag_done = False
     for k, c in cfg.items():
         if k.startswith('_') or not isinstance(c, dict) or not c.get('name'):
             continue
@@ -179,6 +190,9 @@ def main():
                 body = mask(r.text[:200]).replace('\n', ' ')
                 if r.status_code != 200:
                     print(f'  ⚠ [{k}] HTTP {r.status_code}: {body}')
+                    if not diag_done:
+                        diag_done = True
+                        diagnose(requests, key, kq, mask)
                 else:
                     try:
                         j = r.json()
