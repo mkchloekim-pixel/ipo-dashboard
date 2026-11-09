@@ -1,0 +1,4 @@
+{
+ "_note": "시세를 표시할 상장 기업. name 은 거래소 종목명과 정확히 같아야 한다. ipo_price(공모가, 원)는 사람이 확인 후 입력(없으면 null).",
+ "peacenow": {"name": "피스피스스튜디오", "ipo_price": null, "listed": "2026.06.08"}
+}

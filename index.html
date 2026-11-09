@@ -130,6 +130,7 @@ footer{margin-top:30px;font-size:11.5px;color:var(--text3);line-height:1.7}
     'CJ온스타일 투자' 표시는 공개 보도로 확인된 건만 반영한 것으로, 표시가 없다고 투자 이력이 없다는 뜻은 아닙니다.<br>
     글로벌 국가 표시: 굵은 녹색 칩=기업 공식 정보·기사로 확인된 주요 진출 국가, 일반 칩=기사로 확인된 진출 국가, 파란색 '(계획)'=계획·추진 단계(진출 기사 없음). 신규·확장 구분은 사용하지 않으며, 과거 회고·철수 기사는 반영하지 않습니다.<br>
     투자자: '투자자명 / 구분 · 금액 · 시점 · 근거' 형식으로 통일. 기사 제목·요약에서 자사가 투자를 유치한 건만 자동 추출(자사 브랜드 인수·자사가 투자한 건 제외)하고, 기사에 없는 기존 투자자는 출처를 확인해 '기준 정보'로 표시합니다. 이름이 공개되지 않은 투자(자체 성장, 컨소시엄 등)는 목록에 넣지 않고 '비공개·참고'로만 표기합니다.<br>
+    주가·시총: 상장 완료 기업만 공공데이터포털(금융위원회 주식시세정보) 기준 영업일 전일 종가를 표시하며 실시간 시세가 아닙니다. 공모가 대비는 사람이 확인해 입력한 공모가가 있을 때만 표시합니다.<br>
     본 자료는 공개 정보 기반 참고용이며 투자 판단의 근거가 될 수 없습니다. 수치는 원문 공시로 확인하세요.
   </footer>
 </div>
@@ -142,7 +143,7 @@ const SECTORS = ['버티컬','뷰티','패션','식품'];
 const SECTOR_LABEL = {버티컬:'버티컬 커머스',뷰티:'뷰티',패션:'패션',식품:'식품'};
 const MOM = {high:['High','hi'],midhigh:['Mid-high','mh'],mid:['Mid','m'],midlow:['Mid-low','ml'],listed:['상장완료','ls']};
 const COS = JSON.parse(document.getElementById('seed').textContent);
-let FIN = {}, NEWS = {}, INS = {};
+let FIN = {}, NEWS = {}, INS = {}, PRICE = {};
 const state = {sector:'all', q:'', open:new Set()};
 
 /* ── 안전한 DOM 헬퍼 (innerHTML 미사용) ── */
@@ -295,6 +296,22 @@ function newsOf(c){
 /* ── 렌더링 ── */
 function pill(n, kind){ return el('span', 'chip tag-' + kind, n); }
 
+/* ── 상장 기업 주가·시총 (price.json: 공공데이터포털 주식시세정보, 영업일 기준 전일 종가) ── */
+function priceOf(c){
+  const p = ((PRICE && PRICE.companies) || {})[c.key];
+  return p && Number.isFinite(Number(p.close)) ? p : null;
+}
+const fmtEok = n => Number.isFinite(Number(n)) && n ? (Number(n) >= 1e12 ? (Number(n) / 1e12).toFixed(2) + '조원' : Math.round(Number(n) / 1e8).toLocaleString('ko-KR') + '억원') : '';
+function priceChips(c){
+  const p = priceOf(c); if (!p) return null;
+  const w = el('div'), r = Number(p.rate), up = r > 0, dn = r < 0;
+  w.appendChild(el('span', 'chip key', '종가 ' + Number(p.close).toLocaleString('ko-KR') + '원'));
+  if (Number.isFinite(r)) w.appendChild(el('span', 'chip ' + (up ? 'hi' : dn ? 'ml' : ''), (up ? '▲ ' : dn ? '▼ ' : '') + Math.abs(r).toFixed(2) + '%'));
+  const mc = fmtEok(p.mktcap); if (mc) w.appendChild(el('span', 'chip', '시총 ' + mc));
+  if (Number.isFinite(Number(p.vs_ipo))) w.appendChild(el('span', 'chip ' + (p.vs_ipo >= 0 ? 'hi' : 'ml'), '공모가(' + Number(p.ipo_price).toLocaleString('ko-KR') + '원) 대비 ' + (p.vs_ipo >= 0 ? '+' : '') + p.vs_ipo + '%'));
+  w.appendChild(el('small', '', '기준 ' + String(p.date || '') + ' 종가 (실시간 아님)'));
+  return w;
+}
 function summaryRow(c){
   const f = finOf(c), nw = newsOf(c), mom = MOM[c.mom] || ['', ''];
   const b = el('button', 'head');
@@ -320,6 +337,7 @@ function summaryRow(c){
   const stt = ipoState(c);
   ip.appendChild(el('small', '', c.ipoWhen));
   if (stt.latest) ip.appendChild(el('span', 'chip ' + (stt.delay ? 'hi' : 'tag-ipo'), '기사: ' + (KIND_LABEL[stt.latest.kind] || '') + ' · ' + stt.latest.date));
+  { const pc = priceChips(c); if (pc) ip.appendChild(pc); }
   b.appendChild(ip);
   const gl = el('div', 'cell');
   const gr = globalRegions(c).filter(g => g.level !== 'weak' && g.tag !== 'withdraw');
@@ -445,6 +463,7 @@ function ipoCard(c, nw){
   const card = el('div', 'card'), st0 = ipoState(c), mom = MOM[c.mom] || ['', ''];
   card.appendChild(el('h3', '', '', [el('span', '', 'IPO 현황'), el('span', 'chip ' + mom[1], '추진강도 ' + mom[0])]));
   card.appendChild(el('div', 'big', c.stages[st0.idx] ? '현재 단계: ' + c.stages[st0.idx] : c.ipoLabel));
+  { const pc = priceChips(c); if (pc){ const pb = el('div', 'sep'); pb.appendChild(el('small', 'empty', '상장 후 주가·시총')); pb.appendChild(pc); card.appendChild(pb); } }
   const tags = el('div');
   if (st0.boosted) tags.appendChild(el('span', 'chip tag-ipo', '기사 기반 상향 (' + KIND_LABEL[st0.auto.kind] + ' · ' + st0.auto.date + ')'));
   if (st0.delay) tags.appendChild(el('span', 'chip hi', '최근 기사: 지연·철회 신호'));
@@ -578,12 +597,13 @@ async function load(name){
 }
 (async () => {
   render();
-  [FIN, NEWS, INS] = await Promise.all([load('financials.json'), load('news.json'), load('insights.json')]);
+  [FIN, NEWS, INS, PRICE] = await Promise.all([load('financials.json'), load('news.json'), load('insights.json'), load('price.json')]);
   const fmtT = s => String(s || '').replace('T', ' ').replace(' KST', '');
   document.getElementById('stamp').replaceChildren(
     el('div', '', '재무 갱신 ' + (fmtT(FIN._updated) || '–')),
     el('div', '', '뉴스 갱신 ' + (fmtT(NEWS._updated) || '–')),
-    el('div', '', '분석 갱신 ' + (fmtT(INS._updated) || '–'))
+    el('div', '', '분석 갱신 ' + (fmtT(INS._updated) || '–')),
+    el('div', '', '시세 갱신 ' + (fmtT(PRICE._updated) || '–'))
   );
   render();
 })();
