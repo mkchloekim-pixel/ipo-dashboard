@@ -155,6 +155,12 @@ def main():
         print(f'  키 형태 점검: 길이={len(key)}, % 포함={"예" if "%" in key else "아니오"}, 앞뒤 공백 제거됨={"예" if raw != key else "아니오"} (값은 출력하지 않음)')
         import requests
         kq = key_for_url(key)
+        import hashlib
+        print(f'  키 지문(SHA-256 앞 8자리): {hashlib.sha256(key.encode("utf-8")).hexdigest()[:8]}  ← 포털 키의 지문과 같은지 비교(키 복원 불가)')
+        try:                                                       # 실행 서버의 접속 국가(진단용, 공개 정보만 조회)
+            print(f'  실행 서버 접속 국가: {requests.get("https://ipinfo.io/country", timeout=5).text.strip()[:5]}')
+        except Exception:
+            print('  실행 서버 접속 국가: 확인 실패')
     else:
         print('  ⚠ 환경변수 DATA_GO_KR_KEY 가 비어 있습니다 → API 조회 없이 수기(manual) 값만 사용합니다.')
     mask = lambda t: str(t).replace(key, '***').replace(kq, '***') if key else str(t)
@@ -167,10 +173,10 @@ def main():
             code = str(c.get('code') or '').strip()
             params = {'resultType': 'json', 'numOfRows': 50, 'pageNo': 1, 'beginBasDt': begin}
             params.update({'likeSrtnCd': code.lstrip('A')} if code else {'likeItmsNm': c['name']})
-            params['serviceKey'] = key
+            url = f'{API_URL}?serviceKey={kq}&{urlencode(params)}'          # 키는 직접 붙여 이중 인코딩을 막는다
             try:
-                r = requests.get(API_URL, params=params, timeout=20)
-                body = mask(r.text[:200]).replace('\\n', ' ')
+                r = requests.get(url, timeout=20)
+                body = mask(r.text[:200]).replace('\n', ' ')
                 if r.status_code != 200:
                     print(f'  ⚠ [{k}] HTTP {r.status_code}: {body}')
                 else:
