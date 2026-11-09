@@ -167,25 +167,10 @@ def main():
             code = str(c.get('code') or '').strip()
             params = {'resultType': 'json', 'numOfRows': 50, 'pageNo': 1, 'beginBasDt': begin}
             params.update({'likeSrtnCd': code.lstrip('A')} if code else {'likeItmsNm': c['name']})
-params = {
-    'serviceKey': key,
-    'resultType': 'json',
-    'numOfRows': 50,
-    'pageNo': 1,
-    'beginBasDt': begin
-}
-
-if code:
-    params['likeSrtnCd'] = code.lstrip('A')
-else:
-    params['likeItmsNm'] = c['name']
-
-r = requests.get(
-    API_URL,
-    params=params,
-    timeout=20
-)
-                body = mask(r.text[:200]).replace('\n', ' ')
+            params['serviceKey'] = key
+            try:
+                r = requests.get(API_URL, params=params, timeout=20)
+                body = mask(r.text[:200]).replace('\\n', ' ')
                 if r.status_code != 200:
                     print(f'  ⚠ [{k}] HTTP {r.status_code}: {body}')
                 else:
