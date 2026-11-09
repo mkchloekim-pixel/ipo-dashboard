@@ -8,7 +8,7 @@
 - 실패 원인을 알 수 있도록 API 응답 코드·반환 종목명을 로그에 남긴다(인증키 제외).
 
 price_config.json 예시 (code=6자리 종목코드를 알면 넣는 것이 가장 정확하다)
-  {"peacenow": {"name": "피스피스스튜디오", "code": "", "ipo_price": null, "listed": "2026.06.08"}}
+  {"peacenow": {"name": "피스피스스튜디오", "code": "0117P0", "ipo_price": null, "listed": "2026.06.08"}}
 
 사용법
   python fetch_price.py            # 실제 수집(환경변수 필요)
