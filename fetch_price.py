@@ -5,8 +5,13 @@
 - 인증키는 환경변수 DATA_GO_KR_KEY 로만 받는다(코드·로그 출력 금지, 오류 메시지에서도 마스킹).
   Encoding 키(% 포함)·Decoding 키(원문) 어느 쪽을 넣어도 동작하도록 자동 처리하고, 앞뒤 공백·줄바꿈은 제거한다.
 - 데이터는 영업일 기준 '전일 종가'이며 실시간 시세가 아니다. 공모가는 사람이 price_config.json 에 입력한 값만 사용한다.
-- 조회 실패 시 기존 price.json 값을 유지한다(빈 값으로 덮어쓰지 않음).
-- 실패 원인을 알 수 있도록 API 응답 코드·반환 종목명과 키 형태(길이·% 포함 여부만, 값 제외)를 로그에 남긴다.
+- API 조회가 실패하면: ① price_config.json 의 'manual'(사람이 확인해 입력한 종가·시총)이 있으면 그 값을 '(수기)' 표시로 사용,
+  ② 없으면 기존 price.json 값을 유지한다. API 조회가 성공하면 항상 API 값이 우선이다.
+
+price_config.json 예시
+  {"peacenow": {"name": "피스피스스튜디오", "code": "0117P0", "ipo_price": null,
+                "manual": {"date": "2026.11.06", "close": 12300, "rate": 0.82, "mktcap": 345000000000}}}
+  (manual 은 선택 항목. 값은 거래소·증권사 화면에서 확인한 것만 넣는다. mktcap 단위는 원.)
 
 사용법
   python fetch_price.py            # 실제 수집(환경변수 필요)
@@ -88,6 +93,21 @@ def build_entry(row, cfg):
     return e
 
 
+def manual_entry(cfg):
+    """사람이 입력한 종가·시총(manual) → price.json 항목. 기준일 뒤에 '(수기)'를 붙여 화면에서 구분한다."""
+    m = cfg.get('manual')
+    if not isinstance(m, dict) or num(m.get('close')) is None:
+        return None
+    close, mc, rate = num(m.get('close')), num(m.get('mktcap')), num(m.get('rate'))
+    e = {'name': cfg.get('name', ''), 'code': str(cfg.get('code', '')), 'market': '', 'date': f"{m.get('date', '')} (수기)",
+         'close': int(close), 'change': None, 'rate': rate, 'mktcap': int(mc) if mc is not None else None, 'shares': None}
+    ipo = num(cfg.get('ipo_price'))
+    if ipo:
+        e['ipo_price'] = int(ipo)
+        e['vs_ipo'] = round((close / ipo - 1) * 100, 1)
+    return e
+
+
 def selftest():
     j = {'response': {'header': {'resultCode': '00', 'resultMsg': 'NORMAL SERVICE.'}, 'body': {'totalCount': 3, 'items': {'item': [
         {'basDt': '20261106', 'itmsNm': '피스피스스튜디오', 'srtnCd': '0117P0', 'mrktCtg': 'KOSDAQ', 'clpr': '12,300', 'vs': '100', 'fltRt': '0.82', 'mrktTotAmt': '345000000000', 'lstgStCnt': '28000000'},
@@ -101,8 +121,10 @@ def selftest():
     e = build_entry(row, {'ipo_price': 10000})
     assert e['close'] == 12300 and e['date'] == '2026.11.06' and e['vs_ipo'] == 23.0 and e['mktcap'] == 345000000000
     assert parse_items({'response': {'body': {'items': ''}}}) == [] and parse_items({}) == []
-    assert key_for_url('ab+c/d==') == 'ab%2Bc%2Fd%3D%3D'          # Decoding 키 → 한 번 인코딩
-    assert key_for_url('ab%2Bc%2Fd%3D%3D') == 'ab%2Bc%2Fd%3D%3D'  # Encoding 키 → 그대로(이중 인코딩 안 함)
+    assert key_for_url('ab+c/d==') == 'ab%2Bc%2Fd%3D%3D' and key_for_url('ab%2Bc') == 'ab%2Bc'
+    m = manual_entry({'name': 'A', 'ipo_price': 10000, 'manual': {'date': '2026.11.06', 'close': 12300, 'rate': -1.2, 'mktcap': 345000000000}})
+    assert m['date'] == '2026.11.06 (수기)' and m['close'] == 12300 and m['vs_ipo'] == 23.0 and m['mktcap'] == 345000000000
+    assert manual_entry({'name': 'A'}) is None and manual_entry({'name': 'A', 'manual': {'close': ''}}) is None
     print('시세 파싱 로직 OK')
 
 
@@ -117,12 +139,6 @@ def main():
         return
     raw = os.environ.get('DATA_GO_KR_KEY', '')
     key = raw.strip().strip('"\'')
-    if not key:
-        sys.exit('환경변수 DATA_GO_KR_KEY 가 비어 있습니다. (저장소 Settings → Secrets and variables → Actions → Repository secrets 에 등록, 코드에 직접 넣지 마세요)')
-    print(f'  키 형태 점검: 길이={len(key)}, % 포함={"예" if "%" in key else "아니오"}, 앞뒤 공백 제거됨={"예" if raw != key else "아니오"} (값은 출력하지 않음)')
-    import requests
-    kq = key_for_url(key)
-    mask = lambda t: str(t).replace(key, '***').replace(kq, '***')
     cfg = json.loads(Path(a.config).read_text('utf-8')) if Path(a.config).exists() else {}
     out_p = Path(a.out)
     prev = {}
@@ -131,40 +147,53 @@ def main():
     except Exception:
         prev = {}
     comp = dict(prev.get('companies', {})) if isinstance(prev, dict) else {}
+    kq, requests = '', None
+    if key:
+        print(f'  키 형태 점검: 길이={len(key)}, % 포함={"예" if "%" in key else "아니오"}, 앞뒤 공백 제거됨={"예" if raw != key else "아니오"} (값은 출력하지 않음)')
+        import requests
+        kq = key_for_url(key)
+    else:
+        print('  ⚠ 환경변수 DATA_GO_KR_KEY 가 비어 있습니다 → API 조회 없이 수기(manual) 값만 사용합니다.')
+    mask = lambda t: str(t).replace(key, '***').replace(kq, '***') if key else str(t)
     begin = (datetime.now(KST) - timedelta(days=21)).strftime('%Y%m%d')
     for k, c in cfg.items():
         if k.startswith('_') or not isinstance(c, dict) or not c.get('name'):
             continue
-        code = str(c.get('code') or '').strip()
-        params = {'resultType': 'json', 'numOfRows': 50, 'pageNo': 1, 'beginBasDt': begin}
-        params.update({'likeSrtnCd': code.lstrip('A')} if code else {'likeItmsNm': c['name']})
-        url = f'{API_URL}?serviceKey={kq}&{urlencode(params)}'          # 키는 직접 붙여 이중 인코딩을 막는다
-        try:
-            r = requests.get(url, timeout=20)
-            body = mask(r.text[:200]).replace('\n', ' ')
-            if r.status_code != 200:
-                print(f'  ⚠ [{k}] HTTP {r.status_code}: {body}')
-                continue
+        e = None
+        if key:
+            code = str(c.get('code') or '').strip()
+            params = {'resultType': 'json', 'numOfRows': 50, 'pageNo': 1, 'beginBasDt': begin}
+            params.update({'likeSrtnCd': code.lstrip('A')} if code else {'likeItmsNm': c['name']})
+            url = f'{API_URL}?serviceKey={kq}&{urlencode(params)}'          # 키는 직접 붙여 이중 인코딩을 막는다
             try:
-                j = r.json()
-            except Exception:
-                print(f'  ⚠ [{k}] JSON 아님(오류 응답 가능): {body}')
-                continue
-            rc, rm, tc = api_status(j)
-            items = parse_items(j)
-            print(f'  [{k}] API 응답 코드={rc} 메시지={rm} 전체건수={tc} 수신={len(items)}건 종목명={sorted({str(x.get("itmsNm")) for x in items})[:5]}')
-            row = latest(items, c['name'], code)
-            e = build_entry(row, c) if row else None
-        except Exception as ex:
-            print(f'  ⚠ [{k}] 조회 실패: {mask(ex)[:120]}')
-            continue
+                r = requests.get(url, timeout=20)
+                body = mask(r.text[:200]).replace('\n', ' ')
+                if r.status_code != 200:
+                    print(f'  ⚠ [{k}] HTTP {r.status_code}: {body}')
+                else:
+                    try:
+                        j = r.json()
+                        rc, rm, tc = api_status(j)
+                        items = parse_items(j)
+                        print(f'  [{k}] API 응답 코드={rc} 메시지={rm} 전체건수={tc} 수신={len(items)}건 종목명={sorted({str(x.get("itmsNm")) for x in items})[:5]}')
+                        row = latest(items, c['name'], code)
+                        e = build_entry(row, c) if row else None
+                    except ValueError:
+                        print(f'  ⚠ [{k}] JSON 아님(오류 응답 가능): {body}')
+            except Exception as ex:
+                print(f'  ⚠ [{k}] 조회 실패: {mask(ex)[:120]}')
         if e:
             comp[k] = e
-            print(f'  [{k}] {e["name"]} {e["date"]} 종가 {e["close"]:,}원')
+            print(f'  [{k}] API: {e["name"]} {e["date"]} 종가 {e["close"]:,}원')
+            continue
+        m = manual_entry(c)
+        if m:
+            comp[k] = m
+            print(f'  [{k}] API 값 없음 → 수기 입력값 사용: {m["date"]} 종가 {m["close"]:,}원')
         else:
-            print(f'  [{k}] 일치하는 종목 없음 → 기존 값 유지 (price_config.json 의 name/code 확인)')
+            print(f'  [{k}] API 값·수기 값 모두 없음 → 기존 값 유지')
     res = {'companies': comp, '_updated': datetime.now(KST).strftime('%Y-%m-%dT%H:%M:%S KST'),
-           '_note': '금융위원회 주식시세정보(공공데이터포털). 영업일 기준 전일 종가이며 실시간 시세가 아닙니다.'}
+           '_note': '금융위원회 주식시세정보(공공데이터포털). 영업일 기준 전일 종가이며 실시간 시세가 아닙니다. "(수기)" 표시는 사람이 입력한 값입니다.'}
     out_p.write_text(json.dumps(res, ensure_ascii=False, indent=1), 'utf-8')
     print(f'저장: {a.out}')
 
