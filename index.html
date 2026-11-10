@@ -144,7 +144,7 @@ const SECTORS = ['버티컬','뷰티','패션','식품'];
 const SECTOR_LABEL = {버티컬:'버티컬 커머스',뷰티:'뷰티',패션:'패션',식품:'식품'};
 const MOM = {high:['High','hi'],midhigh:['Mid-high','mh'],mid:['Mid','m'],midlow:['Mid-low','ml'],listed:['상장완료','ls']};
 const COS = JSON.parse(document.getElementById('seed').textContent);
-let FIN = {}, NEWS = {}, INS = {}, PRICE = {};
+let FIN = {}, NEWS = {}, INS = {}, PRICE = {}, PRES = {};
 const state = {sector:'all', q:'', open:new Set()};
 
 /* ── 안전한 DOM 헬퍼 (innerHTML 미사용) ── */
@@ -434,7 +434,8 @@ function investCard(c, nw){
     card.appendChild(el('div', 'li', '', [t, el('p', '', r.meta.filter(Boolean).join(' · '))]));
   });
   if (unnamed.length && !insI.hide_investors) card.appendChild(el('p', 'note', '비공개·참고: ' + unnamed.map(i => i.name + (i.amt ? '(' + i.amt + ')' : '')).join(', ')));
-  if (c.investNote) card.appendChild(el('p', 'note', c.investNote));
+  { const on = (PRES && PRES._invest_note && typeof PRES._invest_note === 'object' && c.key in PRES._invest_note) ? PRES._invest_note[c.key] : c.investNote;   // presence.json 의 _invest_note: 문구 교체, "" 이면 삭제
+    if (on) card.appendChild(el('p', 'note', String(on))); }
   if (c.directInvests && c.directInvests.length){        // 회사가 직접 투자한 이력 (외부 투자 유치와 구분)
     const s = el('div', 'sep'); s.appendChild(el('small', 'empty', '직접 투자 이력 (회사가 투자한 곳)'));
     c.directInvests.forEach(d => {
@@ -620,7 +621,7 @@ async function load(name){
 }
 (async () => {
   render();
-  [FIN, NEWS, INS, PRICE] = await Promise.all([load('financials.json'), load('news.json'), load('insights.json'), load('price.json')]);
+  [FIN, NEWS, INS, PRICE, PRES] = await Promise.all([load('financials.json'), load('news.json'), load('insights.json'), load('price.json'), load('presence.json')]);
   const fmtT = s => String(s || '').replace('T', ' ').replace(' KST', '');
   document.getElementById('stamp').replaceChildren(
     el('div', '', '재무 갱신 ' + (fmtT(FIN._updated) || '–')),
