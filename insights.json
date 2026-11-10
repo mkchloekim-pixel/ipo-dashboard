@@ -186,7 +186,7 @@
      "kind": "Series C",
      "amt": "2,400억",
      "date": "2023.7월",
-     "src": ""
+     "src": "https://www.techm.kr/news/articleView.html?idxno=156133"
     },
     {
      "name": "세콰이어캐피탈·IMM인베스트먼트 등",
@@ -272,7 +272,7 @@
      "kind": "Series G (지분 약 6.2% 확보)",
      "amt": "330억",
      "date": "2026.5월",
-     "src": ""
+     "src": "https://www.hani.co.kr/arti/economy/economy_general/1257348.html"
     },
     {
      "name": "Anchor Equity Partners",
@@ -346,7 +346,7 @@
      "kind": "Series D",
      "amt": "2,300억",
      "date": "2022.5월",
-     "src": ""
+     "src": "https://www.investchosun.com/site/data/html_dir/2022/03/11/2022031180172.html"
     },
     {
      "name": "본드캐피털·IMM인베스트먼트·미래에셋벤처투자·네이버 등",
@@ -2322,5 +2322,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-10T15:51:41 KST"
+ "_updated": "2026-11-10T16:49:17 KST"
 }
