@@ -4,14 +4,16 @@
 - 대상: price_config.json 에 적힌 상장 기업만(미상장 기업은 시세 없음).
 - 인증키는 환경변수 DATA_GO_KR_KEY 로만 받는다(코드·로그 출력 금지, 오류 메시지에서도 마스킹).
   Encoding 키(% 포함)·Decoding 키(원문) 어느 쪽을 넣어도 동작하도록 자동 처리하고, 앞뒤 공백·줄바꿈은 제거한다.
+- API 주소: 활용신청한 서비스 버전에 맞춰 V2 주소 → 옛 주소 순으로 시도한다.
+  (포털 '요청주소' 확인값: https://apis.data.go.kr/1160100/GetStockSecuritiesInfoService_V2)
 - 데이터는 영업일 기준 '전일 종가'이며 실시간 시세가 아니다. 공모가는 사람이 price_config.json 에 입력한 값만 사용한다.
 - API 조회가 실패하면: ① price_config.json 의 'manual'(사람이 확인해 입력한 종가·시총)이 있으면 그 값을 '(수기)' 표시로 사용,
   ② 없으면 기존 price.json 값을 유지한다. API 조회가 성공하면 항상 API 값이 우선이다.
 
 price_config.json 예시
   {"peacenow": {"name": "피스피스스튜디오", "code": "0117P0", "ipo_price": null,
-                "manual": {"date": "2026.11.06", "close": 12300, "rate": 0.82, "mktcap": 345000000000}}}
-  (manual 은 선택 항목. 값은 거래소·증권사 화면에서 확인한 것만 넣는다. mktcap 단위는 원.)
+                "manual": {"date": "2026.11.09", "close": 3535, "rate": -0.14, "mktcap": 50100000000}}}
+  (manual 은 선택 항목. 값은 거래소·증권사 화면에서 확인한 것만 넣는다. mktcap 단위는 원. 숫자에는 쉼표를 쓰지 않는다.)
 
 사용법
   python fetch_price.py            # 실제 수집(환경변수 필요)
@@ -22,7 +24,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote, urlencode
 
-API_URL = 'https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo'
+API_URLS = ['https://apis.data.go.kr/1160100/GetStockSecuritiesInfoService_V2/getStockPriceInfo',
+            'https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo']
 KST = timezone(timedelta(hours=9))
 
 
@@ -125,23 +128,8 @@ def selftest():
     m = manual_entry({'name': 'A', 'ipo_price': 10000, 'manual': {'date': '2026.11.06', 'close': 12300, 'rate': -1.2, 'mktcap': 345000000000}})
     assert m['date'] == '2026.11.06 (수기)' and m['close'] == 12300 and m['vs_ipo'] == 23.0 and m['mktcap'] == 345000000000
     assert manual_entry({'name': 'A'}) is None and manual_entry({'name': 'A', 'manual': {'close': ''}}) is None
+    assert API_URLS[0].endswith('GetStockSecuritiesInfoService_V2/getStockPriceInfo')
     print('시세 파싱 로직 OK')
-
-
-def diagnose(requests, key, kq, mask):
-    """호출이 막힐 때 원인 구분용: 조건을 바꿔 3번 더 시도하고 결과만 로그에 남긴다(키는 마스킹)."""
-    base = {'numOfRows': '1', 'pageNo': '1'}
-    ua = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
-          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Accept-Language': 'ko-KR,ko;q=0.9'}
-    tries = [('1 최소 파라미터', f'{API_URL}?serviceKey={kq}&numOfRows=1&pageNo=1', None, None),
-             ('2 최소 파라미터 + 브라우저 헤더', f'{API_URL}?serviceKey={kq}&numOfRows=1&pageNo=1', ua, None),
-             ('3 requests 파라미터 방식', API_URL, None, dict(base, serviceKey=key))]
-    for name, url, hdr, prm in tries:
-        try:
-            r = requests.get(url, headers=hdr, params=prm, timeout=20)
-            print(f'  진단 {name}: HTTP {r.status_code} {mask(r.text[:120])!r}')
-        except Exception as ex:
-            print(f'  진단 {name}: 예외 {mask(ex)[:100]}')
 
 
 def main():
@@ -175,7 +163,6 @@ def main():
         print('  ⚠ 환경변수 DATA_GO_KR_KEY 가 비어 있습니다 → API 조회 없이 수기(manual) 값만 사용합니다.')
     mask = lambda t: str(t).replace(key, '***').replace(kq, '***') if key else str(t)
     begin = (datetime.now(KST) - timedelta(days=21)).strftime('%Y%m%d')
-    diag_done = False
     for k, c in cfg.items():
         if k.startswith('_') or not isinstance(c, dict) or not c.get('name'):
             continue
@@ -184,15 +171,17 @@ def main():
             code = str(c.get('code') or '').strip()
             params = {'resultType': 'json', 'numOfRows': 50, 'pageNo': 1, 'beginBasDt': begin}
             params.update({'likeSrtnCd': code.lstrip('A')} if code else {'likeItmsNm': c['name']})
-            url = f'{API_URL}?serviceKey={kq}&{urlencode(params)}'          # 키는 직접 붙여 이중 인코딩을 막는다
             try:
-                r = requests.get(url, timeout=20)
+                r = None
+                for api in API_URLS:                                          # V2 주소 → 옛 주소 순으로 시도, 인증 오류(403)면 다음 주소
+                    r = requests.get(f'{api}?serviceKey={kq}&{urlencode(params)}', timeout=20)   # 키는 직접 붙여 이중 인코딩을 막는다
+                    if r.status_code != 403:
+                        print(f'  [{k}] 사용한 API 주소: …/{api.split("/1160100/")[1].split("/")[0]}')
+                        break
+                    print(f'  ⚠ [{k}] …/{api.split("/1160100/")[1].split("/")[0]}: HTTP 403 → 다음 주소 시도')
                 body = mask(r.text[:200]).replace('\n', ' ')
                 if r.status_code != 200:
                     print(f'  ⚠ [{k}] HTTP {r.status_code}: {body}')
-                    if not diag_done:
-                        diag_done = True
-                        diagnose(requests, key, kq, mask)
                 else:
                     try:
                         j = r.json()
