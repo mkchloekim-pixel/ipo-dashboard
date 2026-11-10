@@ -1,19 +1,21 @@
 """
-상장 완료 기업 주가·시총 수집 (공공데이터포털 금융위원회 '주식시세정보' API) → price.json
+상장 완료 기업(및 상장 모회사) 주가·시총 수집 (공공데이터포털 금융위원회 '주식시세정보' API) → price.json
 
-- 대상: price_config.json 에 적힌 상장 기업만(미상장 기업은 시세 없음).
+- 대상: price_config.json 에 적힌 상장 종목. 미상장 기업은 시세가 없다.
+  모회사가 상장사인 경우(예: 부스터즈 → 에프에스엔)는 기업 키(boosterz)로 모회사 시세를 넣고 'label'(화면 표기)을 붙인다.
 - 인증키는 환경변수 DATA_GO_KR_KEY 로만 받는다(코드·로그 출력 금지, 오류 메시지에서도 마스킹).
   Encoding 키(% 포함)·Decoding 키(원문) 어느 쪽을 넣어도 동작하도록 자동 처리하고, 앞뒤 공백·줄바꿈은 제거한다.
-- API 주소: 포털 '요청주소'(…/1160100/GetStockSecuritiesInfoService_V2) + 오퍼레이션명. 오퍼레이션명이 확실하지 않아
-  후보 주소를 차례로 시도한다(400·403이면 다음 후보). 환경변수 PRICE_API_URL(선택)로 '요청주소/오퍼레이션명'을 직접 지정할 수 있다(키 미포함).
+- API 주소: 포털 '요청주소'(…/1160100/GetStockSecuritiesInfoService_V2) + 오퍼레이션명. 후보 주소를 차례로 시도한다(400·403이면 다음 후보).
+  환경변수 PRICE_API_URL(선택)로 '요청주소/오퍼레이션명'을 직접 지정할 수 있다(키 미포함).
 - 데이터는 영업일 기준 '전일 종가'이며 실시간 시세가 아니다. 공모가는 사람이 price_config.json 에 입력한 값만 사용한다.
 - API 조회가 실패하면: ① price_config.json 의 'manual'(사람이 확인해 입력한 종가·시총)이 있으면 그 값을 '(수기)' 표시로 사용,
   ② 없으면 기존 price.json 값을 유지한다. API 조회가 성공하면 항상 API 값이 우선이다.
 
 price_config.json 예시
   {"peacenow": {"name": "피스피스스튜디오", "code": "0117P0", "ipo_price": null,
-                "manual": {"date": "2026.11.09", "close": 3535, "rate": -0.14, "mktcap": 50100000000}}}
-  (manual 은 선택 항목. 값은 거래소·증권사 화면에서 확인한 것만 넣는다. mktcap 단위는 원. 숫자에는 쉼표를 쓰지 않는다.)
+                "manual": {"date": "2026.11.09", "close": 3535, "rate": -0.14, "mktcap": 50100000000}},
+   "boosterz": {"name": "에프에스엔", "code": "214270", "label": "모회사 FSN(코스닥)"}}
+  (label 은 선택: 화면에 시세 출처를 알리는 문구. manual 도 선택. 숫자에는 쉼표를 쓰지 않는다.)
 
 사용법
   python fetch_price.py            # 실제 수집(환경변수 필요)
@@ -93,6 +95,8 @@ def build_entry(row, cfg):
     e = {'name': row.get('itmsNm', ''), 'code': str(row.get('srtnCd', '')), 'market': str(row.get('mrktCtg', '')),
          'date': f'{d[:4]}.{d[4:6]}.{d[6:]}', 'close': int(close), 'change': chg, 'rate': rate,
          'mktcap': int(mc) if mc is not None else None, 'shares': int(shares) if shares is not None else None}
+    if cfg.get('label'):
+        e['label'] = str(cfg['label'])[:40]
     ipo = num(cfg.get('ipo_price'))
     if ipo:
         e['ipo_price'] = int(ipo)
@@ -108,6 +112,8 @@ def manual_entry(cfg):
     close, mc, rate = num(m.get('close')), num(m.get('mktcap')), num(m.get('rate'))
     e = {'name': cfg.get('name', ''), 'code': str(cfg.get('code', '')), 'market': '', 'date': f"{m.get('date', '')} (수기)",
          'close': int(close), 'change': None, 'rate': rate, 'mktcap': int(mc) if mc is not None else None, 'shares': None}
+    if cfg.get('label'):
+        e['label'] = str(cfg['label'])[:40]
     ipo = num(cfg.get('ipo_price'))
     if ipo:
         e['ipo_price'] = int(ipo)
@@ -126,7 +132,8 @@ def selftest():
     assert latest(parse_items(j), '다른이름', '0117P0')['clpr'] == '12,300'
     assert latest(parse_items(j), '피스피스 스튜디오')['clpr'] == '12,300'
     e = build_entry(row, {'ipo_price': 10000})
-    assert e['close'] == 12300 and e['date'] == '2026.11.06' and e['vs_ipo'] == 23.0 and e['mktcap'] == 345000000000
+    assert e['close'] == 12300 and e['date'] == '2026.11.06' and e['vs_ipo'] == 23.0 and e['mktcap'] == 345000000000 and 'label' not in e
+    assert build_entry(row, {'label': '모회사 FSN(코스닥)'})['label'] == '모회사 FSN(코스닥)'     # 모회사 시세 표기용 label
     assert parse_items({'response': {'body': {'items': ''}}}) == [] and parse_items({}) == []
     assert key_for_url('ab+c/d==') == 'ab%2Bc%2Fd%3D%3D' and key_for_url('ab%2Bc') == 'ab%2Bc'
     m = manual_entry({'name': 'A', 'ipo_price': 10000, 'manual': {'date': '2026.11.06', 'close': 12300, 'rate': -1.2, 'mktcap': 345000000000}})

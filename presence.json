@@ -348,5 +348,8 @@
  ],
  "_max_articles": {
   "lafati": 1
- }
+ },
+ "_exclude_investors": [
+  "스마트스터디벤처스"
+ ]
 }

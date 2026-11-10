@@ -305,6 +305,7 @@ const fmtEok = n => Number.isFinite(Number(n)) && n ? (Number(n) >= 1e12 ? (Numb
 function priceChips(c){
   const p = priceOf(c); if (!p) return null;
   const w = el('div'), r = Number(p.rate), up = r > 0, dn = r < 0;
+  if (p.label) w.appendChild(el('span', 'chip tag-ipo', String(p.label)));            // 모회사 시세 등 출처 표기(예: 모회사 FSN(코스닥))
   w.appendChild(el('span', 'chip key', '종가 ' + Number(p.close).toLocaleString('ko-KR') + '원'));
   if (Number.isFinite(r)) w.appendChild(el('span', 'chip ' + (up ? 'hi' : dn ? 'ml' : ''), (up ? '▲ ' : dn ? '▼ ' : '') + Math.abs(r).toFixed(2) + '%'));
   const mc = fmtEok(p.mktcap); if (mc) w.appendChild(el('span', 'chip', '시총 ' + mc));
@@ -475,7 +476,7 @@ function ipoCard(c, nw){
   const card = el('div', 'card'), st0 = ipoState(c), mom = MOM[c.mom] || ['', ''];
   card.appendChild(el('h3', '', '', [el('span', '', 'IPO 현황'), el('span', 'chip ' + mom[1], '추진강도 ' + mom[0])]));
   card.appendChild(el('div', 'big', c.stages[st0.idx] ? '현재 단계: ' + c.stages[st0.idx] : c.ipoLabel));
-  { const pc = priceChips(c); if (pc){ const pb = el('div', 'sep'); pb.appendChild(el('small', 'empty', '상장 후 주가·시총')); pb.appendChild(pc); card.appendChild(pb); } }
+  { const pc = priceChips(c); if (pc){ const pb = el('div', 'sep'); pb.appendChild(el('small', 'empty', (priceOf(c) || {}).label ? '모회사 주가·시총 (참고)' : '상장 후 주가·시총')); pb.appendChild(pc); card.appendChild(pb); } }
   const tags = el('div');
   if (st0.boosted) tags.appendChild(el('span', 'chip tag-ipo', '기사 기반 상향 (' + KIND_LABEL[st0.auto.kind] + ' · ' + st0.auto.date + ')'));
   if (st0.delay) tags.appendChild(el('span', 'chip hi', '최근 기사: 지연·철회 신호'));
