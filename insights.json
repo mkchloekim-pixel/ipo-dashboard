@@ -605,8 +605,16 @@
     }
    ],
    "investors": [],
-   "invest_summary": "Pre-IPO: 투자자명 비공개 컨소시엄 (기업가치 기준 8,000억원)",
-   "base_investors": []
+   "invest_summary": "Pre-IPO: IMM PE·JKL파트너스 등 8,000억 규모 투자 유치, 예심 청구 임박(26년 11월)",
+   "base_investors": [
+    {
+     "name": "IMM PE·IMM 인베스트먼트·JKL파트너스 등",
+     "kind": "블라인드펀드",
+     "amt": "6,000억",
+     "date": "2025.7월",
+     "src": ""
+    }
+   ]
   },
   "vinow": {
    "ipo": {
@@ -938,7 +946,7 @@
    "investors": [],
    "max_items": 1,
    "max_articles": 1,
-   "invest_summary": "Series B: 기관투자자 비공개",
+   "invest_summary": "Pre-IPO 유상증자(에이치프라이빗에쿼티 등) 약 70억 자금조달",
    "base_investors": [
     {
      "name": "에이치프라이빗에쿼티",
@@ -2314,5 +2322,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-10T15:32:46 KST"
+ "_updated": "2026-11-10T15:51:41 KST"
 }
