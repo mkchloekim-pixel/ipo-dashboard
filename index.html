@@ -338,7 +338,8 @@ function summaryRow(c){
     const stxt = (typeof iv.invest_summary === 'string' ? iv.invest_summary : c.investSummary) || '–';
     cell.appendChild(document.createTextNode(stxt));
     const seenN = stxt.replace(/\s/g, '');
-    const fresh = iv.hide_investors ? [] : (iv.investors || []).filter(i => !seenN.includes(String(i.name).replace(/\s/g, ''))).slice(0, 2);   // 기사에서 새로 확인된 투자자 추가 표기
+    const exN = n => (iv.exclude || []).some(p => p && String(n).includes(p));                               // 사람이 지정한 제외 투자자(presence.json _exclude)
+    const fresh = iv.hide_investors ? [] : (iv.investors || []).filter(i => !exN(i.name) && !seenN.includes(String(i.name).replace(/\s/g, ''))).slice(0, 2);   // 기사에서 새로 확인된 투자자 추가 표기
     if (fresh.length){ const nd = el('div', 'note'); nd.textContent = '기사: ' + fresh.map(i => i.name + (i.amt ? ' ' + i.amt : '') + (i.date ? '(' + i.date + ')' : '')).join(' · '); cell.appendChild(nd); }
     b.appendChild(cell); }
   const ip = el('div', 'cell');
@@ -421,6 +422,7 @@ function investCard(c, nw){
   const named = (c.investors || []).filter(i => !NONAME.test(i.name)), unnamed = (c.investors || []).filter(i => NONAME.test(i.name));
   const seen = [];
   if (insI.hide_investors) rows.length = 0;      // 요약 문구만 표시하는 기업
+  { const exN = (insI.exclude || []); for (let n = rows.length - 1; n >= 0; n--) if (exN.some(p => p && String(rows[n].name).includes(p))) rows.splice(n, 1); }   // 제외 지정 투자자는 목록에서 제거(데이터가 갱신 전이어도 화면에서 걸러냄)
   rows.forEach(r => {
     const k = nrm(r.name);
     const parts = String(r.name).split(/[·\/]/).map(nrm).filter(Boolean);             // 공동 투자 행('A·B')은 구성 투자사 단위로 비교
