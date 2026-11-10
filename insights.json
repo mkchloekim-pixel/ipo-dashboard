@@ -1242,7 +1242,7 @@
     }
    ],
    "investors": [],
-   "invest_summary": "독립 경영: 외부 기관투자자 없음 (직접판매 기반 100% 자체 성장)",
+   "invest_summary": "독립 경영: 외부 기관투자자 없음",
    "base_investors": []
   },
   "founders": {
@@ -2314,5 +2314,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-10T15:27:46 KST"
+ "_updated": "2026-11-10T15:32:46 KST"
 }
