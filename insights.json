@@ -114,6 +114,26 @@
        "past": true,
        "hl": "무신사, 中 선전 매장 2곳 동시 개점···첫 주말 4만명 몰려",
        "url": "https://www.smartbizn.com/news/articleView.html?idxno=158192"
+      },
+      {
+       "date": "2026.11",
+       "text": "지난해 12월 중국 상하이에 첫 매장 2곳을 열며 해외 오프라인 시장에 진출한 뒤 상하이, 항저우에 이어 지난달 31일 선전까지 5개를 더 열었다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "무신사 매장 찾은 사람만 1억명…5년 만에 100호점 열었다",
+       "url": "https://www.mt.co.kr/living/2026/11/09/2026110916115223630"
+      },
+      {
+       "date": "2026.11",
+       "text": "무신사는 지난해 12월 중국 상하이에 첫 매장 2곳을 열었으며, 올해 상하이와 항저우에 이어 선전까지 진출해 해외 매장을 7곳으로 늘렸다",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "past": true,
+       "hl": "무신사, 국내외 매장 100곳 시대…온·오프라인 '거침없는' 확장",
+       "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=285639"
       }
      ],
      "n_done": 9,
@@ -288,9 +308,8 @@
      "name": "네이버",
      "kind": "전략적 투자자",
      "amt": "26.5월 330억 추가",
-     "date": "2026.10",
-     "src": "https://it.chosun.com/news/articleView.html?idxno=2023092172464",
-     "hl": "'고비용' 신선식품 한계, 뷰티로 뚫는다…컬리의 외연확장"
+     "date": "",
+     "src": ""
     }
    ]
   },
@@ -349,17 +368,17 @@
      "name": "BRV Capital Management",
      "kind": "재무적 투자자",
      "amt": "투자유지",
-     "date": "2023.08",
-     "src": "http://www.greened.kr/news/articleView.html?idxno=305892",
-     "hl": "오늘의집, 시공자재 가격 '오픈'...인테리어 '바가지' 어려워진다"
+     "date": "2023.04",
+     "src": "https://www.news1.kr/articles/5016089",
+     "hl": "2300억원 투자유치한 오늘의집, 매출 1.6배 쑥…적자지속은 고민"
     },
     {
      "name": "소프트뱅크벤처스",
      "kind": "재무적 투자자",
      "amt": "투자유지",
-     "date": "2023.08",
-     "src": "http://www.greened.kr/news/articleView.html?idxno=305892",
-     "hl": "오늘의집, 시공자재 가격 '오픈'...인테리어 '바가지' 어려워진다"
+     "date": "2023.04",
+     "src": "https://www.news1.kr/articles/5016089",
+     "hl": "2300억원 투자유치한 오늘의집, 매출 1.6배 쑥…적자지속은 고민"
     },
     {
      "name": "본엔젤스",
@@ -701,9 +720,8 @@
      "name": "IMM인베스트먼트",
      "kind": "Pre-IPO",
      "amt": "누적 550억",
-     "date": "2026.03",
-     "src": "https://www.insightkorea.co.kr/news/articleView.html?idxno=242291",
-     "hl": "[히든챔피언②] '넘버즈인·퓌' 띄운 비나우, K뷰티 신흥 강자 우뚝"
+     "date": "",
+     "src": ""
     },
     {
      "name": "LB PE",
@@ -2096,9 +2114,8 @@
      "name": "대명화학",
      "kind": "전략적 투자자 (SI) · 2020년",
      "amt": "초기 투자",
-     "date": "2022.11",
-     "src": "http://www.thefirstmedia.net/news/articleView.html?idxno=105762",
-     "hl": "하고엘앤에프, 감성 라이프웨어 '드파운드'에 투자 확정"
+     "date": "",
+     "src": ""
     }
    ]
   },
@@ -2265,9 +2282,9 @@
      "name": "하나벤처스",
      "kind": "팔로온 투자자",
      "amt": "Series C",
-     "date": "2025.01",
-     "src": "http://news.mt.co.kr/mtview.php?no=2025011509543158060",
-     "hl": "FSN 子 부스터즈, 104억 투자 유치…\"기업가치 1000억 인정\""
+     "date": "2026.01",
+     "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815",
+     "hl": "FSN 자회사 부스터즈, 374억 투자유치...몸값 1900억 '껑충'"
     },
     {
      "name": "에스비아이인베스트먼트",
@@ -2280,15 +2297,17 @@
      "name": "엔베스터",
      "kind": "신규 투자자",
      "amt": "Series C",
-     "date": "",
-     "src": ""
+     "date": "2026.01",
+     "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815",
+     "hl": "FSN 자회사 부스터즈, 374억 투자유치...몸값 1900억 '껑충'"
     },
     {
      "name": "레이크브릿지에쿼티파트너스",
      "kind": "신규 투자자",
      "amt": "Series C",
-     "date": "",
-     "src": ""
+     "date": "2026.01",
+     "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815",
+     "hl": "FSN 자회사 부스터즈, 374억 투자유치...몸값 1900억 '껑충'"
     }
    ],
    "exclude": [
@@ -2384,17 +2403,17 @@
      "name": "위벤처스",
      "kind": "Series A (25.8)",
      "amt": "10억",
-     "date": "2026.08",
-     "src": "https://www.newstopkorea.com/news/articleView.html?idxno=46788",
-     "hl": "'뷰티 릴스' 강자 앤마들린, 코스닥 상장 도전장"
+     "date": "2025.08",
+     "src": "https://zdnet.co.kr/view/?no=20250819180628",
+     "hl": "앤마들린 '글로브', 30억원 투자 유치"
     },
     {
      "name": "인탑스인베스트먼트",
      "kind": "Series A (25.8)",
      "amt": "10억",
-     "date": "2026.08",
-     "src": "https://www.newstopkorea.com/news/articleView.html?idxno=46788",
-     "hl": "'뷰티 릴스' 강자 앤마들린, 코스닥 상장 도전장"
+     "date": "2025.08",
+     "src": "https://zdnet.co.kr/view/?no=20250819180628",
+     "hl": "앤마들린 '글로브', 30억원 투자 유치"
     },
     {
      "name": "에이치지이니셔티브",
@@ -2433,5 +2452,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-10T10:08:09 KST"
+ "_updated": "2026-11-10T10:14:32 KST"
 }
