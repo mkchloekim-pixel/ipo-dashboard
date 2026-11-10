@@ -441,6 +441,25 @@ def is_deal_article(hl, sm, name=None):
     return not name or re.sub(r'\s', '', name).lower() in re.sub(r'\s', '', hl + sm).lower()
 
 
+# ── 투자 '금액' 추출: 그 투자 건의 금액만 (기업가치·매출·배당 등 다른 수치는 제외) ──
+VAL_BEFORE = re.compile(r'기업\s*가치|밸류에?이?션?|몸값|시가총액|시총|평가\s*(?:가치|액)?|가치|매출|영업\s*이익|순이익|거래액|배당|자산|부채|누적|합계|총\s*투자|전체')
+VAL_AFTER = re.compile(r'^\s*(?:원)?\s*(?:의\s*)?(?:기업\s*가치|가치|밸류|몸값|평가|매출|배당|수준의\s*가치|규모의\s*기업)')
+
+
+def pick_amt(t, lo, hi):
+    """투자 표현 구간(lo~hi) 앞뒤 30자 안에서 '투자 금액'만 고른다. 기업가치·매출·배당·누적 등으로 보이는 금액은 건너뛴다."""
+    a, b = max(0, lo - 30), min(len(t), hi + 30)
+    best = None
+    for m in re.finditer(AMT_RE, t[a:b]):
+        pos, end = a + m.start(), a + m.end()
+        if VAL_BEFORE.search(t[max(0, pos - 14):pos]) or VAL_AFTER.search(t[end:end + 12]):
+            continue
+        d = 0 if lo <= pos <= hi else min(abs(pos - lo), abs(pos - hi))
+        if best is None or d < best[0]:
+            best = (d, m.group(0).strip())
+    return best[1] if best else ''
+
+
 def _alias_re(key):
     return '|'.join(re.escape(a) for a in sorted(ALIASES.get(key, []), key=len, reverse=True))
 
@@ -499,12 +518,12 @@ def extract_investors(key, n):
             rest = before[am[-1].end():]
             seg = rest.split(',')[-1] if ',' in rest else rest
             seg = re.sub(r'^(?:은|는|이|가)\s*', '', seg.strip())
-            amt = re.search(AMT_RE, t[m.start():m.end() + 20]) or re.search(AMT_RE, t)
-            found += [(nm, amt.group(0).strip() if amt else '', t) for nm in _split_investors(seg, key)]
+            amt = pick_amt(t, m.start(), m.end())                                 # 기업가치·매출 등 다른 수치는 제외
+            found += [(nm, amt, t) for nm in _split_investors(seg, key)]
     if co:
         for m in re.finditer(r'([가-힣A-Za-z0-9&\.\- ·]{2,30}?)[,·]\s*(?:' + co + r')(?:에|에게)\s*(?:' + AMT_RE + r')?\s*(?:규모\s*)?(?:전략적\s*)?투자', hl):   # ②
-            amt = re.search(AMT_RE, hl[m.start():m.end() + 10])
-            found += [(nm, amt.group(0).strip() if amt else '', hl) for nm in _split_investors(m.group(1).split(',')[-1], key)]
+            amt = pick_amt(hl, m.start(), m.end())
+            found += [(nm, amt, hl) for nm in _split_investors(m.group(1).split(',')[-1], key)]
         for m in re.finditer(r'(?:^|[,\s])([가-힣A-Za-z0-9&\.\-]{2,14}(?: [A-Za-z0-9가-힣&\.\-]{1,14})?)(?:가|이|,)?\s*(?:' + co + r')\s*(?:지분(?:\s*[\d\.]+%)?\s*)?(?:를|을)?\s*(?:인수|사들)', hl):   # ③
             found += [(nm, '', hl) for nm in _split_investors(m.group(1), key)]
     out, seen = [], set()
@@ -752,21 +771,27 @@ def selftest():
     # 투자 근거 기사 규칙: 제목에 투자 확정 표현이 있어야 하며 행사·계획·시공자재 등 무관 기사는 제외
     assert not is_deal_article('소프트뱅크벤처스, 혁신 기업 행사 참가…오늘의집 등 100곳', '', '소프트뱅크벤처스')
     assert not is_deal_article('이노션+SBVA, 블라인드·오늘의집 등 혁신기업 성장 지원', '소프트뱅크벤처스가 투자했다', '소프트뱅크벤처스')
-    assert not is_deal_article("오늘의집, 시공자재 가격 '오픈'...인테리어 '바가지' 어려워진다", '오늘의집은 BRV캐피탈, 소프트뱅크벤처스로부터 투자를 유치했으며 가격을 공개한다', '소프트뱅크벤처스')   # 요약에만 투자 언급
+    assert not is_deal_article("오늘의집, 시공자재 가격 '오픈'...인테리어 '바가지' 어려워진다", '오늘의집은 BRV캐피탈, 소프트뱅크벤처스로부터 투자를 유치했으며 가격을 공개한다', '소프트뱅크벤처스')
     assert is_deal_article('오늘의집, 소프트뱅크벤처스로부터 300억 투자 유치', '', '소프트뱅크벤처스')
     assert is_deal_article('오늘의집, 시리즈 D 투자 유치', '소프트뱅크벤처스가 리드 투자했다', '소프트뱅크벤처스')
     assert is_deal_article("토스가 300억 베팅한 오아시스…흑자 새벽배송에 '유통 동맹' 더했다", '비바리퍼블리카가 투자', '토스')
     assert not is_deal_article('오늘의집, 소프트뱅크벤처스 투자 유치 추진', '', '소프트뱅크벤처스')
     assert not is_deal_article('소프트뱅크벤처스 대표 "스타트업 투자 확대"', '오늘의집 언급', '소프트뱅크벤처스')
-    assert not is_deal_article('오늘의집, 네이버서 300억 투자 유치', '소프트뱅크벤처스는 기존 주주', '소프트뱅크벤처스') or True
     pool = [{'hl': '오늘의집, 시공자재 가격 공개', 'sum': '소프트뱅크벤처스로부터 투자를 유치했다', 'url': 'https://a.com/1', 'date': '2023.08'},
             {'hl': '오늘의집, 소프트뱅크벤처스 참여 혁신 기업 행사 개최', 'sum': '', 'url': 'https://a.com/3', 'date': '2026.09'}]
     assert link_investors('ohouse', [{'name': '소프트뱅크벤처스'}], pool)[0]['src'] == ''
     pool.append({'hl': '오늘의집, 소프트뱅크벤처스서 300억 투자 유치', 'sum': '', 'url': 'https://a.com/2', 'date': '2026.05'})
     assert link_investors('ohouse', [{'name': '소프트뱅크벤처스'}], pool)[0]['src'] == 'https://a.com/2'
     assert extract_investors('ohouse', {'hl': '오늘의집, 혁신 기업 행사서 토스서 300억 유치 소개', 'sum': '', 'url': 'x', 'date': '2026.09'}) == []
-    # 자동 추출도 제목 기준: 제목에 투자 표현이 없고 요약에만 과거 투자 언급이 있으면 투자자로 추출하지 않는다
     assert extract_investors('ohouse', {'hl': "오늘의집, 시공자재 가격 '오픈'...인테리어 '바가지' 어려워진다", 'sum': '오늘의집은 소프트뱅크벤처스로부터 투자를 유치했으며 가격을 공개한다', 'url': 'g', 'date': '2023.08'}) == []
+    # 비나우 사례: 기업가치(약 9000억원) 기사에서 투자 금액을 오인하지 않는다 — 투자 금액은 그 투자 건의 금액만
+    assert extract_investors('vinow', {'hl': '비나우, IPO 앞두고 배당 10배...투자자 선제적 자금 회수', 'sum': 'CJ온스타일에서 투자를 유치했으며 기업가치는 약 9000억원으로 평가된다', 'url': 'd', 'date': '2026.07'}) == []   # 제목에 투자 표현 없음
+    r = extract_investors('vinow', {'hl': '비나우, CJ온스타일서 30억 투자 유치…기업가치 약 9000억원', 'sum': '', 'url': 'd2', 'date': '2026.07'})
+    assert [(i['name'], i['amt']) for i in r] == [('CJ온스타일', '30억')], r
+    r = extract_investors('vinow', {'hl': '비나우, CJ온스타일서 투자 유치', 'sum': '비나우는 기업가치 약 9000억원으로 평가받는다.', 'url': 'd3', 'date': '2026.07'})
+    assert [(i['name'], i['amt']) for i in r] == [('CJ온스타일', '')], r                       # 기업가치만 있으면 금액은 비움
+    assert pick_amt('기업가치 약 9000억원 비나우 30억 투자', 12, 24) == '30억'
+    assert pick_amt('누적 투자 4000억 유치', 3, 12) == ''
     print('분석 로직 OK')
 
 
