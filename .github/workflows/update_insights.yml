@@ -5,7 +5,7 @@ on:
     workflows: ["뉴스 자동 수집", "글로벌 뉴스 수집"]   # 둘 중 하나가 끝나면 이어서 실행
     types: [completed]
   schedule:
-    - cron: '40 22 * * *'              # 매일 07:40 KST (수집이 지연/실패해도 한 번 더 실행)
+    - cron: '40 0 * * *'               # 매일 09:40 KST (UTC 00:40, 수집이 지연/실패해도 한 번 더 실행)
   workflow_dispatch:
 
 permissions:
@@ -25,6 +25,8 @@ jobs:
           python-version: '3.12'
       - name: Build insights.json
         run: python build_insights.py
+      - name: 중복 기사 제거
+        run: python dedup_insights.py insights.json
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
