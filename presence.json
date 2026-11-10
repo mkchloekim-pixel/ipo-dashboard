@@ -106,70 +106,77 @@
  },
  "_investors": {
   "kurly": [
-   {
-    "name": "Anchor Equity Partners",
-    "kind": "전략적 투자자",
-    "amt": "투자유지",
-    "date": ""
-   },
-   {
-    "name": "DST Global",
-    "kind": "재무적 투자자",
-    "amt": "투자유지",
-    "date": ""
-   },
-   {
-    "name": "Hillhouse Investment",
-    "kind": "재무적 투자자",
-    "amt": "투자유지",
-    "date": ""
-   },
-   {
+    {
     "name": "네이버",
-    "kind": "전략적 투자자",
-    "amt": "26.5월 330억 추가",
-    "date": ""
+    "kind": "Series G (지분 약 6.2% 확보)",
+    "amt": "330억",
+    "date": "2026.5월"
+   } {
+    "name": "앵커에쿼티파트너스",
+    "kind": "Pre-IPO",
+    "amt": "3,700억 (1,2차 합산)",
+    "date": "2021.12월, 2023.5월"
+   }
+   {
+    "name": "DST글로벌·세콰이어캐피탈차이나·밀레니엄매니지먼트 등",
+    "kind": "Series F",
+    "amt": "2,254억",
+    "date": "2021.7월"
    }
   ],
   "musinsoa": [
    {
-    "name": "Sequoia Capital",
-    "kind": "Series B",
-    "amt": "투자완료",
-    "date": ""
-   },
-   {
-    "name": "IMM인베스트먼트",
-    "kind": "Series B",
-    "amt": "투자완료",
-    "date": ""
-   },
-   {
-    "name": "Wellington Management",
+    "name": "콜버그크래비스로버츠·웰링턴매니지먼트 등",
     "kind": "Series C",
-    "amt": "약 2,000억",
-    "date": ""
-   }
+    "amt": "2,400억",
+    "date": "2023.7월"
+   },
+   {
+    "name": "세콰이어캐피탈·IMM인베스트먼트 등",
+    "kind": "Series B",
+    "amt": "1,300억",
+    "date": "2021.3월"
+    }
   ],
-  "oasis": [],
+  "oasis": [
+     {
+    "name": "비바리퍼블리카",
+    "kind": "SI투자 (지분 약 2.3% 확보)",
+    "amt": "300억",
+    "date": "2026.9월"
+    },
+      {
+    "name": "UCK파트너스",
+    "kind": "Pre-IPO",
+    "amt": "500억",
+    "date": "2022.6월"
+    }
+   ,
+      {
+    "name": "홈앤쇼핑",
+    "kind": "SI투자",
+    "amt": "100억",
+    "date": "2022.2월"
+    }
+  ],
   "ohouse": [
    {
-    "name": "BRV Capital Management",
-    "kind": "재무적 투자자",
-    "amt": "투자유지",
-    "date": ""
+    "name": "KDB산업은행·버텍스그로스·소프트뱅크벤처스 등",
+    "kind": "Series D",
+    "amt": "2,300억",
+    "date": "2022.5월"
    },
    {
-    "name": "소프트뱅크벤처스",
-    "kind": "재무적 투자자",
-    "amt": "투자유지",
-    "date": ""
+    "name": "본드캐피털·IMM인베스트먼트·미래에셋벤처투자·네이버 등",
+    "kind": "Series C",
+    "amt": "770억",
+    "date": "2020.11월"
    },
    {
-    "name": "본엔젤스",
-    "kind": "초기 투자자",
-    "amt": "투자유지",
-    "date": ""
+    "name": "네이버",
+    "kind": "SI투자 (지분 약 11% 확보)",
+    "amt": "100억",
+    "date": "2018.2~10월"
    }
   ],
   "goodai": [],
