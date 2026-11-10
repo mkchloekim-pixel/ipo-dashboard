@@ -271,24 +271,16 @@
      "key": true
     }
    ],
-   "investors": [
-    {
-     "name": "앵커에쿼티파트너스",
-     "amt": "2500억원",
-     "kind": "프리IPO",
-     "date": "2026.07",
-     "hl": "다시 밝아진 마켓컬리의 IPO전망...네이버 증자참여 이어 실적호조세 지...",
-     "url": "https://www.moneystorm.kr/news/articleView.html?idxno=5060"
-    }
-   ],
+   "investors": [],
    "invest_summary": "투자 유치: Anchor Equity Partners · DST Global · Hillhouse Investment · 네이버 (누적 1.2조원+, 2026.05 네이버 330억원 추가)",
    "base_investors": [
     {
      "name": "Anchor Equity Partners",
      "kind": "전략적 투자자",
      "amt": "투자유지",
-     "date": "",
-     "src": ""
+     "date": "2026.07",
+     "src": "https://www.moneystorm.kr/news/articleView.html?idxno=5060",
+     "hl": "다시 밝아진 마켓컬리의 IPO전망...네이버 증자참여 이어 실적호조세 지..."
     },
     {
      "name": "DST Global",
@@ -1498,14 +1490,6 @@
    ],
    "investors": [
     {
-     "name": "IMM인베스트먼트",
-     "amt": "100억 원",
-     "kind": "시리즈 투자",
-     "date": "2023.12",
-     "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치",
-     "url": "https://www.sedaily.com/NewsView/29YF3RX82P"
-    },
-    {
      "name": "프라이머사제",
      "amt": "100억 원",
      "kind": "시리즈 투자",
@@ -1527,8 +1511,9 @@
      "name": "프라이머·IMM인베스트먼트",
      "kind": "Series B 공동 투자",
      "amt": "합산 100억",
-     "date": "",
-     "src": ""
+     "date": "2023.12",
+     "src": "https://www.sedaily.com/NewsView/29YF3RX82P",
+     "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치"
     }
    ]
   },
@@ -2354,32 +2339,7 @@
      "key": false
     }
    ],
-   "investors": [
-    {
-     "name": "인탑스인베스트먼트",
-     "amt": "30억원",
-     "kind": "투자 유치",
-     "date": "2025.08",
-     "hl": "앤마들린 '글로브', 30억원 투자 유치",
-     "url": "https://zdnet.co.kr/view/?no=20250819180628"
-    },
-    {
-     "name": "에이치지이니셔티브",
-     "amt": "30억원",
-     "kind": "투자 유치",
-     "date": "2025.08",
-     "hl": "앤마들린 '글로브', 30억원 투자 유치",
-     "url": "https://zdnet.co.kr/view/?no=20250819180628"
-    },
-    {
-     "name": "위벤처스",
-     "amt": "30억원",
-     "kind": "투자 유치",
-     "date": "2025.08",
-     "hl": "앤마들린 '글로브', 30억원 투자 유치",
-     "url": "https://zdnet.co.kr/view/?no=20250819180628"
-    }
-   ],
+   "investors": [],
    "hide_articles": true,
    "invest_summary": "Series A: 위벤처스 · 인탑스인베스트먼트 · 에이치지이니셔티브 (누적 30억원)",
    "base_investors": [
@@ -2420,5 +2380,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-10T10:33:45 KST"
+ "_updated": "2026-11-10T10:37:14 KST"
 }
