@@ -2,7 +2,7 @@ name: 뉴스 자동 수집
 
 on:
   schedule:
-    - cron: '0 0 * * *'        # 매일 09:00 KST (UTC 00:00)
+    - cron: '3 0 * * *'        # 매일 09:03 KST (UTC 00:03, 정각 혼잡 회피)
   workflow_dispatch:
 
 permissions:
