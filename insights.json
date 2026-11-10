@@ -97,26 +97,6 @@
       },
       {
        "date": "2026.11",
-       "text": "무신사는 지난해 12월 중국 상하이에 첫 매장 2곳을 열며 해외 오프라인 시장에 진출했다",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": true,
-       "hl": "무신사, 국내외 거점 100곳 확보…글로벌 오프라인 확장",
-       "url": "https://weekly.hankooki.com/news/articleView.html?idxno=7192863"
-      },
-      {
-       "date": "2026.11",
-       "text": "무신사는 지난해 12월 중국 상하이에 매장 2곳을 열며 해외 오프라인시장에 진출했다",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": true,
-       "hl": "온라인 넘어 거리로… 무신사, 오프라인 매장 100곳 시대 연다",
-       "url": "http://www.the-biz.co.kr/news/articleView.html?idxno=730946"
-      },
-      {
-       "date": "2026.11",
        "text": "무신사 스탠다드는 중국과 일본 등 해외시장에서 국내에 출시한 상품을 중심으로 판매하고 있다",
        "lvl": "done",
        "entry": false,
@@ -287,17 +267,15 @@
      "name": "Anchor Equity Partners",
      "kind": "전략적 투자자",
      "amt": "투자유지",
-     "date": "2026.06",
-     "src": "https://www.newspim.com/news/view/20260602000800",
-     "hl": "이익 체력 키운 컬리…IPO 로드맵 재가동"
+     "date": "",
+     "src": ""
     },
     {
      "name": "DST Global",
      "kind": "재무적 투자자",
      "amt": "투자유지",
-     "date": "2025.02",
-     "src": "https://www.topdaily.kr/articles/101498",
-     "hl": "[VC 포트폴리오] [컬리] ③ 멀어지는 IPO…투자자, 엑시트 시점은"
+     "date": "",
+     "src": ""
     },
     {
      "name": "Hillhouse Investment",
@@ -310,9 +288,9 @@
      "name": "네이버",
      "kind": "전략적 투자자",
      "amt": "26.5월 330억 추가",
-     "date": "2026.11",
-     "src": "https://www.newstopkorea.com/news/articleView.html?idxno=48806",
-     "hl": "\"몸값 3.2조\" 스스로 평가한 컬리… 5개월만에 4천억 올린이유"
+     "date": "2026.10",
+     "src": "https://it.chosun.com/news/articleView.html?idxno=2023092172464",
+     "hl": "'고비용' 신선식품 한계, 뷰티로 뚫는다…컬리의 외연확장"
     }
    ]
   },
@@ -379,9 +357,9 @@
      "name": "소프트뱅크벤처스",
      "kind": "재무적 투자자",
      "amt": "투자유지",
-     "date": "2026.06",
-     "src": "https://www.hankookilbo.com/news/article/A2026061511590000409?did=NA",
-     "hl": "이노션+SBVA, 블라인드·오늘의집 등 혁신기업 성장 지원"
+     "date": "2023.08",
+     "src": "http://www.greened.kr/news/articleView.html?idxno=305892",
+     "hl": "오늘의집, 시공자재 가격 '오픈'...인테리어 '바가지' 어려워진다"
     },
     {
      "name": "본엔젤스",
@@ -398,14 +376,6 @@
    },
    "global": [],
    "investors": [
-    {
-     "name": "비바리퍼블리카",
-     "amt": "300억원",
-     "kind": "투자 유치",
-     "date": "2026.09",
-     "hl": "토스가 300억 베팅한 오아시스…흑자 새벽배송에 '유통 동맹' 더했다",
-     "url": "https://www.techm.kr/news/articleView.html?idxno=155355"
-    },
     {
      "name": "토스",
      "amt": "300억",
@@ -739,9 +709,8 @@
      "name": "LB PE",
      "kind": "Pre-IPO",
      "amt": "Co-GP 300억",
-     "date": "2025.04",
-     "src": "https://www.mk.co.kr/article/11296254",
-     "hl": "넘버즈인·퓌 앞세운 ‘비나우’ 매출·이익 껑충...IPO 추진"
+     "date": "",
+     "src": ""
     },
     {
      "name": "브아원캐피탈파트너스",
@@ -788,9 +757,8 @@
      "name": "진백글로벌",
      "kind": "전략적 인수",
      "amt": "M&A 완료",
-     "date": "2026.10",
-     "src": "https://www.newsis.com/view/NISX20261026_0003841172",
-     "hl": "비앤비코리아, 상장 심사 5개월째 표류…심사 지연 이유는"
+     "date": "",
+     "src": ""
     }
    ]
   },
@@ -839,9 +807,8 @@
      "name": "한국투자파트너스",
      "kind": "Series D 리드",
      "amt": "370억원",
-     "date": "2025.08",
-     "src": "https://www.sedaily.com/NewsView/2GWLI0YLC0",
-     "hl": "\"‘이공이공’도 상장 착수\" K뷰티, IPO시장 진격…\"中 우회수출 차단\" ..."
+     "date": "",
+     "src": ""
     },
     {
      "name": "라구나인베스트먼트",
@@ -854,9 +821,9 @@
      "name": "효성",
      "kind": "프리IPO (26.8)",
      "amt": "300억원",
-     "date": "2026.11",
-     "src": "https://www.sedaily.com/article/20112116?ref=naver",
-     "hl": "[단독] 효성, K뷰티 유통기업 ‘이공이공’ 최대주주 된다"
+     "date": "2026.08",
+     "src": "https://biz.chosun.com/stock/market_trend/2026/08/10/LJVHGRMH5VCQ7GY4YTSPXLHPMY/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+     "hl": "[단독] 뷰티로 영역 확장… 효성, K뷰티 커머스 이공이공에 300억 투자"
     }
    ]
   },
@@ -903,32 +870,12 @@
        "past": false,
        "hl": "“K-뷰티 위상 드높여”…레페리 주관 도쿄 ‘셀렉트스토어’에 정부기...",
        "url": "http://www.segyebiz.com/newsView/20260416523312?OutUrl=naver"
-      },
-      {
-       "date": "2026.04",
-       "text": "한편, 레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "레페리 주관 도쿄 ‘셀렉트스토어’에 주삿포로 총영사 축전…정부기관...",
-       "url": "https://www.donga.com/news/Economy/article/all/20260416/133754022/1"
-      },
-      {
-       "date": "2026.04",
-       "text": "레페리는 앞으로도 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해 나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "장용수 총영사 \"K-뷰티, 이제는 세계의 기준\"…레페리 도쿄 행사에 축전",
-       "url": "https://www.news1.kr/industry/distribution/6138891"
       }
      ],
      "n_done": 0,
-     "n_plan": 3,
-     "level": "planned",
-     "tag": "planned",
+     "n_plan": 1,
+     "level": "weak",
+     "tag": "weak",
      "date": "2026.04",
      "key": false
     },
@@ -944,32 +891,12 @@
        "past": false,
        "hl": "“K-뷰티 위상 드높여”…레페리 주관 도쿄 ‘셀렉트스토어’에 정부기...",
        "url": "http://www.segyebiz.com/newsView/20260416523312?OutUrl=naver"
-      },
-      {
-       "date": "2026.04",
-       "text": "한편, 레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "레페리 주관 도쿄 ‘셀렉트스토어’에 주삿포로 총영사 축전…정부기관...",
-       "url": "https://www.donga.com/news/Economy/article/all/20260416/133754022/1"
-      },
-      {
-       "date": "2026.04",
-       "text": "레페리는 앞으로도 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해 나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "장용수 총영사 \"K-뷰티, 이제는 세계의 기준\"…레페리 도쿄 행사에 축전",
-       "url": "https://www.news1.kr/industry/distribution/6138891"
       }
      ],
      "n_done": 0,
-     "n_plan": 3,
-     "level": "planned",
-     "tag": "planned",
+     "n_plan": 1,
+     "level": "weak",
+     "tag": "weak",
      "date": "2026.04",
      "key": false
     },
@@ -985,32 +912,12 @@
        "past": false,
        "hl": "“K-뷰티 위상 드높여”…레페리 주관 도쿄 ‘셀렉트스토어’에 정부기...",
        "url": "http://www.segyebiz.com/newsView/20260416523312?OutUrl=naver"
-      },
-      {
-       "date": "2026.04",
-       "text": "한편, 레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "레페리 주관 도쿄 ‘셀렉트스토어’에 주삿포로 총영사 축전…정부기관...",
-       "url": "https://www.donga.com/news/Economy/article/all/20260416/133754022/1"
-      },
-      {
-       "date": "2026.04",
-       "text": "레페리는 앞으로도 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해 나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "장용수 총영사 \"K-뷰티, 이제는 세계의 기준\"…레페리 도쿄 행사에 축전",
-       "url": "https://www.news1.kr/industry/distribution/6138891"
       }
      ],
      "n_done": 0,
-     "n_plan": 3,
-     "level": "planned",
-     "tag": "planned",
+     "n_plan": 1,
+     "level": "weak",
+     "tag": "weak",
      "date": "2026.04",
      "key": false
     },
@@ -1026,32 +933,12 @@
        "past": false,
        "hl": "“K-뷰티 위상 드높여”…레페리 주관 도쿄 ‘셀렉트스토어’에 정부기...",
        "url": "http://www.segyebiz.com/newsView/20260416523312?OutUrl=naver"
-      },
-      {
-       "date": "2026.04",
-       "text": "한편, 레페리는 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "레페리 주관 도쿄 ‘셀렉트스토어’에 주삿포로 총영사 축전…정부기관...",
-       "url": "https://www.donga.com/news/Economy/article/all/20260416/133754022/1"
-      },
-      {
-       "date": "2026.04",
-       "text": "레페리는 앞으로도 일본 도쿄에 이어 미국, 동남아, 유럽, 중동 등 글로벌 주요 도시에서 셀렉트스토어를 순차적으로 개관해 나갈 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "장용수 총영사 \"K-뷰티, 이제는 세계의 기준\"…레페리 도쿄 행사에 축전",
-       "url": "https://www.news1.kr/industry/distribution/6138891"
       }
      ],
      "n_done": 0,
-     "n_plan": 3,
-     "level": "planned",
-     "tag": "planned",
+     "n_plan": 1,
+     "level": "weak",
+     "tag": "weak",
      "date": "2026.04",
      "key": false
     }
@@ -1777,8 +1664,8 @@
      ],
      "n_done": 0,
      "n_plan": 1,
-     "level": "planned",
-     "tag": "planned",
+     "level": "weak",
+     "tag": "weak",
      "date": "2026.07",
      "key": false
     }
@@ -2182,8 +2069,8 @@
      ],
      "n_done": 0,
      "n_plan": 1,
-     "level": "planned",
-     "tag": "planned",
+     "level": "weak",
+     "tag": "weak",
      "date": "2026.09",
      "key": false
     }
@@ -2209,9 +2096,9 @@
      "name": "대명화학",
      "kind": "전략적 투자자 (SI) · 2020년",
      "amt": "초기 투자",
-     "date": "2026.10",
-     "src": "https://www.etoday.co.kr/news/view/2637949",
-     "hl": "대명화학의 기묘한 패션 재편…레이어 이어 마뗑킴도 ‘모회사 역합병..."
+     "date": "2022.11",
+     "src": "http://www.thefirstmedia.net/news/articleView.html?idxno=105762",
+     "hl": "하고엘앤에프, 감성 라이프웨어 '드파운드'에 투자 확정"
     }
    ]
   },
@@ -2304,16 +2191,6 @@
        "past": false,
        "hl": "부스터즈, 브랜드·플랫폼 동반 성장…하반기 해외 확장",
        "url": "https://dealsite.co.kr/articles/165907"
-      },
-      {
-       "date": "2026.07",
-       "text": "부스터즈는 하반기 파트너 브랜드의 신제품 출시와 오프라인 유통 채널 확대, 일본 등 해외 시장 진출, K-뷰티·퍼스널케어 브랜드 라인업 강화 등을 통해 성장세를…",
-       "lvl": "plan",
-       "entry": false,
-       "exp": true,
-       "past": false,
-       "hl": "FSN 子 부스터즈, 2분기 잠정 영업익 131억…분기 최대 실적",
-       "url": "https://www.mt.co.kr/stock/2026/07/24/2026072410131718401"
       }
      ],
      "n_done": 1,
@@ -2388,9 +2265,9 @@
      "name": "하나벤처스",
      "kind": "팔로온 투자자",
      "amt": "Series C",
-     "date": "2026.01",
-     "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815",
-     "hl": "FSN 자회사 부스터즈, 374억 투자유치...몸값 1900억 '껑충'"
+     "date": "2025.01",
+     "src": "http://news.mt.co.kr/mtview.php?no=2025011509543158060",
+     "hl": "FSN 子 부스터즈, 104억 투자 유치…\"기업가치 1000억 인정\""
     },
     {
      "name": "에스비아이인베스트먼트",
@@ -2403,17 +2280,15 @@
      "name": "엔베스터",
      "kind": "신규 투자자",
      "amt": "Series C",
-     "date": "2026.01",
-     "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815",
-     "hl": "FSN 자회사 부스터즈, 374억 투자유치...몸값 1900억 '껑충'"
+     "date": "",
+     "src": ""
     },
     {
      "name": "레이크브릿지에쿼티파트너스",
      "kind": "신규 투자자",
      "amt": "Series C",
-     "date": "2026.01",
-     "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815",
-     "hl": "FSN 자회사 부스터즈, 374억 투자유치...몸값 1900억 '껑충'"
+     "date": "",
+     "src": ""
     }
    ],
    "exclude": [
@@ -2449,8 +2324,8 @@
      ],
      "n_done": 0,
      "n_plan": 1,
-     "level": "planned",
-     "tag": "planned",
+     "level": "weak",
+     "tag": "weak",
      "date": "2026.08",
      "key": false
     },
@@ -2470,8 +2345,8 @@
      ],
      "n_done": 0,
      "n_plan": 1,
-     "level": "planned",
-     "tag": "planned",
+     "level": "weak",
+     "tag": "weak",
      "date": "2026.08",
      "key": false
     }
@@ -2551,13 +2426,12 @@
      "name": "동국제약",
      "kind": "경영권 인수 (24.10)",
      "amt": "약 306억",
-     "date": "2024.10",
-     "src": "https://m.dailypharm.com/user/news/12470",
-     "hl": "동국제약, 리봄화장품 307억에 인수"
+     "date": "",
+     "src": ""
     }
    ]
   }
  },
  "_rules": 17,
- "_updated": "2026-11-10T09:51:48 KST"
+ "_updated": "2026-11-10T10:08:09 KST"
 }
