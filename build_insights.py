@@ -415,6 +415,9 @@ CANON_GROUPS = {
     'BRV Capital Management': ['BRV캐피탈', 'BRV캐피탈매니지먼트', 'BRV', '브이캐피탈'],
     'IMM인베스트먼트': ['IMM인베스트먼트', '아이엠엠인베스트먼트'],
     '소프트뱅크벤처스': ['소프트뱅크벤처스아시아', 'SBVA', 'SoftBankVenturesAsia'],
+    'SBI인베스트먼트': ['에스비아이인베스트먼트', 'SBI인베스트먼트', 'SBI Investment'],
+    '레이크브릿지에쿼티파트너스': ['레이크브릿지', '레이크브릿지에쿼티파트너스', '레이크브릿지에쿼티'],
+    '하나벤처스': ['하나벤처스', '하나금융투자벤처스'],
 }
 
 
@@ -536,10 +539,18 @@ def invest_date(t, art_date):
     return str(best[1]) if best else art_date
 
 
+def _inv_parts(nm):
+    return [_inv_key(canon_investor(x)) for x in re.split(r'[·/]', nm or '') if x.strip()]
+
+
 def same_investor(a, b):
-    """같은 투자자인지: 표기 통일 후 이름이 같거나 한쪽이 다른 쪽을 포함(공백·괄호 제외)"""
-    x, y = _inv_key(canon_investor(a)), _inv_key(canon_investor(b))
-    return bool(x and y and (x == y or (len(x) >= 3 and len(y) >= 3 and (x in y or y in x))))
+    """같은 투자자인지: 표기 통일 후 이름이 같거나 한쪽이 다른 쪽을 포함(공백·괄호 제외).
+    공동 투자로 묶은 이름('프라이머·IMM인베스트먼트')은 구성 투자사 단위로 비교한다(예: '프라이머사제'는 '프라이머'와 같은 투자자)."""
+    for x in _inv_parts(a):
+        for y in _inv_parts(b):
+            if x and y and (x == y or (len(x) >= 3 and len(y) >= 3 and (x in y or y in x))):
+                return True
+    return False
 
 
 def extract_investors(key, n):
@@ -672,7 +683,7 @@ def analyze(key, name, articles, prev, glb_extra=(), base=()):
             old_glb.append({'region': g['region'], 'items': items})
     return {'ipo': {'signals': merge_signals(old_sig, sig_new)},
             'global': apply_presence(merge_global(old_glb, glb_new), base),
-            'investors': merge_investors([x for x in prev.get('investors', []) if valid_investor_name(x.get('name'))], [i for n in list(articles) + list(glb_extra) for i in extract_investors(key, n)])}
+            'investors': merge_investors([x for x in prev.get('investors', []) if valid_investor_name(x.get('name')) and is_deal_article(x.get('hl'), '')], [i for n in list(articles) + list(glb_extra) for i in extract_investors(key, n)])}
 
 
 def selftest():
@@ -845,6 +856,15 @@ def selftest():
     assert invest_date('컬리, 앵커에쿼티파트너스서 300억 유치', '2026.03') == '2026.03'
     r = extract_investors('kurly', {'hl': '컬리, 앵커에쿼티파트너스서 투자 유치', 'sum': '2021년 투자를 받았다.', 'url': 'k1', 'date': '2026.03'})
     assert [(i['name'], i['date']) for i in r] == [('Anchor Equity Partners', '2021')], r
+    # 이전 누적 이력도 새 규칙으로 재검증: 제목에 투자 표현이 없는 옛 오추출(비나우 CJ온스타일 9000억)은 사라진다
+    prev_bad = {'investors': [{'name': 'CJ온스타일', 'amt': '약 9000억원', 'kind': '투자 유치', 'date': '2026.07',
+                               'hl': '비나우, IPO 앞두고 배당 10배...투자자 선제적 자금 회수', 'url': 'https://dealsite.co.kr/articles/164993'}]}
+    assert analyze('vinow', '비나우', [], prev_bad)['investors'] == []
+    prev_ok = {'investors': [{'name': '토스', 'amt': '300억', 'kind': '투자 유치', 'date': '2026.09', 'hl': '오아시스마켓, 토스로부터 300억 투자 유치…신규사업 확대', 'url': 'u'}]}
+    assert [i['name'] for i in analyze('oasis', '오아시스', [], prev_ok)['investors']] == ['토스']
+    assert same_investor('프라이머사제', '프라이머·IMM인베스트먼트') and same_investor('IMM인베스트먼트', '프라이머/IMM인베스트먼트')
+    assert not same_investor('올리브영', '프라이머·IMM인베스트먼트')
+    assert canon_investor('에스비아이인베스트먼트') == 'SBI인베스트먼트' and same_investor('에스비아이인베스트먼트', 'SBI인베스트먼트·엔베스터·하나벤처스')
     print('분석 로직 OK')
 
 

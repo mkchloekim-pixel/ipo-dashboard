@@ -422,8 +422,9 @@ function investCard(c, nw){
   if (insI.hide_investors) rows.length = 0;      // 요약 문구만 표시하는 기업
   rows.forEach(r => {
     const k = nrm(r.name);
-    if (seen.some(s => s === k || s.includes(k) || k.includes(s))) return;       // 같은 투자자는 1번만(기사 기반 우선)
-    seen.push(k);
+    const parts = String(r.name).split(/[·\/]/).map(nrm).filter(Boolean);             // 공동 투자 행('A·B')은 구성 투자사 단위로 비교
+    if (seen.some(sp => sp.some(s => parts.some(k => s === k || (s.length >= 3 && k.length >= 3 && (s.includes(k) || k.includes(s))))))) return;   // 같은 투자자는 1번만
+    seen.push(parts);
     const u = safeUrl(r.url || ''), t = u ? Object.assign(el('a', '', r.name), {href: u, target: '_blank', rel: 'noopener noreferrer'}) : el('span', 't', r.name);
     card.appendChild(el('div', 'li', '', [t, el('p', '', r.meta.filter(Boolean).join(' · '))]));
   });
