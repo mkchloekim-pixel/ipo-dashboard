@@ -72,8 +72,8 @@
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 6,
-     "n_plan": 1,
+     "n_done": 5,
+     "n_plan": 3,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -102,8 +102,8 @@
        "entry": false,
        "exp": false,
        "past": true,
-       "hl": "무신사, 국내외 매장 100곳 시대…5년 만에 누적 방문객 1억명",
-       "url": "https://www.edaily.co.kr/News/Read?newsId=02148406645644080&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
+       "hl": "무신사, 국내외 거점 100곳 확보…글로벌 오프라인 확장",
+       "url": "https://weekly.hankooki.com/news/articleView.html?idxno=7192863"
       },
       {
        "date": "2026.11",
@@ -136,7 +136,7 @@
        "url": "https://www.smartbizn.com/news/articleView.html?idxno=158192"
       }
      ],
-     "n_done": 7,
+     "n_done": 9,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
@@ -158,10 +158,20 @@
        "past": false,
        "hl": "무신사, 오프라인 매장 5년새 급성장…100곳 눈앞·방문객 92%↑",
        "url": "https://www.jasm.co.kr/news/view/324640/?sc=Naver"
+      },
+      {
+       "date": "2026.11",
+       "text": "무신사 관계자는 \"온라인 운영 방식을 실물 점포에 결합해 오프라인 시장 점유율을 체계적으로 다져왔다\"며 \"중국 외에도 일본과 동남아 주요 지역으로 출점 반경을…",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "무신사, 오프라인 매장 100호점 돌파… 글로벌 진출 '가속'",
+       "url": "https://www.nbntv.co.kr/news/articleView.html?idxno=4027183"
       }
      ],
      "n_done": 0,
-     "n_plan": 1,
+     "n_plan": 2,
      "level": "planned",
      "tag": "planned",
      "date": "2026.11",
@@ -182,9 +192,8 @@
      "name": "IMM인베스트먼트",
      "kind": "Series B",
      "amt": "투자완료",
-     "date": "2026.10",
-     "src": "https://dealsite.co.kr/articles/170442",
-     "hl": "[라이프 체인저] 한국 남자의 변신…이젠 뷰티로 여성도 홀리는 무신사"
+     "date": "",
+     "src": ""
     },
     {
      "name": "Wellington Management",
@@ -262,7 +271,16 @@
      "key": true
     }
    ],
-   "investors": [],
+   "investors": [
+    {
+     "name": "앵커에쿼티파트너스",
+     "amt": "2500억원",
+     "kind": "프리IPO",
+     "date": "2026.07",
+     "hl": "다시 밝아진 마켓컬리의 IPO전망...네이버 증자참여 이어 실적호조세 지...",
+     "url": "https://www.moneystorm.kr/news/articleView.html?idxno=5060"
+    }
+   ],
    "invest_summary": "투자 유치: Anchor Equity Partners · DST Global · Hillhouse Investment · 네이버 (누적 1.2조원+, 2026.05 네이버 330억원 추가)",
    "base_investors": [
     {
@@ -293,8 +311,8 @@
      "kind": "전략적 투자자",
      "amt": "26.5월 330억 추가",
      "date": "2026.11",
-     "src": "http://www.newstomato.com/ReadNews.aspx?no=1319289&inflow=N",
-     "hl": "(단독)네이버제트 '꼼수' 분사…스티컬리 분리매각 추진"
+     "src": "https://www.newstopkorea.com/news/articleView.html?idxno=48806",
+     "hl": "\"몸값 3.2조\" 스스로 평가한 컬리… 5개월만에 4천억 올린이유"
     }
    ]
   },
@@ -353,9 +371,9 @@
      "name": "BRV Capital Management",
      "kind": "재무적 투자자",
      "amt": "투자유지",
-     "date": "2025.02",
-     "src": "https://zdnet.co.kr/view/?no=20250228153051",
-     "hl": "오늘의집, 日 열도 정조준...인기 韓 가구 무료배송으로 영향력↑"
+     "date": "2023.08",
+     "src": "http://www.greened.kr/news/articleView.html?idxno=305892",
+     "hl": "오늘의집, 시공자재 가격 '오픈'...인테리어 '바가지' 어려워진다"
     },
     {
      "name": "소프트뱅크벤처스",
@@ -380,6 +398,14 @@
    },
    "global": [],
    "investors": [
+    {
+     "name": "비바리퍼블리카",
+     "amt": "300억원",
+     "kind": "투자 유치",
+     "date": "2026.09",
+     "hl": "토스가 300억 베팅한 오아시스…흑자 새벽배송에 '유통 동맹' 더했다",
+     "url": "https://www.techm.kr/news/articleView.html?idxno=155355"
+    },
     {
      "name": "토스",
      "amt": "300억",
@@ -664,10 +690,20 @@
        "past": false,
        "hl": "넘버즈인, 숫자 마스크팩 1억 장 판매… 국내외 유통 채널 확대",
        "url": "https://www.edaily.co.kr/News/Read?newsId=02981526645613248&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
+      },
+      {
+       "date": "2026.03",
+       "text": "2024년에는 미국법인 비나우 뷰티도 설립하며 북미 공략에도 속도를 내고 있다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "[히든챔피언②] '넘버즈인·퓌' 띄운 비나우, K뷰티 신흥 강자 우뚝",
+       "url": "https://www.insightkorea.co.kr/news/articleView.html?idxno=242291"
       }
      ],
      "n_done": 2,
-     "n_plan": 0,
+     "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.10",
@@ -677,7 +713,7 @@
    "investors": [
     {
      "name": "CJ온스타일",
-     "amt": "",
+     "amt": "약 9000억원",
      "kind": "투자 유치",
      "date": "2026.07",
      "hl": "비나우, IPO 앞두고 배당 10배...투자자 선제적 자금 회수",
@@ -704,8 +740,8 @@
      "kind": "Pre-IPO",
      "amt": "Co-GP 300억",
      "date": "2025.04",
-     "src": "https://www.the-stock.kr/news/articleView.html?idxno=30430",
-     "hl": "비나우, 현 밸류 최소 1.2조…FI '대박' 기대감"
+     "src": "https://www.mk.co.kr/article/11296254",
+     "hl": "넘버즈인·퓌 앞세운 ‘비나우’ 매출·이익 껑충...IPO 추진"
     },
     {
      "name": "브아원캐피탈파트너스",
@@ -818,9 +854,9 @@
      "name": "효성",
      "kind": "프리IPO (26.8)",
      "amt": "300억원",
-     "date": "2026.08",
-     "src": "https://biz.chosun.com/stock/market_trend/2026/08/10/LJVHGRMH5VCQ7GY4YTSPXLHPMY/?utm_source=naver&utm_medium=original&utm_campaign=biz",
-     "hl": "[단독] 뷰티로 영역 확장… 효성, K뷰티 커머스 이공이공에 300억 투자"
+     "date": "2026.11",
+     "src": "https://www.sedaily.com/article/20112116?ref=naver",
+     "hl": "[단독] 효성, K뷰티 유통기업 ‘이공이공’ 최대주주 된다"
     }
    ]
   },
@@ -2173,9 +2209,9 @@
      "name": "대명화학",
      "kind": "전략적 투자자 (SI) · 2020년",
      "amt": "초기 투자",
-     "date": "2026.11",
-     "src": "https://www.fnnews.com/news/202611081237422710",
-     "hl": "모회사 삼키는 '마뗑킴'…하고하우스 피봇 본격화"
+     "date": "2026.10",
+     "src": "https://www.etoday.co.kr/news/view/2637949",
+     "hl": "대명화학의 기묘한 패션 재편…레이어 이어 마뗑킴도 ‘모회사 역합병..."
     }
    ]
   },
@@ -2345,9 +2381,8 @@
      "name": "우주텍",
      "kind": "최대주주",
      "amt": "지분 48.01%",
-     "date": "2024.10",
-     "src": "https://www.hankyung.com/article/202410295596i",
-     "hl": "[마켓칼럼] 글로벌 풋웨어 시장 고성장…토종 브랜드 '르무통'에 주목"
+     "date": "",
+     "src": ""
     },
     {
      "name": "하나벤처스",
@@ -2397,7 +2432,50 @@
      }
     ]
    },
-   "global": [],
+   "global": [
+    {
+     "region": "미국",
+     "items": [
+      {
+       "date": "2026.08",
+       "text": "앤마들린은 앞으로 투자와 채용을 늘려 플랫폼을 고도화하고, 일본과 미국 등 해외 시장 진출에 힘을 싣는다는 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "뷰티 브랜드 릴스 만드는 앤마들린, IPO 절차 시작",
+       "url": "https://platum.kr/archives/291916"
+      }
+     ],
+     "n_done": 0,
+     "n_plan": 1,
+     "level": "planned",
+     "tag": "planned",
+     "date": "2026.08",
+     "key": false
+    },
+    {
+     "region": "일본",
+     "items": [
+      {
+       "date": "2026.08",
+       "text": "앤마들린은 앞으로 투자와 채용을 늘려 플랫폼을 고도화하고, 일본과 미국 등 해외 시장 진출에 힘을 싣는다는 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "뷰티 브랜드 릴스 만드는 앤마들린, IPO 절차 시작",
+       "url": "https://platum.kr/archives/291916"
+      }
+     ],
+     "n_done": 0,
+     "n_plan": 1,
+     "level": "planned",
+     "tag": "planned",
+     "date": "2026.08",
+     "key": false
+    }
+   ],
    "investors": [
     {
      "name": "인탑스인베스트먼트",
@@ -2481,5 +2559,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-09T14:17:46 KST"
+ "_updated": "2026-11-10T09:46:10 KST"
 }
