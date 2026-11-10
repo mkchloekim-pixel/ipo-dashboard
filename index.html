@@ -60,7 +60,8 @@ h1{margin:0;font-size:24px;letter-spacing:-.02em}
 .chip.hi{background:#fee4e2;color:#b42318}.chip.mh{background:#ffead5;color:#b93815}.chip.m{background:#fef0c7;color:#b54708}
 .chip.ml{background:#e0eaff;color:#2c5aa0}.chip.ls{background:#d1fadf;color:#067647}
 .chip.cj{background:#fff1e6;color:#c4320a;border:1px solid #f9b887;font-weight:600;margin:0 0 0 6px;vertical-align:1px;font-size:10.5px}
-@media (prefers-color-scheme:dark){.chip.hi{background:#4a1d1a;color:#fda29b}.chip.mh{background:#4a2a14;color:#fdb272}.chip.m{background:#47360f;color:#fec84b}.chip.ml{background:#1a2a4a;color:#9db9ee}.chip.ls{background:#12382a;color:#6ce9a6}.chip.cj{background:#3a1f10;color:#fdb272;border-color:#7a3d18}}
+.chip.cj.green{background:#e8f7ee;color:#0b7a3b;border-color:#8fd5ab}
+@media (prefers-color-scheme:dark){.chip.cj.green{background:#10301f;color:#6ce9a6;border-color:#1f6b45}.chip.hi{background:#4a1d1a;color:#fda29b}.chip.mh{background:#4a2a14;color:#fdb272}.chip.m{background:#47360f;color:#fec84b}.chip.ml{background:#1a2a4a;color:#9db9ee}.chip.ls{background:#12382a;color:#6ce9a6}.chip.cj{background:#3a1f10;color:#fdb272;border-color:#7a3d18}}
 .chip.src{background:transparent;border:1px solid var(--line);color:var(--text3)}
 .chip.src.dart{border-color:var(--brand);color:var(--brand)}
 a.chip.src.dart:hover{background:var(--brand);color:var(--card)}
@@ -326,7 +327,7 @@ function summaryRow(c){
   const b = el('button', 'head');
   b.type = 'button'; b.setAttribute('aria-expanded', 'false');
   const ico = el('div', 'ico', c.name.slice(0, 2)); ico.style.background = 'var(--c-' + c.sector + ')';
-  b.appendChild(el('div', 'nm', '', [ico, el('div', '', '', [el('b', '', c.name, c.cjos ? [el('span', 'chip cj', (c.cjos.label || 'CJ온스타일') + ' 투자 ' + c.cjos.amt + ' (' + c.cjos.year + ')')] : null), el('small', '', c.brands)])]));
+  b.appendChild(el('div', 'nm', '', [ico, el('div', '', '', [el('b', '', c.name, c.cjos ? [el('span', 'chip cj' + (c.cjos.label ? ' green' : ''), (c.cjos.label || 'CJ온스타일') + ' 투자 ' + c.cjos.amt + ' (' + c.cjos.year + ')')] : null), el('small', '', c.brands)])]));
   const fm = el('div', 'mcell');
   fm.appendChild(el('div', 'big num', '매출 ' + fmt(f.sales)));
   const y = yoy(f.sales, f.sPrev);
@@ -404,7 +405,7 @@ function investCard(c, nw){
   card.appendChild(el('h3', '', '', [el('span', '', '투자자')]));
   if (c.cjos){
     const u = safeUrl(c.cjos.url || ''), li = el('div', 'li');
-    li.appendChild(el('span', 'chip cj', (c.cjos.label || 'CJ온스타일') + ' 투자 ' + c.cjos.amt + ' (' + c.cjos.year + ')'));
+    li.appendChild(el('span', 'chip cj' + (c.cjos.label ? ' green' : ''), (c.cjos.label || 'CJ온스타일') + ' 투자 ' + c.cjos.amt + ' (' + c.cjos.year + ')'));
     li.appendChild(el('p', '', ['투자금 ' + c.cjos.amt + ' (' + c.cjos.year + ')', c.cjos.stake ? '지분율 ' + c.cjos.stake : '', c.cjos.kind || ''].filter(Boolean).join(' · ')));   // 값이 없는 항목은 생략
     if (u){ const a = el('a', '', '근거 기사 ↗'); a.href = u; a.target = '_blank'; a.rel = 'noopener noreferrer'; li.appendChild(a); }
     card.appendChild(li);
@@ -422,6 +423,7 @@ function investCard(c, nw){
   const named = (c.investors || []).filter(i => !NONAME.test(i.name)), unnamed = (c.investors || []).filter(i => NONAME.test(i.name));
   const seen = [];
   if (insI.hide_investors) rows.length = 0;      // 요약 문구만 표시하는 기업
+  if (c.cjos && c.cjos.label){ const cl = nrm(c.cjos.label); for (let n = rows.length - 1; n >= 0; n--){ const k = nrm(rows[n].name); if (k && cl.includes(k)) rows.splice(n, 1); } }   // 태그로 따로 표시하는 투자(예: CJ올리브영)는 목록에서 중복 제거
   { const exN = (insI.exclude || []); for (let n = rows.length - 1; n >= 0; n--) if (exN.some(p => p && String(rows[n].name).includes(p))) rows.splice(n, 1); }   // 제외 지정 투자자는 목록에서 제거
   rows.forEach(r => {
     const k = nrm(r.name);
