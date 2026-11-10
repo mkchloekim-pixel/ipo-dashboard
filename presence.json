@@ -92,6 +92,9 @@
  "_max_items": {
   "lafati": 1
  },
+ "_invest_note": {
+  "liman": ""
+},
  "_hide_investors": [
   "peacenow",
   "grainon"
