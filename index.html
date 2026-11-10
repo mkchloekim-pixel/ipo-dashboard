@@ -310,6 +310,14 @@ function priceChips(c){
   const mc = fmtEok(p.mktcap); if (mc) w.appendChild(el('span', 'chip', '시총 ' + mc));
   if (Number.isFinite(Number(p.vs_ipo))) w.appendChild(el('span', 'chip ' + (p.vs_ipo >= 0 ? 'hi' : 'ml'), '공모가(' + Number(p.ipo_price).toLocaleString('ko-KR') + '원) 대비 ' + (p.vs_ipo >= 0 ? '+' : '') + p.vs_ipo + '%'));
   w.appendChild(el('small', '', '기준 ' + String(p.date || '') + ' 종가 (실시간 아님)'));
+  const code = String(p.code || '').toUpperCase().replace(/^A(?=[0-9A-Z]{6}$)/, '');
+  if (/^[0-9A-Z]{6}$/.test(code)){                                   // 종목코드 형식 검증 후 네이버증권 실시간 시세로 연결
+    const a = el('a', 'chip src', '실시간 시세 ↗');
+    a.href = 'https://finance.naver.com/item/main.naver?code=' + code; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    a.title = '네이버증권에서 실시간 시세 보기'; a.style.marginLeft = '6px';
+    a.addEventListener('click', e => e.stopPropagation());           // 요약 행(펼침 버튼) 안에서 눌러도 펼침이 토글되지 않게
+    w.appendChild(a);
+  }
   return w;
 }
 function summaryRow(c){
