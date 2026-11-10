@@ -100,7 +100,8 @@
  ],
  "_exclude": {
   "boosterz": [
-   "커머스부문"
+   "커머스부문",
+   "스마트스터디벤처스"
   ]
  },
  "_investors": {
@@ -348,8 +349,5 @@
  ],
  "_max_articles": {
   "lafati": 1
- },
- "_exclude_investors": [
-  "스마트스터디벤처스"
- ]
+ }
 }

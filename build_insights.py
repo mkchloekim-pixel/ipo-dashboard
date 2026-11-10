@@ -938,13 +938,6 @@ def main():
                 if bad(i):
                     i['src'] = ''
                     i.pop('hl', None)
-    gx = [str(x) for x in (presence.get('_exclude_investors') or []) if x]      # 모든 기업에서 제외할 투자자명(지엽적·불필요 항목)
-    if gx:
-        keep_inv = lambda i: not any(g in str(i.get('name', '')) for g in gx)
-        for k in out:
-            out[k]['investors'] = [i for i in out[k].get('investors', []) if keep_inv(i)]
-            if 'base_investors' in out[k]:
-                out[k]['base_investors'] = [i for i in out[k]['base_investors'] if keep_inv(i)]
     for k, v in prev_c.items():                           # 이번에 기사가 없는 회사도 이력 유지
         out.setdefault(k, v)
     res = {'companies': out, '_rules': RULES_VERSION, '_updated': datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%dT%H:%M:%S KST')}
