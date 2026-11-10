@@ -225,10 +225,18 @@ IPO_VETO = {
 }
 
 
+# 앞에 '이번주·다음주·곧·조만간·이르면' 같은 시점 예고어가 붙으면 아직 일어나지 않은 일로 본다 (예: '이번주 예심청구')
+_PRE = r'(?:이번\s*주|다음\s*주|차주|내주|금주|곧|조만간|이르면|늦어도|오는\s*\d{1,2}\s*일|\d{1,2}\s*월\s*중)[^.]{0,12}$'
+IPO_PREVETO = {'filed': re.compile(_PRE), 'approved': re.compile(_PRE)}
+
+
 def _hit(kind, t):
     for m in IPO_RULES[kind].finditer(t):
         tail = t[m.start(): m.end() + 24]
         v = IPO_VETO.get(kind)
+        pv = IPO_PREVETO.get(kind)
+        if pv and pv.search(t[max(0, m.start() - 20): m.start()]):
+            continue
         if not (v and v.search(tail)):
             return True
     return False
