@@ -412,8 +412,10 @@ function investCard(c, nw){
   const insI = insOf(c) || {}, nrm = x => String(x).replace(/\s/g, '').toLowerCase();
   const NONAME = /자체|외부 투자|없음|비공개|컨소시엄|투자사$|^series|^pre-?ipo|^PE 투자/i;
   const rows = [];
-  (insI.investors || []).forEach(i => rows.push({name: i.name, url: i.url, meta: [i.kind, i.amt, i.date, '기사 기반']}));
-  (insI.base_investors || []).forEach(i => rows.push({name: i.name, url: i.src, meta: [i.kind, i.amt, i.date, i.src ? '근거 기사' : '기준 정보']}));
+  const ICAN = {'비바리퍼블리카': '토스'};                                        // 같은 투자자의 법인명 → 대표 표기(자회사는 별개이므로 넣지 않음)
+  const canon = n => { const t = String(n || '').replace(/\([^)]*\)/g, '').replace(/\s/g, ''); return ICAN[t] || String(n || ''); };
+  (insI.investors || []).forEach(i => rows.push({name: canon(i.name), url: i.url, meta: [i.kind, i.amt, i.date, '기사 기반']}));
+  (insI.base_investors || []).forEach(i => rows.push({name: canon(i.name), url: i.src, meta: [i.kind, i.amt, i.date, i.src ? '근거 기사' : '기준 정보']}));
   const named = (c.investors || []).filter(i => !NONAME.test(i.name)), unnamed = (c.investors || []).filter(i => NONAME.test(i.name));
   const seen = [];
   if (insI.hide_investors) rows.length = 0;      // 요약 문구만 표시하는 기업
