@@ -179,7 +179,7 @@
     }
    ],
    "investors": [],
-   "invest_summary": "Series C: Sequoia Capital · IMM인베스트먼트 · Wellington Management (누적 약 4,000억원+)",
+   "invest_summary": "Series C: KKR(리드) · 웰링턴 · 세쿼이아 · IMM인베스트먼트 / IPO 대기",
    "base_investors": [
     {
      "name": "콜버그크래비스로버츠·웰링턴매니지먼트 등",
@@ -265,7 +265,7 @@
     }
    ],
    "investors": [],
-   "invest_summary": "투자 유치: Anchor Equity Partners · DST Global · Hillhouse Investment · 네이버 (누적 1.2조원+, 2026.05 네이버 330억원 추가)",
+   "invest_summary": "Series G: 네이버 (330억원, 2026.05) / 누적 투자 1.2조원+",
    "base_investors": [
     {
      "name": "네이버",
@@ -339,7 +339,7 @@
     }
    ],
    "investors": [],
-   "invest_summary": "투자 유치: BRV Capital Management · 소프트뱅크벤처스 · 본엔젤스 (누적 약 3,000억원+)",
+   "invest_summary": "Series D: KDB산업은행(리드) · 버텍스(테마섹 계열) · 소프트뱅크 · 본드캐피털",
    "base_investors": [
     {
      "name": "KDB산업은행·버텍스그로스·소프트뱅크벤처스 등",
@@ -370,7 +370,7 @@
    },
    "global": [],
    "investors": [],
-   "invest_summary": "–",
+   "invest_summary": "전략적 투자: 토스 (300억원, 2026.09) · UCK파트너스",
    "base_investors": [
     {
      "name": "토스",
@@ -605,7 +605,7 @@
     }
    ],
    "investors": [],
-   "invest_summary": "Pre-IPO: 투자자명 비공개 컨소시엄 (8,000억원)",
+   "invest_summary": "Pre-IPO: 투자자명 비공개 컨소시엄 (기업가치 기준 8,000억원)",
    "base_investors": []
   },
   "vinow": {
@@ -691,31 +691,24 @@
    ],
    "investors": [],
    "note": {
-    "text": "일본 비중이 높으나 신규 해외영업 인력 채용 확대 중.",
-    "title": "㈜비나우 채용 - [리더/경력] B2B 해외영업 중동/북미/유럽/중남미 권역 | 잡코리아",
-    "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173"
+    "text": "일본 비중이 높으나 신규 해외영업 인력 (중동/북미/유럽/중남미 등) 채용 확대 중",
+    "title": "",
+    "src": ""
    },
-   "invest_summary": "Pre-IPO: IMM인베스트먼트 · LB PE · 브아원캐피탈파트너스 (투자 완료)",
+   "invest_summary": "Pre-IPO: IMM인베스트먼트 · LB PE · 브아원캐피탈 · SV인베스트먼트 (구주 거래 중심)",
    "base_investors": [
     {
      "name": "IMM인베스트먼트",
      "kind": "Pre-IPO",
      "amt": "누적 550억",
-     "date": "",
+     "date": "2025.9월",
      "src": ""
     },
     {
-     "name": "LB PE",
+     "name": "LB PE·브아원캐피탈파트너스",
      "kind": "Pre-IPO",
      "amt": "Co-GP 300억",
-     "date": "",
-     "src": ""
-    },
-    {
-     "name": "브아원캐피탈파트너스",
-     "kind": "Pre-IPO",
-     "amt": "상동",
-     "date": "",
+     "date": "2025.2월",
      "src": ""
     }
    ]
@@ -726,13 +719,20 @@
    },
    "global": [],
    "investors": [],
-   "invest_summary": "투자 유치: DS투자파트너스 · 청담인베스트먼트 (117억원, 2025.12) / 기존 PE 경영권 투자(투자사명 비공개)",
+   "invest_summary": "Pre-IPO: KB인베스트먼트 (100억원) · 한국투자 · 유진 / IPO 예비심사 청구 완료",
    "base_investors": [
     {
+     "name": "KB인베스트먼트·한국투자증권·유진투자증권 등",
+     "kind": "Pre-IPO",
+     "amt": "최대 160억",
+     "date": "2026.1월~9",
+     "src": ""
+    },
+    {
      "name": "DS투자파트너스·청담인베스트먼트",
-     "kind": "신규 투자 (2025.12)",
-     "amt": "합산 117억원",
-     "date": "",
+     "kind": "Series C 구주 매입",
+     "amt": "117억원",
+     "date": "2026.1월",
      "src": ""
     }
    ]
@@ -743,13 +743,13 @@
    },
    "global": [],
    "investors": [],
-   "invest_summary": "경영권 인수(M&A): 진백글로벌",
+   "invest_summary": "M&A 단계: 서영이앤티(하이트진로그룹 계열)가 100% 인수 / IPO 심사 중",
    "base_investors": [
     {
      "name": "진백글로벌",
      "kind": "전략적 인수",
-     "amt": "M&A 완료",
-     "date": "",
+     "amt": "M&A 지분 100% 확보",
+     "date": "2025.6월",
      "src": ""
     }
    ]
@@ -793,29 +793,29 @@
     }
    ],
    "investors": [],
-   "invest_summary": "Series D: 한국투자파트너스 · 라구나인베스트먼트 / Pre-IPO: 효성 (300억원, 2026.08)",
+   "invest_summary": "M&A 단계: 효성그룹이 300억원 규모 CB 전환으로 경영권 확보 추진",
    "base_investors": [
     {
-     "name": "한국투자파트너스",
-     "kind": "Series D 리드",
-     "amt": "370억원",
-     "date": "",
-     "src": ""
-    },
-    {
-     "name": "라구나인베스트먼트",
-     "kind": "Series C 참여",
-     "amt": "70억원",
-     "date": "",
-     "src": ""
-    },
-    {
      "name": "효성",
-     "kind": "프리IPO (26.8)",
-     "amt": "300억원",
-     "date": "2026.08",
+     "kind": "Pre-IPO",
+     "amt": "300억",
+     "date": "2026.8월",
      "src": "https://biz.chosun.com/stock/market_trend/2026/08/10/LJVHGRMH5VCQ7GY4YTSPXLHPMY/?utm_source=naver&utm_medium=original&utm_campaign=biz",
      "hl": "[단독] 뷰티로 영역 확장… 효성, K뷰티 커머스 이공이공에 300억 투자"
+    },
+    {
+     "name": "한국투자파트너스 등",
+     "kind": "Series D",
+     "amt": "370억원",
+     "date": "2025.7월",
+     "src": ""
+    },
+    {
+     "name": "라구나인베스트먼트·스마일게이트인베스트먼트·롯데벤처스 등",
+     "kind": "Series A",
+     "amt": "70억",
+     "date": "",
+     "src": ""
     }
    ]
   },
@@ -938,8 +938,16 @@
    "investors": [],
    "max_items": 1,
    "max_articles": 1,
-   "invest_summary": "Series B: 투자사명 비공개",
-   "base_investors": []
+   "invest_summary": "Series B: 기관투자자 비공개",
+   "base_investors": [
+    {
+     "name": "에이치프라이빗에쿼티",
+     "kind": "Pre-IPO 유상증자 (지분율 39%대 상승)",
+     "amt": "70억",
+     "date": "2026.8월",
+     "src": ""
+    }
+   ]
   },
   "liman": {
    "ipo": {
@@ -1234,16 +1242,8 @@
     }
    ],
    "investors": [],
-   "invest_summary": "경영권 투자: IMM PE (약 2,500억원, 2022)",
-   "base_investors": [
-    {
-     "name": "IMM PE",
-     "kind": "경영권 투자 (2022)",
-     "amt": "약 2,500억원",
-     "date": "",
-     "src": ""
-    }
-   ]
+   "invest_summary": "독립 경영: 외부 기관투자자 없음 (직접판매 기반 100% 자체 성장)",
+   "base_investors": []
   },
   "founders": {
    "ipo": {
@@ -1344,7 +1344,7 @@
     }
    ],
    "investors": [],
-   "invest_summary": "외부 투자자 없음 (외부 VC 투자 이력 없음)",
+   "invest_summary": "이선형·이창주 공동대표가 지분 100%(각각 50%) 보유",
    "base_investors": []
   },
   "olive": {
@@ -1478,13 +1478,13 @@
     }
    ],
    "investors": [],
-   "invest_summary": "Series B: 프라이머 · IMM인베스트먼트 (합산 100억원) / 전략적 투자: 올리브영 (30억원)",
+   "invest_summary": "Series C·전략 투자: CJ올리브영 (30억원) · IMM인베스트먼트 (Series B)",
    "base_investors": [
     {
-     "name": "프라이머·IMM인베스트먼트",
+     "name": "프라이머사제·IMM인베스트먼트",
      "kind": "Series B 공동 투자",
      "amt": "합산 100억",
-     "date": "2023",
+     "date": "2023.11",
      "src": "https://www.sedaily.com/NewsView/29YF3RX82P",
      "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치"
     }
@@ -1631,7 +1631,7 @@
     }
    ],
    "investors": [],
-   "invest_summary": "대명화학그룹 계열 (외부 투자자 정보 없음)",
+   "invest_summary": "대명화학그룹 계열 (외부 기관 VC 투자 이력 없음)",
    "base_investors": [
     {
      "name": "대명화학그룹",
@@ -1804,7 +1804,7 @@
    ],
    "investors": [],
    "hide_investors": true,
-   "invest_summary": "Series A 투자 이후 엑시트 완료",
+   "invest_summary": "엑시트 완료: Series A 재무적 투자자 전량 회수",
    "base_investors": []
   },
   "hagohouse": {
@@ -2036,27 +2036,13 @@
     }
    ],
    "investors": [],
-   "invest_summary": "투자 유치: SV인베스트먼트 · LB인베스트먼트 · 대명화학",
+   "invest_summary": "자회사 '마뗑킴'으로의 역합병 결정 (2026.10), 대명화학그룹 편입 이력",
    "base_investors": [
     {
-     "name": "SV인베스트먼트",
-     "kind": "재무적 투자자 (FI)",
-     "amt": "보유 중",
-     "date": "",
-     "src": ""
-    },
-    {
-     "name": "LB인베스트먼트",
-     "kind": "재무적 투자자 (FI)",
-     "amt": "보유 중",
-     "date": "",
-     "src": ""
-    },
-    {
      "name": "대명화학",
-     "kind": "전략적 투자자 (SI) · 2020년",
-     "amt": "초기 투자",
-     "date": "",
+     "kind": "SI 편입",
+     "amt": "지분 60% 인수",
+     "date": "2020.1월",
      "src": ""
     }
    ]
@@ -2100,7 +2086,7 @@
    ],
    "investors": [],
    "hide_investors": true,
-   "invest_summary": "Series A 투자유치 (비공개) / CJ온스타일 투자",
+   "invest_summary": "전략 투자: CJ온스타일 지분 투자 및 유통 파트너십",
    "base_investors": []
   },
   "boosterz": {
@@ -2202,7 +2188,7 @@
     }
    ],
    "investors": [],
-   "invest_summary": "RCPS 투자 유치(26.1, 374억): SBI인베스트먼트 · 엔베스터 · 레이크브릿지에쿼티파트너스 · 하나벤처스 등 / 투자(25.1, 104억): IBK벤처투자 · 코오롱인베스트먼트 · 에이벤처스 / 최대주주: 우주텍",
+   "invest_summary": "RCPS 투자 유치: SBI인베스트먼트 · 엔베스터 · 레이크브릿지 · 하나벤처스 (374억원, 2026.01)",
    "base_investors": [
     {
      "name": "우주텍",
@@ -2213,16 +2199,16 @@
     },
     {
      "name": "SBI인베스트먼트·엔베스터·레이크브릿지에쿼티파트너스·하나벤처스",
-     "kind": "RCPS 투자 유치 (26.1, 외 참여)",
+     "kind": "RCPS 투자 유치",
      "amt": "합산 374억",
-     "date": "",
+     "date": "2026.1월",
      "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815"
     },
     {
      "name": "IBK벤처투자·코오롱인베스트먼트·에이벤처스",
-     "kind": "투자 (25.1)",
+     "kind": "투자",
      "amt": "합산 104억",
-     "date": "",
+     "date": "2025.1월",
      "src": "https://dealsite.co.kr/articles/135053"
     }
    ],
@@ -2289,13 +2275,13 @@
    ],
    "investors": [],
    "hide_articles": true,
-   "invest_summary": "Series A: 위벤처스 · 인탑스인베스트먼트 · 에이치지이니셔티브 (누적 30억원)",
+   "invest_summary": "Series A: 인탑스(리드) · 위벤처스 · 에이치지이니셔티브 (IPO 주관사 KB증권 선정)",
    "base_investors": [
     {
-     "name": "인탑스인베스트먼트·에이치지이니셔티브·위벤처스",
-     "kind": "Series A (25.8)",
-     "amt": "합산 30억원",
-     "date": "2025.08",
+     "name": "인탑스인베스트먼트·위벤처스·에이치지이니셔티브",
+     "kind": "Series A",
+     "amt": "30억",
+     "date": "2025.8월",
      "src": "https://zdnet.co.kr/view/?no=20250819180628",
      "hl": "앤마들린 '글로브', 30억원 투자 유치"
     }
@@ -2315,18 +2301,18 @@
    },
    "global": [],
    "investors": [],
-   "invest_summary": "경영권 인수: 동국제약 (지분 약 53.7%, 약 306억원, 2024.10)",
+   "invest_summary": "M&A 단계: 동국제약이 지분 53.7%를 306억원에 인수해 경영권 확보",
    "base_investors": [
     {
      "name": "동국제약",
-     "kind": "경영권 인수 (24.10)",
+     "kind": "경영권 인수",
      "amt": "약 306억",
-     "date": "",
+     "date": "2024.10",
      "src": ""
     }
    ]
   }
  },
  "_rules": 17,
- "_updated": "2026-11-10T14:04:32 KST"
+ "_updated": "2026-11-10T15:14:36 KST"
 }
