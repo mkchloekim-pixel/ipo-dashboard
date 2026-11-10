@@ -402,6 +402,45 @@ INV_FROM = re.compile(r'(?:서|에서|로부터|한테서)\s*(?:총\s*|약\s*)?(
 FAIL_RE = re.compile(r'무산|불발|철회|좌초|결렬|취소|백지화|콜옵션')      # 성사되지 않은 투자·인수 기사는 투자자 근거로 쓰지 않는다
 
 
+# 같은 투자자의 법인명·브랜드명 표기 통일(대표 표기로 합친다). 자회사(토스뱅크·토스증권 등)는 별개이므로 넣지 않는다.
+INV_CANON = {'비바리퍼블리카': '토스', '토스(비바리퍼블리카)': '토스', '비바리퍼블리카(토스)': '토스'}
+
+
+def canon_investor(nm):
+    t = re.sub(r'\s', '', nm or '')
+    return INV_CANON.get(t, (nm or '').strip())
+
+
+# ── 투자 유치 '확정 기사' 판정(모든 기업 동일) ──
+# 행사·컨퍼런스·선정·참가 기사는 투자 근거가 아니다. 제목에 행사 표현이 있으면 제외한다.
+EVENT_RE = re.compile(r'행사|컨퍼런스|콘퍼런스|포럼|데모데이|세미나|박람회|어워드|시상|네트워킹|서밋|summit|IR\s*데이|개최|참가|참석|초청|연사|강연|발표회|공모전|선발|액셀러레이|혁신\s*기업\s*\d|TOP\s*\d|리스트', re.I)
+# 투자가 '이뤄졌다'는 명확한 표현
+DEAL_RE = re.compile(r'(?:투자|지분)(?:를|을)?\s*(?:받|유치|단행|집행|완료|마무리|확보)|유치(?:했|하|한|해|를\s*마|에\s*성공)|유치\s*(?:성공|완료)|유치(?![가-힣])|투자했|투자하기로|투자에\s*참여|투자\s*참여|지분\s*(?:을\s*)?(?:인수|취득|확보)|사들|시리즈\s*[A-Z]|프리\s*IPO\s*(?:투자|라운드)|(?:억|조)\s*원?\s*(?:규모\s*)?(?:의\s*)?투자')
+# 매치 직후에 계획·전망 표현이 오면 '이뤄진 투자'로 보지 않는다(예: '투자 유치 추진')
+DEAL_PLAN_AFTER = re.compile(r'^.{0,8}(?:추진|검토|예정|계획|목표|준비|저울질|노린다|나선다|가능성|전망)')
+
+
+def deal_in(t, name=None):
+    """t 안에 투자 확정 표현이 있는지. name 이 있으면 그 투자사명이 확정 표현 앞뒤 45자 안에 있어야 한다."""
+    nm = re.sub(r'\s', '', name or '').lower()
+    for m in DEAL_RE.finditer(t or ''):
+        if DEAL_PLAN_AFTER.search(t[m.end():m.end() + 14]):
+            continue
+        if not nm:
+            return True
+        if nm in re.sub(r'\s', '', t[max(0, m.start() - 45):m.end() + 45]).lower():
+            return True
+    return False
+
+
+def is_deal_article(hl, sm, name=None):
+    """명확한 투자 유치(확정) 기사만 True: 제목에 행사 표현 없음 + 무산 표현 없음 + 투자 확정 표현이 (투자사명 근처에) 있음"""
+    hl, sm = clean(hl), clean(sm)
+    if EVENT_RE.search(hl) or FAIL_RE.search(hl + ' ' + sm):
+        return False
+    return deal_in(hl, name) or deal_in(sm, name)
+
+
 def _alias_re(key):
     return '|'.join(re.escape(a) for a in sorted(ALIASES.get(key, []), key=len, reverse=True))
 
@@ -412,6 +451,7 @@ def _company_re(key):
 
 def _split_investors(seg, key):
     seg = re.split(r'\.{2,}|…', seg)[-1]                                  # '확장...토스' → '토스'
+    seg = re.sub(r'비바리퍼블리카\s*\(토스\)|토스\s*\(비바리퍼블리카\)', '토스', seg)       # '비바리퍼블리카(토스)' → '토스'
     seg = re.sub(r'\s+', ' ', seg).strip(' ,·…「」\'"“”')
     out = []
     for nm in re.split(r'[·,]|\s?(?:와|과|및)\s', seg):
@@ -419,6 +459,7 @@ def _split_investors(seg, key):
         nm = re.sub(r'^(?:' + _alias_re(key) + r')(?:은|는|이|가|,)?\s*', '', nm).strip()
         if ' ' in nm and len(nm) > 14:
             nm = nm.split(' ')[-1]
+        nm = canon_investor(nm)
         if (2 <= len(nm) <= 20 and nm not in INV_STOP and valid_investor_name(nm)
                 and not re.fullmatch(r'[\d,\.% ]+', nm) and not re.search(r'\d{4}|\.\.|…', nm)
                 and not re.search(_alias_re(key), nm) and not re.search(r'유치|투자|억|조원|원$|규모|인수|늘리|확대', nm)):
@@ -443,7 +484,7 @@ def extract_investors(key, n):
     ① '자사, ○○서(에서·로부터) N억 유치'  ② '○○, 자사에 N억 투자'(제목)  ③ '○○, 자사 지분 인수'(제목, 회사명 기준)
     자사 브랜드를 인수한 건·자사가 투자한 건은 제외한다."""
     hl, sm = clean(n.get('hl')), clean(n.get('sum'))
-    if not has_own(key, hl) or is_reference(key, hl) or FAIL_RE.search(hl + ' ' + sm):
+    if not has_own(key, hl) or is_reference(key, hl) or FAIL_RE.search(hl + ' ' + sm) or EVENT_RE.search(hl):
         return []
     al, co = _alias_re(key), _company_re(key)
     found = []
@@ -479,6 +520,7 @@ def extract_investors(key, n):
 def merge_investors(old, new):
     d = {}
     for x in list(old) + list(new):
+        x = {**x, 'name': canon_investor(x.get('name'))}
         k = re.sub(r'\s', '', x['name']).lower()
         d_k = next((e for e in d if e == k or (len(k) >= 2 and len(e) >= 2 and (k in e or e in k))), None)   # 포함 관계면 같은 투자자
         if d_k is None:
@@ -503,12 +545,13 @@ def link_investors(key, invs, pool):
     out = []
     for i in invs:
         it = {kk: str(v)[:80] for kk, v in i.items() if kk in ('name', 'kind', 'amt', 'date', 'src')}
+        it['name'] = canon_investor(it.get('name'))
         if not re.match(r'^https?://', it.get('src', '')):
             nm = re.sub(r'\s', '', it['name']).lower()
             cand = [a for a in pool if has_own(key, clean(a.get('hl'))) and not is_reference(key, clean(a.get('hl')))
                     and nm in re.sub(r'\s', '', (clean(a.get('hl')) + clean(a.get('sum')))).lower()
                     and not FAIL_RE.search(clean(a.get('hl')) + ' ' + clean(a.get('sum')))
-                    and INV_CTX.search(clean(a.get('hl')) + ' ' + clean(a.get('sum'))) and re.match(r'^https?://', a.get('url', ''))]
+                    and is_deal_article(a.get('hl'), a.get('sum'), it['name']) and re.match(r'^https?://', a.get('url', ''))]
             cand.sort(key=lambda a: a.get('date', ''), reverse=True)
             it['src'] = cand[0]['url'] if cand else ''
             if cand:
@@ -698,6 +741,27 @@ def selftest():
     assert [e['region'] for e in extract_global('musinsoa', mk('무신사, 하라주쿠 팝업 성료…日 신규 회원 302% 증가', NOW, 'x'), '무신사')] == ['일본']
     assert [e['region'] for e in extract_global('musinsoa', mk('온·오프라인 연결 통했다…무신사, 일본 찍고 동남아로 영토 확장', NOW, 'x'), '무신사')] == ['일본', '동남아']
     assert [e['region'] for e in extract_global('musinsoa', mk('무신사, 베트남 ACFC와 독점 유통 계약', NOW, 'x'), '무신사')] == ['동남아']
+    # 같은 투자자의 다른 표기(비바리퍼블리카=토스)는 1건으로 합친다
+    a1 = extract_investors('oasis', {'hl': '오아시스, 토스서 300억 유치', 'sum': '', 'url': 'u1', 'date': '2026.09'})
+    a2 = extract_investors('oasis', {'hl': '오아시스, 비바리퍼블리카서 300억 유치', 'sum': '', 'url': 'u2', 'date': '2026.09'})
+    a3 = extract_investors('oasis', {'hl': '오아시스, 비바리퍼블리카(토스)에서 300억 유치', 'sum': '', 'url': 'u3', 'date': '2026.09'})
+    assert [i['name'] for i in a1] == ['토스'] and [i['name'] for i in a2] == ['토스'] and [i['name'] for i in a3] == ['토스'], (a1, a2, a3)
+    mi = merge_investors([{'name': '비바리퍼블리카', 'date': '2026.08', 'url': 'x'}], a1 + a2)
+    assert [i['name'] for i in mi] == ['토스'], mi
+    assert canon_investor('토스뱅크') == '토스뱅크' and canon_investor('비바리퍼블리카') == '토스'
+    # 투자 근거 기사 규칙: 행사·참가·계획 기사는 제외, 투자사 근처에 명확한 투자 확정 표현이 있어야 인정
+    assert not is_deal_article('소프트뱅크벤처스, 혁신 기업 행사 참가…오늘의집 등 100곳', '', '소프트뱅크벤처스')
+    assert not is_deal_article('오늘의집, 2026 혁신 기업 선정', '소프트뱅크벤처스 투자 기업 포함', '소프트뱅크벤처스')
+    assert is_deal_article('오늘의집, 소프트뱅크벤처스로부터 300억 투자 유치', '', '소프트뱅크벤처스')
+    assert is_deal_article('오늘의집, 시리즈 D 투자 유치', '소프트뱅크벤처스가 리드 투자했다', '소프트뱅크벤처스')
+    assert not is_deal_article('오늘의집, 소프트뱅크벤처스 투자 유치 추진', '', '소프트뱅크벤처스')
+    assert not is_deal_article('소프트뱅크벤처스 대표 "스타트업 투자 확대"', '오늘의집 언급', '소프트뱅크벤처스')
+    assert not is_deal_article('오늘의집, 네이버서 300억 투자 유치', '소프트뱅크벤처스는 기존 주주', '소프트뱅크벤처스')   # 투자사명이 확정 표현 근처에 없음
+    pool = [{'hl': '오늘의집, 소프트뱅크벤처스 참여 혁신 기업 행사 개최', 'sum': '', 'url': 'https://a.com/1', 'date': '2026.09'}]
+    assert link_investors('ohouse', [{'name': '소프트뱅크벤처스'}], pool)[0]['src'] == ''
+    pool.append({'hl': '오늘의집, 소프트뱅크벤처스서 300억 투자 유치', 'sum': '', 'url': 'https://a.com/2', 'date': '2026.05'})
+    assert link_investors('ohouse', [{'name': '소프트뱅크벤처스'}], pool)[0]['src'] == 'https://a.com/2'
+    assert extract_investors('ohouse', {'hl': '오늘의집, 혁신 기업 행사서 토스서 300억 유치 소개', 'sum': '', 'url': 'x', 'date': '2026.09'}) == []
     print('분석 로직 OK')
 
 

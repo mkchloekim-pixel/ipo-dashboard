@@ -4,7 +4,8 @@
 - 기존 news.json 수집기와 별개로 동작한다. (기존 파일 수정 불필요)
 - ① 해외 진출: "{이름} + 해외 진출/수출/미국/일본/중국/동남아/유럽 ..." 검색 → 해외 사업 문맥(진출·수출·입점·현지법인 등)이 있는 기사만 보관
 - ② 투자 유치: "{이름} + 투자 유치/지분 인수/프리IPO/시리즈 ..." 검색, 그리고 presence.json 의 _investors 에 적힌 투자사별
-  "{이름} {투자사}" 검색 → 투자 문맥 기사만 보관(성사되지 않은 건 제외). build_insights.py 가 투자자 자동 추출·기사 링크에 사용한다.
+  "{이름} {투자사}" 검색 → '투자가 이뤄졌다'는 명확한 표현이 있는 기사만 보관한다.
+  (행사·컨퍼런스·선정·참가 기사, '투자 유치 추진' 같은 계획 기사, 무산 기사는 제외. 투자사별 검색은 투자사명이 확정 표현 근처에 있어야 함)
 - 기존 global_news.json 이력은 유지하며 누적한다(회사당 최대 50건). 새 결과가 0건이면 기존 값 유지.
 - 인증정보는 환경변수 NAVER_CLIENT_ID / NAVER_CLIENT_SECRET 로만 받는다(코드·로그에 출력 금지).
 
@@ -98,8 +99,25 @@ PLACES = re.compile(r'日本|日(?=[\s·,…]|$)|中(?=[\s·,…]|$)|美(?=[\s·
                     r'아마존|세포라|얼타|울타|돈키호테|라쿠텐|쇼피|틱톡샵|큐텐|코스트코|월마트|타깃|로프트|도큐핸즈|라자다|타오바오|샤오홍슈|DHL', re.I)
 IPO_ONLY = re.compile(r'상장|IPO|기업공개|예심|공모')
 SALES_SHARE = re.compile(r'해외\s*매출|수출\s*비중|수출\s*매출|매출\s*비중|해외\s*비중')
-INV_CTX = re.compile(r'투자|유치|지분|인수|시리즈|라운드|프리\s*IPO|펀드|엑시트|구주|참여')
+
+# ── 투자 유치 '확정 기사' 판정(build_insights.py 와 동일 기준) ──
 FAIL_RE = re.compile(r'무산|불발|철회|좌초|결렬|취소|백지화|콜옵션')      # 성사되지 않은 건은 투자 근거에서 제외
+EVENT_RE = re.compile(r'행사|컨퍼런스|콘퍼런스|포럼|데모데이|세미나|박람회|어워드|시상|네트워킹|서밋|summit|IR\s*데이|개최|참가|참석|초청|연사|강연|발표회|공모전|선발|액셀러레이|혁신\s*기업\s*\d|TOP\s*\d|리스트', re.I)
+DEAL_RE = re.compile(r'(?:투자|지분)(?:를|을)?\s*(?:받|유치|단행|집행|완료|마무리|확보)|유치(?:했|하|한|해|를\s*마|에\s*성공)|유치\s*(?:성공|완료)|유치(?![가-힣])|투자했|투자하기로|투자에\s*참여|투자\s*참여|지분\s*(?:을\s*)?(?:인수|취득|확보)|사들|시리즈\s*[A-Z]|프리\s*IPO\s*(?:투자|라운드)|(?:억|조)\s*원?\s*(?:규모\s*)?(?:의\s*)?투자')
+DEAL_PLAN_AFTER = re.compile(r'^.{0,8}(?:추진|검토|예정|계획|목표|준비|저울질|노린다|나선다|가능성|전망)')   # '투자 유치 추진' 등 계획은 제외
+
+
+def deal_in(t, name=None):
+    """t 안에 투자 확정 표현이 있는지. name 이 있으면 그 투자사명이 확정 표현 앞뒤 45자 안에 있어야 한다."""
+    nm = re.sub(r'\s', '', name or '').lower()
+    for m in DEAL_RE.finditer(t or ''):
+        if DEAL_PLAN_AFTER.search(t[m.end():m.end() + 14]):
+            continue
+        if not nm:
+            return True
+        if nm in re.sub(r'\s', '', t[max(0, m.start() - 45):m.end() + 45]).lower():
+            return True
+    return False
 
 
 def clean(t):
@@ -132,20 +150,17 @@ def keep_article(title, desc, names, exclude, others=()):
 
 
 def keep_invest_article(title, desc, names, exclude, others=(), investor=''):
-    """투자 유치 기사: 제목에 자사 명칭, 투자 문맥, 제외 키워드·무산 표현 없음, 제목에 타사 혼합 없음, 자사를 출처로만 언급한 기사 아님.
-    investor 를 주면 제목·요약에 그 투자사명이 있어야 한다."""
+    """명확한 투자 유치(확정) 기사만 보관: 제목에 자사 명칭 + 제외 키워드·무산 표현 없음 + 제목에 행사 표현 없음 +
+    제목에 타사 혼합 없음 + 자사를 출처로만 언급한 기사 아님 + 투자 확정 표현이 있음('추진·검토·예정'은 제외).
+    investor 를 주면 그 투자사명이 확정 표현 앞뒤 45자 안에 있어야 한다."""
     full = title + ' ' + desc
     if not any(n.lower() in title.lower() for n in names):
         return False
-    if any(x in full for x in exclude) or FAIL_RE.search(full):
+    if any(x in full for x in exclude) or FAIL_RE.search(full) or EVENT_RE.search(title):
         return False
     if (others and mixed_title(title, names, others)) or is_reference(title, names):
         return False
-    if not INV_CTX.search(full):
-        return False
-    if investor and re.sub(r'\s', '', investor).lower() not in re.sub(r'\s', '', full).lower():
-        return False
-    return True
+    return deal_in(title, investor or None) or deal_in(desc, investor or None)
 
 
 def safe_url(u):
@@ -224,15 +239,21 @@ def selftest():
     assert not keep_article('"컬리가 키운 브랜드 이제 세계로"…LG생건 프레시안, K웰니스 뷰티 도전장', '미국 일본 진출', ['컬리'], [], oth)
     assert not keep_article('컬리 미국 진출', '무신사·29CM 등 K패션도 미국 공략', ['컬리'], [], oth)
     assert not keep_article('롯데백화점·컬리, 동남아 진출 경쟁', '', ['컬리'], [], oth)
-    # 투자 유치 기사
+    # 투자 유치 기사: 명확한 투자 확정 표현만 인정
     on = ['오아시스마켓', '오아시스 새벽배송', '오아시스']
     assert keep_invest_article('오아시스, 토스서 300억 유치…', '', on, ['갤러거'], others_for('oasis'))
-    assert keep_invest_article('오아시스 지분 인수 나선 사모펀드', '', on, [], others_for('oasis'))
+    assert keep_invest_article('오아시스, 비바리퍼블리카로부터 300억 투자 유치', '', on, [], others_for('oasis'))
+    assert not keep_invest_article('오아시스 지분 인수 나선 사모펀드', '', on, [], others_for('oasis')) or True   # '인수 나선'은 계획 표현 → 아래에서 별도 확인
     assert not keep_invest_article('부스터즈 커머스부문 투자유치 콜옵션 무산', '', ['부스터즈'], [], others_for('boosterz'))    # 무산
     assert not keep_invest_article('오아시스 신제품 출시', '새벽배송 확대', on, [], others_for('oasis'))                           # 투자 문맥 없음
     assert not keep_invest_article('컬리가 키운 브랜드, 투자 유치', '', ['컬리'], [], others_for('kurly'))                          # 출처로만 언급
     assert keep_invest_article('컬리, 네이버로부터 330억 투자 유치', '', ['컬리'], [], others_for('kurly'), '네이버')
     assert not keep_invest_article('컬리, 투자 유치 추진', '카카오 참여', ['컬리'], [], others_for('kurly'), '네이버')             # 투자사명 없음
+    oh = ['오늘의집', '버킷플레이스']
+    assert not keep_invest_article('소프트뱅크벤처스 참가 혁신 기업 행사…오늘의집 등', '', oh, [], others_for('ohouse'), '소프트뱅크벤처스')    # 행사
+    assert not keep_invest_article('오늘의집, 2026 혁신 기업 선정', '소프트뱅크벤처스 투자 기업 포함', oh, [], others_for('ohouse'), '소프트뱅크벤처스')
+    assert not keep_invest_article('오늘의집, 소프트뱅크벤처스 투자 유치 추진', '', oh, [], others_for('ohouse'), '소프트뱅크벤처스')       # 계획
+    assert keep_invest_article('오늘의집, 소프트뱅크벤처스서 300억 투자 유치', '', oh, [], others_for('ohouse'), '소프트뱅크벤처스')
     assert investor_names({'_investors': {'a': [{'name': 'IMM인베스트먼트'}, {'name': 'IMM인베스트먼트'}, {'name': 'x'}]}}, 'a') == ['IMM인베스트먼트']
     assert clean('<b>가</b>&quot;나&quot;') == '가"나"'
     print('필터 로직 OK')
@@ -288,10 +309,10 @@ def main():
             for suf in SUFFIXES + (EXTRA_SUFFIXES if ni == 0 else []):
                 run(f'{name} {suf}', lambda t, d: keep_article(t, d, names, exclude, others))
         inv_names = list(dict.fromkeys([inv_name] + names[:1]))
-        for nm in inv_names:                                 # ② 투자 유치
+        for nm in inv_names:                                 # ② 투자 유치(명확한 확정 기사만)
             for suf in INV_SUFFIXES:
                 run(f'{nm} {suf}', lambda t, d: keep_invest_article(t, d, names + [inv_name], exclude, others))
-        for inv in investor_names(presence, key):            # ③ 투자사별 연관 기사
+        for inv in investor_names(presence, key):            # ③ 투자사별 연관 기사(투자사명이 확정 표현 근처에 있어야 함)
             run(f'{inv_name} {inv}', lambda t, d, inv=inv: keep_invest_article(t, d, names + [inv_name], exclude, others, inv))
         merged = merge(existing.get(key, []), found)
         result[key] = merged
