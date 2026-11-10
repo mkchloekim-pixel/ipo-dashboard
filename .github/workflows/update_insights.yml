@@ -23,6 +23,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: presence.json 형식 점검
+        run: python check_presence.py presence.json
       - name: Build insights.json
         run: python build_insights.py
       - name: 중복 기사 제거
