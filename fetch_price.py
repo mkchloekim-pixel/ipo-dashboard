@@ -4,8 +4,8 @@
 - 대상: price_config.json 에 적힌 상장 기업만(미상장 기업은 시세 없음).
 - 인증키는 환경변수 DATA_GO_KR_KEY 로만 받는다(코드·로그 출력 금지, 오류 메시지에서도 마스킹).
   Encoding 키(% 포함)·Decoding 키(원문) 어느 쪽을 넣어도 동작하도록 자동 처리하고, 앞뒤 공백·줄바꿈은 제거한다.
-- API 주소: 활용신청한 서비스 버전에 맞춰 V2 주소 → 옛 주소 순으로 시도한다.
-  (포털 '요청주소' 확인값: https://apis.data.go.kr/1160100/GetStockSecuritiesInfoService_V2)
+- API 주소: 포털 '요청주소'(…/1160100/GetStockSecuritiesInfoService_V2) + 오퍼레이션명. 오퍼레이션명이 확실하지 않아
+  후보 주소를 차례로 시도한다(400·403이면 다음 후보). 환경변수 PRICE_API_URL(선택)로 '요청주소/오퍼레이션명'을 직접 지정할 수 있다(키 미포함).
 - 데이터는 영업일 기준 '전일 종가'이며 실시간 시세가 아니다. 공모가는 사람이 price_config.json 에 입력한 값만 사용한다.
 - API 조회가 실패하면: ① price_config.json 의 'manual'(사람이 확인해 입력한 종가·시총)이 있으면 그 값을 '(수기)' 표시로 사용,
   ② 없으면 기존 price.json 값을 유지한다. API 조회가 성공하면 항상 API 값이 우선이다.
@@ -24,8 +24,12 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote, urlencode
 
-API_URLS = ['https://apis.data.go.kr/1160100/GetStockSecuritiesInfoService_V2/getStockPriceInfo',
-            'https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo']
+_USER_URL = os.environ.get('PRICE_API_URL', '').strip()
+API_URLS = ([_USER_URL] if _USER_URL.startswith('https://apis.data.go.kr/') else []) + [
+    'https://apis.data.go.kr/1160100/GetStockSecuritiesInfoService_V2/getStockPriceInfo',
+    'https://apis.data.go.kr/1160100/GetStockSecuritiesInfoService_V2/getStockPriceInfo_V2',
+    'https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService_V2/getStockPriceInfo',
+    'https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo']
 KST = timezone(timedelta(hours=9))
 
 
@@ -128,7 +132,7 @@ def selftest():
     m = manual_entry({'name': 'A', 'ipo_price': 10000, 'manual': {'date': '2026.11.06', 'close': 12300, 'rate': -1.2, 'mktcap': 345000000000}})
     assert m['date'] == '2026.11.06 (수기)' and m['close'] == 12300 and m['vs_ipo'] == 23.0 and m['mktcap'] == 345000000000
     assert manual_entry({'name': 'A'}) is None and manual_entry({'name': 'A', 'manual': {'close': ''}}) is None
-    assert API_URLS[0].endswith('GetStockSecuritiesInfoService_V2/getStockPriceInfo')
+    assert any(u.endswith('GetStockSecuritiesInfoService_V2/getStockPriceInfo') for u in API_URLS)
     print('시세 파싱 로직 OK')
 
 
@@ -163,6 +167,7 @@ def main():
         print('  ⚠ 환경변수 DATA_GO_KR_KEY 가 비어 있습니다 → API 조회 없이 수기(manual) 값만 사용합니다.')
     mask = lambda t: str(t).replace(key, '***').replace(kq, '***') if key else str(t)
     begin = (datetime.now(KST) - timedelta(days=21)).strftime('%Y%m%d')
+    short = lambda api: api.split('/1160100/')[1]
     for k, c in cfg.items():
         if k.startswith('_') or not isinstance(c, dict) or not c.get('name'):
             continue
@@ -173,15 +178,15 @@ def main():
             params.update({'likeSrtnCd': code.lstrip('A')} if code else {'likeItmsNm': c['name']})
             try:
                 r = None
-                for api in API_URLS:                                          # V2 주소 → 옛 주소 순으로 시도, 인증 오류(403)면 다음 주소
+                for api in API_URLS:                                          # 후보 주소를 차례로 시도: 400(서비스 없음)·403(인증)이면 다음 후보
                     r = requests.get(f'{api}?serviceKey={kq}&{urlencode(params)}', timeout=20)   # 키는 직접 붙여 이중 인코딩을 막는다
-                    if r.status_code != 403:
-                        print(f'  [{k}] 사용한 API 주소: …/{api.split("/1160100/")[1].split("/")[0]}')
+                    if r.status_code not in (400, 403):
+                        print(f'  [{k}] 사용한 API 주소: …/{short(api)}')
                         break
-                    print(f'  ⚠ [{k}] …/{api.split("/1160100/")[1].split("/")[0]}: HTTP 403 → 다음 주소 시도')
+                    print(f'  ⚠ [{k}] …/{short(api)}: HTTP {r.status_code} {re.sub(chr(10), " ", mask(r.text))[:110]} → 다음 후보 시도')
                 body = mask(r.text[:200]).replace('\n', ' ')
                 if r.status_code != 200:
-                    print(f'  ⚠ [{k}] HTTP {r.status_code}: {body}')
+                    print(f'  ⚠ [{k}] 마지막 응답 HTTP {r.status_code}: {body}')
                 else:
                     try:
                         j = r.json()
