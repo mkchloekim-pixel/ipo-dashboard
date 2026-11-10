@@ -521,6 +521,10 @@ def valid_investor_name(nm):
     return True
 
 
+FOUND_AFTER = re.compile(r'^\s*(?:\d{1,2}월\s*)?(?:에|에는|부터)?\s*(?:설립|창업|창립|출범|론칭|런칭|출시|세워|문을\s*열|사업\s*시작|서비스\s*시작)')
+FOUND_BEFORE = re.compile(r'(?:설립|창업|창립|출범|론칭|출시)\s*[:(]?\s*$')
+
+
 def invest_date(t, art_date):
     """투자 시점: 기사 문구가 투자 표현 가까이(앞뒤 40자)에서 과거 연도('2021년')·'지난해/작년/재작년'을 말하면 그 시점을, 아니면 기사 작성월을 쓴다.
     (예: 2026년 기사가 '2021년 앵커에쿼티파트너스 투자'를 언급 → 2021)"""
@@ -529,6 +533,8 @@ def invest_date(t, art_date):
     for dm in DEAL_RE.finditer(t or ''):
         for ym in YEAR_RE.finditer(t):
             y, d = int(ym.group(1)), abs(ym.start() - dm.start())
+            if FOUND_AFTER.search(t[ym.end():ym.end() + 14]) or FOUND_BEFORE.search(t[max(0, ym.start() - 8):ym.start()]):
+                continue                                   # '2018년 설립'·'설립 2018년' 같은 설립·출시 연도는 투자 시점이 아니다
             if y < ay and d <= 40 and (best is None or d < best[0]):
                 best = (d, y)
         for w, off in (('재작년', 2), ('지난해', 1), ('작년', 1)):
@@ -865,6 +871,10 @@ def selftest():
     assert same_investor('프라이머사제', '프라이머·IMM인베스트먼트') and same_investor('IMM인베스트먼트', '프라이머/IMM인베스트먼트')
     assert not same_investor('올리브영', '프라이머·IMM인베스트먼트')
     assert canon_investor('에스비아이인베스트먼트') == 'SBI인베스트먼트' and same_investor('에스비아이인베스트먼트', 'SBI인베스트먼트·엔베스터·하나벤처스')
+    # 설립 연도를 투자 시점으로 오인하지 않는다(올리브인터내셔널: 2018년 설립, 투자는 2023년)
+    assert invest_date('2018년 설립된 올리브인터내셔널이 프라이머 등으로부터 100억원 투자를 유치했다', '2023.12') == '2023.12'
+    assert invest_date('올리브인터내셔널(설립 2018년)은 시리즈 투자를 유치했다', '2023.12') == '2023.12'
+    assert invest_date('2018년 설립 이후 2021년 프라이머로부터 투자를 유치했다', '2023.12') == '2021'
     print('분석 로직 OK')
 
 
