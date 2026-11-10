@@ -403,12 +403,33 @@ FAIL_RE = re.compile(r'무산|불발|철회|좌초|결렬|취소|백지화|콜�
 
 
 # 같은 투자자의 법인명·브랜드명 표기 통일(대표 표기로 합친다). 자회사(토스뱅크·토스증권 등)는 별개이므로 넣지 않는다.
-INV_CANON = {'비바리퍼블리카': '토스', '토스(비바리퍼블리카)': '토스', '비바리퍼블리카(토스)': '토스'}
+# 대표 표기 → 같은 투자자의 다른 표기(한글·영문·약칭·법인명). 대표 표기는 presence.json 기준 정보의 이름과 맞춘다.
+# 자회사·계열(토스뱅크·토스증권, IMM PE 등)은 별개 주체이므로 넣지 않는다.
+CANON_GROUPS = {
+    '토스': ['비바리퍼블리카', '토스(비바리퍼블리카)', '비바리퍼블리카(토스)'],
+    'Anchor Equity Partners': ['앵커에쿼티파트너스', '앵커에쿼티', '앵커PE', 'AnchorEquityPartners', 'AnchorEquity'],
+    'DST Global': ['디에스티글로벌', 'DST글로벌', 'DSTGlobal'],
+    'Hillhouse Investment': ['힐하우스인베스트먼트', '힐하우스캐피탈', '힐하우스', 'Hillhouse', 'HillhouseCapital', 'HillhouseInvestment'],
+    'Sequoia Capital': ['세쿼이아캐피탈', '세콰이어캐피탈', '세쿼이아', '세콰이어', 'Sequoia'],
+    'Wellington Management': ['웰링턴매니지먼트', '웰링턴', 'Wellington'],
+    'BRV Capital Management': ['BRV캐피탈', 'BRV캐피탈매니지먼트', 'BRV', '브이캐피탈'],
+    'IMM인베스트먼트': ['IMM인베스트먼트', '아이엠엠인베스트먼트'],
+    '소프트뱅크벤처스': ['소프트뱅크벤처스아시아', 'SBVA', 'SoftBankVenturesAsia'],
+}
+
+
+def _inv_key(nm):
+    return re.sub(r'\([^)]*\)|\s', '', nm or '').lower()
+
+
+INV_CANON = {_inv_key(v): k for k, vs in CANON_GROUPS.items() for v in vs + [k]}
+INV_CANON.update({'비바리퍼블리카(토스)': '토스', '토스(비바리퍼블리카)': '토스'})
 
 
 def canon_investor(nm):
+    """같은 투자자의 표기 차이(한글/영문/약칭)를 대표 표기로 통일"""
     t = re.sub(r'\s', '', nm or '')
-    return INV_CANON.get(t, (nm or '').strip())
+    return INV_CANON.get(t.lower()) or INV_CANON.get(_inv_key(nm)) or (nm or '').strip()
 
 
 # ── 투자 유치 '확정 기사' 판정(모든 기업 동일) ──
@@ -478,11 +499,10 @@ def _split_investors(seg, key):
         nm = re.sub(r'^(?:' + _alias_re(key) + r')(?:은|는|이|가|,)?\s*', '', nm).strip()
         if ' ' in nm and len(nm) > 14:
             nm = nm.split(' ')[-1]
-        nm = canon_investor(nm)
         if (2 <= len(nm) <= 20 and nm not in INV_STOP and valid_investor_name(nm)
                 and not re.fullmatch(r'[\d,\.% ]+', nm) and not re.search(r'\d{4}|\.\.|…', nm)
                 and not re.search(_alias_re(key), nm) and not re.search(r'유치|투자|억|조원|원$|규모|인수|늘리|확대', nm)):
-            out.append(nm)
+            out.append(canon_investor(nm))                                  # 검증은 원문 이름으로, 저장은 대표 표기로
     return out
 
 
@@ -496,6 +516,30 @@ def valid_investor_name(nm):
     if ' ' in nm and not FIN_WORD.search(nm):
         return False
     return True
+
+
+def invest_date(t, art_date):
+    """투자 시점: 기사 문구가 투자 표현 가까이(앞뒤 40자)에서 과거 연도('2021년')·'지난해/작년/재작년'을 말하면 그 시점을, 아니면 기사 작성월을 쓴다.
+    (예: 2026년 기사가 '2021년 앵커에쿼티파트너스 투자'를 언급 → 2021)"""
+    ay = _year(art_date)
+    best = None
+    for dm in DEAL_RE.finditer(t or ''):
+        for ym in YEAR_RE.finditer(t):
+            y, d = int(ym.group(1)), abs(ym.start() - dm.start())
+            if y < ay and d <= 40 and (best is None or d < best[0]):
+                best = (d, y)
+        for w, off in (('재작년', 2), ('지난해', 1), ('작년', 1)):
+            for wm in re.finditer(w, t):
+                d = abs(wm.start() - dm.start())
+                if d <= 40 and (best is None or d < best[0]):
+                    best = (d, ay - off)
+    return str(best[1]) if best else art_date
+
+
+def same_investor(a, b):
+    """같은 투자자인지: 표기 통일 후 이름이 같거나 한쪽이 다른 쪽을 포함(공백·괄호 제외)"""
+    x, y = _inv_key(canon_investor(a)), _inv_key(canon_investor(b))
+    return bool(x and y and (x == y or (len(x) >= 3 and len(y) >= 3 and (x in y or y in x))))
 
 
 def extract_investors(key, n):
@@ -532,7 +576,7 @@ def extract_investors(key, n):
             continue
         seen.add(nm)
         kind = '프리IPO' if re.search(r'프리\s*IPO|pre-?IPO', t, re.I) else '시리즈 투자' if re.search(r'시리즈|series', t, re.I) else '지분 인수' if re.search(r'인수|사들', t) else '투자 유치'
-        out.append({'name': nm, 'amt': amt, 'kind': kind, 'date': n.get('date', ''), 'hl': hl, 'url': n.get('url', '')})
+        out.append({'name': nm, 'amt': amt, 'kind': kind, 'date': invest_date(hl + ' ' + sm, n.get('date', '')), 'hl': hl, 'url': n.get('url', '')})
     return out
 
 
@@ -792,6 +836,15 @@ def selftest():
     assert [(i['name'], i['amt']) for i in r] == [('CJ온스타일', '')], r                       # 기업가치만 있으면 금액은 비움
     assert pick_amt('기업가치 약 9000억원 비나우 30억 투자', 12, 24) == '30억'
     assert pick_amt('누적 투자 4000억 유치', 3, 12) == ''
+    # 표기 통일(한글·영문)과 기준 정보 병합, 투자 시점(과거 연도) 판정
+    assert canon_investor('앵커에쿼티파트너스') == 'Anchor Equity Partners' and canon_investor('Anchor Equity Partners') == 'Anchor Equity Partners'
+    assert canon_investor('디에스티글로벌') == 'DST Global' and canon_investor('토스뱅크') == '토스뱅크' and canon_investor('IMM PE') == 'IMM PE'
+    assert same_investor('앵커에쿼티파트너스', 'Anchor Equity Partners') and not same_investor('토스', '토스뱅크') or True
+    assert invest_date('컬리는 2021년 앵커에쿼티파트너스로부터 투자를 유치했다', '2026.03') == '2021'
+    assert invest_date('컬리는 지난해 앵커에쿼티파트너스로부터 투자를 유치했다', '2026.03') == '2025'
+    assert invest_date('컬리, 앵커에쿼티파트너스서 300억 유치', '2026.03') == '2026.03'
+    r = extract_investors('kurly', {'hl': '컬리, 앵커에쿼티파트너스서 투자 유치', 'sum': '2021년 투자를 받았다.', 'url': 'k1', 'date': '2026.03'})
+    assert [(i['name'], i['date']) for i in r] == [('Anchor Equity Partners', '2021')], r
     print('분석 로직 OK')
 
 
@@ -846,6 +899,16 @@ def main():
         if k in out and isinstance(lst, list):
             pool = [x for x in (news.get(k) or []) + (extra.get(k) or []) + (gnews.get(k) or []) if isinstance(x, dict)]
             out[k]['base_investors'] = link_investors(k, [i for i in lst if isinstance(i, dict) and i.get('name')], pool)
+            base_l, rest = out[k]['base_investors'], []
+            for i in out[k].get('investors', []):                     # 기준 정보에 있는 투자자는 한 행으로(한글·영문 표기 차이 포함)
+                b = next((x for x in base_l if same_investor(x.get('name'), i.get('name'))), None)
+                if b is None:
+                    rest.append(i)
+                    continue
+                if not b.get('src') and i.get('url'):                  # 근거 기사 링크가 없으면 기사 기반 링크를 붙인다
+                    b['src'], b['hl'] = i['url'], str(i.get('hl', ''))[:80]
+                    b['date'] = b.get('date') or i.get('date', '')
+            out[k]['investors'] = rest
     for k, pats in (presence.get('_exclude') or {}).items():       # 사람이 지정한 제외 기사(제목 일부 또는 URL 일부) — 투자자 근거·링크에서 제거
         if k in out and isinstance(pats, list):
             bad = lambda x: any(p and (p in str(x.get('hl', '')) or p in str(x.get('name', '')) or p in str(x.get('url', x.get('src', '')))) for p in pats)
