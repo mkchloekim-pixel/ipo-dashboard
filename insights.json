@@ -278,9 +278,8 @@
      "name": "Anchor Equity Partners",
      "kind": "전략적 투자자",
      "amt": "투자유지",
-     "date": "2026.07",
-     "src": "https://www.moneystorm.kr/news/articleView.html?idxno=5060",
-     "hl": "다시 밝아진 마켓컬리의 IPO전망...네이버 증자참여 이어 실적호조세 지..."
+     "date": "",
+     "src": ""
     },
     {
      "name": "DST Global",
@@ -691,16 +690,7 @@
      "key": false
     }
    ],
-   "investors": [
-    {
-     "name": "CJ온스타일",
-     "amt": "약 9000억원",
-     "kind": "투자 유치",
-     "date": "2026.07",
-     "hl": "비나우, IPO 앞두고 배당 10배...투자자 선제적 자금 회수",
-     "url": "https://dealsite.co.kr/articles/164993"
-    }
-   ],
+   "investors": [],
    "note": {
     "text": "일본 비중이 높으나 신규 해외영업 인력 채용 확대 중.",
     "title": "㈜비나우 채용 - [리더/경력] B2B 해외영업 중동/북미/유럽/중남미 권역 | 잡코리아",
@@ -1488,16 +1478,7 @@
      "key": false
     }
    ],
-   "investors": [
-    {
-     "name": "프라이머사제",
-     "amt": "100억 원",
-     "kind": "시리즈 투자",
-     "date": "2023.12",
-     "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치",
-     "url": "https://www.sedaily.com/NewsView/29YF3RX82P"
-    }
-   ],
+   "investors": [],
    "invest_summary": "Series B: 프라이머 · IMM인베스트먼트 (합산 100억원) / 전략적 투자: 올리브영 (30억원)",
    "base_investors": [
     {
@@ -2238,7 +2219,7 @@
      "url": "https://dealsite.co.kr/articles/135053"
     }
    ],
-   "invest_summary": "Series C: 에스비아이인베스트먼트 · 엔베스터 · 레이크브릿지에쿼티파트너스 · 하나벤처스 / 지분 인수: 우주텍",
+   "invest_summary": "RCPS 투자 유치(26.1, 374억): SBI인베스트먼트 · 엔베스터 · 레이크브릿지에쿼티파트너스 · 하나벤처스 등 / 투자(25.1, 104억): IBK벤처투자 · 코오롱인베스트먼트 · 에이벤처스 / 최대주주: 우주텍",
    "base_investors": [
     {
      "name": "우주텍",
@@ -2248,35 +2229,18 @@
      "src": ""
     },
     {
-     "name": "하나벤처스",
-     "kind": "팔로온 투자자",
-     "amt": "Series C",
-     "date": "2026.01",
-     "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815",
-     "hl": "FSN 자회사 부스터즈, 374억 투자유치...몸값 1900억 '껑충'"
-    },
-    {
-     "name": "에스비아이인베스트먼트",
-     "kind": "신규 투자자",
-     "amt": "Series C",
+     "name": "SBI인베스트먼트·엔베스터·레이크브릿지에쿼티파트너스·하나벤처스",
+     "kind": "RCPS 투자 유치 (26.1, 외 참여)",
+     "amt": "합산 374억",
      "date": "",
-     "src": ""
+     "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815"
     },
     {
-     "name": "엔베스터",
-     "kind": "신규 투자자",
-     "amt": "Series C",
-     "date": "2026.01",
-     "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815",
-     "hl": "FSN 자회사 부스터즈, 374억 투자유치...몸값 1900억 '껑충'"
-    },
-    {
-     "name": "레이크브릿지에쿼티파트너스",
-     "kind": "신규 투자자",
-     "amt": "Series C",
-     "date": "2026.01",
-     "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815",
-     "hl": "FSN 자회사 부스터즈, 374억 투자유치...몸값 1900억 '껑충'"
+     "name": "IBK벤처투자·코오롱인베스트먼트·에이벤처스",
+     "kind": "투자 (25.1)",
+     "amt": "합산 104억",
+     "date": "",
+     "src": "https://dealsite.co.kr/articles/135053"
     }
    ],
    "exclude": [
@@ -2380,5 +2344,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-10T10:37:14 KST"
+ "_updated": "2026-11-10T10:47:13 KST"
 }
