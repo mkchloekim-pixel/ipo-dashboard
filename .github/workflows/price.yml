@@ -2,14 +2,15 @@ name: 주가·시총 갱신
 
 on:
   schedule:
-    - cron: '30 5 * * 1-5'     # 평일 14:30 KST
+    # GitHub Actions cron은 UTC 기준. 08:30 UTC = 한국시간 17:30, 월~금(한국 영업일 요일 기준)
+    - cron: '30 8 * * 1-5'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  price:
+  update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,12 +18,14 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install requests
-      - run: python fetch_price.py
+      - name: 시세 수집
+        run: python fetch_price.py
         env:
           DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
-      - name: 변경 사항 커밋
+      - name: 변경 시 커밋
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add price.json
-          git diff --cached --quiet || (git commit -m "chore: 주가·시총 갱신" && git push)
+          git diff --staged --quiet || git commit -m "chore: 주가·시총 갱신"
+          git push
