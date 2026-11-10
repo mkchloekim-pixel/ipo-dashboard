@@ -1492,7 +1492,7 @@
      "name": "프라이머·IMM인베스트먼트",
      "kind": "Series B 공동 투자",
      "amt": "합산 100억",
-     "date": "2023.12",
+     "date": "2018",
      "src": "https://www.sedaily.com/NewsView/29YF3RX82P",
      "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치"
     }
@@ -2209,16 +2209,7 @@
      "key": false
     }
    ],
-   "investors": [
-    {
-     "name": "스마트스터디벤처스",
-     "amt": "",
-     "kind": "투자 유치",
-     "date": "2025.01",
-     "hl": "부스터즈, 104억 투자 유치 완료",
-     "url": "https://dealsite.co.kr/articles/135053"
-    }
-   ],
+   "investors": [],
    "invest_summary": "RCPS 투자 유치(26.1, 374억): SBI인베스트먼트 · 엔베스터 · 레이크브릿지에쿼티파트너스 · 하나벤처스 등 / 투자(25.1, 104억): IBK벤처투자 · 코오롱인베스트먼트 · 에이벤처스 / 최대주주: 우주텍",
    "base_investors": [
     {
@@ -2244,7 +2235,8 @@
     }
    ],
    "exclude": [
-    "커머스부문"
+    "커머스부문",
+    "스마트스터디벤처스"
    ]
   },
   "nmodelin": {
@@ -2344,5 +2336,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-10T10:47:13 KST"
+ "_updated": "2026-11-10T10:59:37 KST"
 }
