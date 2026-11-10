@@ -748,16 +748,9 @@
    "invest_summary": "투자 유치: DS투자파트너스 · 청담인베스트먼트 (117억원, 2025.12) / 기존 PE 경영권 투자(투자사명 비공개)",
    "base_investors": [
     {
-     "name": "DS투자파트너스",
-     "kind": "신규 투자 (2025.12, 청담인베스트먼트와 합산 117억원)",
-     "amt": "",
-     "date": "",
-     "src": ""
-    },
-    {
-     "name": "청담인베스트먼트",
-     "kind": "신규 투자 (2025.12, DS투자파트너스와 합산 117억원)",
-     "amt": "",
+     "name": "DS투자파트너스·청담인베스트먼트",
+     "kind": "신규 투자 (2025.12)",
+     "amt": "합산 117억원",
      "date": "",
      "src": ""
     }
@@ -1521,7 +1514,7 @@
      "url": "https://www.sedaily.com/NewsView/29YF3RX82P"
     }
    ],
-   "invest_summary": "투자 유치: 올리브영 · 프라이머 · IMM인베스트먼트",
+   "invest_summary": "Series B: 프라이머 · IMM인베스트먼트 (합산 100억원) / 전략적 투자: 올리브영 (30억원)",
    "base_investors": [
     {
      "name": "올리브영",
@@ -1531,20 +1524,11 @@
      "src": ""
     },
     {
-     "name": "프라이머",
-     "kind": "재무적 투자자",
-     "amt": "Series B",
-     "date": "2023.12",
-     "src": "https://www.sedaily.com/NewsView/29YF3RX82P",
-     "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치"
-    },
-    {
-     "name": "IMM인베스트먼트",
-     "kind": "재무적 투자자",
-     "amt": "Series B",
-     "date": "2023.12",
-     "src": "https://www.sedaily.com/NewsView/29YF3RX82P",
-     "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치"
+     "name": "프라이머·IMM인베스트먼트",
+     "kind": "Series B 공동 투자",
+     "amt": "합산 100억",
+     "date": "",
+     "src": ""
     }
    ]
   },
@@ -2262,7 +2246,7 @@
    "investors": [
     {
      "name": "스마트스터디벤처스",
-     "amt": "104억 원",
+     "amt": "",
      "kind": "투자 유치",
      "date": "2025.01",
      "hl": "부스터즈, 104억 투자 유치 완료",
@@ -2400,25 +2384,9 @@
    "invest_summary": "Series A: 위벤처스 · 인탑스인베스트먼트 · 에이치지이니셔티브 (누적 30억원)",
    "base_investors": [
     {
-     "name": "위벤처스",
+     "name": "인탑스인베스트먼트·에이치지이니셔티브·위벤처스",
      "kind": "Series A (25.8)",
-     "amt": "10억",
-     "date": "2025.08",
-     "src": "https://zdnet.co.kr/view/?no=20250819180628",
-     "hl": "앤마들린 '글로브', 30억원 투자 유치"
-    },
-    {
-     "name": "인탑스인베스트먼트",
-     "kind": "Series A (25.8)",
-     "amt": "10억",
-     "date": "2025.08",
-     "src": "https://zdnet.co.kr/view/?no=20250819180628",
-     "hl": "앤마들린 '글로브', 30억원 투자 유치"
-    },
-    {
-     "name": "에이치지이니셔티브",
-     "kind": "Series A (25.8)",
-     "amt": "10억",
+     "amt": "합산 30억원",
      "date": "2025.08",
      "src": "https://zdnet.co.kr/view/?no=20250819180628",
      "hl": "앤마들린 '글로브', 30억원 투자 유치"
@@ -2452,5 +2420,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-10T10:14:32 KST"
+ "_updated": "2026-11-10T10:33:45 KST"
 }
