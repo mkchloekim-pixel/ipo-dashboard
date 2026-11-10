@@ -743,7 +743,7 @@
    },
    "global": [],
    "investors": [],
-   "invest_summary": "M&A 단계: 서영이앤티(하이트진로그룹 계열)가 100% 인수 / IPO 심사 중",
+   "invest_summary": "서영이앤티(하이트진로그룹 계열)가 100% 인수 / IPO 심사 중",
    "base_investors": [
     {
      "name": "진백글로벌",
@@ -1478,7 +1478,7 @@
     }
    ],
    "investors": [],
-   "invest_summary": "Series C·전략 투자: CJ올리브영 (30억원) · IMM인베스트먼트 (Series B)",
+   "invest_summary": "SI: CJ올리브영 (30억원), Series B: 프라이머사제·IMM인베스트먼트",
    "base_investors": [
     {
      "name": "프라이머사제·IMM인베스트먼트",
@@ -2301,7 +2301,7 @@
    },
    "global": [],
    "investors": [],
-   "invest_summary": "M&A 단계: 동국제약이 지분 53.7%를 306억원에 인수해 경영권 확보",
+   "invest_summary": "동국제약이 지분 53.7%를 306억원에 인수해 경영권 확보",
    "base_investors": [
     {
      "name": "동국제약",
@@ -2314,5 +2314,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-10T15:14:36 KST"
+ "_updated": "2026-11-10T15:27:46 KST"
 }
