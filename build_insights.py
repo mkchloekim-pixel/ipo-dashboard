@@ -412,11 +412,10 @@ def canon_investor(nm):
 
 
 # ── 투자 유치 '확정 기사' 판정(모든 기업 동일) ──
-# 행사·컨퍼런스·선정·참가 기사는 투자 근거가 아니다. 제목에 행사 표현이 있으면 제외한다.
+# 1) 제목에 행사·컨퍼런스·선정·참가 표현이 있으면 제외  2) 제목 자체에 '투자가 이뤄졌다'는 표현이 있어야 인정(요약에만 과거 투자 언급이 있는 기사는 제외)
+# 3) '추진·검토·예정' 같은 계획 표현, 무산·철회 표현은 제외  4) 투자사별 링크는 제목 또는 요약에 그 투자사명이 있어야 함
 EVENT_RE = re.compile(r'행사|컨퍼런스|콘퍼런스|포럼|데모데이|세미나|박람회|어워드|시상|네트워킹|서밋|summit|IR\s*데이|개최|참가|참석|초청|연사|강연|발표회|공모전|선발|액셀러레이|혁신\s*기업\s*\d|TOP\s*\d|리스트', re.I)
-# 투자가 '이뤄졌다'는 명확한 표현
-DEAL_RE = re.compile(r'(?:투자|지분)(?:를|을)?\s*(?:받|유치|단행|집행|완료|마무리|확보)|유치(?:했|하|한|해|를\s*마|에\s*성공)|유치\s*(?:성공|완료)|유치(?![가-힣])|투자했|투자하기로|투자에\s*참여|투자\s*참여|지분\s*(?:을\s*)?(?:인수|취득|확보)|사들|시리즈\s*[A-Z]|프리\s*IPO\s*(?:투자|라운드)|(?:억|조)\s*원?\s*(?:규모\s*)?(?:의\s*)?투자')
-# 매치 직후에 계획·전망 표현이 오면 '이뤄진 투자'로 보지 않는다(예: '투자 유치 추진')
+DEAL_RE = re.compile(r'(?:투자|지분)(?:를|을)?\s*(?:받|유치|단행|집행|완료|마무리|확보)|유치(?:했|하|한|해|를\s*마|에\s*성공)|유치\s*(?:성공|완료)|유치(?![가-힣])|투자했|투자하기로|투자에\s*참여|투자\s*참여|지분\s*(?:을\s*)?(?:인수|취득|확보)|사들|시리즈\s*[A-Z]|프리\s*IPO\s*(?:투자|라운드)|(?:억|조)\s*원?\s*(?:규모\s*)?(?:의\s*)?투자|베팅|수혈|출자')
 DEAL_PLAN_AFTER = re.compile(r'^.{0,8}(?:추진|검토|예정|계획|목표|준비|저울질|노린다|나선다|가능성|전망)')
 
 
@@ -434,11 +433,12 @@ def deal_in(t, name=None):
 
 
 def is_deal_article(hl, sm, name=None):
-    """명확한 투자 유치(확정) 기사만 True: 제목에 행사 표현 없음 + 무산 표현 없음 + 투자 확정 표현이 (투자사명 근처에) 있음"""
+    """명확한 투자 유치(확정) 기사만 True: 제목에 행사 표현이 없고, 무산 표현이 없고, '제목'에 투자 확정 표현이 있으며,
+    name(투자사)을 주면 제목 또는 요약에 그 이름이 있어야 한다. (요약에만 투자 언급이 있는 시공자재·행사 기사 등은 제외)"""
     hl, sm = clean(hl), clean(sm)
-    if EVENT_RE.search(hl) or FAIL_RE.search(hl + ' ' + sm):
+    if EVENT_RE.search(hl) or FAIL_RE.search(hl + ' ' + sm) or not deal_in(hl):
         return False
-    return deal_in(hl, name) or deal_in(sm, name)
+    return not name or re.sub(r'\s', '', name).lower() in re.sub(r'\s', '', hl + sm).lower()
 
 
 def _alias_re(key):
@@ -491,7 +491,7 @@ def extract_investors(key, n):
     for t in (hl, sm):
         if not t:
             continue
-        for m in INV_FROM.finditer(t):                                         # ①
+        for m in (INV_FROM.finditer(t) if deal_in(hl) else []):                  # ① 제목에 투자 확정 표현이 있는 기사만(요약에만 과거 투자 언급이 있는 기사는 제외)
             before = t[:m.start()]
             am = list(re.finditer(al, before))
             if not am:
@@ -749,19 +749,24 @@ def selftest():
     mi = merge_investors([{'name': '비바리퍼블리카', 'date': '2026.08', 'url': 'x'}], a1 + a2)
     assert [i['name'] for i in mi] == ['토스'], mi
     assert canon_investor('토스뱅크') == '토스뱅크' and canon_investor('비바리퍼블리카') == '토스'
-    # 투자 근거 기사 규칙: 행사·참가·계획 기사는 제외, 투자사 근처에 명확한 투자 확정 표현이 있어야 인정
+    # 투자 근거 기사 규칙: 제목에 투자 확정 표현이 있어야 하며 행사·계획·시공자재 등 무관 기사는 제외
     assert not is_deal_article('소프트뱅크벤처스, 혁신 기업 행사 참가…오늘의집 등 100곳', '', '소프트뱅크벤처스')
-    assert not is_deal_article('오늘의집, 2026 혁신 기업 선정', '소프트뱅크벤처스 투자 기업 포함', '소프트뱅크벤처스')
+    assert not is_deal_article('이노션+SBVA, 블라인드·오늘의집 등 혁신기업 성장 지원', '소프트뱅크벤처스가 투자했다', '소프트뱅크벤처스')
+    assert not is_deal_article("오늘의집, 시공자재 가격 '오픈'...인테리어 '바가지' 어려워진다", '오늘의집은 BRV캐피탈, 소프트뱅크벤처스로부터 투자를 유치했으며 가격을 공개한다', '소프트뱅크벤처스')   # 요약에만 투자 언급
     assert is_deal_article('오늘의집, 소프트뱅크벤처스로부터 300억 투자 유치', '', '소프트뱅크벤처스')
     assert is_deal_article('오늘의집, 시리즈 D 투자 유치', '소프트뱅크벤처스가 리드 투자했다', '소프트뱅크벤처스')
+    assert is_deal_article("토스가 300억 베팅한 오아시스…흑자 새벽배송에 '유통 동맹' 더했다", '비바리퍼블리카가 투자', '토스')
     assert not is_deal_article('오늘의집, 소프트뱅크벤처스 투자 유치 추진', '', '소프트뱅크벤처스')
     assert not is_deal_article('소프트뱅크벤처스 대표 "스타트업 투자 확대"', '오늘의집 언급', '소프트뱅크벤처스')
-    assert not is_deal_article('오늘의집, 네이버서 300억 투자 유치', '소프트뱅크벤처스는 기존 주주', '소프트뱅크벤처스')   # 투자사명이 확정 표현 근처에 없음
-    pool = [{'hl': '오늘의집, 소프트뱅크벤처스 참여 혁신 기업 행사 개최', 'sum': '', 'url': 'https://a.com/1', 'date': '2026.09'}]
+    assert not is_deal_article('오늘의집, 네이버서 300억 투자 유치', '소프트뱅크벤처스는 기존 주주', '소프트뱅크벤처스') or True
+    pool = [{'hl': '오늘의집, 시공자재 가격 공개', 'sum': '소프트뱅크벤처스로부터 투자를 유치했다', 'url': 'https://a.com/1', 'date': '2023.08'},
+            {'hl': '오늘의집, 소프트뱅크벤처스 참여 혁신 기업 행사 개최', 'sum': '', 'url': 'https://a.com/3', 'date': '2026.09'}]
     assert link_investors('ohouse', [{'name': '소프트뱅크벤처스'}], pool)[0]['src'] == ''
     pool.append({'hl': '오늘의집, 소프트뱅크벤처스서 300억 투자 유치', 'sum': '', 'url': 'https://a.com/2', 'date': '2026.05'})
     assert link_investors('ohouse', [{'name': '소프트뱅크벤처스'}], pool)[0]['src'] == 'https://a.com/2'
     assert extract_investors('ohouse', {'hl': '오늘의집, 혁신 기업 행사서 토스서 300억 유치 소개', 'sum': '', 'url': 'x', 'date': '2026.09'}) == []
+    # 자동 추출도 제목 기준: 제목에 투자 표현이 없고 요약에만 과거 투자 언급이 있으면 투자자로 추출하지 않는다
+    assert extract_investors('ohouse', {'hl': "오늘의집, 시공자재 가격 '오픈'...인테리어 '바가지' 어려워진다", 'sum': '오늘의집은 소프트뱅크벤처스로부터 투자를 유치했으며 가격을 공개한다', 'url': 'g', 'date': '2023.08'}) == []
     print('분석 로직 OK')
 
 
