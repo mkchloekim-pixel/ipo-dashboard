@@ -6,6 +6,19 @@
    },
    "global": [
     {
+     "region": "대만",
+     "items": [],
+     "n_done": 0,
+     "n_plan": 0,
+     "date": "",
+     "level": "confirmed",
+     "tag": "ongoing",
+     "base": true,
+     "note": "대만 현지법인 설립(2026.07)",
+     "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968",
+     "key": true
+    },
+    {
      "region": "일본",
      "items": [
       {
@@ -62,8 +75,11 @@
      "n_done": 5,
      "n_plan": 3,
      "level": "confirmed",
-     "tag": "expand",
+     "tag": "ongoing",
      "date": "2026.11",
+     "base": true,
+     "note": "일본 법인 운영",
+     "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968",
      "key": true
     },
     {
@@ -123,8 +139,11 @@
      "n_done": 9,
      "n_plan": 1,
      "level": "confirmed",
-     "tag": "expand",
+     "tag": "ongoing",
      "date": "2026.11",
+     "base": true,
+     "note": "중국(상하이) 법인 운영",
+     "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968",
      "key": true
     },
     {
@@ -159,7 +178,24 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "Series C: Sequoia Capital · IMM인베스트먼트 · Wellington Management (누적 약 4,000억원+)",
+   "base_investors": [
+    {
+     "name": "콜버그크래비스로버츠·웰링턴매니지먼트 등",
+     "kind": "Series C",
+     "amt": "2,400억",
+     "date": "2023.7월",
+     "src": ""
+    },
+    {
+     "name": "세콰이어캐피탈·IMM인베스트먼트 등",
+     "kind": "Series B",
+     "amt": "1,300억",
+     "date": "2021.3월",
+     "src": ""
+    }
+   ]
   },
   "kurly": {
    "ipo": {
@@ -228,7 +264,31 @@
      "key": true
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "투자 유치: Anchor Equity Partners · DST Global · Hillhouse Investment · 네이버 (누적 1.2조원+, 2026.05 네이버 330억원 추가)",
+   "base_investors": [
+    {
+     "name": "네이버",
+     "kind": "Series G (지분 약 6.2% 확보)",
+     "amt": "330억",
+     "date": "2026.5월",
+     "src": ""
+    },
+    {
+     "name": "Anchor Equity Partners",
+     "kind": "Pre-IPO",
+     "amt": "3,700억 (1,2차 합산)",
+     "date": "2021.12월, 2023.5월",
+     "src": ""
+    },
+    {
+     "name": "DST글로벌·세콰이어캐피탈차이나·밀레니엄매니지먼트 등",
+     "kind": "Series F",
+     "amt": "2,254억",
+     "date": "2021.7월",
+     "src": ""
+    }
+   ]
   },
   "ohouse": {
    "ipo": {
@@ -278,21 +338,62 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "투자 유치: BRV Capital Management · 소프트뱅크벤처스 · 본엔젤스 (누적 약 3,000억원+)",
+   "base_investors": [
+    {
+     "name": "KDB산업은행·버텍스그로스·소프트뱅크벤처스 등",
+     "kind": "Series D",
+     "amt": "2,300억",
+     "date": "2022.5월",
+     "src": ""
+    },
+    {
+     "name": "본드캐피털·IMM인베스트먼트·미래에셋벤처투자·네이버 등",
+     "kind": "Series C",
+     "amt": "770억",
+     "date": "2020.11월",
+     "src": ""
+    },
+    {
+     "name": "네이버",
+     "kind": "SI투자 (지분 약 11% 확보)",
+     "amt": "100억",
+     "date": "2018.2~10월",
+     "src": ""
+    }
+   ]
   },
   "oasis": {
    "ipo": {
     "signals": []
    },
    "global": [],
-   "investors": [
+   "investors": [],
+   "invest_summary": "–",
+   "base_investors": [
     {
      "name": "토스",
+     "kind": "SI투자 (지분 약 2.3% 확보)",
      "amt": "300억",
-     "kind": "투자 유치",
-     "date": "2026.09",
-     "hl": "오아시스마켓, 토스로부터 300억 투자 유치…신규사업 확대",
-     "url": "https://www.edaily.co.kr/News/Read?newsId=03745766645581104&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
+     "date": "2026.9월",
+     "src": "https://www.sedaily.com/article/20092476?ref=naver",
+     "hl": "오아시스마켓, 토스쇼핑 입점…토스에 300억 투자도 받는다"
+    },
+    {
+     "name": "UCK파트너스",
+     "kind": "Pre-IPO",
+     "amt": "500억",
+     "date": "2022.6월",
+     "src": "https://www.thepublic.kr/news/articleView.html?idxno=319767",
+     "hl": "토스, 오아시스에 300억 베팅…1.3조 몸값에 UCK 엑시트 '청신호'"
+    },
+    {
+     "name": "홈앤쇼핑",
+     "kind": "SI투자",
+     "amt": "100억",
+     "date": "2022.2월",
+     "src": ""
     }
    ]
   },
@@ -358,8 +459,11 @@
      "n_done": 6,
      "n_plan": 2,
      "level": "confirmed",
-     "tag": "new",
+     "tag": "ongoing",
      "date": "2026.11",
+     "base": true,
+     "note": "미국 법인(구다이글로벌 USA) 유통 거점",
+     "src": "https://www.goodai-global.com/ko",
      "key": true
     },
     {
@@ -414,6 +518,40 @@
      "key": true
     },
     {
+     "region": "일본",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "스킨1004는 2022년 일본에 본격 진출해 버라이어티숍과 드럭스토어",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "past": true,
+       "hl": "구다이글로벌 스킨1004, 도쿄 시부야 '핫플' 목욕탕 점령…'센텔라노유...",
+       "url": "https://www.theguru.co.kr/news/article.html?no=109464"
+      },
+      {
+       "date": "2026.10",
+       "text": "구다이글로벌은 지난 4월 일본 현지법인 D&ACE의 사명을 '구다이글로벌재팬(Goodai Global JAPAN)'으로 변경하고 멀티브랜드 유통 플랫폼으로 사업…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "[창간22주년 특집: K뷰티, 플랫폼이 되다]② 구다이글로벌, 멀티브랜드...",
+       "url": "https://www.upkoreanews.kr/news/articleView.html?idxno=100651"
+      }
+     ],
+     "n_done": 2,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2026.11",
+     "base": true,
+     "note": "일본 법인(구다이글로벌 Japan) 유통 거점",
+     "src": "https://www.goodai-global.com/ko",
+     "key": true
+    },
+    {
      "region": "유럽",
      "items": [
       {
@@ -464,40 +602,11 @@
      "tag": "new",
      "date": "2026.07",
      "key": true
-    },
-    {
-     "region": "일본",
-     "items": [
-      {
-       "date": "2026.11",
-       "text": "스킨1004는 2022년 일본에 본격 진출해 버라이어티숍과 드럭스토어",
-       "lvl": "done",
-       "entry": false,
-       "exp": true,
-       "past": true,
-       "hl": "구다이글로벌 스킨1004, 도쿄 시부야 '핫플' 목욕탕 점령…'센텔라노유...",
-       "url": "https://www.theguru.co.kr/news/article.html?no=109464"
-      },
-      {
-       "date": "2026.10",
-       "text": "구다이글로벌은 지난 4월 일본 현지법인 D&ACE의 사명을 '구다이글로벌재팬(Goodai Global JAPAN)'으로 변경하고 멀티브랜드 유통 플랫폼으로 사업…",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "[창간22주년 특집: K뷰티, 플랫폼이 되다]② 구다이글로벌, 멀티브랜드...",
-       "url": "https://www.upkoreanews.kr/news/articleView.html?idxno=100651"
-      }
-     ],
-     "n_done": 2,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "ongoing",
-     "date": "2026.11",
-     "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "Pre-IPO: 투자자명 비공개 컨소시엄 (8,000억원)",
+   "base_investors": []
   },
   "vinow": {
    "ipo": {
@@ -533,7 +642,10 @@
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.10",
-     "key": false
+     "base": true,
+     "note": "일본 법인(BENOW JAPAN) 운영, 일본 중심 해외 비중 높음",
+     "src": "https://www.benow.co.jp/",
+     "key": true
     },
     {
      "region": "미국",
@@ -577,21 +689,70 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "note": {
+    "text": "일본 비중이 높으나 신규 해외영업 인력 채용 확대 중.",
+    "title": "㈜비나우 채용 - [리더/경력] B2B 해외영업 중동/북미/유럽/중남미 권역 | 잡코리아",
+    "src": "https://www.jobkorea.co.kr/Recruit/GI_Read/50152173"
+   },
+   "invest_summary": "Pre-IPO: IMM인베스트먼트 · LB PE · 브아원캐피탈파트너스 (투자 완료)",
+   "base_investors": [
+    {
+     "name": "IMM인베스트먼트",
+     "kind": "Pre-IPO",
+     "amt": "누적 550억",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "LB PE",
+     "kind": "Pre-IPO",
+     "amt": "Co-GP 300억",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "브아원캐피탈파트너스",
+     "kind": "Pre-IPO",
+     "amt": "상동",
+     "date": "",
+     "src": ""
+    }
+   ]
   },
   "grace": {
    "ipo": {
     "signals": []
    },
    "global": [],
-   "investors": []
+   "investors": [],
+   "invest_summary": "투자 유치: DS투자파트너스 · 청담인베스트먼트 (117억원, 2025.12) / 기존 PE 경영권 투자(투자사명 비공개)",
+   "base_investors": [
+    {
+     "name": "DS투자파트너스·청담인베스트먼트",
+     "kind": "신규 투자 (2025.12)",
+     "amt": "합산 117억원",
+     "date": "",
+     "src": ""
+    }
+   ]
   },
   "bnb": {
    "ipo": {
     "signals": []
    },
    "global": [],
-   "investors": []
+   "investors": [],
+   "invest_summary": "경영권 인수(M&A): 진백글로벌",
+   "base_investors": [
+    {
+     "name": "진백글로벌",
+     "kind": "전략적 인수",
+     "amt": "M&A 완료",
+     "date": "",
+     "src": ""
+    }
+   ]
   },
   "2020": {
    "ipo": {
@@ -622,19 +783,73 @@
      ],
      "n_done": 0,
      "n_plan": 1,
-     "level": "weak",
-     "tag": "weak",
+     "level": "confirmed",
+     "tag": "ongoing",
      "date": "2026.10",
-     "key": false
+     "base": true,
+     "note": "미국 법인 2018년 설립, 한국 브랜드 미국 시장 진출 중",
+     "src": "https://m.thebell.co.kr/m/newsview.asp?newskey=202607081544329400109564",
+     "key": true
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "Series D: 한국투자파트너스 · 라구나인베스트먼트 / Pre-IPO: 효성 (300억원, 2026.08)",
+   "base_investors": [
+    {
+     "name": "한국투자파트너스",
+     "kind": "Series D 리드",
+     "amt": "370억원",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "라구나인베스트먼트",
+     "kind": "Series C 참여",
+     "amt": "70억원",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "효성",
+     "kind": "프리IPO (26.8)",
+     "amt": "300억원",
+     "date": "2026.08",
+     "src": "https://biz.chosun.com/stock/market_trend/2026/08/10/LJVHGRMH5VCQ7GY4YTSPXLHPMY/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+     "hl": "[단독] 뷰티로 영역 확장… 효성, K뷰티 커머스 이공이공에 300억 투자"
+    }
+   ]
   },
   "lafati": {
    "ipo": {
     "signals": []
    },
    "global": [
+    {
+     "region": "일본",
+     "items": [],
+     "n_done": 0,
+     "n_plan": 0,
+     "date": "",
+     "level": "confirmed",
+     "tag": "ongoing",
+     "base": true,
+     "note": "도쿄 거점 셀렉트 스토어 운영 이력",
+     "src": "https://www.news1.kr/industry/distribution/6125593",
+     "key": true
+    },
+    {
+     "region": "홍콩",
+     "items": [],
+     "n_done": 0,
+     "n_plan": 0,
+     "date": "",
+     "level": "confirmed",
+     "tag": "ongoing",
+     "base": true,
+     "note": "홍콩 법인 2015년 설립",
+     "src": "https://www.leferi.co.kr/ko/about",
+     "key": true
+    },
     {
      "region": "미국",
      "items": [
@@ -720,7 +935,11 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "max_items": 1,
+   "max_articles": 1,
+   "invest_summary": "Series B: 투자사명 비공개",
+   "base_investors": []
   },
   "liman": {
    "ipo": {
@@ -1014,7 +1233,17 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "경영권 투자: IMM PE (약 2,500억원, 2022)",
+   "base_investors": [
+    {
+     "name": "IMM PE",
+     "kind": "경영권 투자 (2022)",
+     "amt": "약 2,500억원",
+     "date": "",
+     "src": ""
+    }
+   ]
   },
   "founders": {
    "ipo": {
@@ -1022,45 +1251,16 @@
    },
    "global": [
     {
-     "region": "유럽",
-     "items": [
-      {
-       "date": "2026.08",
-       "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
-       "lvl": "done",
-       "entry": true,
-       "exp": true,
-       "past": false,
-       "hl": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
-       "url": "https://www.theguru.co.kr/news/article.html?no=105333"
-      }
-     ],
-     "n_done": 1,
+     "region": "일본",
+     "items": [],
+     "n_done": 0,
      "n_plan": 0,
+     "date": "",
      "level": "confirmed",
-     "tag": "new",
-     "date": "2026.08",
-     "key": true
-    },
-    {
-     "region": "중동",
-     "items": [
-      {
-       "date": "2026.08",
-       "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
-       "lvl": "done",
-       "entry": true,
-       "exp": true,
-       "past": false,
-       "hl": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
-       "url": "https://www.theguru.co.kr/news/article.html?no=105333"
-      }
-     ],
-     "n_done": 1,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "new",
-     "date": "2026.08",
+     "tag": "ongoing",
+     "base": true,
+     "note": "일본 법인 2021년 설립",
+     "src": "https://www.thebell.co.kr/front/newsview.asp?key=202407161113121840104171",
      "key": true
     },
     {
@@ -1092,10 +1292,60 @@
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.10",
-     "key": false
+     "base": true,
+     "note": "미국 법인(Anua Inc.) 보유, 핵심 인력은 한국 상주",
+     "src": "https://thefounders.careers/home-brand",
+     "key": true
+    },
+    {
+     "region": "유럽",
+     "items": [
+      {
+       "date": "2026.08",
+       "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
+       "url": "https://www.theguru.co.kr/news/article.html?no=105333"
+      }
+     ],
+     "n_done": 1,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2026.08",
+     "base": true,
+     "note": "아누아 유럽 판매(글로벌 세일즈 채용 기사 기준)",
+     "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904",
+     "key": true
+    },
+    {
+     "region": "중동",
+     "items": [
+      {
+       "date": "2026.08",
+       "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
+       "url": "https://www.theguru.co.kr/news/article.html?no=105333"
+      }
+     ],
+     "n_done": 1,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.08",
+     "key": true
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "외부 투자자 없음 (외부 VC 투자 이력 없음)",
+   "base_investors": []
   },
   "olive": {
    "ipo": {
@@ -1227,22 +1477,16 @@
      "key": false
     }
    ],
-   "investors": [
+   "investors": [],
+   "invest_summary": "Series B: 프라이머 · IMM인베스트먼트 (합산 100억원) / 전략적 투자: 올리브영 (30억원)",
+   "base_investors": [
     {
-     "name": "IMM인베스트먼트",
-     "amt": "100억 원",
-     "kind": "시리즈 투자",
-     "date": "2023.12",
-     "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치",
-     "url": "https://www.sedaily.com/NewsView/29YF3RX82P"
-    },
-    {
-     "name": "프라이머사제",
-     "amt": "100억 원",
-     "kind": "시리즈 투자",
-     "date": "2023.12",
-     "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치",
-     "url": "https://www.sedaily.com/NewsView/29YF3RX82P"
+     "name": "프라이머·IMM인베스트먼트",
+     "kind": "Series B 공동 투자",
+     "amt": "합산 100억",
+     "date": "2023",
+     "src": "https://www.sedaily.com/NewsView/29YF3RX82P",
+     "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치"
     }
    ]
   },
@@ -1386,7 +1630,17 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "대명화학그룹 계열 (외부 투자자 정보 없음)",
+   "base_investors": [
+    {
+     "name": "대명화학그룹",
+     "kind": "모기업(그룹 계열)",
+     "amt": "외부 투자 이력 없음(보도)",
+     "date": "",
+     "src": ""
+    }
+   ]
   },
   "peacenow": {
    "ipo": {
@@ -1548,7 +1802,10 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "hide_investors": true,
+   "invest_summary": "Series A 투자 이후 엑시트 완료",
+   "base_investors": []
   },
   "hagohouse": {
    "ipo": {
@@ -1572,8 +1829,11 @@
      "n_done": 1,
      "n_plan": 0,
      "level": "confirmed",
-     "tag": "new",
+     "tag": "ongoing",
      "date": "2026.10",
+     "base": true,
+     "note": "중화권 미스토홀딩스 협업 기반 중국 현지 총판 진출",
+     "src": "https://www.thebell.co.kr/front/newsview.asp?key=202610151333018840108185",
      "key": true
     },
     {
@@ -1613,8 +1873,11 @@
      "n_done": 3,
      "n_plan": 0,
      "level": "confirmed",
-     "tag": "new",
+     "tag": "ongoing",
      "date": "2026.10",
+     "base": true,
+     "note": "태국 센트럴리테일 현지 유통 파트너 확보, 베트남 하노이 롯데몰도 센트럴그룹이 유통",
+     "src": "https://www.thebell.co.kr/front/newsview.asp?key=202610151333018840108185",
      "key": true
     },
     {
@@ -1772,7 +2035,31 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "invest_summary": "투자 유치: SV인베스트먼트 · LB인베스트먼트 · 대명화학",
+   "base_investors": [
+    {
+     "name": "SV인베스트먼트",
+     "kind": "재무적 투자자 (FI)",
+     "amt": "보유 중",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "LB인베스트먼트",
+     "kind": "재무적 투자자 (FI)",
+     "amt": "보유 중",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "대명화학",
+     "kind": "전략적 투자자 (SI) · 2020년",
+     "amt": "초기 투자",
+     "date": "",
+     "src": ""
+    }
+   ]
   },
   "grainon": {
    "ipo": {
@@ -1811,7 +2098,10 @@
      "key": false
     }
    ],
-   "investors": []
+   "investors": [],
+   "hide_investors": true,
+   "invest_summary": "Series A 투자유치 (비공개) / CJ온스타일 투자",
+   "base_investors": []
   },
   "boosterz": {
    "ipo": {
@@ -1911,15 +2201,34 @@
      "key": false
     }
    ],
-   "investors": [
+   "investors": [],
+   "invest_summary": "RCPS 투자 유치(26.1, 374억): SBI인베스트먼트 · 엔베스터 · 레이크브릿지에쿼티파트너스 · 하나벤처스 등 / 투자(25.1, 104억): IBK벤처투자 · 코오롱인베스트먼트 · 에이벤처스 / 최대주주: 우주텍",
+   "base_investors": [
     {
-     "name": "스마트스터디벤처스",
-     "amt": "",
-     "kind": "투자 유치",
-     "date": "2025.01",
-     "hl": "부스터즈, 104억 투자 유치 완료",
-     "url": "https://dealsite.co.kr/articles/135053"
+     "name": "우주텍",
+     "kind": "최대주주",
+     "amt": "지분 48.01%",
+     "date": "",
+     "src": ""
+    },
+    {
+     "name": "SBI인베스트먼트·엔베스터·레이크브릿지에쿼티파트너스·하나벤처스",
+     "kind": "RCPS 투자 유치 (26.1, 외 참여)",
+     "amt": "합산 374억",
+     "date": "",
+     "src": "https://www.mt.co.kr/future/2026/01/15/2026011515241953815"
+    },
+    {
+     "name": "IBK벤처투자·코오롱인베스트먼트·에이벤처스",
+     "kind": "투자 (25.1)",
+     "amt": "합산 104억",
+     "date": "",
+     "src": "https://dealsite.co.kr/articles/135053"
     }
+   ],
+   "exclude": [
+    "커머스부문",
+    "스마트스터디벤처스"
    ]
   },
   "nmodelin": {
@@ -1978,30 +2287,17 @@
      "key": false
     }
    ],
-   "investors": [
+   "investors": [],
+   "hide_articles": true,
+   "invest_summary": "Series A: 위벤처스 · 인탑스인베스트먼트 · 에이치지이니셔티브 (누적 30억원)",
+   "base_investors": [
     {
-     "name": "인탑스인베스트먼트",
-     "amt": "30억원",
-     "kind": "투자 유치",
+     "name": "인탑스인베스트먼트·에이치지이니셔티브·위벤처스",
+     "kind": "Series A (25.8)",
+     "amt": "합산 30억원",
      "date": "2025.08",
-     "hl": "앤마들린 '글로브', 30억원 투자 유치",
-     "url": "https://zdnet.co.kr/view/?no=20250819180628"
-    },
-    {
-     "name": "에이치지이니셔티브",
-     "amt": "30억원",
-     "kind": "투자 유치",
-     "date": "2025.08",
-     "hl": "앤마들린 '글로브', 30억원 투자 유치",
-     "url": "https://zdnet.co.kr/view/?no=20250819180628"
-    },
-    {
-     "name": "위벤처스",
-     "amt": "30억원",
-     "kind": "투자 유치",
-     "date": "2025.08",
-     "hl": "앤마들린 '글로브', 30억원 투자 유치",
-     "url": "https://zdnet.co.kr/view/?no=20250819180628"
+     "src": "https://zdnet.co.kr/view/?no=20250819180628",
+     "hl": "앤마들린 '글로브', 30억원 투자 유치"
     }
    ]
   },
@@ -2018,9 +2314,19 @@
     ]
    },
    "global": [],
-   "investors": []
+   "investors": [],
+   "invest_summary": "경영권 인수: 동국제약 (지분 약 53.7%, 약 306억원, 2024.10)",
+   "base_investors": [
+    {
+     "name": "동국제약",
+     "kind": "경영권 인수 (24.10)",
+     "amt": "약 306억",
+     "date": "",
+     "src": ""
+    }
+   ]
   }
  },
  "_rules": 17,
- "_updated": "2026-11-10T13:56:55 KST"
+ "_updated": "2026-11-10T14:04:32 KST"
 }
