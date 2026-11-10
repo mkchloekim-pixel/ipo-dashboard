@@ -897,7 +897,12 @@ def main():
         except Exception:
             return {}
 
-    presence = load(a.presence)
+    try:                                                       # presence.json 은 직접 수정하는 파일이라 형식 오류를 조용히 넘기지 않는다
+        presence = json.loads(Path(a.presence).read_text('utf-8')) if Path(a.presence).exists() else {}
+    except ValueError as ex:
+        sys.exit(f'{a.presence} 형식 오류: {ex}\n  → 쉼표·따옴표·중괄호 위치와 숫자 쉼표(3,535 → 3535)를 확인하세요. insights.json 은 변경하지 않았습니다.')
+    if not isinstance(presence, dict):
+        sys.exit(f'{a.presence} 최상위는 {{ }} 형태여야 합니다. insights.json 은 변경하지 않았습니다.')
     news, extra, prev, gnews = load(a.news), load(a.extra), load(a.out), load(a.gnews)
     prev_c = prev.get('companies', {}) if isinstance(prev, dict) and prev.get('_rules') == RULES_VERSION else {}
     keys = [k for k in news if not k.startswith('_')]
