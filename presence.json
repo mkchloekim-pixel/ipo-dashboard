@@ -214,7 +214,8 @@
     "name": "프라이머사제·IMM인베스트먼트",
     "kind": "Series B 공동 투자",
     "amt": "합산 100억",
-    "date": "2023.11"
+    "date": "2023.11월",
+    "src": "https://www.cosinkorea.com/news/article.html?no=50324"
    }
   ],
   "liman": [],
@@ -223,13 +224,15 @@
     "name": "KB인베스트먼트·한국투자증권·유진투자증권 등",
     "kind": "Pre-IPO",
     "amt": "최대 160억",
-    "date": "2026.1월~9"
+    "date": "2026.1월~9월",
+    "src": "https://www.thebell.co.kr/front/newsview.asp?key=202609031017070800102396"
    },
    {
     "name": "DS투자파트너스·청담인베스트먼트",
     "kind": "Series C 구주 매입",
     "amt": "117억원",
-    "date": "2026.1월"
+    "date": "2026.1월",
+    "src": "https://www.thebell.co.kr/front/newsview.asp?key=202512311716333840108632"
    }
   ],
   "2020": [
@@ -237,19 +240,21 @@
     "name": "효성",
     "kind": "Pre-IPO",
     "amt": "300억",
-    "date": "2026.8월"
+    "date": "2026.8월",
+    "src": "https://biz.chosun.com/stock/market_trend/2026/08/10/LJVHGRMH5VCQ7GY4YTSPXLHPMY/"
    },
    {
     "name": "한국투자파트너스 등",
     "kind": "Series D",
     "amt": "370억원",
-    "date": "2025.7월"
+    "date": "2025.7월",
+    "src": "https://www.thebell.co.kr/front/newsview.asp?key=202507311500275400105328"
    },
    {
     "name": "라구나인베스트먼트·스마일게이트인베스트먼트·롯데벤처스 등",
     "kind": "Series A",
     "amt": "70억",
-    "date": ""
+    "date": "2022"
    }
   ],
   "bnb": [
@@ -257,7 +262,8 @@
     "name": "진백글로벌",
     "kind": "전략적 인수",
     "amt": "M&A 지분 100% 확보",
-    "date": "2025.6월"
+    "date": "2025.6월",
+    "src": "https://www.topdaily.kr/articles/104234"
    }
   ],
   "lafati": [
@@ -265,7 +271,8 @@
     "name": "에이치프라이빗에쿼티",
     "kind": "Pre-IPO 유상증자 (지분율 39%대 상승)",
     "amt": "70억",
-    "date": "2026.8월"
+    "date": "2026.8월",
+    "src": "https://www.thebell.co.kr/front/newsview.asp?key=202608071427528960104672"
    }
   ],
   "nmodelin": [
@@ -273,7 +280,8 @@
     "name": "인탑스인베스트먼트·위벤처스·에이치지이니셔티브",
     "kind": "Series A",
     "amt": "30억",
-    "date": "2025.8월"
+    "date": "2025.8월",
+    "src": "https://zdnet.co.kr/view/?no=20250819180628"
    }
   ],
   "rebom": [
@@ -281,7 +289,8 @@
     "name": "동국제약",
     "kind": "경영권 인수",
     "amt": "약 306억",
-    "date": "2024.10"
+    "date": "2024.10월",
+    "src": "https://www.dkpharm.co.kr/boards/view.php"
    }
   ],
   "highlight": [
@@ -289,7 +298,7 @@
     "name": "대명화학그룹",
     "kind": "모기업(그룹 계열)",
     "amt": "외부 투자 이력 없음(보도)",
-    "date": ""
+    "date": "2019 설립"
    }
   ],
   "hagohouse": [
@@ -297,7 +306,8 @@
     "name": "대명화학",
     "kind": "SI 편입",
     "amt": "지분 60% 인수",
-    "date": "2020.1월"
+    "date": "2020.1월",
+    "src": "https://blog.naver.com/dearus7/223312393507"
    }
   ],
   "boosterz": [
