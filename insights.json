@@ -353,14 +353,14 @@
      "kind": "Series C",
      "amt": "770억",
      "date": "2020.11월",
-     "src": "https://www.hankyung.com/article/202011231498j"
+     "src": ""
     },
     {
      "name": "네이버",
      "kind": "SI투자 (지분 약 11% 확보)",
-     "amt": "50억",
-     "date": "2018.10월",
-     "src": "https://zdnet.co.kr/view/?no=20181018085651"
+     "amt": "100억",
+     "date": "2018.2~10월",
+     "src": ""
     }
    ]
   },
@@ -393,7 +393,7 @@
      "kind": "SI투자",
      "amt": "100억",
      "date": "2022.2월",
-     "src": "https://www.yna.co.kr/view/AKR20220207123100003"
+     "src": ""
     }
    ]
   },
@@ -2322,5 +2322,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-11T09:49:52 KST"
+ "_updated": "2026-11-11T10:12:28 KST"
 }
