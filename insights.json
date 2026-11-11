@@ -137,7 +137,7 @@
       }
      ],
      "n_done": 9,
-     "n_plan": 1,
+     "n_plan": 2,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -424,6 +424,16 @@
        "url": "http://www.beyondpost.co.kr/view.php?ud=20261103150100579546a9e4dd7f_30"
       },
       {
+       "date": "2026.11",
+       "text": "구다이글로벌의 글로벌 한방 스킨케어 브랜드 '조선미녀(Beauty of Joseon)'가 선케어를 넘어 클렌징까지 포트폴리오를 성공적으로 다각화하며 북미시장 내…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "구다이글로벌 '조선미녀', 오일 클렌징 경쟁력 입증",
+       "url": "https://www.econovill.com/news/articleView.html?idxno=756767"
+      },
+      {
        "date": "2026.10",
        "text": "'조선미녀' 성공 DNA 담았다…美 시장 겨냥 '뎁티' 론칭",
        "lvl": "done",
@@ -442,19 +452,9 @@
        "past": false,
        "hl": "천주혁 구다이글로벌 대표, 자체 브랜드 '뎁티' 들고 K뷰티 새판 짠다",
        "url": "https://www.insightkorea.co.kr/news/articleView.html?idxno=257508"
-      },
-      {
-       "date": "2026.10",
-       "text": "구다이글로벌은 사내독립기업(CIC)을 중심으로 뎁티를 개발했으며 국내보다 미국에서 먼저 선보이는 전략을",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "'전략 수정' 구다이글로벌, 포트폴리오 다각화 통할까?",
-       "url": "http://www.the-biz.co.kr/news/articleView.html?idxno=730075"
       }
      ],
-     "n_done": 6,
+     "n_done": 7,
      "n_plan": 2,
      "level": "confirmed",
      "tag": "ongoing",
@@ -763,6 +763,13 @@
   "2020": {
    "ipo": {
     "signals": [
+     {
+      "date": "2026.11",
+      "kind": "lead",
+      "label": "주관사 선정",
+      "hl": "[단독] 효성, K뷰티 유통기업 ‘이공이공’ 최대주주 된다",
+      "url": "https://www.sedaily.com/article/20112116?ref=naver"
+     },
      {
       "date": "2026.08",
       "kind": "pre",
@@ -1399,6 +1406,47 @@
      "key": true
     },
     {
+     "region": "동남아",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "밀크터치, 인도네시아 자카르타서 브랜드 런칭 팝업스토어 성료…글로",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "밀크터치, 인도네시아 자카르타서 브랜드 런칭 팝업스토어 성료…글로...",
+       "url": "http://www.sisunnews.co.kr/news/articleView.html?idxno=249348"
+      },
+      {
+       "date": "2025.12",
+       "text": "K-뷰티 성분주의 ‘성분에디터’, 인도네시아 상륙…소시올라 독점 유통",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "K-뷰티 성분주의 ‘성분에디터’, 인도네시아 상륙…소시올라 독점 유통",
+       "url": "https://www.g-enews.com/view.php?ud=2025121007525960850c8c1c064d_1"
+      },
+      {
+       "date": "2025.11",
+       "text": "성분에디터, 인도네시아 최대 뷰티 플랫폼 '소시올라' 입점",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "성분에디터, 인도네시아 최대 뷰티 플랫폼 '소시올라' 입점",
+       "url": "https://www.gokorea.kr/news/articleView.html?idxno=846151"
+      }
+     ],
+     "n_done": 3,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2026.11",
+     "key": false
+    },
+    {
      "region": "미국",
      "items": [
       {
@@ -1427,37 +1475,6 @@
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.10",
-     "key": false
-    },
-    {
-     "region": "동남아",
-     "items": [
-      {
-       "date": "2025.12",
-       "text": "K-뷰티 성분주의 ‘성분에디터’, 인도네시아 상륙…소시올라 독점 유통",
-       "lvl": "done",
-       "entry": true,
-       "exp": false,
-       "past": false,
-       "hl": "K-뷰티 성분주의 ‘성분에디터’, 인도네시아 상륙…소시올라 독점 유통",
-       "url": "https://www.g-enews.com/view.php?ud=2025121007525960850c8c1c064d_1"
-      },
-      {
-       "date": "2025.11",
-       "text": "성분에디터, 인도네시아 최대 뷰티 플랫폼 '소시올라' 입점",
-       "lvl": "done",
-       "entry": true,
-       "exp": true,
-       "past": false,
-       "hl": "성분에디터, 인도네시아 최대 뷰티 플랫폼 '소시올라' 입점",
-       "url": "https://www.gokorea.kr/news/articleView.html?idxno=846151"
-      }
-     ],
-     "n_done": 2,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "ongoing",
-     "date": "2025.12",
      "key": false
     },
     {
@@ -2317,5 +2334,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-11T13:38:10 KST"
+ "_updated": "2026-11-11T13:44:33 KST"
 }
