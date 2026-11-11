@@ -121,13 +121,15 @@
     "name": "앵커에쿼티파트너스",
     "kind": "Pre-IPO",
     "amt": "3,700억 (1,2차 합산)",
-    "date": "2021.12월, 2023.5월"
+    "date": "2021.12월, 2023.5월",
+    "src": "https://biz.chosun.com/stock/market_trend/2026/06/29/IWB6ZCFKSJHTDJGDKAJ6EEHYLM/"
    },
    {
     "name": "DST글로벌·세콰이어캐피탈차이나·밀레니엄매니지먼트 등",
     "kind": "Series F",
     "amt": "2,254억",
-    "date": "2021.7월"
+    "date": "2021.7월",
+     "src": "https://wowtale.net/2021/07/09/27856/"
    }
   ],
   "musinsoa": [
@@ -142,7 +144,8 @@
     "name": "세콰이어캐피탈·IMM인베스트먼트 등",
     "kind": "Series B",
     "amt": "1,300억",
-    "date": "2021.3월"
+    "date": "2021.3월",
+    "src": "https://www.musinsa.com/content/mz/42498"
    }
   ],
   "oasis": [
@@ -150,19 +153,22 @@
     "name": "비바리퍼블리카",
     "kind": "SI투자 (지분 약 2.3% 확보)",
     "amt": "300억",
-    "date": "2026.9월"
+    "date": "2026.9월",
+    "src": "https://biz.chosun.com/distribution/channel/2026/09/17/75M3STLW75ECLPWEAY6ADAZ4WI/"
    },
    {
     "name": "UCK파트너스",
     "kind": "Pre-IPO",
     "amt": "500억",
-    "date": "2022.6월"
+    "date": "2022.6월",
+    "src": "https://biz.chosun.com/stock/market_trend/2026/09/22/PWZMLBJPJFGCJLG3TR3KAOSNPA/"
    },
    {
     "name": "홈앤쇼핑",
     "kind": "SI투자",
     "amt": "100억",
-    "date": "2022.2월"
+    "date": "2022.2월",
+    "src": "https://news.mtn.co.kr/news-detail/2022020715110058355"
    }
   ],
   "ohouse": [
@@ -177,7 +183,8 @@
     "name": "본드캐피털·IMM인베스트먼트·미래에셋벤처투자·네이버 등",
     "kind": "Series C",
     "amt": "770억",
-    "date": "2020.11월"
+    "date": "2020.11월",
+    "src": "https://wowtale.net/2020/11/23/18712/"
    },
    {
     "name": "네이버",
