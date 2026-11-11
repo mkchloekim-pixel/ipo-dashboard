@@ -193,7 +193,7 @@
      "kind": "Series B",
      "amt": "1,300억",
      "date": "2021.3월",
-     "src": ""
+     "src": "https://www.musinsa.com/content/mz/42498"
     }
    ]
   },
@@ -279,14 +279,14 @@
      "kind": "Pre-IPO",
      "amt": "3,700억 (1,2차 합산)",
      "date": "2021.12월, 2023.5월",
-     "src": ""
+     "src": "https://biz.chosun.com/stock/market_trend/2026/06/29/IWB6ZCFKSJHTDJGDKAJ6EEHYLM/"
     },
     {
      "name": "DST글로벌·세콰이어캐피탈차이나·밀레니엄매니지먼트 등",
      "kind": "Series F",
      "amt": "2,254억",
      "date": "2021.7월",
-     "src": ""
+     "src": "https://wowtale.net/2021/07/09/27856/"
     }
    ]
   },
@@ -353,7 +353,7 @@
      "kind": "Series C",
      "amt": "770억",
      "date": "2020.11월",
-     "src": ""
+     "src": "https://wowtale.net/2020/11/23/18712/"
     },
     {
      "name": "네이버",
@@ -377,23 +377,21 @@
      "kind": "SI투자 (지분 약 2.3% 확보)",
      "amt": "300억",
      "date": "2026.9월",
-     "src": "https://www.sedaily.com/article/20092476?ref=naver",
-     "hl": "오아시스마켓, 토스쇼핑 입점…토스에 300억 투자도 받는다"
+     "src": "https://biz.chosun.com/distribution/channel/2026/09/17/75M3STLW75ECLPWEAY6ADAZ4W"
     },
     {
      "name": "UCK파트너스",
      "kind": "Pre-IPO",
      "amt": "500억",
      "date": "2022.6월",
-     "src": "https://www.thepublic.kr/news/articleView.html?idxno=319767",
-     "hl": "토스, 오아시스에 300억 베팅…1.3조 몸값에 UCK 엑시트 '청신호'"
+     "src": "https://biz.chosun.com/stock/market_trend/2026/09/22/PWZMLBJPJFGCJLG3TR3KAOSNPA/"
     },
     {
      "name": "홈앤쇼핑",
      "kind": "SI투자",
      "amt": "100억",
      "date": "2022.2월",
-     "src": ""
+     "src": "https://news.mtn.co.kr/news-detail/2022020715110058355"
     }
    ]
   },
@@ -2319,5 +2317,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-11T13:25:12 KST"
+ "_updated": "2026-11-11T13:38:10 KST"
 }
