@@ -279,14 +279,14 @@
      "kind": "Pre-IPO",
      "amt": "3,700억 (1,2차 합산)",
      "date": "2021.12월, 2023.5월",
-     "src": "https://biz.chosun.com/en/en-finance/2026/06/29/7OWISDMOPFFALFNEHQFBVKBIII/"
+     "src": ""
     },
     {
      "name": "DST글로벌·세콰이어캐피탈차이나·밀레니엄매니지먼트 등",
      "kind": "Series F",
      "amt": "2,254억",
      "date": "2021.7월",
-     "src": "https://www.hankyung.com/article/2021070983346"
+     "src": ""
     }
    ]
   },
@@ -353,14 +353,14 @@
      "kind": "Series C",
      "amt": "770억",
      "date": "2020.11월",
-     "src": "https://platum.kr/archives/152900"
+     "src": ""
     },
     {
      "name": "네이버",
      "kind": "SI투자 (지분 약 11% 확보)",
      "amt": "100억",
      "date": "2018.2~10월",
-     "src": "https://platum.kr/archives/108516"
+     "src": ""
     }
    ]
   },
@@ -393,7 +393,7 @@
      "kind": "SI투자",
      "amt": "100억",
      "date": "2022.2월",
-     "src": "https://zdnet.co.kr/view/?no=20220207165044"
+     "src": ""
     }
    ]
   },
@@ -609,10 +609,10 @@
    "base_investors": [
     {
      "name": "IMM PE·IMM 인베스트먼트·JKL파트너스 등",
-     "kind": "CB 발행 기반 신주 투자",
-     "amt": "8,000억",
+     "kind": "블라인드펀드",
+     "amt": "6,000억",
      "date": "2025.7월",
-     "src": "https://www.topdaily.kr/articles/105247"
+     "src": ""
     }
    ]
   },
@@ -2322,5 +2322,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-11T09:01:51 KST"
+ "_updated": "2026-11-11T09:23:31 KST"
 }
