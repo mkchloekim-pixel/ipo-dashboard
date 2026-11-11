@@ -19,6 +19,67 @@
      "key": true
     },
     {
+     "region": "동남아",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "첫매장 진출후 5년만 성과 中상하이 등 해외점포 7개 \"日·동남아 출점 늘릴 것\" K패션의 인기를 주도하고 있는 무신사가 첫 오프라인 매장을 연 지 5년 만에…",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "'K패션 선봉' 무신사 … 오프라인 100개점 달성",
+       "url": "https://www.mk.co.kr/article/12202716"
+      },
+      {
+       "date": "2026.11",
+       "text": "◆상권별 맞춤 출점, 중국 넘어 일본·동남아까지 무신사의 오프라인사업 확대는 매장별 역할을 구분한 출점 전략을 바탕으로 한다",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "온라인 넘어 거리로… 무신사, 오프라인 매장 100곳 시대 연다",
+       "url": "http://www.the-biz.co.kr/news/articleView.html?idxno=730946"
+      },
+      {
+       "date": "2026.11",
+       "text": "무신사 관계자는 \"중국에 이어 일본과 동남아시아로 해외 매장을 늘려 국내에서 검증한 오프라인 모델을 세계 시장으로 확장하겠다\"고 말했다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "무신사, 오프라인 매장 5년새 급성장…100곳 눈앞·방문객 92%↑",
+       "url": "https://www.jasm.co.kr/news/view/324640/?sc=Naver"
+      },
+      {
+       "date": "2026.11",
+       "text": "무신사 관계자는 \"온라인 운영 방식을 실물 점포에 결합해 오프라인 시장 점유율을 체계적으로 다져왔다\"며 \"중국 외에도 일본과 동남아 주요 지역으로 출점 반경을…",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "무신사, 오프라인 매장 100호점 돌파… 글로벌 진출 '가속'",
+       "url": "https://www.nbntv.co.kr/news/articleView.html?idxno=4027183"
+      },
+      {
+       "date": "2026.11",
+       "text": "무신사는 연말까지 운영 매장을 110곳으로 확대하고 중국에 이어 일본과 동남아시아 시장에서도 사업 기회를 모색할 계획이다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "'국가대표 단복' 만들던 무신사, 이젠 회사 유니폼까지…B2B 시장 본격 ...",
+       "url": "https://www.techm.kr/news/articleView.html?idxno=157190"
+      }
+     ],
+     "n_done": 2,
+     "n_plan": 3,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.11",
+     "key": true
+    },
+    {
      "region": "일본",
      "items": [
       {
@@ -72,8 +133,8 @@
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 5,
-     "n_plan": 3,
+     "n_done": 8,
+     "n_plan": 2,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -136,8 +197,8 @@
        "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=285639"
       }
      ],
-     "n_done": 9,
-     "n_plan": 2,
+     "n_done": 8,
+     "n_plan": 3,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -145,37 +206,6 @@
      "note": "중국(상하이) 법인 운영",
      "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968",
      "key": true
-    },
-    {
-     "region": "동남아",
-     "items": [
-      {
-       "date": "2026.11",
-       "text": "무신사 관계자는 \"중국에 이어 일본과 동남아시아로 해외 매장을 늘려 국내에서 검증한 오프라인 모델을 세계 시장으로 확장하겠다\"고 말했다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": true,
-       "past": false,
-       "hl": "무신사, 오프라인 매장 5년새 급성장…100곳 눈앞·방문객 92%↑",
-       "url": "https://www.jasm.co.kr/news/view/324640/?sc=Naver"
-      },
-      {
-       "date": "2026.11",
-       "text": "무신사 관계자는 \"온라인 운영 방식을 실물 점포에 결합해 오프라인 시장 점유율을 체계적으로 다져왔다\"며 \"중국 외에도 일본과 동남아 주요 지역으로 출점 반경을…",
-       "lvl": "plan",
-       "entry": false,
-       "exp": true,
-       "past": false,
-       "hl": "무신사, 오프라인 매장 100호점 돌파… 글로벌 진출 '가속'",
-       "url": "https://www.nbntv.co.kr/news/articleView.html?idxno=4027183"
-      }
-     ],
-     "n_done": 0,
-     "n_plan": 2,
-     "level": "planned",
-     "tag": "planned",
-     "date": "2026.11",
-     "key": false
     }
    ],
    "investors": [],
@@ -434,6 +464,16 @@
        "url": "https://www.econovill.com/news/articleView.html?idxno=756767"
       },
       {
+       "date": "2026.11",
+       "text": "미국에서 선스크린이 일반의약품(OTC·Over-the-Counter) 규제 체계의 적용을 받는 가운데, '스킨1004'는 미국 OTC 관련 등록 절차가 완료된…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "크레이버, 매출 1조 시대 열까…'스킨1004' 확장 가속",
+       "url": "http://www.apparelnews.co.kr/news/news_view/?idx=228881"
+      },
+      {
        "date": "2026.10",
        "text": "'조선미녀' 성공 DNA 담았다…美 시장 겨냥 '뎁티' 론칭",
        "lvl": "done",
@@ -442,20 +482,10 @@
        "past": false,
        "hl": "'조선미녀' 성공 DNA 담았다…美 시장 겨냥 '뎁티' 론칭",
        "url": "http://www.joseilbo.com/news/news_read.php?uid=578157&class=17&grp="
-      },
-      {
-       "date": "2026.10",
-       "text": "조선미녀를 글로벌 시장에서 성장시킨 핵심 인력이 개발에 참여했으며 미국 틱톡샵과 쇼피파이 기반 자사몰에서 판매를 시작했다",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "천주혁 구다이글로벌 대표, 자체 브랜드 '뎁티' 들고 K뷰티 새판 짠다",
-       "url": "https://www.insightkorea.co.kr/news/articleView.html?idxno=257508"
       }
      ],
      "n_done": 7,
-     "n_plan": 2,
+     "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -529,6 +559,26 @@
        "url": "https://www.theguru.co.kr/news/article.html?no=109464"
       },
       {
+       "date": "2026.11",
+       "text": "티르티르, 일본 도쿄서 체험형 팝업 운영…사전 예약 하루 만에 마감",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "티르티르, 일본 도쿄서 체험형 팝업 운영…사전 예약 하루 만에 마감",
+       "url": "https://www.m-i.kr/news/articleView.html?idxno=2017007"
+      },
+      {
+       "date": "2026.11",
+       "text": "티르티르, 일본서 '글램 스위트 오브 글로우' 팝업 운영",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "티르티르, 일본서 '글램 스위트 오브 글로우' 팝업 운영",
+       "url": "http://www.beyondpost.co.kr/view.php?ud=20261111091603775146a9e4dd7f_30"
+      },
+      {
        "date": "2026.10",
        "text": "구다이글로벌은 지난 4월 일본 현지법인 D&ACE의 사명을 '구다이글로벌재팬(Goodai Global JAPAN)'으로 변경하고 멀티브랜드 유통 플랫폼으로 사업…",
        "lvl": "done",
@@ -539,7 +589,7 @@
        "url": "https://www.upkoreanews.kr/news/articleView.html?idxno=100651"
       }
      ],
-     "n_done": 2,
+     "n_done": 4,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -607,10 +657,10 @@
    "base_investors": [
     {
      "name": "IMM PE·IMM 인베스트먼트·JKL파트너스 등",
-     "kind": "블라인드펀드",
-     "amt": "6,000억",
+     "kind": "CB 발행 통한 신주 투자",
+     "amt": "8,000억",
      "date": "2025.7월",
-     "src": ""
+     "src": "https://m.thebell.co.kr/m/newsview.asp?newskey=202508061422306920103577"
     }
    ]
   },
@@ -708,14 +758,14 @@
      "kind": "Pre-IPO",
      "amt": "누적 550억",
      "date": "2025.9월",
-     "src": ""
+     "src": "https://marketin.edaily.co.kr/News/Read?newsId=03844166642305040"
     },
     {
      "name": "LB PE·브아원캐피탈파트너스",
      "kind": "Pre-IPO",
      "amt": "Co-GP 300억",
      "date": "2025.2월",
-     "src": ""
+     "src": "https://www.thebell.co.kr/front/newsview.asp?key=202502201618501360108143"
     }
    ]
   },
@@ -2334,5 +2384,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-11T13:44:33 KST"
+ "_updated": "2026-11-11T15:10:02 KST"
 }
