@@ -733,15 +733,15 @@
      "name": "KB인베스트먼트·한국투자증권·유진투자증권 등",
      "kind": "Pre-IPO",
      "amt": "최대 160억",
-     "date": "2026.1월~9",
-     "src": ""
+     "date": "2026.1월~9월",
+     "src": "https://www.thebell.co.kr/front/newsview.asp?key=202609031017070800102396"
     },
     {
      "name": "DS투자파트너스·청담인베스트먼트",
      "kind": "Series C 구주 매입",
      "amt": "117억원",
      "date": "2026.1월",
-     "src": ""
+     "src": "https://www.thebell.co.kr/front/newsview.asp?key=202512311716333840108632"
     }
    ]
   },
@@ -758,7 +758,7 @@
      "kind": "전략적 인수",
      "amt": "M&A 지분 100% 확보",
      "date": "2025.6월",
-     "src": ""
+     "src": "https://www.topdaily.kr/articles/104234"
     }
    ]
   },
@@ -808,21 +808,20 @@
      "kind": "Pre-IPO",
      "amt": "300억",
      "date": "2026.8월",
-     "src": "https://biz.chosun.com/stock/market_trend/2026/08/10/LJVHGRMH5VCQ7GY4YTSPXLHPMY/?utm_source=naver&utm_medium=original&utm_campaign=biz",
-     "hl": "[단독] 뷰티로 영역 확장… 효성, K뷰티 커머스 이공이공에 300억 투자"
+     "src": "https://biz.chosun.com/stock/market_trend/2026/08/10/LJVHGRMH5VCQ7GY4YTSPXLHPMY/"
     },
     {
      "name": "한국투자파트너스 등",
      "kind": "Series D",
      "amt": "370억원",
      "date": "2025.7월",
-     "src": ""
+     "src": "https://www.thebell.co.kr/front/newsview.asp?key=202507311500275400105328"
     },
     {
      "name": "라구나인베스트먼트·스마일게이트인베스트먼트·롯데벤처스 등",
      "kind": "Series A",
      "amt": "70억",
-     "date": "",
+     "date": "2022",
      "src": ""
     }
    ]
@@ -953,7 +952,7 @@
      "kind": "Pre-IPO 유상증자 (지분율 39%대 상승)",
      "amt": "70억",
      "date": "2026.8월",
-     "src": ""
+     "src": "https://www.thebell.co.kr/front/newsview.asp?key=202608071427528960104672"
     }
    ]
   },
@@ -1492,9 +1491,8 @@
      "name": "프라이머사제·IMM인베스트먼트",
      "kind": "Series B 공동 투자",
      "amt": "합산 100억",
-     "date": "2023.11",
-     "src": "https://www.sedaily.com/NewsView/29YF3RX82P",
-     "hl": "[VC 투자 ABC] 오케스트로·올리브인터내셔널 등 투자 유치"
+     "date": "2023.11월",
+     "src": "https://www.cosinkorea.com/news/article.html?no=50324"
     }
    ]
   },
@@ -1645,7 +1643,7 @@
      "name": "대명화학그룹",
      "kind": "모기업(그룹 계열)",
      "amt": "외부 투자 이력 없음(보도)",
-     "date": "",
+     "date": "2019 설립",
      "src": ""
     }
    ]
@@ -2051,7 +2049,7 @@
      "kind": "SI 편입",
      "amt": "지분 60% 인수",
      "date": "2020.1월",
-     "src": ""
+     "src": "https://blog.naver.com/dearus7/223312393507"
     }
    ]
   },
@@ -2290,8 +2288,7 @@
      "kind": "Series A",
      "amt": "30억",
      "date": "2025.8월",
-     "src": "https://zdnet.co.kr/view/?no=20250819180628",
-     "hl": "앤마들린 '글로브', 30억원 투자 유치"
+     "src": "https://zdnet.co.kr/view/?no=20250819180628"
     }
    ]
   },
@@ -2315,12 +2312,12 @@
      "name": "동국제약",
      "kind": "경영권 인수",
      "amt": "약 306억",
-     "date": "2024.10",
-     "src": ""
+     "date": "2024.10월",
+     "src": "https://www.dkpharm.co.kr/boards/view.php"
     }
    ]
   }
  },
  "_rules": 17,
- "_updated": "2026-11-11T12:57:49 KST"
+ "_updated": "2026-11-11T13:25:12 KST"
 }
