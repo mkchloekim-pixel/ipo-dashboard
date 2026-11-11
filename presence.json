@@ -196,9 +196,10 @@
   "goodai": [
     {
     "name": "IMM PE·IMM 인베스트먼트·JKL파트너스 등",
-    "kind": "블라인드펀드",
-    "amt": "6,000억",
-    "date": "2025.7월"
+    "kind": "CB 발행 통한 신주 투자",
+    "amt": "8,000억",
+    "date": "2025.7월",
+    "src": "https://m.thebell.co.kr/m/newsview.asp?newskey=202508061422306920103577"
    }
   ],
   "founders": [],
@@ -207,13 +208,15 @@
     "name": "IMM인베스트먼트",
     "kind": "Pre-IPO",
     "amt": "누적 550억",
-    "date": "2025.9월"
+    "date": "2025.9월",
+    "src": "https://marketin.edaily.co.kr/News/Read?newsId=03844166642305040"
    },
    {
     "name": "LB PE·브아원캐피탈파트너스",
     "kind": "Pre-IPO",
     "amt": "Co-GP 300억",
-    "date": "2025.2월"
+    "date": "2025.2월",
+    "src": "https://www.thebell.co.kr/front/newsview.asp?key=202502201618501360108143"
    }
   ],
   "olive": [
