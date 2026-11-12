@@ -133,7 +133,7 @@
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 8,
+     "n_done": 10,
      "n_plan": 2,
      "level": "confirmed",
      "tag": "ongoing",
@@ -492,6 +492,37 @@
      "base": true,
      "note": "미국 법인(구다이글로벌 USA) 유통 거점",
      "src": "https://www.goodai-global.com/ko",
+     "key": true
+    },
+    {
+     "region": "동남아",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "스킨1004, 싱가포르 왓슨스 입점...고기능 더마 강화",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "스킨1004, 싱가포르 왓슨스 입점...고기능 더마 강화",
+       "url": "http://www.apparelnews.co.kr/news/news_view/?idx=228947"
+      },
+      {
+       "date": "2026.11",
+       "text": "◇ 스킨1004, 싱가포르 왓슨스 28개 매장 입점…동남아 유통망 확대 크레이버코퍼레이션이 전개하는 스킨케어 브랜드 스킨1004가 싱가포르 헬스앤뷰티 매장 왓슨…",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "[똑똑한케어] 에이피알, 스킨1004, 리필드, 센슬, 이미인, 코스메카코리...",
+       "url": "https://www.ekn.kr/web/view.php?key=20261112027028699"
+      }
+     ],
+     "n_done": 2,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.11",
      "key": true
     },
     {
@@ -1715,7 +1746,15 @@
   },
   "peacenow": {
    "ipo": {
-    "signals": []
+    "signals": [
+     {
+      "date": "2026.11",
+      "kind": "listed",
+      "label": "상장 완료",
+      "hl": "박화목 피스피스스튜디오 대표, 51만 주 회사에 무상 증여",
+      "url": "https://www.news1.kr/industry/distribution/6350520"
+     }
+    ]
    },
    "global": [
     {
@@ -1884,6 +1923,67 @@
    },
    "global": [
     {
+     "region": "일본",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "이날 파르코는 한국 대표 패션 브랜드 '마뗑킴' 매장(일본 5호점) 개점으로 북적였다",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "\"일본 전역이 푹 빠졌다\"… K패션 마뗑킴 거침없는 질주",
+       "url": "https://www.mk.co.kr/article/12205425"
+      },
+      {
+       "date": "2026.10",
+       "text": "'마뗑킴' 해외시장 공략 잰걸음 … 이달만 中·日·베트남 4개 출점",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "'마뗑킴' 해외시장 공략 잰걸음 … 이달만 中·日·베트남 4개 출점",
+       "url": "https://www.mk.co.kr/article/12187401"
+      },
+      {
+       "date": "2026.06",
+       "text": "이미 일본 도쿄, 나고야 등에서 팝업스토어를 성료하며 글로벌 시장에서 가능성을 확인한 드파운드는 이번 대만 팝업스토어를 통해 중화권 시장 내 브랜드 인지도를 한…",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "past": true,
+       "hl": "“K-패션 대표 브랜드로 대만 공략 나선다” 드파운드, 대만 첫 팝업스...",
+       "url": "https://sports.khan.co.kr/article/202606110544003?pt=nv"
+      },
+      {
+       "date": "2025.12",
+       "text": "드파운드는 지난 10월 일본 도쿄 하라주쿠에 팝업스토어를 내면서 해외 진출에 시동을 걸기 시작했다",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "유럽·중동까지…'K패션 신화' 쓰는 하고하우스",
+       "url": "https://www.hankyung.com/article/2025121425741"
+      },
+      {
+       "date": "2026.10",
+       "text": "모모와 리노가 착용한 ‘와플 텍스처 후디 니트 집업’은 일본 유통 채널에서 발매 1주일 만에 준비 수량이 완판됐다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "마뗑킴, 2026년 앰버서더 마케팅 집행…‘와플 니트 집업’ 일본서 완판",
+       "url": "http://www.segyebiz.com/newsView/20261029518563?OutUrl=naver"
+      }
+     ],
+     "n_done": 4,
+     "n_plan": 2,
+     "level": "confirmed",
+     "tag": "expand",
+     "date": "2026.11",
+     "key": true
+    },
+    {
      "region": "중국",
      "items": [
       {
@@ -1949,67 +2049,6 @@
      "base": true,
      "note": "태국 센트럴리테일 현지 유통 파트너 확보, 베트남 하노이 롯데몰도 센트럴그룹이 유통",
      "src": "https://www.thebell.co.kr/front/newsview.asp?key=202610151333018840108185",
-     "key": true
-    },
-    {
-     "region": "일본",
-     "items": [
-      {
-       "date": "2026.10",
-       "text": "'마뗑킴' 해외시장 공략 잰걸음 … 이달만 中·日·베트남 4개 출점",
-       "lvl": "done",
-       "entry": true,
-       "exp": false,
-       "past": false,
-       "hl": "'마뗑킴' 해외시장 공략 잰걸음 … 이달만 中·日·베트남 4개 출점",
-       "url": "https://www.mk.co.kr/article/12187401"
-      },
-      {
-       "date": "2026.06",
-       "text": "이미 일본 도쿄, 나고야 등에서 팝업스토어를 성료하며 글로벌 시장에서 가능성을 확인한 드파운드는 이번 대만 팝업스토어를 통해 중화권 시장 내 브랜드 인지도를 한…",
-       "lvl": "done",
-       "entry": false,
-       "exp": true,
-       "past": true,
-       "hl": "“K-패션 대표 브랜드로 대만 공략 나선다” 드파운드, 대만 첫 팝업스...",
-       "url": "https://sports.khan.co.kr/article/202606110544003?pt=nv"
-      },
-      {
-       "date": "2025.12",
-       "text": "드파운드는 지난 10월 일본 도쿄 하라주쿠에 팝업스토어를 내면서 해외 진출에 시동을 걸기 시작했다",
-       "lvl": "done",
-       "entry": true,
-       "exp": false,
-       "past": false,
-       "hl": "유럽·중동까지…'K패션 신화' 쓰는 하고하우스",
-       "url": "https://www.hankyung.com/article/2025121425741"
-      },
-      {
-       "date": "2026.10",
-       "text": "모모와 리노가 착용한 ‘와플 텍스처 후디 니트 집업’은 일본 유통 채널에서 발매 1주일 만에 준비 수량이 완판됐다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "마뗑킴, 2026년 앰버서더 마케팅 집행…‘와플 니트 집업’ 일본서 완판",
-       "url": "http://www.segyebiz.com/newsView/20261029518563?OutUrl=naver"
-      },
-      {
-       "date": "2026.09",
-       "text": "日·대만 이어 새사업지 낙점 \"K컬처 인기 아프리카 공략\" 마뗑킴, 드파운드, 르셉템버 등 여성복 브랜드를",
-       "lvl": "plan",
-       "entry": false,
-       "exp": true,
-       "past": false,
-       "hl": "해외사업 늘리는 K패션 '마뗑킴' 中·베트남·칠레에 첫 매장 연다",
-       "url": "https://www.mk.co.kr/article/12157558"
-      }
-     ],
-     "n_done": 3,
-     "n_plan": 2,
-     "level": "confirmed",
-     "tag": "expand",
-     "date": "2026.10",
      "key": true
     },
     {
@@ -2384,5 +2423,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-11T16:09:48 KST"
+ "_updated": "2026-11-12T13:22:37 KST"
 }
