@@ -80,6 +80,27 @@
      "key": true
     },
     {
+     "region": "홍콩",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "명인화장품, 홍콩 코스모프로프 참가·무신사 뷰티 성수 입점…국내외",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "명인화장품, 홍콩 코스모프로프 참가·무신사 뷰티 성수 입점…국내외 ...",
+       "url": "https://www.fntoday.co.kr/news/articleView.html?idxno=397683"
+      }
+     ],
+     "n_done": 1,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.11",
+     "key": true
+    },
+    {
      "region": "일본",
      "items": [
       {
@@ -133,8 +154,8 @@
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 10,
-     "n_plan": 2,
+     "n_done": 18,
+     "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -197,8 +218,8 @@
        "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=285639"
       }
      ],
-     "n_done": 8,
-     "n_plan": 3,
+     "n_done": 7,
+     "n_plan": 2,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -276,18 +297,18 @@
        "url": "https://www.greenpostkorea.co.kr/news/articleView.html?idxno=307583"
       },
       {
-       "date": "2026.10",
-       "text": "컬리는 넥스트키친의 간편식 개발 역량을 활용해 미국을 중심으로 K푸드 수출 경쟁력도 강화할 계획이다",
+       "date": "2026.11",
+       "text": "이미 자체 브랜드(PB) ‘듀에라’를 연내 미국 아마존과 틱톡샵에 입점시키는 방안을 추진하는 한편, 퀵커머스 서비스 ‘컬리나우’를 통해 뷰티 상품 배송 영역도…",
        "lvl": "plan",
        "entry": false,
        "exp": false,
        "past": false,
-       "hl": "상품만 팔던 컬리, 이젠 개발까지…이커머스, 상품 경쟁력 키운다",
-       "url": "https://daily.hankooki.com/news/articleView.html?idxno=1413346"
+       "hl": "[르포]“아침부터 밤까지 예뻐지세요”…컬리의 K뷰티 축제 ‘북적’",
+       "url": "https://www.sedaily.com/article/20113571?ref=naver"
       }
      ],
      "n_done": 4,
-     "n_plan": 1,
+     "n_plan": 2,
      "level": "confirmed",
      "tag": "new",
      "date": "2026.11",
@@ -509,16 +530,36 @@
       },
       {
        "date": "2026.11",
-       "text": "◇ 스킨1004, 싱가포르 왓슨스 28개 매장 입점…동남아 유통망 확대 크레이버코퍼레이션이 전개하는 스킨케어 브랜드 스킨1004가 싱가포르 헬스앤뷰티 매장 왓슨…",
+       "text": "◇ 스킨1004, 싱가포르 왓슨스 28개 매장 입점",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "[똑똑한케어] 에이피알, 스킨1004, 리필드, 센슬, 이미인, 코스메카코리...",
+       "url": "https://www.ekn.kr/web/view.php?key=20261112027028699"
+      },
+      {
+       "date": "2026.11",
+       "text": "글로벌 뷰티 밸류체인 기업 크레이버코퍼레이션이 전개하는 스킨케어 브랜드 스킨1004가 싱가포르 왓슨스에 입점하며 동남아시아 오프라인 유통망 확대에 나섰다",
        "lvl": "done",
        "entry": true,
        "exp": true,
        "past": false,
-       "hl": "[똑똑한케어] 에이피알, 스킨1004, 리필드, 센슬, 이미인, 코스메카코리...",
-       "url": "https://www.ekn.kr/web/view.php?key=20261112027028699"
+       "hl": "스킨1004, 싱가포르 왓슨스 입점…고기능 더마 스킨케어 시장 공략",
+       "url": "http://www.dailysmart.co.kr/news/articleView.html?idxno=132398"
+      },
+      {
+       "date": "2026.11",
+       "text": "스킨1004, 쇼피 이어 왓슨스 입점…싱가포르 유통망 다각화",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "스킨1004, 쇼피 이어 왓슨스 입점…싱가포르 유통망 다각화",
+       "url": "https://www.news1.kr/industry/general-industry/6351544"
       }
      ],
-     "n_done": 2,
+     "n_done": 5,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "new",
@@ -2423,5 +2464,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-12T13:22:37 KST"
+ "_updated": "2026-11-12T16:07:53 KST"
 }
