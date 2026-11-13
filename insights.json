@@ -46,34 +46,34 @@
        "text": "무신사, '태국' 현지 유통과 파트너십 체결… 다섯 번째 동남아 진출도",
        "lvl": "done",
        "entry": true,
-       "exp": false,
+       "exp": true,
        "past": false,
        "hl": "무신사, '태국' 현지 유통과 파트너십 체결… 다섯 번째 동남아 진출도...",
        "url": "https://www.s-journal.co.kr/news/articleView.html?idxno=45304"
       },
       {
        "date": "2026.11",
-       "text": "무신사 관계자는 \"중국에 이어 일본과 동남아시아로 해외 매장을 늘려 국내에서 검증한 오프라인 모델을 세계 시장으로 확장하겠다\"고 말했다",
-       "lvl": "plan",
+       "text": "무신사, 태국서 K패션 선보인다…현지 유통기업과 맞손",
+       "lvl": "done",
        "entry": false,
-       "exp": true,
+       "exp": false,
        "past": false,
-       "hl": "무신사, 오프라인 매장 5년새 급성장…100곳 눈앞·방문객 92%↑",
-       "url": "https://www.jasm.co.kr/news/view/324640/?sc=Naver"
+       "hl": "무신사, 태국서 K패션 선보인다…현지 유통기업과 맞손",
+       "url": "https://biz.sbs.co.kr/article_hub/20000346278?division=NAVER"
       },
       {
        "date": "2026.11",
-       "text": "무신사 관계자는 \"온라인 운영 방식을 실물 점포에 결합해 오프라인 시장 점유율을 체계적으로 다져왔다\"며 \"중국 외에도 일본과 동남아 주요 지역으로 출점 반경을…",
-       "lvl": "plan",
-       "entry": false,
+       "text": "무신사, 태국 센트럴 계열사와 독점 유통 계약…동남아 다섯 번째 진출",
+       "lvl": "done",
+       "entry": true,
        "exp": true,
        "past": false,
-       "hl": "무신사, 오프라인 매장 100호점 돌파… 글로벌 진출 '가속'",
-       "url": "https://www.nbntv.co.kr/news/articleView.html?idxno=4027183"
+       "hl": "무신사, 태국 센트럴 계열사와 독점 유통 계약…동남아 다섯 번째 진출",
+       "url": "https://www.socialvalue.kr/news/view/1065592175821950"
       }
      ],
-     "n_done": 3,
-     "n_plan": 3,
+     "n_done": 17,
+     "n_plan": 4,
      "level": "confirmed",
      "tag": "new",
      "date": "2026.11",
@@ -154,8 +154,8 @@
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 17,
-     "n_plan": 1,
+     "n_done": 11,
+     "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -218,8 +218,8 @@
        "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=285639"
       }
      ],
-     "n_done": 7,
-     "n_plan": 2,
+     "n_done": 5,
+     "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -486,6 +486,16 @@
       },
       {
        "date": "2026.11",
+       "text": "K뷰티의 해외 진출 무대가 미국과 일본, 동남아시아를 넘어 남미로 넓어지고 있다",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "[미르의 알기쉬운 비즈니스]K뷰티, 남미 시장은 누가 뚫었나…스킨1004부...",
+       "url": "https://www.mediapen.com/news/view/1137218"
+      },
+      {
+       "date": "2026.11",
        "text": "미국에서 선스크린이 일반의약품(OTC·Over-the-Counter) 규제 체계의 적용을 받는 가운데, '스킨1004'는 미국 OTC 관련 등록 절차가 완료된…",
        "lvl": "done",
        "entry": false,
@@ -493,16 +503,6 @@
        "past": false,
        "hl": "크레이버, 매출 1조 시대 열까…'스킨1004' 확장 가속",
        "url": "http://www.apparelnews.co.kr/news/news_view/?idx=228881"
-      },
-      {
-       "date": "2026.10",
-       "text": "'조선미녀' 성공 DNA 담았다…美 시장 겨냥 '뎁티' 론칭",
-       "lvl": "done",
-       "entry": true,
-       "exp": true,
-       "past": false,
-       "hl": "'조선미녀' 성공 DNA 담았다…美 시장 겨냥 '뎁티' 론칭",
-       "url": "http://www.joseilbo.com/news/news_read.php?uid=578157&class=17&grp="
       }
      ],
      "n_done": 7,
@@ -559,7 +559,7 @@
        "url": "https://www.news1.kr/industry/general-industry/6351544"
       }
      ],
-     "n_done": 5,
+     "n_done": 6,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "new",
@@ -651,6 +651,16 @@
        "url": "http://www.beyondpost.co.kr/view.php?ud=20261111091603775146a9e4dd7f_30"
       },
       {
+       "date": "2026.11",
+       "text": "K뷰티의 해외 진출 무대가 미국과 일본, 동남아시아를 넘어 남미로 넓어지고 있다",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "[미르의 알기쉬운 비즈니스]K뷰티, 남미 시장은 누가 뚫었나…스킨1004부...",
+       "url": "https://www.mediapen.com/news/view/1137218"
+      },
+      {
        "date": "2026.10",
        "text": "구다이글로벌은 지난 4월 일본 현지법인 D&ACE의 사명을 '구다이글로벌재팬(Goodai Global JAPAN)'으로 변경하고 멀티브랜드 유통 플랫폼으로 사업…",
        "lvl": "done",
@@ -661,7 +671,7 @@
        "url": "https://www.upkoreanews.kr/news/articleView.html?idxno=100651"
       }
      ],
-     "n_done": 4,
+     "n_done": 5,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -683,19 +693,9 @@
        "past": false,
        "hl": "[더벨]조선미녀, 아마존 빅딜서 영국 매출 4배…유럽 성장세 부각",
        "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
-      },
-      {
-       "date": "2026.10",
-       "text": "25일 뷰티업계에 따르면 구다이글로벌의 스킨케어 브랜드 조선미녀는 지난 6~7일 진행된 아마존 '프라임 빅딜 데이즈'에서 미국과 독일, 영국 등 주요 시장의 매…",
-       "lvl": "done",
-       "entry": false,
-       "exp": true,
-       "past": false,
-       "hl": "독일 아이세럼 판매 459%↑…조선미녀, 美·유럽서 흥행 품목 확대",
-       "url": "https://www.news1.kr/industry/general-industry/6328507"
       }
      ],
-     "n_done": 2,
+     "n_done": 1,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "new",
@@ -2474,5 +2474,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-13T12:39:05 KST"
+ "_updated": "2026-11-13T15:38:33 KST"
 }
