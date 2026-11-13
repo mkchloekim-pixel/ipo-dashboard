@@ -73,7 +73,7 @@
       }
      ],
      "n_done": 17,
-     "n_plan": 4,
+     "n_plan": 2,
      "level": "confirmed",
      "tag": "new",
      "date": "2026.11",
@@ -2474,5 +2474,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-13T15:38:33 KST"
+ "_updated": "2026-11-13T16:19:36 KST"
 }
