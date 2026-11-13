@@ -72,7 +72,7 @@
        "url": "https://www.socialvalue.kr/news/view/1065592175821950"
       }
      ],
-     "n_done": 17,
+     "n_done": 19,
      "n_plan": 2,
      "level": "confirmed",
      "tag": "new",
@@ -452,70 +452,6 @@
    },
    "global": [
     {
-     "region": "미국",
-     "items": [
-      {
-       "date": "2026.11",
-       "text": "미국에서 선스크린이 일반의약품 규제 체계의 적용을 받는 가운데 스킨1004는 미국 OTC 관련 등록 절차가 완료된 제품을 현지 시장에 선보이고 있다",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "스킨1004, 글로벌 판매 성과 '쑥'...실리콘투, 뉴욕 'K-뷰티' 팝업",
-       "url": "https://www.slist.kr/news/articleView.html?idxno=779891"
-      },
-      {
-       "date": "2026.11",
-       "text": "티르티르는 미국 뷰티 편집숍 얼타뷰티(Ulta Beauty)의 730여 개 매장에 입점했으며, 로스앤젤레스와 두바이 등에서 팝업스토어와 옥외광고를 활용한 마케팅…",
-       "lvl": "done",
-       "entry": true,
-       "exp": false,
-       "past": false,
-       "hl": "티르티르, 프리미엄 브랜드 대상 쿠션·베이스 메이크업 부문 수상",
-       "url": "http://www.beyondpost.co.kr/view.php?ud=20261103150100579546a9e4dd7f_30"
-      },
-      {
-       "date": "2026.11",
-       "text": "구다이글로벌의 글로벌 한방 스킨케어 브랜드 '조선미녀(Beauty of Joseon)'가 선케어를 넘어 클렌징까지 포트폴리오를 성공적으로 다각화하며 북미시장 내…",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "구다이글로벌 '조선미녀', 오일 클렌징 경쟁력 입증",
-       "url": "https://www.econovill.com/news/articleView.html?idxno=756767"
-      },
-      {
-       "date": "2026.11",
-       "text": "K뷰티의 해외 진출 무대가 미국과 일본, 동남아시아를 넘어 남미로 넓어지고 있다",
-       "lvl": "done",
-       "entry": true,
-       "exp": false,
-       "past": false,
-       "hl": "[미르의 알기쉬운 비즈니스]K뷰티, 남미 시장은 누가 뚫었나…스킨1004부...",
-       "url": "https://www.mediapen.com/news/view/1137218"
-      },
-      {
-       "date": "2026.11",
-       "text": "미국에서 선스크린이 일반의약품(OTC·Over-the-Counter) 규제 체계의 적용을 받는 가운데, '스킨1004'는 미국 OTC 관련 등록 절차가 완료된…",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "크레이버, 매출 1조 시대 열까…'스킨1004' 확장 가속",
-       "url": "http://www.apparelnews.co.kr/news/news_view/?idx=228881"
-      }
-     ],
-     "n_done": 7,
-     "n_plan": 1,
-     "level": "confirmed",
-     "tag": "ongoing",
-     "date": "2026.11",
-     "base": true,
-     "note": "미국 법인(구다이글로벌 USA) 유통 거점",
-     "src": "https://www.goodai-global.com/ko",
-     "key": true
-    },
-    {
      "region": "동남아",
      "items": [
       {
@@ -564,6 +500,70 @@
      "level": "confirmed",
      "tag": "new",
      "date": "2026.11",
+     "key": true
+    },
+    {
+     "region": "미국",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "미국에서 선스크린이 일반의약품 규제 체계의 적용을 받는 가운데 스킨1004는 미국 OTC 관련 등록 절차가 완료된 제품을 현지 시장에 선보이고 있다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "스킨1004, 글로벌 판매 성과 '쑥'...실리콘투, 뉴욕 'K-뷰티' 팝업",
+       "url": "https://www.slist.kr/news/articleView.html?idxno=779891"
+      },
+      {
+       "date": "2026.11",
+       "text": "티르티르는 미국 뷰티 편집숍 얼타뷰티(Ulta Beauty)의 730여 개 매장에 입점했으며, 로스앤젤레스와 두바이 등에서 팝업스토어와 옥외광고를 활용한 마케팅…",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "티르티르, 프리미엄 브랜드 대상 쿠션·베이스 메이크업 부문 수상",
+       "url": "http://www.beyondpost.co.kr/view.php?ud=20261103150100579546a9e4dd7f_30"
+      },
+      {
+       "date": "2026.11",
+       "text": "구다이글로벌의 글로벌 한방 스킨케어 브랜드 '조선미녀(Beauty of Joseon)'가 선케어를 넘어 클렌징까지 포트폴리오를 성공적으로 다각화하며 북미시장 내…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "구다이글로벌 '조선미녀', 오일 클렌징 경쟁력 입증",
+       "url": "https://www.econovill.com/news/articleView.html?idxno=756767"
+      },
+      {
+       "date": "2026.11",
+       "text": "K뷰티의 해외 진출 무대가 미국과 일본, 동남아시아를 넘어 남미로 넓어지고 있다",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "[미르의 알기쉬운 비즈니스]K뷰티, 남미 시장은 누가 뚫었나…스킨1004부...",
+       "url": "https://www.mediapen.com/news/view/1137218"
+      },
+      {
+       "date": "2026.11",
+       "text": "2019년 자체 브랜드 ‘조선미녀’로 출발한 구다이글로벌은 북미 등 글로벌 시장에서 흥행을 거둔 뒤 적극적인 인수합병(M&A)을 통해 외형을 키웠다",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "past": true,
+       "hl": "'조선미녀' 구다이글로벌, 코스피 상장 도전장",
+       "url": "https://www.hankyung.com/article/2026111359051"
+      }
+     ],
+     "n_done": 8,
+     "n_plan": 1,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2026.11",
+     "base": true,
+     "note": "미국 법인(구다이글로벌 USA) 유통 거점",
+     "src": "https://www.goodai-global.com/ko",
      "key": true
     },
     {
@@ -1652,6 +1652,16 @@
        "url": "https://www.newspim.com/news/view/20261113000186"
       },
       {
+       "date": "2026.11",
+       "text": "하이라이트브랜즈는 자사가 전개하는 아웃도어 브랜드 '시에라디자인(SIERRA DESIGNS)'이 중국 상하이의 복합문화·쇼핑 상권인 웨스트번드(West Bund…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "하이라이트브랜즈 '시에라디자인', 상하이 웨스트번드에 첫 팝업 매장 ...",
+       "url": "https://www.the-stock.kr/news/articleView.html?idxno=33799"
+      },
+      {
        "date": "2026.08",
        "text": "하이라이트브랜즈, 시에라디자인 中 진출 본격화…탑스포츠와 제휴",
        "lvl": "done",
@@ -1682,7 +1692,7 @@
        "url": "https://www.news1.kr/industry/distribution/6197104"
       }
      ],
-     "n_done": 2,
+     "n_done": 3,
      "n_plan": 2,
      "level": "confirmed",
      "tag": "new",
@@ -2474,5 +2484,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-13T16:19:36 KST"
+ "_updated": "2026-11-13T18:57:12 KST"
 }
