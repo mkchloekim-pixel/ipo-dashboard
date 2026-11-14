@@ -46,7 +46,7 @@
        "text": "무신사, '태국' 현지 유통과 파트너십 체결… 다섯 번째 동남아 진출도",
        "lvl": "done",
        "entry": true,
-       "exp": true,
+       "exp": false,
        "past": false,
        "hl": "무신사, '태국' 현지 유통과 파트너십 체결… 다섯 번째 동남아 진출도...",
        "url": "https://www.s-journal.co.kr/news/articleView.html?idxno=45304"
@@ -72,8 +72,8 @@
        "url": "https://www.socialvalue.kr/news/view/1065592175821950"
       }
      ],
-     "n_done": 18,
-     "n_plan": 2,
+     "n_done": 17,
+     "n_plan": 1,
      "level": "confirmed",
      "tag": "new",
      "date": "2026.11",
@@ -154,7 +154,7 @@
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 11,
+     "n_done": 12,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -313,6 +313,27 @@
      "tag": "new",
      "date": "2026.11",
      "key": true
+    },
+    {
+     "region": "유럽",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "한편, 센텔리안24가 유럽 시장 공략에 본격적으로 나서고 있다",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "동국제약 센텔리안24, 컬리와 '뷰티 동맹'…체험·판매 시너지 공략",
+       "url": "https://www.megaeconomy.co.kr/news/newsview.php?ncode=1065603281943019"
+      }
+     ],
+     "n_done": 0,
+     "n_plan": 1,
+     "level": "weak",
+     "tag": "weak",
+     "date": "2026.11",
+     "key": false
     }
    ],
    "investors": [],
@@ -474,10 +495,10 @@
       },
       {
        "date": "2026.11",
-       "text": "◇ 스킨1004, 싱가포르 왓슨스 28개 매장 입점",
+       "text": "◇ 스킨1004, 싱가포르 왓슨스 28개 매장 입점…동남아 유통망 확대 크레이버코퍼레이션이 전개하는",
        "lvl": "done",
        "entry": true,
-       "exp": false,
+       "exp": true,
        "past": false,
        "hl": "[똑똑한케어] 에이피알, 스킨1004, 리필드, 센슬, 이미인, 코스메카코리...",
        "url": "https://www.ekn.kr/web/view.php?key=20261112027028699"
@@ -501,9 +522,19 @@
        "past": false,
        "hl": "스킨1004, 쇼피 이어 왓슨스 입점…싱가포르 유통망 다각화",
        "url": "https://www.news1.kr/industry/general-industry/6351544"
+      },
+      {
+       "date": "2026.11",
+       "text": "스킨1004 싱가포르 왓슨스 28개 매장 입점하며 현지 유통망 확장",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "스킨1004 싱가포르 왓슨스 28개 매장 입점하며 현지 유통망 확장",
+       "url": "https://www.lawissue.co.kr/view.php?ud=202611121540242481204ead0791_12"
       }
      ],
-     "n_done": 6,
+     "n_done": 5,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "new",
@@ -555,7 +586,7 @@
       },
       {
        "date": "2026.11",
-       "text": "2019년 자체 브랜드 ‘조선미녀’로 출발한 구다이글로벌은 북미 등 글로벌 시장에서 흥행을 거둔 뒤 적극적인 인수합병(M&A)을 통해 외형을 키웠다",
+       "text": "2019년 자체 브랜드 ‘조선미녀’로 출발한 구다이글로벌은 북미 등 글로벌 시장에서 흥행을 거둔 뒤",
        "lvl": "done",
        "entry": false,
        "exp": true,
@@ -564,8 +595,8 @@
        "url": "https://www.hankyung.com/article/2026111359051"
       }
      ],
-     "n_done": 8,
-     "n_plan": 1,
+     "n_done": 7,
+     "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -630,7 +661,7 @@
      "items": [
       {
        "date": "2026.11",
-       "text": "스킨1004는 2022년 일본에 본격 진출해 버라이어티숍과 드럭스토어",
+       "text": "스킨1004는 2022년 일본에 본격 진출해 버라이어티숍과 드럭스토어, 대형마트(GMS) 등으로 판매처를 넓혀왔다",
        "lvl": "done",
        "entry": false,
        "exp": true,
@@ -1840,6 +1871,26 @@
        "url": "http://www.paxetv.com/news/articleView.html?idxno=285254"
       },
       {
+       "date": "2026.10",
+       "text": "피스피스스튜디오는 올해 상반기 중국 현지에 마르디메크르디 법인을 설립하고, 지난 6월 중국 직진출 공식 온라인 판매 첫날 약 6억 원의 판매액을 기록하기도 했다",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "마르디메크르디, 中 광군제 사전 판촉 첫날 판매액 15억 넘",
+       "url": "https://www.fashionbiz.co.kr/article/230600"
+      },
+      {
+       "date": "2026.10",
+       "text": "[사진=피스피스스튜디오] 피스피스스튜디오는 올해 상반기 중국 현지에 마르디 메크르디 법인을 설립했다",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "피스피스스튜디오, '마르디 메크르디' 中 광군제 사전 판촉 첫날 약 15억...",
+       "url": "https://www.newspim.com/news/view/20261027000130"
+      },
+      {
        "date": "2026.08",
        "text": "피스피스스튜디오, 中 직진출 본격화…상하이 안푸루에 첫 플래그십",
        "lvl": "done",
@@ -1858,29 +1909,9 @@
        "past": false,
        "hl": "마르디메크르디, 태국 정규 매장 오픈… 아시아 유통망 확대",
        "url": "https://www.fashionbiz.co.kr/article/230806"
-      },
-      {
-       "date": "2026.11",
-       "text": "내년 초에는 상하이 안푸루에 마르디 메크르디의 글로벌 매장 가운데 최대 규모인 플래그십 스토어를 열 계획이다",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "피스피스스튜디오, 태국·마카오·인도네시아 판매 거점 확대",
-       "url": "https://view.asiae.co.kr/article/2026110408585096180"
-      },
-      {
-       "date": "2026.05",
-       "text": "피스피스스튜디오 \"중국 직진출 본격화…해외 매출 비중 50% 목표\"",
-       "lvl": "plan",
-       "entry": false,
-       "exp": true,
-       "past": false,
-       "hl": "피스피스스튜디오 \"중국 직진출 본격화…해외 매출 비중 50% 목표\"",
-       "url": "https://www.newstopkorea.com/news/articleView.html?idxno=45027"
       }
      ],
-     "n_done": 2,
+     "n_done": 4,
      "n_plan": 3,
      "level": "confirmed",
      "tag": "new",
@@ -2492,5 +2523,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-14T12:38:40 KST"
+ "_updated": "2026-11-14T15:16:20 KST"
 }
