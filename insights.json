@@ -72,7 +72,7 @@
        "url": "https://www.socialvalue.kr/news/view/1065592175821950"
       }
      ],
-     "n_done": 19,
+     "n_done": 18,
      "n_plan": 2,
      "level": "confirmed",
      "tag": "new",
@@ -448,7 +448,15 @@
   },
   "goodai": {
    "ipo": {
-    "signals": []
+    "signals": [
+     {
+      "date": "2026.11",
+      "kind": "filed",
+      "label": "예심 청구",
+      "hl": "‘조선미녀’ 구다이글로벌, 코스피 상장예비심사 청구…IPO 본격화",
+      "url": "https://www.mydaily.co.kr/page/view/2026111321121411371"
+     }
+    ]
    },
    "global": [
     {
@@ -2484,5 +2492,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-13T18:57:12 KST"
+ "_updated": "2026-11-14T12:38:40 KST"
 }
