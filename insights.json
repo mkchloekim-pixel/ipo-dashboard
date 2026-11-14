@@ -474,6 +474,13 @@
       "date": "2026.11",
       "kind": "filed",
       "label": "예심 청구",
+      "hl": "‘K뷰티 대어’ 구다이글로벌, 상장 예비심사 청구…IPO 본격화",
+      "url": "https://www.asiatoday.co.kr/kn/view.php?key=20261114010005364"
+     },
+     {
+      "date": "2026.11",
+      "kind": "filed",
+      "label": "예심 청구",
       "hl": "‘조선미녀’ 구다이글로벌, 코스피 상장예비심사 청구…IPO 본격화",
       "url": "https://www.mydaily.co.kr/page/view/2026111321121411371"
      }
@@ -2523,5 +2530,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-14T16:02:03 KST"
+ "_updated": "2026-11-14T18:23:41 KST"
 }
