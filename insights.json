@@ -66,7 +66,7 @@
        "text": "무신사, 태국 센트럴 계열사와 독점 유통 계약…동남아 다섯 번째 진출",
        "lvl": "done",
        "entry": true,
-       "exp": true,
+       "exp": false,
        "past": false,
        "hl": "무신사, 태국 센트럴 계열사와 독점 유통 계약…동남아 다섯 번째 진출",
        "url": "https://www.socialvalue.kr/news/view/1065592175821950"
@@ -541,7 +541,7 @@
        "url": "https://www.lawissue.co.kr/view.php?ud=202611121540242481204ead0791_12"
       }
      ],
-     "n_done": 5,
+     "n_done": 6,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "new",
@@ -602,7 +602,7 @@
        "url": "https://www.hankyung.com/article/2026111359051"
       }
      ],
-     "n_done": 7,
+     "n_done": 6,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -2530,5 +2530,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-15T12:09:17 KST"
+ "_updated": "2026-11-15T15:23:52 KST"
 }
