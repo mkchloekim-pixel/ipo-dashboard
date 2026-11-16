@@ -72,7 +72,7 @@
        "url": "https://www.socialvalue.kr/news/view/1065592175821950"
       }
      ],
-     "n_done": 17,
+     "n_done": 16,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "new",
@@ -154,7 +154,7 @@
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 12,
+     "n_done": 10,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -218,7 +218,7 @@
        "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=285639"
       }
      ],
-     "n_done": 5,
+     "n_done": 7,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -549,7 +549,7 @@
       }
      ],
      "n_done": 6,
-     "n_plan": 0,
+     "n_plan": 1,
      "level": "confirmed",
      "tag": "new",
      "date": "2026.11",
@@ -610,7 +610,7 @@
       }
      ],
      "n_done": 6,
-     "n_plan": 0,
+     "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -675,7 +675,7 @@
      "items": [
       {
        "date": "2026.11",
-       "text": "스킨1004는 2022년 일본에 본격 진출해 버라이어티숍과 드럭스토어, 대형마트(GMS) 등으로 판매처를 넓혀왔다",
+       "text": "스킨1004는 2022년 일본에 본격 진출해 버라이어티숍과 드럭스토어",
        "lvl": "done",
        "entry": false,
        "exp": true,
@@ -714,17 +714,17 @@
        "url": "https://www.mediapen.com/news/view/1137218"
       },
       {
-       "date": "2026.10",
-       "text": "구다이글로벌은 지난 4월 일본 현지법인 D&ACE의 사명을 '구다이글로벌재팬(Goodai Global JAPAN)'으로 변경하고 멀티브랜드 유통 플랫폼으로 사업…",
+       "date": "2026.11",
+       "text": "올해 미국 화장품 유통사 한성USA를 인수해 구다이글로벌USA를 출범시켰고 일본에서도 현지 법인을 통해",
        "lvl": "done",
        "entry": false,
        "exp": false,
        "past": false,
-       "hl": "[창간22주년 특집: K뷰티, 플랫폼이 되다]② 구다이글로벌, 멀티브랜드...",
-       "url": "https://www.upkoreanews.kr/news/articleView.html?idxno=100651"
+       "hl": "\"조선미녀 벌써 팔렸어요?\" 진열장 텅텅...해외 곳곳 품절사태",
+       "url": "https://www.mt.co.kr/living/2026/11/03/2026103014392826198"
       }
      ],
-     "n_done": 5,
+     "n_done": 6,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -1454,6 +1454,16 @@
      "region": "미국",
      "items": [
       {
+       "date": "2026.11",
+       "text": "2019년 설립된 아누아는 어성초 77% 수딩 토너와 어성초 포어 컨트롤 클렌징 오일, PDRN 세럼 등을 전개하며, 회사 측에 따르면 북미·유럽·중동 등 16…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "아누아, 수지와 표현한 '노르딕 멜로'",
+       "url": "http://www.ktnews.com/news/articleView.html?idxno=150184"
+      },
+      {
        "date": "2026.10",
        "text": "프롬랩스는 미국 아마존에 이어 북미 세포라 1200여개 매장에 입점하며 해외 매출",
        "lvl": "done",
@@ -1474,11 +1484,11 @@
        "url": "https://www.venturesquare.net/1120938/"
       }
      ],
-     "n_done": 2,
+     "n_done": 3,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
-     "date": "2026.10",
+     "date": "2026.11",
      "base": true,
      "note": "미국 법인(Anua Inc.) 보유, 핵심 인력은 한국 상주",
      "src": "https://thefounders.careers/home-brand",
@@ -1488,29 +1498,15 @@
      "region": "유럽",
      "items": [
       {
-       "date": "2026.08",
-       "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
+       "date": "2026.11",
+       "text": "2019년 설립된 아누아는 어성초 77% 수딩 토너와 어성초 포어 컨트롤 클렌징 오일, PDRN 세럼 등을 전개하며, 회사 측에 따르면 북미·유럽·중동 등 16…",
        "lvl": "done",
-       "entry": true,
-       "exp": true,
-       "past": false,
-       "hl": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
-       "url": "https://www.theguru.co.kr/news/article.html?no=105333"
-      }
-     ],
-     "n_done": 1,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "ongoing",
-     "date": "2026.08",
-     "base": true,
-     "note": "아누아 유럽 판매(글로벌 세일즈 채용 기사 기준)",
-     "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904",
-     "key": true
-    },
-    {
-     "region": "중동",
-     "items": [
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "아누아, 수지와 표현한 '노르딕 멜로'",
+       "url": "http://www.ktnews.com/news/articleView.html?idxno=150184"
+      },
       {
        "date": "2026.08",
        "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
@@ -1522,12 +1518,46 @@
        "url": "https://www.theguru.co.kr/news/article.html?no=105333"
       }
      ],
-     "n_done": 1,
+     "n_done": 2,
      "n_plan": 0,
      "level": "confirmed",
-     "tag": "new",
-     "date": "2026.08",
+     "tag": "ongoing",
+     "date": "2026.11",
+     "base": true,
+     "note": "아누아 유럽 판매(글로벌 세일즈 채용 기사 기준)",
+     "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904",
      "key": true
+    },
+    {
+     "region": "중동",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "2019년 설립된 아누아는 어성초 77% 수딩 토너와 어성초 포어 컨트롤 클렌징 오일, PDRN 세럼 등을 전개하며, 회사 측에 따르면 북미·유럽·중동 등 16…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "아누아, 수지와 표현한 '노르딕 멜로'",
+       "url": "http://www.ktnews.com/news/articleView.html?idxno=150184"
+      },
+      {
+       "date": "2026.08",
+       "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
+       "url": "https://www.theguru.co.kr/news/article.html?no=105333"
+      }
+     ],
+     "n_done": 2,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2026.11",
+     "key": false
     }
    ],
    "investors": [],
@@ -2054,7 +2084,7 @@
        "text": "'마뗑킴' 해외시장 공략 잰걸음 … 이달만 中·日·베트남 4개 출점",
        "lvl": "done",
        "entry": true,
-       "exp": false,
+       "exp": true,
        "past": false,
        "hl": "'마뗑킴' 해외시장 공략 잰걸음 … 이달만 中·日·베트남 4개 출점",
        "url": "https://www.mk.co.kr/article/12187401"
@@ -2537,5 +2567,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-16T12:14:16 KST"
+ "_updated": "2026-11-16T15:22:47 KST"
 }
