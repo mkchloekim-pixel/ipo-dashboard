@@ -474,6 +474,13 @@
       "date": "2026.11",
       "kind": "filed",
       "label": "예심 청구",
+      "hl": "‘조선미녀’ 구다이글로벌, 코스피 상장예심 청구",
+      "url": "https://www.edaily.co.kr/News/Read?newsId=01498966645646376&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
+     },
+     {
+      "date": "2026.11",
+      "kind": "filed",
+      "label": "예심 청구",
       "hl": "‘K뷰티 대어’ 구다이글로벌, 상장 예비심사 청구…IPO 본격화",
       "url": "https://www.asiatoday.co.kr/kn/view.php?key=20261114010005364"
      },
@@ -771,7 +778,7 @@
     }
    ],
    "investors": [],
-   "invest_summary": "Pre-IPO: IMM PE·JKL파트너스 등 8,000억 규모 투자 유치, 예심 청구 임박(26년 11월)",
+   "invest_summary": "Pre-IPO: IMM PE·JKL파트너스 등 8,000억 규모 투자 유치, 예심 청구 완료(26년 11월)",
    "base_investors": [
     {
      "name": "IMM PE·IMM 인베스트먼트·JKL파트너스 등",
@@ -2530,5 +2537,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-15T18:52:37 KST"
+ "_updated": "2026-11-16T12:14:16 KST"
 }
