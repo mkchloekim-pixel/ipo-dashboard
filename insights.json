@@ -474,6 +474,13 @@
       "date": "2026.11",
       "kind": "filed",
       "label": "예심 청구",
+      "hl": "[맞수탐구] 구다이글로벌, 10조원 IPO…에이피알 넘을 ‘K-뷰티 플랫폼’...",
+      "url": "https://www.globalepic.co.kr/view.php?ud=20261116140558227448439a4874_29"
+     },
+     {
+      "date": "2026.11",
+      "kind": "filed",
+      "label": "예심 청구",
       "hl": "‘조선미녀’ 구다이글로벌, 코스피 상장예심 청구",
       "url": "https://www.edaily.co.kr/News/Read?newsId=01498966645646376&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
      },
@@ -2567,5 +2574,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-16T16:17:55 KST"
+ "_updated": "2026-11-16T19:09:05 KST"
 }
