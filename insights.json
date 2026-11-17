@@ -40,6 +40,37 @@
      "key": true
     },
     {
+     "region": "유럽",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "무신사, 내년 유럽 온라인 시장 진출…‘글로벌 스토어’ 확대",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "무신사, 내년 유럽 온라인 시장 진출…‘글로벌 스토어’ 확대",
+       "url": "https://www.sedaily.com/article/20115623?ref=naver"
+      },
+      {
+       "date": "2026.11",
+       "text": "진격의 무신사…내년 유럽·동남아 공략",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "진격의 무신사…내년 유럽·동남아 공략",
+       "url": "https://www.mk.co.kr/article/12211435"
+      }
+     ],
+     "n_done": 1,
+     "n_plan": 1,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.11",
+     "key": true
+    },
+    {
      "region": "동남아",
      "items": [
       {
@@ -94,7 +125,7 @@
       }
      ],
      "n_done": 17,
-     "n_plan": 1,
+     "n_plan": 2,
      "level": "confirmed",
      "tag": "expand",
      "date": "2026.11",
@@ -470,6 +501,13 @@
   "goodai": {
    "ipo": {
     "signals": [
+     {
+      "date": "2026.11",
+      "kind": "pre",
+      "label": "Pre-IPO",
+      "hl": "몸값 10조 도전하는 구다이글로벌…성장성·수익성 입증할까",
+      "url": "https://www.mk.co.kr/article/12211298"
+     },
      {
       "date": "2026.11",
       "kind": "filed",
@@ -2609,5 +2647,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-17T17:30:22 KST"
+ "_updated": "2026-11-17T20:05:35 KST"
 }
