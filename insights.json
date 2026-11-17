@@ -19,6 +19,27 @@
      "key": true
     },
     {
+     "region": "홍콩",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "명인화장품, 홍콩 코스모프로프 참가·무신사 뷰티 성수 입점…국내외",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "명인화장품, 홍콩 코스모프로프 참가·무신사 뷰티 성수 입점…국내외 ...",
+       "url": "https://www.fntoday.co.kr/news/articleView.html?idxno=397683"
+      }
+     ],
+     "n_done": 1,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.11",
+     "key": true
+    },
+    {
      "region": "동남아",
      "items": [
       {
@@ -72,31 +93,10 @@
        "url": "https://www.socialvalue.kr/news/view/1065592175821950"
       }
      ],
-     "n_done": 16,
+     "n_done": 17,
      "n_plan": 1,
      "level": "confirmed",
-     "tag": "new",
-     "date": "2026.11",
-     "key": true
-    },
-    {
-     "region": "홍콩",
-     "items": [
-      {
-       "date": "2026.11",
-       "text": "명인화장품, 홍콩 코스모프로프 참가·무신사 뷰티 성수 입점…국내외",
-       "lvl": "done",
-       "entry": true,
-       "exp": false,
-       "past": false,
-       "hl": "명인화장품, 홍콩 코스모프로프 참가·무신사 뷰티 성수 입점…국내외 ...",
-       "url": "https://www.fntoday.co.kr/news/articleView.html?idxno=397683"
-      }
-     ],
-     "n_done": 1,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "new",
+     "tag": "expand",
      "date": "2026.11",
      "key": true
     },
@@ -277,6 +277,16 @@
        "url": "https://www.sedaily.com/article/20111615?ref=naver"
       },
       {
+       "date": "2026.11",
+       "text": "컬리의 3분기 실적발표 자료에 따르면 듀에라는 미국 아마존과 틱톡샵에 입점했다",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "뷰티 키우는 컬리, 자체브랜드 첫발..듀에라 앞세워 상품 차별화 시동",
+       "url": "https://kpenews.com/View.aspx?No=4315643"
+      },
+      {
        "date": "2026.10",
        "text": "美 진출 1년 맞은 컬리USA…현지 인지도·고객 기반 확대 과제",
        "lvl": "done",
@@ -295,19 +305,9 @@
        "past": false,
        "hl": "컬리, 넥스트키친 잔여지분 53.6% 확보···간편식 '기획부터 판매까지...",
        "url": "https://www.greenpostkorea.co.kr/news/articleView.html?idxno=307583"
-      },
-      {
-       "date": "2026.11",
-       "text": "이미 자체 브랜드(PB) ‘듀에라’를 연내 미국 아마존과 틱톡샵에 입점시키는 방안을 추진하는 한편, 퀵커머스 서비스 ‘컬리나우’를 통해 뷰티 상품 배송 영역도…",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "[르포]“아침부터 밤까지 예뻐지세요”…컬리의 K뷰티 축제 ‘북적’",
-       "url": "https://www.sedaily.com/article/20113571?ref=naver"
       }
      ],
-     "n_done": 4,
+     "n_done": 5,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "new",
@@ -563,6 +563,37 @@
      "key": true
     },
     {
+     "region": "유럽",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "구다이글로벌의 한방 스킨케어 브랜드 '조선미녀'가 영국 런던에서 진행한 카페 협업 행사에 5000명 넘는 방문객을 모았다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "조선미녀, 런던서 K뷰티 체험 행사···말차 음료로 제품 알려",
+       "url": "http://www.finomy.com/news/articleView.html?idxno=266976"
+      },
+      {
+       "date": "2026.10",
+       "text": "◇영국 오프라인 유통망 확충, 현지법인 설립도 영국에서의 성장세는",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "[더벨]조선미녀, 아마존 빅딜서 영국 매출 4배…유럽 성장세 부각",
+       "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
+      }
+     ],
+     "n_done": 2,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.11",
+     "key": true
+    },
+    {
      "region": "미국",
      "items": [
       {
@@ -739,27 +770,6 @@
      "base": true,
      "note": "일본 법인(구다이글로벌 Japan) 유통 거점",
      "src": "https://www.goodai-global.com/ko",
-     "key": true
-    },
-    {
-     "region": "유럽",
-     "items": [
-      {
-       "date": "2026.10",
-       "text": "◇영국 오프라인 유통망 확충, 현지법인 설립도 영국에서의 성장세는",
-       "lvl": "done",
-       "entry": true,
-       "exp": true,
-       "past": false,
-       "hl": "[더벨]조선미녀, 아마존 빅딜서 영국 매출 4배…유럽 성장세 부각",
-       "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
-      }
-     ],
-     "n_done": 1,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "new",
-     "date": "2026.10",
      "key": true
     },
     {
@@ -2599,5 +2609,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-17T14:16:20 KST"
+ "_updated": "2026-11-17T16:53:55 KST"
 }
