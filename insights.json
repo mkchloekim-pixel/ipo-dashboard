@@ -1445,19 +1445,6 @@
    },
    "global": [
     {
-     "region": "일본",
-     "items": [],
-     "n_done": 0,
-     "n_plan": 0,
-     "date": "",
-     "level": "confirmed",
-     "tag": "ongoing",
-     "base": true,
-     "note": "일본 법인 2021년 설립",
-     "src": "https://www.thebell.co.kr/front/newsview.asp?key=202407161113121840104171",
-     "key": true
-    },
-    {
      "region": "미국",
      "items": [
       {
@@ -1533,6 +1520,30 @@
      "base": true,
      "note": "아누아 유럽 판매(글로벌 세일즈 채용 기사 기준)",
      "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904",
+     "key": true
+    },
+    {
+     "region": "일본",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "아누아, '도쿄 뷰티 위크 2026' 참가…'PDRN 라인업' 日 공략",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "아누아, '도쿄 뷰티 위크 2026' 참가…'PDRN 라인업' 日 공략",
+       "url": "https://www.theguru.co.kr/news/article.html?no=109831"
+      }
+     ],
+     "n_done": 0,
+     "n_plan": 1,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2026.11",
+     "base": true,
+     "note": "일본 법인 2021년 설립",
+     "src": "https://www.thebell.co.kr/front/newsview.asp?key=202407161113121840104171",
      "key": true
     },
     {
@@ -1902,6 +1913,20 @@
       "date": "2026.11",
       "kind": "listed",
       "label": "상장 완료",
+      "hl": "[특징주] 피스피스스튜디오, 1000억 자사주 전량 소각…주가 18%↑",
+      "url": "http://www.newsdream.kr/news/articleView.html?idxno=122321"
+     },
+     {
+      "date": "2026.11",
+      "kind": "listed",
+      "label": "상장 완료",
+      "hl": "피스피스스튜디오, 100억 규모 자사주 전량 소각…발행주식 12.95% 감소",
+      "url": "https://www.edaily.co.kr/News/Read?newsId=03201286645646704&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
+     },
+     {
+      "date": "2026.11",
+      "kind": "listed",
+      "label": "상장 완료",
       "hl": "박화목 피스피스스튜디오 대표, 51만 주 회사에 무상 증여",
       "url": "https://www.news1.kr/industry/distribution/6350520"
      }
@@ -1911,6 +1936,16 @@
     {
      "region": "중국",
      "items": [
+      {
+       "date": "2026.11",
+       "text": "컨템포러리 패션 브랜드 '마르디 메크르디' 등을 운영하는 이 회사가 중국 내 라이선스 사업을 종료하고 현지 법인 중심의 직접 진출 체제로 전환하는 과정에서, 물…",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "[특징주] 피스피스스튜디오, 100억 규모 자사주 전량 소각 결정에 20%대...",
+       "url": "https://www.widedaily.com/news/articleView.html?idxno=303869"
+      },
       {
        "date": "2026.10",
        "text": "피스피스스튜디오는 올해 상반기 중국 현지 법인을 설립한 뒤 지난 6월 직진출 온라인 판매 첫날에도 약",
@@ -1950,19 +1985,9 @@
        "past": false,
        "hl": "피스피스스튜디오, 中 직진출 본격화…상하이 안푸루에 첫 플래그십",
        "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=02804406645548632"
-      },
-      {
-       "date": "2026.11",
-       "text": "오는 2027년 초에는 상하이 안푸루(安福路)에 마르디 메크르디의 글로벌 매장 가운데 최대 규모인 플래그십 스토어를 오픈할 계획으로, 현지 판매 채널 확대와 브…",
-       "lvl": "plan",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "마르디메크르디, 태국 정규 매장 오픈… 아시아 유통망 확대",
-       "url": "https://www.fashionbiz.co.kr/article/230806"
       }
      ],
-     "n_done": 4,
+     "n_done": 5,
      "n_plan": 3,
      "level": "confirmed",
      "tag": "new",
@@ -2574,5 +2599,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-16T19:09:05 KST"
+ "_updated": "2026-11-17T14:16:20 KST"
 }
