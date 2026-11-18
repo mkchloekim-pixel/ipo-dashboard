@@ -125,7 +125,7 @@
       }
      ],
      "n_done": 17,
-     "n_plan": 1,
+     "n_plan": 3,
      "level": "confirmed",
      "tag": "expand",
      "date": "2026.11",
@@ -249,7 +249,7 @@
        "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=285639"
       }
      ],
-     "n_done": 7,
+     "n_done": 6,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -807,7 +807,7 @@
        "url": "https://www.mt.co.kr/living/2026/11/03/2026103014392826198"
       }
      ],
-     "n_done": 6,
+     "n_done": 5,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -2053,7 +2053,7 @@
       }
      ],
      "n_done": 6,
-     "n_plan": 3,
+     "n_plan": 4,
      "level": "confirmed",
      "tag": "new",
      "date": "2026.11",
@@ -2114,7 +2114,7 @@
        "url": "https://view.asiae.co.kr/article/2026103008455775964"
       }
      ],
-     "n_done": 2,
+     "n_done": 4,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -2664,5 +2664,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-18T13:45:02 KST"
+ "_updated": "2026-11-18T16:23:42 KST"
 }
