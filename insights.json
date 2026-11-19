@@ -1582,6 +1582,26 @@
      "items": [
       {
        "date": "2026.11",
+       "text": "더파운더즈가 운영하는 뷰티 브랜드 아누아가 일본 현지에서 누적 판매량 630만개를 돌파한 주력",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "아누아, 日 '앳코스메 어워드' 7관왕 석권…PDRN 라인 현지 누적 630만개...",
+       "url": "https://www.widedaily.com/news/articleView.html?idxno=304081"
+      },
+      {
+       "date": "2026.11",
+       "text": "더파운더즈의 뷰티 브랜드 아누아가 일본에서 PDRN 제품 3종으로 누적 판매량 630만개를 돌파한 데 이어 현지 뷰티 시상식에서 7관왕에 올랐다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "日서 630만개 팔려…아누아, 앳코스메 어워드 7관왕",
+       "url": "https://www.newsis.com/view/NISX20261119_0003874219"
+      },
+      {
+       "date": "2026.11",
        "text": "아누아, '도쿄 뷰티 위크 2026' 참가…'PDRN 라인업' 日 공략",
        "lvl": "plan",
        "entry": false,
@@ -1591,7 +1611,7 @@
        "url": "https://www.theguru.co.kr/news/article.html?no=109831"
       }
      ],
-     "n_done": 0,
+     "n_done": 2,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
@@ -2664,5 +2684,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-18T19:41:05 KST"
+ "_updated": "2026-11-19T13:34:59 KST"
 }
