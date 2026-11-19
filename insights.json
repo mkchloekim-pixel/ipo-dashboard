@@ -124,7 +124,7 @@
        "url": "https://www.socialvalue.kr/news/view/1065592175821950"
       }
      ],
-     "n_done": 17,
+     "n_done": 16,
      "n_plan": 3,
      "level": "confirmed",
      "tag": "expand",
@@ -185,7 +185,7 @@
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 10,
+     "n_done": 12,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -249,7 +249,7 @@
        "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=285639"
       }
      ],
-     "n_done": 6,
+     "n_done": 7,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -299,7 +299,7 @@
       },
       {
        "date": "2026.11",
-       "text": "이를 위해 컬리는 최근 미국 시장 진출을 위한 전문 인력 확보에도 나섰다",
+       "text": "이를 위해 컬리는 최근 미국 시장 진출을 위한 전문 인력 확보에도",
        "lvl": "done",
        "entry": true,
        "exp": false,
@@ -547,6 +547,37 @@
    },
    "global": [
     {
+     "region": "유럽",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "구다이글로벌의 한방 스킨케어 브랜드 '조선미녀'가 영국 런던에서 진행한 카페 협업 행사에 5000명 넘는 방문객을 모았다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "조선미녀, 런던서 K뷰티 체험 행사···말차 음료로 제품 알려",
+       "url": "http://www.finomy.com/news/articleView.html?idxno=266976"
+      },
+      {
+       "date": "2026.10",
+       "text": "◇영국 오프라인 유통망 확충, 현지법인 설립도 영국에서의 성장세는",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "[더벨]조선미녀, 아마존 빅딜서 영국 매출 4배…유럽 성장세 부각",
+       "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
+      }
+     ],
+     "n_done": 2,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.11",
+     "key": true
+    },
+    {
      "region": "동남아",
      "items": [
       {
@@ -603,38 +634,7 @@
      "n_done": 6,
      "n_plan": 1,
      "level": "confirmed",
-     "tag": "new",
-     "date": "2026.11",
-     "key": true
-    },
-    {
-     "region": "유럽",
-     "items": [
-      {
-       "date": "2026.11",
-       "text": "구다이글로벌의 한방 스킨케어 브랜드 '조선미녀'가 영국 런던에서 진행한 카페 협업 행사에 5000명 넘는 방문객을 모았다",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "조선미녀, 런던서 K뷰티 체험 행사···말차 음료로 제품 알려",
-       "url": "http://www.finomy.com/news/articleView.html?idxno=266976"
-      },
-      {
-       "date": "2026.10",
-       "text": "◇영국 오프라인 유통망 확충, 현지법인 설립도 영국에서의 성장세는",
-       "lvl": "done",
-       "entry": true,
-       "exp": true,
-       "past": false,
-       "hl": "[더벨]조선미녀, 아마존 빅딜서 영국 매출 4배…유럽 성장세 부각",
-       "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
-      }
-     ],
-     "n_done": 2,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "new",
+     "tag": "expand",
      "date": "2026.11",
      "key": true
     },
@@ -1500,84 +1500,6 @@
    },
    "global": [
     {
-     "region": "미국",
-     "items": [
-      {
-       "date": "2026.11",
-       "text": "2019년 설립된 아누아는 어성초 77% 수딩 토너와 어성초 포어 컨트롤 클렌징 오일, PDRN 세럼 등을 전개하며, 회사 측에 따르면 북미·유럽·중동 등 16…",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": true,
-       "hl": "아누아, 수지와 표현한 '노르딕 멜로'",
-       "url": "http://www.ktnews.com/news/articleView.html?idxno=150184"
-      },
-      {
-       "date": "2026.10",
-       "text": "프롬랩스는 미국 아마존에 이어 북미 세포라 1200여개 매장에 입점하며 해외 매출",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": true,
-       "hl": "제2의 아누아 키웠다…더파운더즈 1조 눈앞",
-       "url": "https://www.sidae.com/article/2026102611264327154"
-      },
-      {
-       "date": "2026.10",
-       "text": "더파운더즈, 북미 세포라 1200개 매장 진출한 ‘프롬랩스’ 글로벌 마케",
-       "lvl": "done",
-       "entry": true,
-       "exp": false,
-       "past": false,
-       "hl": "더파운더즈, 북미 세포라 1200개 매장 진출한 ‘프롬랩스’ 글로벌 마케...",
-       "url": "https://www.venturesquare.net/1120938/"
-      }
-     ],
-     "n_done": 3,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "ongoing",
-     "date": "2026.11",
-     "base": true,
-     "note": "미국 법인(Anua Inc.) 보유, 핵심 인력은 한국 상주",
-     "src": "https://thefounders.careers/home-brand",
-     "key": true
-    },
-    {
-     "region": "유럽",
-     "items": [
-      {
-       "date": "2026.11",
-       "text": "2019년 설립된 아누아는 어성초 77% 수딩 토너와 어성초 포어 컨트롤 클렌징 오일, PDRN 세럼 등을 전개하며, 회사 측에 따르면 북미·유럽·중동 등 16…",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": true,
-       "hl": "아누아, 수지와 표현한 '노르딕 멜로'",
-       "url": "http://www.ktnews.com/news/articleView.html?idxno=150184"
-      },
-      {
-       "date": "2026.08",
-       "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
-       "lvl": "done",
-       "entry": true,
-       "exp": true,
-       "past": false,
-       "hl": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
-       "url": "https://www.theguru.co.kr/news/article.html?no=105333"
-      }
-     ],
-     "n_done": 2,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "ongoing",
-     "date": "2026.11",
-     "base": true,
-     "note": "아누아 유럽 판매(글로벌 세일즈 채용 기사 기준)",
-     "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904",
-     "key": true
-    },
-    {
      "region": "일본",
      "items": [
       {
@@ -1602,6 +1524,16 @@
       },
       {
        "date": "2026.11",
+       "text": "글로벌 뷰티 브랜드 아누아가 일본 최대 뷰티 플랫폼 '앳코스메'가 주관하는 '베스트 코스메 어워드 2026'에서 7관왕을 달성했다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "아누아, 日 '앳코스메 베스트 코스메 어워드' 7관왕",
+       "url": "https://www.slist.kr/news/articleView.html?idxno=782986"
+      },
+      {
+       "date": "2026.11",
        "text": "아누아, '도쿄 뷰티 위크 2026' 참가…'PDRN 라인업' 日 공략",
        "lvl": "plan",
        "entry": false,
@@ -1611,7 +1543,7 @@
        "url": "https://www.theguru.co.kr/news/article.html?no=109831"
       }
      ],
-     "n_done": 2,
+     "n_done": 3,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
@@ -1622,18 +1554,42 @@
      "key": true
     },
     {
-     "region": "중동",
+     "region": "미국",
      "items": [
       {
-       "date": "2026.11",
-       "text": "2019년 설립된 아누아는 어성초 77% 수딩 토너와 어성초 포어 컨트롤 클렌징 오일, PDRN 세럼 등을 전개하며, 회사 측에 따르면 북미·유럽·중동 등 16…",
+       "date": "2026.10",
+       "text": "프롬랩스는 미국 아마존에 이어 북미 세포라 1200여개 매장에 입점하며 해외 매출",
        "lvl": "done",
        "entry": false,
        "exp": false,
        "past": true,
-       "hl": "아누아, 수지와 표현한 '노르딕 멜로'",
-       "url": "http://www.ktnews.com/news/articleView.html?idxno=150184"
+       "hl": "제2의 아누아 키웠다…더파운더즈 1조 눈앞",
+       "url": "https://www.sidae.com/article/2026102611264327154"
       },
+      {
+       "date": "2026.10",
+       "text": "더파운더즈, 북미 세포라 1200개 매장 진출한 ‘프롬랩스’ 글로벌 마케",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "더파운더즈, 북미 세포라 1200개 매장 진출한 ‘프롬랩스’ 글로벌 마케...",
+       "url": "https://www.venturesquare.net/1120938/"
+      }
+     ],
+     "n_done": 2,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2026.10",
+     "base": true,
+     "note": "미국 법인(Anua Inc.) 보유, 핵심 인력은 한국 상주",
+     "src": "https://thefounders.careers/home-brand",
+     "key": true
+    },
+    {
+     "region": "유럽",
+     "items": [
       {
        "date": "2026.08",
        "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
@@ -1645,12 +1601,36 @@
        "url": "https://www.theguru.co.kr/news/article.html?no=105333"
       }
      ],
-     "n_done": 2,
+     "n_done": 1,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
-     "date": "2026.11",
-     "key": false
+     "date": "2026.08",
+     "base": true,
+     "note": "아누아 유럽 판매(글로벌 세일즈 채용 기사 기준)",
+     "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904",
+     "key": true
+    },
+    {
+     "region": "중동",
+     "items": [
+      {
+       "date": "2026.08",
+       "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
+       "url": "https://www.theguru.co.kr/news/article.html?no=105333"
+      }
+     ],
+     "n_done": 1,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.08",
+     "key": true
     }
    ],
    "investors": [],
@@ -2684,5 +2664,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-19T13:34:59 KST"
+ "_updated": "2026-11-19T16:20:51 KST"
 }
