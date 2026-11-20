@@ -124,8 +124,8 @@
        "url": "https://www.socialvalue.kr/news/view/1065592175821950"
       }
      ],
-     "n_done": 16,
-     "n_plan": 3,
+     "n_done": 15,
+     "n_plan": 4,
      "level": "confirmed",
      "tag": "expand",
      "date": "2026.11",
@@ -185,8 +185,8 @@
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 12,
-     "n_plan": 0,
+     "n_done": 10,
+     "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -631,7 +631,7 @@
        "url": "https://www.lawissue.co.kr/view.php?ud=202611121540242481204ead0791_12"
       }
      ],
-     "n_done": 6,
+     "n_done": 7,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "expand",
@@ -2664,5 +2664,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-20T13:23:05 KST"
+ "_updated": "2026-11-20T16:10:13 KST"
 }
