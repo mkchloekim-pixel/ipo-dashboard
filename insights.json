@@ -186,7 +186,7 @@
       }
      ],
      "n_done": 10,
-     "n_plan": 1,
+     "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -250,7 +250,7 @@
       }
      ],
      "n_done": 7,
-     "n_plan": 0,
+     "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -2664,5 +2664,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-21T13:19:42 KST"
+ "_updated": "2026-11-21T16:02:18 KST"
 }
