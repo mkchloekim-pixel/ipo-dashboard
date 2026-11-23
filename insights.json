@@ -125,7 +125,7 @@
       }
      ],
      "n_done": 15,
-     "n_plan": 4,
+     "n_plan": 3,
      "level": "confirmed",
      "tag": "expand",
      "date": "2026.11",
@@ -185,7 +185,7 @@
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 10,
+     "n_done": 11,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -1021,6 +1021,16 @@
      "region": "미국",
      "items": [
       {
+       "date": "2026.11",
+       "text": "이공이공은 이런 시장을 노리고 K-뷰티 기업의 북미 진출을 지원해온 회사다",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "[더벨][thebell note] 이공이공의 구원투수",
+       "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202611181142581920107859"
+      },
+      {
        "date": "2026.10",
        "text": "팻랩, 에일리 모델 발탁... 이공이공과 미국 아마존 진출 추진",
        "lvl": "plan",
@@ -1031,11 +1041,11 @@
        "url": "https://www.globalepic.co.kr/view.php?ud=20261013095608315237600e7ec7_29"
       }
      ],
-     "n_done": 0,
+     "n_done": 1,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
-     "date": "2026.10",
+     "date": "2026.11",
      "base": true,
      "note": "미국 법인 2018년 설립, 한국 브랜드 미국 시장 진출 중",
      "src": "https://m.thebell.co.kr/m/newsview.asp?newskey=202607081544329400109564",
@@ -2664,5 +2674,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-23T13:03:06 KST"
+ "_updated": "2026-11-23T16:32:15 KST"
 }
