@@ -124,8 +124,8 @@
        "url": "https://www.socialvalue.kr/news/view/1065592175821950"
       }
      ],
-     "n_done": 15,
-     "n_plan": 3,
+     "n_done": 14,
+     "n_plan": 4,
      "level": "confirmed",
      "tag": "expand",
      "date": "2026.11",
@@ -186,7 +186,7 @@
       }
      ],
      "n_done": 11,
-     "n_plan": 0,
+     "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -249,8 +249,8 @@
        "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=285639"
       }
      ],
-     "n_done": 7,
-     "n_plan": 1,
+     "n_done": 12,
+     "n_plan": 2,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -561,10 +561,10 @@
       },
       {
        "date": "2026.11",
-       "text": "조선미녀·티르티르·스킨1004·라운드랩 브랜드 포트폴리오 미국 세포라, 영국 부츠, 폴란드 로스만 등 글로벌 유통사 입점 북미·유럽·중남미·동남아·중동으로 빠르…",
+       "text": "조선미녀는 현재 전 세계 170여개국에 제품을 수출하며 북미와 유럽을 비롯해 아시아, 중동, 중남미 등으로 판매 지역을 확대했다",
        "lvl": "done",
-       "entry": true,
-       "exp": false,
+       "entry": false,
+       "exp": true,
        "past": false,
        "hl": "[K뷰티 세계정복] '조선미녀' 타고 세계로…구다이글로벌, K뷰티 플랫폼...",
        "url": "https://www.etnews.com/20261124000261"
@@ -2694,5 +2694,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-24T16:08:27 KST"
+ "_updated": "2026-11-24T18:51:41 KST"
 }
