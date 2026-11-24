@@ -560,6 +560,16 @@
        "url": "http://www.finomy.com/news/articleView.html?idxno=266976"
       },
       {
+       "date": "2026.11",
+       "text": "조선미녀·티르티르·스킨1004·라운드랩 브랜드 포트폴리오 미국 세포라, 영국 부츠, 폴란드 로스만 등 글로벌 유통사 입점 북미·유럽·중남미·동남아·중동으로 빠르…",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "[K뷰티 세계정복] '조선미녀' 타고 세계로…구다이글로벌, K뷰티 플랫폼...",
+       "url": "https://www.etnews.com/20261124000261"
+      },
+      {
        "date": "2026.10",
        "text": "◇영국 오프라인 유통망 확충, 현지법인 설립도 영국에서의 성장세는",
        "lvl": "done",
@@ -568,6 +578,37 @@
        "past": false,
        "hl": "[더벨]조선미녀, 아마존 빅딜서 영국 매출 4배…유럽 성장세 부각",
        "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202610160932431560105545"
+      }
+     ],
+     "n_done": 3,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.11",
+     "key": true
+    },
+    {
+     "region": "중남미",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "조선미녀·티르티르·스킨1004·라운드랩 브랜드 포트폴리오 미국 세포라, 영국 부츠, 폴란드 로스만 등 글로벌 유통사 입점 북미·유럽·중남미·동남아·중동으로 빠르…",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "[K뷰티 세계정복] '조선미녀' 타고 세계로…구다이글로벌, K뷰티 플랫폼...",
+       "url": "https://www.etnews.com/20261124000261"
+      },
+      {
+       "date": "2026.07",
+       "text": "브랜드 조선미녀와 티르티르, 스킨1004 등이 브라질 세포라에 입점한 상태다",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "구다이글로벌 실리콘투 나란히 '경제사절단'에, 천주혁 김성운 '끈끈한...",
+       "url": "https://www.businesspost.co.kr/BP?command=article_view&num=443075"
       }
      ],
      "n_done": 2,
@@ -692,7 +733,7 @@
        "url": "https://www.hankyung.com/article/2026111359051"
       }
      ],
-     "n_done": 6,
+     "n_done": 7,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
@@ -815,27 +856,6 @@
      "base": true,
      "note": "일본 법인(구다이글로벌 Japan) 유통 거점",
      "src": "https://www.goodai-global.com/ko",
-     "key": true
-    },
-    {
-     "region": "중남미",
-     "items": [
-      {
-       "date": "2026.07",
-       "text": "브랜드 조선미녀와 티르티르, 스킨1004 등이 브라질 세포라에 입점한 상태다",
-       "lvl": "done",
-       "entry": true,
-       "exp": false,
-       "past": false,
-       "hl": "구다이글로벌 실리콘투 나란히 '경제사절단'에, 천주혁 김성운 '끈끈한...",
-       "url": "https://www.businesspost.co.kr/BP?command=article_view&num=443075"
-      }
-     ],
-     "n_done": 1,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "new",
-     "date": "2026.07",
      "key": true
     }
    ],
@@ -1514,7 +1534,7 @@
      "items": [
       {
        "date": "2026.11",
-       "text": "더파운더즈가 운영하는 뷰티 브랜드 아누아가 일본 현지에서 누적 판매량 630만개를 돌파한 주력",
+       "text": "더파운더즈가 운영하는 뷰티 브랜드 아누아가 일본 현지에서 누적 판매량 630만개를 돌파한 주력 제품군을 앞세워 일본 대표 뷰티 시상식에서 7관왕을 달성했다",
        "lvl": "done",
        "entry": false,
        "exp": false,
@@ -2674,5 +2694,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-23T20:13:09 KST"
+ "_updated": "2026-11-24T16:08:27 KST"
 }
