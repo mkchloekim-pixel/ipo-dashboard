@@ -124,10 +124,10 @@
        "url": "https://www.socialvalue.kr/news/view/1065592175821950"
       }
      ],
-     "n_done": 14,
+     "n_done": 12,
      "n_plan": 4,
      "level": "confirmed",
-     "tag": "expand",
+     "tag": "new",
      "date": "2026.11",
      "key": true
     },
@@ -185,7 +185,7 @@
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 11,
+     "n_done": 9,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
@@ -249,8 +249,8 @@
        "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=285639"
       }
      ],
-     "n_done": 12,
-     "n_plan": 2,
+     "n_done": 11,
+     "n_plan": 3,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -1587,6 +1587,16 @@
      "region": "미국",
      "items": [
       {
+       "date": "2026.11",
+       "text": "2019년 설립된 아누아는 어성초 77% 수딩 토너와 어성초 포어 컨트롤 클렌징 오일, PDRN 세럼 등을 전개하며, 회사 측에 따르면 북미·유럽·중동 등 16…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "아누아, 수지와 표현한 '노르딕 멜로'",
+       "url": "http://www.ktnews.com/news/articleView.html?idxno=150184"
+      },
+      {
        "date": "2026.10",
        "text": "프롬랩스는 미국 아마존에 이어 북미 세포라 1200여개 매장에 입점하며 해외 매출",
        "lvl": "done",
@@ -1607,11 +1617,11 @@
        "url": "https://www.venturesquare.net/1120938/"
       }
      ],
-     "n_done": 2,
+     "n_done": 3,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
-     "date": "2026.10",
+     "date": "2026.11",
      "base": true,
      "note": "미국 법인(Anua Inc.) 보유, 핵심 인력은 한국 상주",
      "src": "https://thefounders.careers/home-brand",
@@ -1621,29 +1631,15 @@
      "region": "유럽",
      "items": [
       {
-       "date": "2026.08",
-       "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
+       "date": "2026.11",
+       "text": "2019년 설립된 아누아는 어성초 77% 수딩 토너와 어성초 포어 컨트롤 클렌징 오일, PDRN 세럼 등을 전개하며, 회사 측에 따르면 북미·유럽·중동 등 16…",
        "lvl": "done",
-       "entry": true,
-       "exp": true,
-       "past": false,
-       "hl": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
-       "url": "https://www.theguru.co.kr/news/article.html?no=105333"
-      }
-     ],
-     "n_done": 1,
-     "n_plan": 0,
-     "level": "confirmed",
-     "tag": "ongoing",
-     "date": "2026.08",
-     "base": true,
-     "note": "아누아 유럽 판매(글로벌 세일즈 채용 기사 기준)",
-     "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904",
-     "key": true
-    },
-    {
-     "region": "중동",
-     "items": [
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "아누아, 수지와 표현한 '노르딕 멜로'",
+       "url": "http://www.ktnews.com/news/articleView.html?idxno=150184"
+      },
       {
        "date": "2026.08",
        "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
@@ -1655,12 +1651,46 @@
        "url": "https://www.theguru.co.kr/news/article.html?no=105333"
       }
      ],
-     "n_done": 1,
+     "n_done": 2,
      "n_plan": 0,
      "level": "confirmed",
-     "tag": "new",
-     "date": "2026.08",
+     "tag": "ongoing",
+     "date": "2026.11",
+     "base": true,
+     "note": "아누아 유럽 판매(글로벌 세일즈 채용 기사 기준)",
+     "src": "https://www.enewstoday.co.kr/news/articleView.html?idxno=2457904",
      "key": true
+    },
+    {
+     "region": "중동",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "2019년 설립된 아누아는 어성초 77% 수딩 토너와 어성초 포어 컨트롤 클렌징 오일, PDRN 세럼 등을 전개하며, 회사 측에 따르면 북미·유럽·중동 등 16…",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "아누아, 수지와 표현한 '노르딕 멜로'",
+       "url": "http://www.ktnews.com/news/articleView.html?idxno=150184"
+      },
+      {
+       "date": "2026.08",
+       "text": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
+       "lvl": "done",
+       "entry": true,
+       "exp": true,
+       "past": false,
+       "hl": "아누아, 글로벌 면세 하이네만 입점…유럽·중동 영토 넓힌다",
+       "url": "https://www.theguru.co.kr/news/article.html?no=105333"
+      }
+     ],
+     "n_done": 2,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2026.11",
+     "key": false
     }
    ],
    "investors": [],
@@ -2083,7 +2113,7 @@
       }
      ],
      "n_done": 6,
-     "n_plan": 4,
+     "n_plan": 3,
      "level": "confirmed",
      "tag": "new",
      "date": "2026.11",
@@ -2694,5 +2724,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-25T14:43:06 KST"
+ "_updated": "2026-11-25T17:27:05 KST"
 }
