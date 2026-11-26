@@ -61,10 +61,20 @@
        "past": false,
        "hl": "진격의 무신사…내년 유럽·동남아 공략",
        "url": "https://www.mk.co.kr/article/12211435"
+      },
+      {
+       "date": "2026.11",
+       "text": "아시아는 좁다, 이제는 유럽으로...무신사, 패션·뷰티 글로벌 공략",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "아시아는 좁다, 이제는 유럽으로...무신사, 패션·뷰티 글로벌 공략",
+       "url": "https://www.mt.co.kr/living/2026/11/26/2026112517384548425"
       }
      ],
      "n_done": 1,
-     "n_plan": 1,
+     "n_plan": 2,
      "level": "confirmed",
      "tag": "new",
      "date": "2026.11",
@@ -124,7 +134,7 @@
        "url": "https://www.socialvalue.kr/news/view/1065592175821950"
       }
      ],
-     "n_done": 12,
+     "n_done": 14,
      "n_plan": 4,
      "level": "confirmed",
      "tag": "new",
@@ -185,7 +195,7 @@
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 9,
+     "n_done": 7,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
@@ -249,7 +259,7 @@
        "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=285639"
       }
      ],
-     "n_done": 11,
+     "n_done": 10,
      "n_plan": 3,
      "level": "confirmed",
      "tag": "ongoing",
@@ -900,10 +910,20 @@
        "past": false,
        "hl": "구다이글로벌 조선미녀, 두바이 첫 팝업에 1만명 방문…온라인 판매 2.8...",
        "url": "https://www.ajunews.com/view/20261126110016799"
+      },
+      {
+       "date": "2026.11",
+       "text": "◆ 조선미녀, '틴티드 선크림'으로 중동 공략…두바이서 첫 팝업 개최 구다이글로벌의 글로벌 한방 스킨케어 브랜드 조선미녀(Beauty of Joseon)는 중동…",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "빙그레, 따옴 아기상어 에디션 출시…조선미녀, 두바이 첫 팝업 개최 [유...",
+       "url": "https://www.newspost.kr/news/articleView.html?idxno=227823"
       }
      ],
      "n_done": 3,
-     "n_plan": 1,
+     "n_plan": 2,
      "level": "confirmed",
      "tag": "expand",
      "date": "2026.11",
@@ -2174,7 +2194,7 @@
       }
      ],
      "n_done": 6,
-     "n_plan": 3,
+     "n_plan": 2,
      "level": "confirmed",
      "tag": "new",
      "date": "2026.11",
@@ -2785,5 +2805,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-26T14:30:31 KST"
+ "_updated": "2026-11-26T17:12:26 KST"
 }
