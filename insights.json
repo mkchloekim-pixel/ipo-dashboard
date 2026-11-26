@@ -857,6 +857,57 @@
      "note": "일본 법인(구다이글로벌 Japan) 유통 거점",
      "src": "https://www.goodai-global.com/ko",
      "key": true
+    },
+    {
+     "region": "중동",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "구다이글로벌의 한방 스킨케어 브랜드 조선미녀(Beauty of Joseon)가 아랍에미리트(UAE) 두바이에서 처음 연 팝업스토어에 1만 명이 넘는 방문객이 다…",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "조선미녀, 중동 뷰티시장 공략…두바이 첫 팝업에 1만명 몰려",
+       "url": "https://www.nocutnews.co.kr/news/6613072?utm_source=naver&utm_medium=article&utm_campaign=20261126141226"
+      },
+      {
+       "date": "2026.11",
+       "text": "조선미녀, 중동 뷰티시장 정조준…두바이 팝업 1만명 방문",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "조선미녀, 중동 뷰티시장 정조준…두바이 팝업 1만명 방문",
+       "url": "https://view.asiae.co.kr/article/2026112609324334164"
+      },
+      {
+       "date": "2026.11",
+       "text": "구다이글로벌의 스킨케어 브랜드 조선미녀가 아랍에미리트(UAE) 두바이에서 연 첫 팝업스토어에 1만 명이 넘는 방문객을 모았다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "조선미녀, 두바이 첫 팝업에 1만 명 몰렸다…온라인 판매 2.8배↑",
+       "url": "https://www.news1.kr/industry/general-industry/6366587"
+      },
+      {
+       "date": "2026.11",
+       "text": "15가지 색상 '틴티드 선크림' 선보여…중동 시장 공략 확대 아주경제=박보람 기자 ram07@ajunews.com 두바이 힐즈 몰에서 열린 조선미녀 팝업스토어[…",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "구다이글로벌 조선미녀, 두바이 첫 팝업에 1만명 방문…온라인 판매 2.8...",
+       "url": "https://www.ajunews.com/view/20261126110016799"
+      }
+     ],
+     "n_done": 3,
+     "n_plan": 1,
+     "level": "confirmed",
+     "tag": "expand",
+     "date": "2026.11",
+     "key": true
     }
    ],
    "investors": [],
@@ -1564,6 +1615,16 @@
       },
       {
        "date": "2026.11",
+       "text": "아누아, 日 도쿄·오사카·나고야서 팝업…열도 오프라인 접점 확대",
+       "lvl": "done",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "아누아, 日 도쿄·오사카·나고야서 팝업…열도 오프라인 접점 확대",
+       "url": "https://www.theguru.co.kr/news/article.html?no=110224"
+      },
+      {
+       "date": "2026.11",
        "text": "아누아, '도쿄 뷰티 위크 2026' 참가…'PDRN 라인업' 日 공략",
        "lvl": "plan",
        "entry": false,
@@ -1573,7 +1634,7 @@
        "url": "https://www.theguru.co.kr/news/article.html?no=109831"
       }
      ],
-     "n_done": 3,
+     "n_done": 4,
      "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
@@ -2724,5 +2785,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-25T20:41:42 KST"
+ "_updated": "2026-11-26T14:30:31 KST"
 }
