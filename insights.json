@@ -923,7 +923,7 @@
       }
      ],
      "n_done": 3,
-     "n_plan": 2,
+     "n_plan": 3,
      "level": "confirmed",
      "tag": "expand",
      "date": "2026.11",
@@ -2805,5 +2805,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-26T17:54:23 KST"
+ "_updated": "2026-11-26T20:27:48 KST"
 }
