@@ -1784,6 +1784,37 @@
    },
    "global": [
     {
+     "region": "호주",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "-신규 라인 중심 제품 홍보 및 체험형 이벤트 진행…현지 소비자 접점 확대 글로벌 스킨케어 브랜드 성분에디터가 Boniik을 통해 호주 백화점 Myer에 정식…",
+       "lvl": "done",
+       "entry": true,
+       "exp": false,
+       "past": false,
+       "hl": "성분에디터, 호주 Myer 팝업서 K-뷰티 브랜드 매출 상위권 기록",
+       "url": "https://www.etoday.co.kr/news/view/2653544"
+      },
+      {
+       "date": "2026.11",
+       "text": "성분에디터, 호주 Myer 팝업 통해 현지 시장 공략...K-뷰티 입점 브랜드",
+       "lvl": "plan",
+       "entry": false,
+       "exp": true,
+       "past": false,
+       "hl": "성분에디터, 호주 Myer 팝업 통해 현지 시장 공략...K-뷰티 입점 브랜드...",
+       "url": "http://www.beyondpost.co.kr/view.php?ud=202611261928121936cf2d78c68_30"
+      }
+     ],
+     "n_done": 1,
+     "n_plan": 1,
+     "level": "confirmed",
+     "tag": "new",
+     "date": "2026.11",
+     "key": true
+    },
+    {
      "region": "유럽",
      "items": [
       {
@@ -1959,16 +1990,6 @@
        "url": "https://www.newspim.com/news/view/20261113000186"
       },
       {
-       "date": "2026.11",
-       "text": "하이라이트브랜즈는 자사가 전개하는 아웃도어 브랜드 '시에라디자인(SIERRA DESIGNS)'이 중국 상하이의 복합문화·쇼핑 상권인 웨스트번드(West Bund…",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "하이라이트브랜즈 '시에라디자인', 상하이 웨스트번드에 첫 팝업 매장 ...",
-       "url": "https://www.the-stock.kr/news/articleView.html?idxno=33799"
-      },
-      {
        "date": "2026.08",
        "text": "하이라이트브랜즈, 시에라디자인 中 진출 본격화…탑스포츠와 제휴",
        "lvl": "done",
@@ -1999,7 +2020,7 @@
        "url": "https://www.news1.kr/industry/distribution/6197104"
       }
      ],
-     "n_done": 3,
+     "n_done": 2,
      "n_plan": 2,
      "level": "confirmed",
      "tag": "new",
@@ -2805,5 +2826,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-26T20:27:48 KST"
+ "_updated": "2026-11-27T14:25:19 KST"
 }
