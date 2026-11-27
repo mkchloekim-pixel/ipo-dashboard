@@ -135,7 +135,7 @@
       }
      ],
      "n_done": 14,
-     "n_plan": 4,
+     "n_plan": 3,
      "level": "confirmed",
      "tag": "new",
      "date": "2026.11",
@@ -195,8 +195,8 @@
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 7,
-     "n_plan": 1,
+     "n_done": 5,
+     "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -259,7 +259,7 @@
        "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=285639"
       }
      ],
-     "n_done": 10,
+     "n_done": 9,
      "n_plan": 3,
      "level": "confirmed",
      "tag": "ongoing",
@@ -328,6 +328,16 @@
        "url": "https://kpenews.com/View.aspx?No=4315643"
       },
       {
+       "date": "2026.11",
+       "text": "컬리는 지난해 미국 전용 온라인몰 '컬리USA'를 선보이며 해외시장에 직접 진출했다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": true,
+       "hl": "[THE CEO] 김슬아 컬리 대표",
+       "url": "http://www.the-biz.co.kr/news/articleView.html?idxno=730701"
+      },
+      {
        "date": "2026.10",
        "text": "美 진출 1년 맞은 컬리USA…현지 인지도·고객 기반 확대 과제",
        "lvl": "done",
@@ -336,22 +346,12 @@
        "past": false,
        "hl": "美 진출 1년 맞은 컬리USA…현지 인지도·고객 기반 확대 과제",
        "url": "https://www.dailian.co.kr/news/view/1705430/?sc=Naver"
-      },
-      {
-       "date": "2026.10",
-       "text": "컬리는 현재 미국 법인 컬리USA를 통해 냉동 간편식과 한국 식품, 뷰티·생활용품을 판매하고 있다",
-       "lvl": "done",
-       "entry": false,
-       "exp": false,
-       "past": false,
-       "hl": "컬리, 넥스트키친 잔여지분 53.6% 확보···간편식 '기획부터 판매까지...",
-       "url": "https://www.greenpostkorea.co.kr/news/articleView.html?idxno=307583"
       }
      ],
-     "n_done": 5,
+     "n_done": 6,
      "n_plan": 1,
      "level": "confirmed",
-     "tag": "new",
+     "tag": "expand",
      "date": "2026.11",
      "key": true
     },
@@ -2826,5 +2826,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-27T14:25:19 KST"
+ "_updated": "2026-11-27T17:22:17 KST"
 }
