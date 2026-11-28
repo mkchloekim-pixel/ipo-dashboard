@@ -195,7 +195,7 @@
        "url": "https://www.news1.kr/industry/distribution/6347120"
       }
      ],
-     "n_done": 5,
+     "n_done": 6,
      "n_plan": 0,
      "level": "confirmed",
      "tag": "ongoing",
@@ -260,7 +260,7 @@
       }
      ],
      "n_done": 9,
-     "n_plan": 3,
+     "n_plan": 1,
      "level": "confirmed",
      "tag": "ongoing",
      "date": "2026.11",
@@ -268,6 +268,27 @@
      "note": "중국(상하이) 법인 운영",
      "src": "https://www.ceoscoredaily.com/page/view/2026071016174537968",
      "key": true
+    },
+    {
+     "region": "미국",
+     "items": [
+      {
+       "date": "2026.11",
+       "text": "무신사가 일본, 미국, 태국 등 해외 13개 지역에서 직접 판매하는 무신사 글로벌 스토어도 올해 3분기 거래액이 전년 동기보다 145.1% 늘어난 것으로 집계됐다",
+       "lvl": "done",
+       "entry": false,
+       "exp": false,
+       "past": false,
+       "hl": "무신사, 3분기 누적 수출액 작년比 4.9배 '급증'…역대 최대",
+       "url": "https://www.slist.kr/news/articleView.html?idxno=785405"
+      }
+     ],
+     "n_done": 1,
+     "n_plan": 0,
+     "level": "confirmed",
+     "tag": "ongoing",
+     "date": "2026.11",
+     "key": false
     }
    ],
    "investors": [],
@@ -2826,5 +2847,5 @@
   }
  },
  "_rules": 17,
- "_updated": "2026-11-28T14:00:38 KST"
+ "_updated": "2026-11-28T16:43:25 KST"
 }
